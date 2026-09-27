@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NASA Space Apps 2026 - Planetary Terrestrial Analog Explorer</title>
+    <title>NASA Space Apps 2026 - Planetary Terrestrial Analog Engine (PTAE)</title>
     <!-- Leaflet CSS for Map -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <!-- Chart.js for Radar & Bar Charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Three.js & OrbitControls for 3D Terrain Visualization -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
     <style>
         :root {
-            --bg-dark: #0b0f19;
-            --card-bg: rgba(22, 28, 45, 0.85);
-            --card-border: rgba(56, 189, 248, 0.2);
+            --bg-dark: #080c16;
+            --bg-card: rgba(17, 24, 39, 0.9);
+            --border-glow: rgba(56, 189, 248, 0.25);
             --accent-cyan: #38bdf8;
             --accent-orange: #f97316;
             --accent-green: #10b981;
-            --text-light: #f3f4f6;
+            --accent-purple: #a855f7;
+            --text-main: #f9fafb;
             --text-dim: #9ca3af;
         }
 
@@ -24,103 +29,163 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
             background-color: var(--bg-dark);
-            color: var(--text-light);
+            color: var(--text-main);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            background-image: radial-gradient(circle at 10% 20%, rgba(30, 58, 138, 0.25) 0%, transparent 40%),
-                              radial-gradient(circle at 90% 80%, rgba(124, 45, 18, 0.2) 0%, transparent 40%);
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(30, 58, 138, 0.25) 0%, transparent 45%),
+                radial-gradient(circle at 85% 85%, rgba(124, 45, 18, 0.2) 0%, transparent 45%);
+            overflow-x: hidden;
         }
 
+        /* HEADER */
         header {
-            padding: 18px 30px;
-            background: rgba(11, 15, 25, 0.9);
-            border-bottom: 1px solid var(--card-border);
+            padding: 14px 28px;
+            background: rgba(11, 15, 25, 0.95);
+            border-bottom: 1px solid var(--border-glow);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .header-title {
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .badge-nasa {
+            background: linear-gradient(135deg, #0284c7, #ef4444);
+            color: white;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 5px 12px;
+            border-radius: 9999px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        .title-group h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .title-group p {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+
+        /* TARGET TOGGLE */
+        .controls-header {
             display: flex;
             align-items: center;
             gap: 15px;
         }
 
-        .nasa-badge {
-            background: linear-gradient(135deg, #1e3a8a, #dc2626);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .target-selector {
+        .target-pill {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--card-bg);
-            padding: 6px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid var(--border-glow);
+            padding: 4px;
             border-radius: 10px;
-            border: 1px solid var(--card-border);
         }
 
-        .btn-target {
+        .target-btn {
             background: transparent;
             color: var(--text-dim);
             border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
+            padding: 6px 14px;
+            border-radius: 6px;
             cursor: pointer;
+            font-size: 0.82rem;
             font-weight: 600;
-            font-size: 0.9rem;
             transition: all 0.2s ease;
         }
 
-        .btn-target.active {
+        .target-btn.active {
             background: var(--accent-cyan);
             color: #0b0f19;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
         }
 
-        .container {
+        /* NAV TABS */
+        nav.nav-tabs {
+            background: rgba(15, 23, 42, 0.7);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            padding: 0 28px;
+            gap: 8px;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            padding: 12px 18px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-main);
+        }
+
+        .tab-btn.active {
+            color: var(--accent-cyan);
+            border-bottom-color: var(--accent-cyan);
+        }
+
+        /* MAIN CONTENT */
+        main {
             flex: 1;
-            padding: 24px 30px;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 24px;
-            max-width: 1700px;
+            padding: 24px 28px;
+            max-width: 1750px;
             margin: 0 auto;
             width: 100%;
         }
 
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        /* GRID LAYOUT FOR TAB 1 (MAP) */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 24px;
+        }
+
         .card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
             border-radius: 14px;
             padding: 20px;
-            backdrop-filter: blur(8px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 16px;
         }
 
         .card-header {
@@ -132,8 +197,8 @@
         }
 
         .card-header h2 {
-            font-size: 1.15rem;
-            font-weight: 600;
+            font-size: 1.05rem;
+            font-weight: 700;
             color: var(--accent-cyan);
             display: flex;
             align-items: center;
@@ -142,37 +207,35 @@
 
         #map {
             width: 100%;
-            height: 480px;
+            height: 460px;
             border-radius: 10px;
-            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-
-        .metric-pill {
+        .site-card-detail {
             background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 12px;
-            border-radius: 8px;
-            text-align: center;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 16px;
+            border-radius: 10px;
         }
 
-        .metric-pill .label {
-            font-size: 0.75rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .site-card-detail h3 {
+            font-size: 1.1rem;
+            color: var(--text-main);
             margin-bottom: 4px;
         }
 
-        .metric-pill .val {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #fff;
+        .site-card-detail .site-subtitle {
+            font-size: 0.78rem;
+            color: var(--accent-cyan);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .site-card-detail p {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.5;
         }
 
         .leaderboard-list {
@@ -183,7 +246,7 @@
         }
 
         .leaderboard-item {
-            background: rgba(15, 23, 42, 0.5);
+            background: rgba(15, 23, 42, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.08);
             padding: 12px 16px;
             border-radius: 10px;
@@ -195,158 +258,444 @@
         }
 
         .leaderboard-item:hover, .leaderboard-item.selected {
-            background: rgba(56, 189, 248, 0.12);
+            background: rgba(56, 189, 248, 0.15);
             border-color: var(--accent-cyan);
             transform: translateX(4px);
         }
 
-        .site-info {
+        .leaderboard-info {
             display: flex;
             flex-direction: column;
-            gap: 3px;
+            gap: 2px;
         }
 
-        .site-name {
+        .leaderboard-name {
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: #fff;
         }
 
-        .site-type {
-            font-size: 0.78rem;
+        .leaderboard-type {
+            font-size: 0.75rem;
             color: var(--text-dim);
         }
 
-        .score-box {
+        .leaderboard-score {
             text-align: right;
         }
 
         .score-val {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 800;
-            color: var(--accent-green);
         }
 
-        .score-label {
-            font-size: 0.7rem;
+        .score-lbl {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        /* TAB 2: 3D TERRAIN VIEWER */
+        .viewer-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .canvas-card {
+            background: #000;
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            height: 480px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .canvas-card .badge-overlay {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 10;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid var(--border-glow);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+
+        .canvas-card .instructions-overlay {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            z-index: 10;
+            background: rgba(15, 23, 42, 0.7);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.72rem;
             color: var(--text-dim);
         }
 
-        .site-detail-panel {
-            background: rgba(15, 23, 42, 0.7);
-            border: 1px solid rgba(56, 189, 248, 0.2);
+        .viewer-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            background: var(--bg-card);
+            padding: 12px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-glow);
+            margin-top: 15px;
+        }
+
+        .viewer-controls button {
+            background: rgba(56, 189, 248, 0.2);
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* TAB 3: WEIGHT CALCULATOR */
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .slider-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .slider-item {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             padding: 16px;
             border-radius: 10px;
-            margin-top: 10px;
         }
 
-        .site-detail-panel h3 {
-            font-size: 1.05rem;
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .slider-header span.val {
             color: var(--accent-cyan);
-            margin-bottom: 6px;
+            font-weight: 800;
         }
 
-        .site-detail-panel p {
+        input[type=range] {
+            width: 100%;
+            accent-color: var(--accent-cyan);
+        }
+
+        .slider-desc {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-top: 4px;
+        }
+
+        /* TAB 4: DATASETS */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
             font-size: 0.85rem;
-            color: var(--text-dim);
-            line-height: 1.45;
         }
 
+        .data-table th, .data-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .data-table th {
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            letter-spacing: 0.5px;
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .data-table tr:hover {
+            background: rgba(56, 189, 248, 0.05);
+        }
+
+        /* FOOTER */
         footer {
-            padding: 16px 30px;
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--text-dim);
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 16px 28px;
             background: rgba(11, 15, 25, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.78rem;
+            color: var(--text-dim);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-export {
+            background: var(--accent-green);
+            color: #0b0f19;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.78rem;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .btn-export:hover {
+            opacity: 0.9;
         }
     </style>
 </head>
 <body>
+
+    <!-- TOP BAR -->
     <header>
-        <div class="header-title">
-            <span class="nasa-badge">NASA Space Apps 2026</span>
-            <h1>Planetary Terrestrial Analog Engine (PTAE)</h1>
+        <div class="brand">
+            <span class="badge-nasa">NASA Space Apps 2026</span>
+            <div class="title-group">
+                <h1>PTAE: Planetary Terrestrial Analog Engine</h1>
+                <p>Quantitative Identification of Earth Analogs for Moon and Mars Base Locations</p>
+            </div>
         </div>
-        <div class="target-selector">
-            <span style="font-size: 0.8rem; color: var(--text-dim); margin-right: 5px;">TARGET:</span>
-            <button class="btn-target active" id="btn-moon" onclick="setTarget('moon')">🌙 Moon (Artemis III Pole)</button>
-            <button class="btn-target" id="btn-mars" onclick="setTarget('mars')">🔴 Mars (Jezero Crater)</button>
+
+        <div class="controls-header">
+            <span style="font-size: 0.78rem; color: var(--text-dim); font-weight: 600;">TARGET SITE:</span>
+            <div class="target-pill">
+                <button class="target-btn active" id="btn-target-moon" onclick="switchTarget('moon')">🌙 Moon (Artemis III Pole)</button>
+                <button class="target-btn" id="btn-target-mars" onclick="switchTarget('mars')">🔴 Mars (Jezero Crater)</button>
+            </div>
+            <button class="btn-export" onclick="window.print()">🖨️ Export Report</button>
         </div>
     </header>
 
-    <div class="container">
-        <!-- Left Column: Map & Active Site Details -->
-        <div style="display: flex; flex-direction: column; gap: 24px;">
-            <div class="card">
-                <div class="card-header">
-                    <h2>🌍 Terrestrial Analog Candidate Locations</h2>
-                    <span id="target-indicator" style="font-size: 0.85rem; color: var(--accent-cyan);">Comparing with: Lunar South Pole</span>
-                </div>
-                <div id="map"></div>
-                <div class="site-detail-panel" id="detail-panel">
-                    <h3 id="detail-title">Select an analog site on the map or list</h3>
-                    <p id="detail-desc">Click any marked pin to inspect quantitative slope, roughness, and mission analog characterization.</p>
-                </div>
-            </div>
+    <!-- NAVIGATION TABS -->
+    <nav class="nav-tabs">
+        <button class="tab-btn active" onclick="switchTab('map-tab')">🗺️ Global Analog Map</button>
+        <button class="tab-btn" onclick="switchTab('terrain3d-tab')">🏔️ 3D Terrain Comparison</button>
+        <button class="tab-btn" onclick="switchTab('calculator-tab')">⚖️ Mission Weight Calculator</button>
+        <button class="tab-btn" onclick="switchTab('data-tab')">🛰️ NASA Data & Mission Science</button>
+    </nav>
 
-            <!-- Quantitative Mission Metrics -->
-            <div class="card">
-                <div class="card-header">
-                    <h2>📊 Target Topographical Constraints</h2>
-                    <span style="font-size: 0.8rem; color: var(--text-dim);">Source: NASA PDS LOLA / MOLA</span>
+    <!-- MAIN APP CONTENT -->
+    <main>
+        
+        <!-- TAB 1: GLOBAL MAP & LEADERBOARD -->
+        <div class="tab-pane active" id="map-tab">
+            <div class="layout-grid">
+                <!-- Map and Details -->
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>🌍 Global Terrestrial Analogs</h2>
+                            <span id="target-badge" style="font-size: 0.8rem; color: var(--accent-cyan); font-weight: 600;">Target: Lunar South Pole (Shackleton Rim)</span>
+                        </div>
+                        <div id="map"></div>
+                        <div class="site-card-detail">
+                            <h3 id="site-title">Askja & Holuhraun Caldera</h3>
+                            <div class="site-subtitle" id="site-sub">Iceland • Volcanic Caldera & Lava Tubes</div>
+                            <p id="site-desc">Young basaltic lava fields, collapse calderas, and subterranean lava tubes that match the roughness, slope, and natural radiation shielding of lunar mare and polar highlands.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="metrics-grid">
-                    <div class="metric-pill">
-                        <div class="label">Average Surface Slope</div>
-                        <div class="val" id="val-slope">14.8°</div>
+
+                <!-- Leaderboard & Radar Chart -->
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <!-- Radar Alignment -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>🎯 Quantitative Feature Alignment</h2>
+                            <span style="font-size: 0.75rem; color: var(--accent-green); font-weight: 600;">Multi-Parameter Similarity</span>
+                        </div>
+                        <div style="height: 250px; position: relative;">
+                            <canvas id="radarChart"></canvas>
+                        </div>
                     </div>
-                    <div class="metric-pill">
-                        <div class="label">Ruggedness (TRI)</div>
-                        <div class="val" id="val-tri">8.42</div>
-                    </div>
-                    <div class="metric-pill">
-                        <div class="label">Primary Hazard</div>
-                        <div class="val" id="val-hazard">Deep Craters / Shadows</div>
+
+                    <!-- Ranked Leaderboard -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>🏆 Analog Compatibility Index (ACI)</h2>
+                            <span style="font-size: 0.75rem; color: var(--text-dim);">Ranked Candidates</span>
+                        </div>
+                        <ul class="leaderboard-list" id="leaderboard"></ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Right Column: Radar Alignment & Leaderboard -->
-        <div style="display: flex; flex-direction: column; gap: 24px;">
-            <!-- Radar Chart Card -->
+        <!-- TAB 2: 3D TERRAIN COMPARISON -->
+        <div class="tab-pane" id="terrain3d-tab">
             <div class="card">
                 <div class="card-header">
-                    <h2>🎯 Quantitative Feature Alignment</h2>
-                    <span style="font-size: 0.8rem; color: var(--accent-green);">Normalized Multi-Criteria</span>
+                    <h2>🏔️ 3D Surface Topography Comparison</h2>
+                    <span style="font-size: 0.8rem; color: var(--accent-cyan);">Three.js WebGL Interactive Elevation Meshes</span>
                 </div>
-                <div style="height: 270px; display: flex; justify-content: center; align-items: center;">
-                    <canvas id="radarChart"></canvas>
+                
+                <div class="viewer-container">
+                    <div class="canvas-card" id="canvas-target-container">
+                        <div class="badge-overlay" id="badge-3d-target">Planetary Target: Lunar South Pole Crater</div>
+                        <div class="instructions-overlay">Left Click: Rotate | Right Click: Pan | Scroll: Zoom</div>
+                    </div>
+                    <div class="canvas-card" id="canvas-analog-container">
+                        <div class="badge-overlay" id="badge-3d-analog">Earth Analog: Askja Caldera, Iceland</div>
+                        <div class="instructions-overlay">Left Click: Rotate | Right Click: Pan | Scroll: Zoom</div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Leaderboard Card -->
-            <div class="card" style="flex: 1;">
-                <div class="card-header">
-                    <h2>🏆 Analog Compatibility Index (ACI)</h2>
-                    <span style="font-size: 0.8rem; color: var(--text-dim);">Ranked Leaders</span>
+                <div class="viewer-controls">
+                    <button onclick="toggleWireframe()">Toggle Wireframe</button>
+                    <button onclick="resetCamera()">Reset View</button>
+                    <span style="font-size: 0.8rem; color: var(--text-dim); margin-left: auto;">
+                        Simulated from NASA LOLA (Moon) / MOLA (Mars) and Earth SRTM Digital Elevation Models
+                    </span>
                 </div>
-                <ul class="leaderboard-list" id="leaderboard">
-                    <!-- Dynamic Items Populated By JS -->
-                </ul>
             </div>
         </div>
-    </div>
 
+        <!-- TAB 3: MISSION WEIGHT CALCULATOR -->
+        <div class="tab-pane" id="calculator-tab">
+            <div class="card">
+                <div class="card-header">
+                    <h2>⚖️ Interactive Mission Weight Calculator</h2>
+                    <span style="font-size: 0.8rem; color: var(--accent-cyan);">Adjust operational priorities to recalculate scores</span>
+                </div>
+                
+                <div class="calculator-grid">
+                    <div class="slider-group">
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <span>Slope Safety Weight</span>
+                                <span class="val" id="val-w-slope">30%</span>
+                            </div>
+                            <input type="range" id="w-slope" min="10" max="60" value="30" oninput="updateWeights()">
+                            <div class="slider-desc">Prioritizes rover traverse stability and lander tip-over margins (&lt;15°).</div>
+                        </div>
+
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <span>Terrain Ruggedness (TRI) Weight</span>
+                                <span class="val" id="val-w-tri">25%</span>
+                            </div>
+                            <input type="range" id="w-tri" min="10" max="50" value="25" oninput="updateWeights()">
+                            <div class="slider-desc">Emphasizes boulder density and micro-relief wheel hazards.</div>
+                        </div>
+
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <span>Subterranean Lava Tube Bonus</span>
+                                <span class="val" id="val-w-tubes">+10%</span>
+                            </div>
+                            <input type="range" id="w-tubes" min="0" max="25" value="10" oninput="updateWeights()">
+                            <div class="slider-desc">Bonus for natural radiation shielding and constant subsurface temperatures.</div>
+                        </div>
+
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <span>Hyper-Aridity / Cold Bonus</span>
+                                <span class="val" id="val-w-arid">+10%</span>
+                            </div>
+                            <input type="range" id="w-arid" min="0" max="25" value="10" oninput="updateWeights()">
+                            <div class="slider-desc">Bonus for biological sterility and permafrost ice stability.</div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <h3 style="font-size: 1rem; color: var(--accent-cyan);">Dynamic Compatibility Ranking</h3>
+                        <p style="font-size: 0.82rem; color: var(--text-dim);">Scores update automatically as weights change:</p>
+                        <ul class="leaderboard-list" id="calc-leaderboard"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: DATA & SCIENCE -->
+        <div class="tab-pane" id="data-tab">
+            <div class="card">
+                <div class="card-header">
+                    <h2>🛰️ NASA & Space Agency Data Catalog</h2>
+                    <span style="font-size: 0.8rem; color: var(--accent-cyan);">Open Scientific Missions & Repositories</span>
+                </div>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Mission / Instrument</th>
+                            <th>Agency</th>
+                            <th>Target Body</th>
+                            <th>Resolution</th>
+                            <th>Primary Use in PTAE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>LOLA (Lunar Orbiter Laser Altimeter)</strong></td>
+                            <td>NASA</td>
+                            <td>Moon</td>
+                            <td>5m – 20m / px</td>
+                            <td>Lunar South Pole elevation, slope, and crater morphology.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Diviner Lunar Radiometer</strong></td>
+                            <td>NASA</td>
+                            <td>Moon</td>
+                            <td>500m / px</td>
+                            <td>Surface & subsurface cryogenic thermal environments in PSRs.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>MOLA (Mars Orbiter Laser Altimeter)</strong></td>
+                            <td>NASA</td>
+                            <td>Mars</td>
+                            <td>128 px / deg</td>
+                            <td>Regional crater rims, delta fans, and volcanic slopes.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>HiRISE (High Resolution Imaging Science Experiment)</strong></td>
+                            <td>NASA</td>
+                            <td>Mars</td>
+                            <td>0.25m / px</td>
+                            <td>Micro-scale boulder distributions and dune bedforms.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SRTM (Shuttle Radar Topography Mission)</strong></td>
+                            <td>NASA / NGA</td>
+                            <td>Earth</td>
+                            <td>30m Global</td>
+                            <td>Global baseline for candidate terrestrial terrain signatures.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ASTER (Advanced Spaceborne Thermal Emission)</strong></td>
+                            <td>NASA / METI</td>
+                            <td>Earth</td>
+                            <td>15m – 90m</td>
+                            <td>Multispectral mineralogy (basalts, silicates) and thermal inertia.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
     <footer>
-        NASA International Space Apps Challenge 2026 • Open Data: NASA LOLA, LROC, MOLA, SRTM, ASTER & USGS Planetary GIS
+        <div>NASA Space Apps Challenge 2026 • Project: <strong>PTAE (Planetary Terrestrial Analog Engine)</strong></div>
+        <div>Open Source under MIT License • Open Planetary Data Standard</div>
     </footer>
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Database of Earth Analogs
+        // ANALOG CANDIDATE DATASET
         const analogSites = [
             {
                 id: 'iceland',
@@ -354,12 +703,17 @@
                 country: 'Iceland',
                 lat: 65.03,
                 lon: -16.75,
-                type: 'Basaltic Caldera & Lava Tubes',
-                moonAci: 94.2,
-                marsAci: 82.5,
-                radarMoon: [92, 95, 96, 90, 88],
-                radarMars: [80, 85, 78, 82, 85],
-                desc: 'Young basaltic fields, collapse calderas, and subterranean lava tubes that match the roughness, slope, and natural radiation shielding of lunar mare and polar highlands.'
+                type: 'Volcanic Caldera & Lava Tubes',
+                isBasaltic: true,
+                hasTubes: true,
+                isArid: false,
+                rawSlopeSimMoon: 92,
+                rawTriSimMoon: 95,
+                rawSlopeSimMars: 80,
+                rawTriSimMars: 82,
+                radarMoon: [94, 96, 92, 70, 95],
+                radarMars: [80, 84, 82, 65, 88],
+                desc: 'Young basaltic lava fields, collapse calderas, and subterranean lava tubes matching the slope, roughness, and radiation-shielding morphology of lunar mare and polar highlands.'
             },
             {
                 id: 'haughton',
@@ -368,11 +722,16 @@
                 lat: 75.38,
                 lon: -89.67,
                 type: 'Polar Impact Structure',
-                moonAci: 91.8,
-                marsAci: 89.4,
-                radarMoon: [94, 91, 88, 92, 90],
-                radarMars: [88, 92, 90, 87, 91],
-                desc: '23-km diameter impact crater in high-arctic polar desert. Features shatter cones, polymict impact breccia, and permanently cold ground simulating lunar and martian impactites.'
+                isBasaltic: false,
+                hasTubes: false,
+                isArid: true,
+                rawSlopeSimMoon: 90,
+                rawTriSimMoon: 88,
+                rawSlopeSimMars: 89,
+                rawTriSimMars: 91,
+                radarMoon: [90, 88, 86, 92, 75],
+                radarMars: [90, 92, 89, 94, 82],
+                desc: '23-km diameter impact crater in high-arctic polar desert. Features shatter cones, polymict impact breccia, and permanently frozen ground simulating lunar and martian impactites.'
             },
             {
                 id: 'mcmurdo',
@@ -381,11 +740,16 @@
                 lat: -77.47,
                 lon: 162.27,
                 type: 'Hyper-Arid Polar Desert',
-                moonAci: 76.4,
-                marsAci: 96.1,
-                radarMoon: [72, 75, 78, 70, 80],
-                radarMars: [98, 95, 96, 92, 97],
-                desc: 'The coldest, driest desert on Earth with polygon permafrost soils, low subsurface humidity, and extreme cold mirroring Martian high-latitude plains.'
+                isBasaltic: false,
+                hasTubes: false,
+                isArid: true,
+                rawSlopeSimMoon: 74,
+                rawTriSimMoon: 76,
+                rawSlopeSimMars: 96,
+                rawTriSimMars: 95,
+                radarMoon: [72, 75, 76, 98, 60],
+                radarMars: [96, 95, 94, 99, 85],
+                desc: 'The coldest, driest desert on Earth with katabatic winds, polygon permafrost soils, and extreme shallow ice stability directly mirroring Martian high-latitude plains.'
             },
             {
                 id: 'atacama',
@@ -394,10 +758,15 @@
                 lat: -24.50,
                 lon: -68.30,
                 type: 'High-Altitude Hyper-Arid Plateau',
-                moonAci: 68.9,
-                marsAci: 93.8,
-                radarMoon: [65, 70, 68, 62, 75],
-                radarMars: [94, 96, 92, 95, 90],
+                isBasaltic: true,
+                hasTubes: false,
+                isArid: true,
+                rawSlopeSimMoon: 68,
+                rawTriSimMoon: 65,
+                rawSlopeSimMars: 93,
+                rawTriSimMars: 92,
+                radarMoon: [66, 68, 65, 95, 80],
+                radarMars: [94, 92, 90, 98, 92],
                 desc: 'Hyper-arid high plateau (>4,000m) with high UV-B radiation fluxes, perchlorate-rich saline deposits, and rolling topography simulating Martian surface conditions.'
             },
             {
@@ -407,11 +776,16 @@
                 lat: 19.82,
                 lon: -155.47,
                 type: 'Basaltic Tephra Cones',
-                moonAci: 88.5,
-                marsAci: 79.2,
-                radarMoon: [88, 89, 92, 85, 87],
-                radarMars: [75, 80, 82, 78, 80],
-                desc: 'Basaltic volcanic tephra cones and weathered palagonite used historically as the reference source for JSC-1A lunar regolith simulant and rover mobility tests.'
+                isBasaltic: true,
+                hasTubes: true,
+                isArid: false,
+                rawSlopeSimMoon: 86,
+                rawTriSimMoon: 89,
+                rawSlopeSimMars: 76,
+                rawTriSimMars: 80,
+                radarMoon: [88, 90, 89, 65, 96],
+                radarMars: [78, 80, 79, 60, 92],
+                desc: 'Basaltic volcanic tephra cones used historically as the reference source for JSC-1A lunar regolith simulant and rover mobility tests.'
             }
         ];
 
@@ -419,35 +793,47 @@
         let selectedSite = analogSites[0];
         let map, markers = [], radarChartInstance;
 
-        function initMap() {
-            map = L.map('map', {
-                center: [20, 0],
-                zoom: 2,
-                minZoom: 1.5,
-                maxZoom: 10
-            });
+        // CALCULATE DYNAMIC ACI
+        function calculateScore(site, target) {
+            const wSlope = parseFloat(document.getElementById('w-slope')?.value || 30) / 100;
+            const wTri = parseFloat(document.getElementById('w-tri')?.value || 25) / 100;
+            const wTubes = parseFloat(document.getElementById('w-tubes')?.value || 10) / 100;
+            const wArid = parseFloat(document.getElementById('w-arid')?.value || 10) / 100;
 
-            // NASA GIBS / Carto Dark Basemap
+            const slopeVal = target === 'moon' ? site.rawSlopeSimMoon : site.rawSlopeSimMars;
+            const triVal = target === 'moon' ? site.rawTriSimMoon : site.rawTriSimMars;
+
+            let base = (slopeVal * wSlope + triVal * wTri) / (wSlope + wTri);
+            
+            // Bonuses
+            if (site.hasTubes) base += (wTubes * 15);
+            if (site.isArid) base += (wArid * 15);
+            if (site.isBasaltic) base += 5;
+
+            return Math.min(99.4, Math.max(50.0, Math.round(base * 10) / 10));
+        }
+
+        // LEAFLET MAP
+        function initMap() {
+            map = L.map('map', { center: [20, 0], zoom: 2, minZoom: 1.5 });
             L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; CartoDB, NASA Earthdata'
             }).addTo(map);
-
-            renderMarkers();
+            renderMapMarkers();
         }
 
-        function renderMarkers() {
+        function renderMapMarkers() {
             markers.forEach(m => map.removeLayer(m));
             markers = [];
 
             analogSites.forEach(site => {
-                const score = currentTarget === 'moon' ? site.moonAci : site.marsAci;
+                const score = calculateScore(site, currentTarget);
                 const marker = L.circleMarker([site.lat, site.lon], {
                     radius: 8 + (score - 60) / 4,
                     fillColor: currentTarget === 'moon' ? '#38bdf8' : '#f97316',
-                    color: '#fff',
+                    color: '#ffffff',
                     weight: 2,
-                    opacity: 1,
-                    fillOpacity: 0.8
+                    fillOpacity: 0.85
                 }).addTo(map);
 
                 marker.bindPopup(`<b>${site.name}</b><br>${site.type}<br><b>ACI: ${score}%</b>`);
@@ -456,6 +842,7 @@
             });
         }
 
+        // RADAR CHART
         function initRadarChart() {
             const ctx = document.getElementById('radarChart').getContext('2d');
             radarChartInstance = new Chart(ctx, {
@@ -464,10 +851,10 @@
                     labels: ['Slope Alignment', 'Ruggedness (TRI)', 'Relief Variance', 'Aridity / Cold', 'Basalt / Chemistry'],
                     datasets: [
                         {
-                            label: 'Target Baseline',
+                            label: 'Planetary Target Baseline',
                             data: [100, 100, 100, 100, 100],
                             borderColor: currentTarget === 'moon' ? '#94a3b8' : '#ef4444',
-                            backgroundColor: 'rgba(148, 163, 184, 0.1)',
+                            backgroundColor: 'rgba(148, 163, 184, 0.08)',
                             borderDash: [5, 5]
                         },
                         {
@@ -475,7 +862,7 @@
                             data: currentTarget === 'moon' ? selectedSite.radarMoon : selectedSite.radarMars,
                             borderColor: currentTarget === 'moon' ? '#38bdf8' : '#f97316',
                             backgroundColor: currentTarget === 'moon' ? 'rgba(56, 189, 248, 0.25)' : 'rgba(249, 115, 22, 0.25)',
-                            borderWidth: 2.5
+                            borderWidth: 2
                         }
                     ]
                 },
@@ -493,7 +880,7 @@
                         }
                     },
                     plugins: {
-                        legend: { position: 'bottom', labels: { color: '#f3f4f6', font: { size: 11 } } }
+                        legend: { position: 'bottom', labels: { color: '#f3f4f6', font: { size: 10 } } }
                     }
                 }
             });
@@ -510,79 +897,306 @@
             radarChartInstance.update();
         }
 
+        // SITE SELECTION
         function selectSite(site) {
             selectedSite = site;
-            document.getElementById('detail-title').innerText = `${site.name} (${site.country})`;
-            document.getElementById('detail-desc').innerText = site.desc;
-            
-            // Highlight list item
+            document.getElementById('site-title').innerText = site.name;
+            document.getElementById('site-sub').innerText = `${site.country} • ${site.type}`;
+            document.getElementById('site-desc').innerText = site.desc;
+
+            // Highlight in list
             document.querySelectorAll('.leaderboard-item').forEach(el => el.classList.remove('selected'));
             const activeEl = document.getElementById(`item-${site.id}`);
             if (activeEl) activeEl.classList.add('selected');
 
-            map.panTo([site.lat, site.lon], { animate: true, duration: 1 });
+            map.panTo([site.lat, site.lon], { animate: true, duration: 0.8 });
             updateRadarChart();
+            update3DAnalog(site.id);
         }
 
-        function updateLeaderboard() {
+        // UPDATE LEADERBOARD LISTS
+        function updateLeaderboards() {
             const list = document.getElementById('leaderboard');
-            list.innerHTML = '';
+            const calcList = document.getElementById('calc-leaderboard');
+            if (list) list.innerHTML = '';
+            if (calcList) calcList.innerHTML = '';
 
             const sorted = [...analogSites].sort((a, b) => {
-                const sA = currentTarget === 'moon' ? a.moonAci : a.marsAci;
-                const sB = currentTarget === 'moon' ? b.moonAci : b.marsAci;
-                return sB - sA;
+                return calculateScore(b, currentTarget) - calculateScore(a, currentTarget);
             });
 
             sorted.forEach((site, index) => {
-                const score = currentTarget === 'moon' ? site.moonAci : site.marsAci;
-                const li = document.createElement('li');
-                li.className = `leaderboard-item ${site.id === selectedSite.id ? 'selected' : ''}`;
-                li.id = `item-${site.id}`;
-                li.onclick = () => selectSite(site);
-                li.innerHTML = `
-                    <div class="site-info">
-                        <span class="site-name">#${index + 1} ${site.name}</span>
-                        <span class="site-type">${site.type}</span>
-                    </div>
-                    <div class="score-box">
-                        <div class="score-val" style="color: ${score >= 90 ? '#10b981' : score >= 80 ? '#38bdf8' : '#f97316'}">${score}%</div>
-                        <div class="score-label">COMPATIBILITY</div>
-                    </div>
-                `;
-                list.appendChild(li);
+                const score = calculateScore(site, currentTarget);
+                const scoreColor = score >= 90 ? '#10b981' : score >= 80 ? '#38bdf8' : '#f97316';
+
+                if (list) {
+                    const li = document.createElement('li');
+                    li.className = `leaderboard-item ${site.id === selectedSite.id ? 'selected' : ''}`;
+                    li.id = `item-${site.id}`;
+                    li.onclick = () => selectSite(site);
+                    li.innerHTML = `
+                        <div class="leaderboard-info">
+                            <span class="leaderboard-name">#${index + 1} ${site.name}</span>
+                            <span class="leaderboard-type">${site.type}</span>
+                        </div>
+                        <div class="leaderboard-score">
+                            <div class="score-val" style="color: ${scoreColor}">${score}%</div>
+                            <div class="score-lbl">COMPATIBILITY</div>
+                        </div>
+                    `;
+                    list.appendChild(li);
+                }
+
+                if (calcList) {
+                    const liCalc = document.createElement('li');
+                    liCalc.className = `leaderboard-item`;
+                    liCalc.innerHTML = `
+                        <div class="leaderboard-info">
+                            <span class="leaderboard-name">#${index + 1} ${site.name}</span>
+                            <span class="leaderboard-type">${site.country}</span>
+                        </div>
+                        <div class="leaderboard-score">
+                            <div class="score-val" style="color: ${scoreColor}">${score}%</div>
+                            <div class="score-lbl">ACI</div>
+                        </div>
+                    `;
+                    calcList.appendChild(liCalc);
+                }
             });
         }
 
-        function setTarget(target) {
+        // SWITCH TARGET
+        function switchTarget(target) {
             currentTarget = target;
-            document.getElementById('btn-moon').classList.toggle('active', target === 'moon');
-            document.getElementById('btn-mars').classList.toggle('active', target === 'mars');
+            document.getElementById('btn-target-moon').classList.toggle('active', target === 'moon');
+            document.getElementById('btn-target-mars').classList.toggle('active', target === 'mars');
 
-            if (target === 'moon') {
-                document.getElementById('target-indicator').innerText = 'Comparing with: Lunar South Pole (Artemis III)';
-                document.getElementById('val-slope').innerText = '14.8°';
-                document.getElementById('val-tri').innerText = '8.42';
-                document.getElementById('val-hazard').innerText = 'Deep Craters / Extreme Cold';
-            } else {
-                document.getElementById('target-indicator').innerText = 'Comparing with: Mars Jezero Crater';
-                document.getElementById('val-slope').innerText = '9.2°';
-                document.getElementById('val-tri').innerText = '5.10';
-                document.getElementById('val-hazard').innerText = 'Dust Storms / Perchlorates';
+            const badge = document.getElementById('target-badge');
+            if (badge) {
+                badge.innerText = target === 'moon' 
+                    ? 'Target: Lunar South Pole (Shackleton Rim)' 
+                    : 'Target: Mars Jezero Crater (Delta & Rim)';
             }
 
-            // Default top pick for the target
+            document.getElementById('badge-3d-target').innerText = target === 'moon'
+                ? 'Planetary Target: Lunar South Pole (Shackleton)'
+                : 'Planetary Target: Mars Jezero Crater';
+
             selectedSite = target === 'moon' ? analogSites[0] : analogSites[2];
 
-            renderMarkers();
-            updateLeaderboard();
+            renderMapMarkers();
+            updateLeaderboards();
             selectSite(selectedSite);
+            generate3DTargetMesh(target);
         }
 
+        // TAB SWITCHER
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+
+            const targetBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick').includes(tabId));
+            if (targetBtn) targetBtn.classList.add('active');
+
+            const pane = document.getElementById(tabId);
+            if (pane) pane.classList.add('active');
+
+            if (tabId === 'map-tab' && map) {
+                setTimeout(() => map.invalidateSize(), 200);
+            }
+            if (tabId === 'terrain3d-tab') {
+                setTimeout(onWindowResize3D, 100);
+            }
+        }
+
+        // WEIGHTS UPDATE
+        function updateWeights() {
+            document.getElementById('val-w-slope').innerText = document.getElementById('w-slope').value + '%';
+            document.getElementById('val-w-tri').innerText = document.getElementById('w-tri').value + '%';
+            document.getElementById('val-w-tubes').innerText = '+' + document.getElementById('w-tubes').value + '%';
+            document.getElementById('val-w-arid').innerText = '+' + document.getElementById('w-arid').value + '%';
+            
+            renderMapMarkers();
+            updateLeaderboards();
+        }
+
+        // ==========================================
+        // 3D TERRAIN VIEWER (THREE.JS)
+        // ==========================================
+        let sceneTarget, sceneAnalog, cameraTarget, cameraAnalog, rendererTarget, rendererAnalog, controlsTarget, controlsAnalog;
+        let meshTarget, meshAnalog;
+        let isWireframe = false;
+
+        function init3D() {
+            const containerT = document.getElementById('canvas-target-container');
+            const containerA = document.getElementById('canvas-analog-container');
+            if (!containerT || !containerA) return;
+
+            // Target Scene
+            sceneTarget = new THREE.Scene();
+            sceneTarget.background = new THREE.Color(0x050811);
+            cameraTarget = new THREE.PerspectiveCamera(45, containerT.clientWidth / containerT.clientHeight, 1, 1000);
+            cameraTarget.position.set(0, 70, 90);
+
+            rendererTarget = new THREE.WebGLRenderer({ antialias: true });
+            rendererTarget.setSize(containerT.clientWidth, containerT.clientHeight);
+            containerT.appendChild(rendererTarget.domElement);
+
+            controlsTarget = new THREE.OrbitControls(cameraTarget, rendererTarget.domElement);
+            controlsTarget.enableDamping = true;
+
+            // Analog Scene
+            sceneAnalog = new THREE.Scene();
+            sceneAnalog.background = new THREE.Color(0x050811);
+            cameraAnalog = new THREE.PerspectiveCamera(45, containerA.clientWidth / containerA.clientHeight, 1, 1000);
+            cameraAnalog.position.set(0, 70, 90);
+
+            rendererAnalog = new THREE.WebGLRenderer({ antialias: true });
+            rendererAnalog.setSize(containerA.clientWidth, containerA.clientHeight);
+            containerA.appendChild(rendererAnalog.domElement);
+
+            controlsAnalog = new THREE.OrbitControls(cameraAnalog, rendererAnalog.domElement);
+            controlsAnalog.enableDamping = true;
+
+            // Lights
+            [sceneTarget, sceneAnalog].forEach(s => {
+                const ambient = new THREE.AmbientLight(0xffffff, 0.4);
+                s.add(ambient);
+                const sun = new THREE.DirectionalLight(0xffffff, 1.2);
+                sun.position.set(50, 80, 40);
+                s.add(sun);
+            });
+
+            generate3DTargetMesh('moon');
+            update3DAnalog('iceland');
+
+            animate3D();
+        }
+
+        function createProceduralTerrainGeometry(type) {
+            const size = 60;
+            const segments = 45;
+            const geom = new THREE.PlaneGeometry(size, size, segments, segments);
+            geom.rotateX(-Math.PI / 2);
+
+            const pos = geom.attributes.position;
+            for (let i = 0; i < pos.count; i++) {
+                const x = pos.getX(i);
+                const z = pos.getZ(i);
+                const r = Math.sqrt(x * x + z * z);
+                let y = 0;
+
+                if (type === 'moon') {
+                    // Deep crater + raised rim
+                    if (r < 18) {
+                        y = -12 * (1 - (r / 18) ** 2);
+                    } else if (r >= 18 && r <= 24) {
+                        y = 4 * (1 - (r - 18) / 6);
+                    }
+                    y += (Math.sin(x * 0.4) * Math.cos(z * 0.4)) * 1.5;
+                } else if (type === 'mars') {
+                    // Flat floor with delta fan slope
+                    if (x > -10 && x < 15 && z > -15 && z < 15) {
+                        y = 5 * Math.exp(-(x * x + z * z) / 80);
+                    }
+                    if (r > 20) y += (r - 20) * 0.6;
+                    y += Math.sin(x * 0.8) * 0.6;
+                } else if (type === 'iceland') {
+                    // Volcanic caldera with rough fissures
+                    if (r < 14) y = -7 * (1 - (r / 14) ** 2);
+                    y += Math.cos((x + z) * 0.3) * 2.5;
+                } else if (type === 'mcmurdo') {
+                    // Glacial valley walls
+                    y = Math.abs(x) * 0.45;
+                    y += (Math.sin(x * 0.5) * Math.sin(z * 0.5)) * 1.2;
+                } else {
+                    // Rolling desert plateau
+                    y = (Math.sin(x * 0.15) * Math.cos(z * 0.15)) * 3;
+                }
+
+                pos.setY(i, y);
+            }
+            geom.computeVertexNormals();
+            return geom;
+        }
+
+        function generate3DTargetMesh(target) {
+            if (meshTarget) sceneTarget.remove(meshTarget);
+            const geom = createProceduralTerrainGeometry(target);
+            const mat = new THREE.MeshStandardMaterial({
+                color: target === 'moon' ? 0x94a3b8 : 0xd97706,
+                wireframe: isWireframe,
+                roughness: 0.85,
+                metalness: 0.1
+            });
+            meshTarget = new THREE.Mesh(geom, mat);
+            sceneTarget.add(meshTarget);
+        }
+
+        function update3DAnalog(siteId) {
+            if (meshAnalog) sceneAnalog.remove(meshAnalog);
+            const geom = createProceduralTerrainGeometry(siteId);
+            const mat = new THREE.MeshStandardMaterial({
+                color: siteId === 'iceland' ? 0x38bdf8 : siteId === 'mcmurdo' ? 0x67e8f9 : 0xf59e0b,
+                wireframe: isWireframe,
+                roughness: 0.8,
+                metalness: 0.1
+            });
+            meshAnalog = new THREE.Mesh(geom, mat);
+            sceneAnalog.add(meshAnalog);
+
+            const badge = document.getElementById('badge-3d-analog');
+            if (badge) {
+                badge.innerText = `Earth Analog: ${selectedSite.name}`;
+            }
+        }
+
+        function toggleWireframe() {
+            isWireframe = !isWireframe;
+            if (meshTarget) meshTarget.material.wireframe = isWireframe;
+            if (meshAnalog) meshAnalog.material.wireframe = isWireframe;
+        }
+
+        function resetCamera() {
+            cameraTarget.position.set(0, 70, 90);
+            cameraAnalog.position.set(0, 70, 90);
+            controlsTarget.update();
+            controlsAnalog.update();
+        }
+
+        function onWindowResize3D() {
+            const containerT = document.getElementById('canvas-target-container');
+            const containerA = document.getElementById('canvas-analog-container');
+            if (!containerT || !containerA || !rendererTarget) return;
+
+            cameraTarget.aspect = containerT.clientWidth / containerT.clientHeight;
+            cameraTarget.updateProjectionMatrix();
+            rendererTarget.setSize(containerT.clientWidth, containerT.clientHeight);
+
+            cameraAnalog.aspect = containerA.clientWidth / containerA.clientHeight;
+            cameraAnalog.updateProjectionMatrix();
+            rendererAnalog.setSize(containerA.clientWidth, containerA.clientHeight);
+        }
+
+        function animate3D() {
+            requestAnimationFrame(animate3D);
+            if (meshTarget) meshTarget.rotation.y += 0.002;
+            if (meshAnalog) meshAnalog.rotation.y += 0.002;
+            if (controlsTarget) controlsTarget.update();
+            if (controlsAnalog) controlsAnalog.update();
+            if (rendererTarget) rendererTarget.render(sceneTarget, cameraTarget);
+            if (rendererAnalog) rendererAnalog.render(sceneAnalog, cameraAnalog);
+        }
+
+        window.addEventListener('resize', onWindowResize3D);
+
+        // INITIALIZATION ON LOAD
         window.onload = () => {
             initMap();
             initRadarChart();
-            setTarget('moon');
+            updateLeaderboards();
+            selectSite(analogSites[0]);
+            init3D();
         };
     </script>
 </body>
