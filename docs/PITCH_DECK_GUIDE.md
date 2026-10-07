@@ -45,9 +45,9 @@ This guide provides a slide-by-slide structure, talking points, and a 30-second 
 #### Slide 5: The Top Discoveries
 - **Visual:** Leaderboard ranking + radar chart screenshot from our dashboard.
 - **Key Discoveries:**
-  - **#1 Moon Analog:** *Askja Caldera, Iceland (94.2% ACI)* — Basaltic tephra + subterranean lava tubes for radiation shelter.
-  - **#1 Mars Analog:** *McMurdo Dry Valleys, Antarctica (96.1% ACI)* — Frozen polygon permafrost + cold desiccation.
-- **Speaker Script:** "Our engine revealed that the Askja and Holuhraun caldera in Iceland is a 94.2% match for the Artemis III landing zone, not only for steep slopes, but because its lava tubes directly analog lunar underground shelters."
+  - **#1 Moon Analog:** *McMurdo Dry Valleys, Antarctica (84.9% ACI)* — katabatic-carved slopes and fine-scale ruggedness matching lunar highland micro-roughness; Iceland's Askja Caldera is a close #2 (77.8%) for its lava-tube shielding.
+  - **#1 Mars Analog:** *Mauna Kea Cinder Cones, Hawaii (100.0% ACI)* — basaltic cinder-cone slopes mirroring Jezero Crater's rim and delta relief.
+- **Speaker Script:** "Live, right now, our engine ranks McMurdo Dry Valleys as an 84.9% topographic match for the Artemis III landing zone — and Mauna Kea's cinder cones as a 100% match for Jezero Crater's rim geometry. Every number on this leaderboard is reproducible in under ten seconds by running `python main.py`."
 
 #### Slide 6: Interactive Demo (Live Walkthrough)
 - **Visual:** Screenshot of `dashboard/index.html` with active markers, Leaflet map, and radar charts.

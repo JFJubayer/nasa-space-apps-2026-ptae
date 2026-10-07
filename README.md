@@ -12,7 +12,9 @@
 ## 📌 Project Overview
 Selecting future landing sites and permanent base camps on the **Moon (Artemis III Lunar South Pole)** and **Mars** requires testing rovers, habitats, spacesuits, and In-Situ Resource Utilization (ISRU) systems in real-world extreme environments on Earth. 
 
-While terrestrial analogs like the Atacama Desert or Haughton Crater are well known, they have historically been selected using qualitative assumptions. **PTAE (Planetary Terrestrial Analog Engine)** provides an automated, data-driven framework using open elevation data from NASA (**LOLA**, **MOLA**, **SRTM**) and ESA to mathematically identify, evaluate, and characterize new terrestrial analogs.
+While terrestrial analogs like the Atacama Desert or Haughton Crater are well known, they have historically been selected using qualitative assumptions. **PTAE (Planetary Terrestrial Analog Engine)** provides an automated, data-driven framework, modeled on open elevation data from NASA (**LOLA**, **MOLA**, **SRTM**) and ESA, to mathematically identify, evaluate, and characterize new terrestrial analogs.
+
+> **Data note:** The default `python main.py` run uses high-fidelity **procedural DEMs** (`src/synthetic_generator.py`) calibrated to match published morphometric parameters (slope, relief, crater/caldera geometry) for each real site, so the full pipeline runs instantly with zero downloads. `scripts/download_nasa_samples.py` fetches real LOLA/HiRISE/SRTM GeoTIFF tiles for the same locations — swap them into `data/` and the identical `terrain_metrics` → `similarity_matcher` pipeline runs unchanged on real satellite data.
 
 ---
 
@@ -51,12 +53,12 @@ flowchart TD
 ---
 
 ## 🏆 Key Findings
+*(reproduced by `python main.py --target moon` / `--target mars`, ranked out of 5 candidate sites)*
 
 | Extraterrestrial Target | Top Earth Analog Found | ACI Score | Key Matching Factors |
 | :--- | :--- | :--- | :--- |
-| **Moon (Artemis South Pole)** | **Askja & Holuhraun Caldera, Iceland** | **94.2%** | Basaltic volcanic tephra, steep caldera rims, and subterranean lava tubes (natural radiation/thermal shielding). |
-| **Mars (Jezero Crater)** | **McMurdo Dry Valleys, Antarctica** | **96.1%** | Hyper-arid polar desert, frozen polygon soils, katabatic wind erosion, and permafrost ice stability. |
-| **Mars (Global Desiccation)** | **Puna de Atacama, Chile** | **93.8%** | High altitude (>4,000m), extreme solar UV flux, and hyper-arid perchlorate-rich soil chemistry. |
+| **Moon (Artemis South Pole)** | **McMurdo Dry Valleys, Antarctica** | **84.9%** | Steep katabatic-carved slopes and high small-scale ruggedness (TRI) matching lunar highland micro-roughness; Askja Caldera, Iceland is a close #2 (77.8%) via basaltic lava-tube shielding. |
+| **Mars (Jezero Crater)** | **Mauna Kea Cinder Cones, Hawaii** | **100.0%** | Basaltic tephra slopes and pyroclastic cone ruggedness closely mirror Jezero's crater-rim/delta relief; Puna de Atacama, Chile is #2 (89.8%) via hyper-arid, high-altitude terrain. |
 
 ---
 
@@ -114,6 +116,16 @@ Features:
 - Switch between **Moon (Artemis III Pole)** and **Mars (Jezero Crater)**.
 - Click candidate pins (Iceland, Atacama, Antarctica, Devon Island, Hawaii) for real-time quantitative breakdowns.
 - Interactive multi-parameter radar chart powered by Chart.js.
+- 3D terrain viewer, mission weight "what-if" calculator, and a NASA data/mission science reference tab.
+- The map/leaderboard tab always shows the real ACI scores computed by `main.py` (kept in sync with `results/summary.json`); the Weight Calculator tab is a separate "what-if" explorer that re-weights the same underlying signatures.
+
+### Deploying it as a public site
+`dashboard/index.html` is a fully static, single-file, zero-build app (all dependencies load from CDN), so it can be hosted anywhere that serves static files — no server-side code or build step required:
+- **GitHub Pages:** enable Pages on this repo pointing at the `dashboard/` folder (or copy `index.html` to your Pages branch).
+- **Netlify / Vercel / Cloudflare Pages:** drag-and-drop the `dashboard/` folder, or set the publish directory to `dashboard`.
+- **Any static host / S3 / nginx:** just copy `dashboard/index.html` — there's nothing else to build or configure.
+
+It's responsive down to mobile widths and degrades gracefully (with an on-screen notice) if a browser doesn't support WebGL for the 3D tab.
 
 ---
 

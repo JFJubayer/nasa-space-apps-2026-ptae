@@ -39,17 +39,17 @@ Historically, researchers have relied on qualitative analogies (e.g., "this dese
 ---
 
 ### 🎯 Key Findings & Characterized Analogs
+*Scores below are reproduced live by running `python main.py --target moon` / `--target mars` against the five candidate sites currently modeled.*
 
-1. **Top Lunar South Pole Analog — Askja & Holuhraun Caldera, Iceland (ACI: 94.2%)**
-   - *Topographical Congruence:* The collapse calderas and rugged tephra ejecta match the steep slope distributions (12°–18°) of lunar craters like Shackleton and Faustini.
-   - *Subsurface Advantage:* Contains extensive basaltic lava tubes identical in morphology to lunar lava caves, providing the ultimate natural radiation and thermal shelter analog.
+1. **Top Lunar South Pole Analog — McMurdo Dry Valleys, Antarctica (ACI: 84.9%)**
+   - *Topographical Congruence:* Katabatic-wind-carved valley walls and frozen polygon ground produce the steep slope and fine-scale ruggedness (TRI) profile closest to lunar highland terrain around Shackleton/Faustini.
+   - *Runner-up:* Askja & Holuhraun Caldera, Iceland (ACI: 77.8%) — collapse calderas and basaltic lava tubes remain the best analog for subsurface radiation/thermal shielding, even though its topographic ACI trails McMurdo.
 
-2. **Top Mars Jezero / High-Latitude Analog — McMurdo Dry Valleys, Antarctica (ACI: 96.1%)**
-   - *Environmental Congruence:* Hyper-arid, katabatic wind-swept gravel plains with frozen polygon ground mirroring Martian permafrost and shallow subsurface ice deposits.
-   - *Astrobiology:* Cold-adapted endoliths provide a direct analog for life-detection instrumentation testing.
+2. **Top Mars Jezero Crater Analog — Mauna Kea Cinder Cones, Hawaii (ACI: 100.0%)**
+   - *Topographical Congruence:* Pyroclastic cinder-cone slopes and basaltic tephra ruggedness closely match the crater-rim and delta-fan relief profile computed for Jezero.
+   - *Runner-up:* Puna de Atacama, Chile (ACI: 89.8%) — high-altitude (>4,000m), hyper-arid, perchlorate-rich terrain remains the strongest environmental/chemical analog for Martian desiccation and UV exposure.
 
-3. **Top Mars Desiccation Analog — Puna de Atacama, Chile (ACI: 93.8%)**
-   - High-elevation (>4,000m) UV flux, hyper-arid salt flats with perchlorate chemistry matching Viking and Phoenix soil measurements.
+> These rankings come from the **topographic + environmental-boost ACI** (slope, TRI, relief variance, plus aridity/basalt/lava-tube priors) computed on procedurally generated DEMs calibrated to published morphometrics for each site. Swapping in the real GeoTIFF tiles fetched by `scripts/download_nasa_samples.py` recomputes these same metrics from actual LOLA/HiRISE/SRTM data without any pipeline changes.
 
 ---
 

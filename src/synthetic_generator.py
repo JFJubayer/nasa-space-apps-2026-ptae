@@ -49,8 +49,9 @@ def generate_mars_jezero(size=300, seed=101):
     # Smooth floor with wind-blown ripples
     dem = np.random.normal(loc=-2500, scale=8, size=(size, size))
     
-    # Jezero crater wall (outer circle)
-    y, x = np.ogrid[:size, :size]
+    # Jezero crater wall (outer circle). Use mgrid (full arrays) since x/y
+    # are boolean-indexed below and ogrid's broadcastable shapes don't survive that.
+    y, x = np.mgrid[:size, :size]
     dist_rim = np.sqrt((x - size // 2)**2 + (y - size // 2)**2)
     dem[dist_rim > size * 0.4] += 500 * (dist_rim[dist_rim > size * 0.4] - size * 0.4) / (size * 0.2)
     

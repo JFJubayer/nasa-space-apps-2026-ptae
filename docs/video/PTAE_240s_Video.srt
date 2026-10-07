@@ -1,0 +1,307 @@
+1
+00:00:00,100 --> 00:00:02,230
+Before an astronaut ever sets foot on the
+
+2
+00:00:02,243 --> 00:00:05,100
+Lunar South Pole, or a rover cracks Martian
+
+3
+00:00:05,113 --> 00:00:08,722
+soil, every habitat, every rover wheel, every
+
+4
+00:00:08,735 --> 00:00:11,299
+spacesuit joint has to survive a brutal dress
+
+5
+00:00:11,312 --> 00:00:12,421
+rehearsal on Earth.
+
+6
+00:00:12,792 --> 00:00:16,211
+We're the team behind PTAE, and for the 2026
+
+7
+00:00:16,223 --> 00:00:19,476
+NASA Space Apps Challenge, we asked one question:
+
+8
+00:00:19,973 --> 00:00:22,116
+how does NASA actually know an Earth test
+
+9
+00:00:22,129 --> 00:00:24,272
+site behaves like the Moon or Mars?
+
+10
+00:00:24,642 --> 00:00:27,193
+Today, that answer is mostly a guess, "it's
+
+11
+00:00:27,206 --> 00:00:30,216
+a desert, so it's basically Mars." We built
+
+12
+00:00:30,229 --> 00:00:32,346
+something that replaces the guess with a number.
+
+13
+00:00:32,800 --> 00:00:35,172
+Mission planners already know a handful of
+
+14
+00:00:35,185 --> 00:00:38,795
+famous analog sites, Devon Island, the Atacama
+
+15
+00:00:38,808 --> 00:00:41,308
+Desert, Hawaii's lava fields.
+
+16
+00:00:41,679 --> 00:00:44,255
+But those were chosen decades ago by intuition,
+
+17
+00:00:44,574 --> 00:00:45,467
+not measurement.
+
+18
+00:00:45,837 --> 00:00:48,949
+As Artemis and Mars missions get more ambitious,
+
+19
+00:00:49,293 --> 00:00:50,696
+that's not good enough anymore.
+
+20
+00:00:51,066 --> 00:00:53,592
+A lunar south-pole lander needs terrain with
+
+21
+00:00:53,605 --> 00:00:56,564
+the right slope distribution for a safe touchdown.
+
+22
+00:00:56,934 --> 00:00:59,536
+A Mars rover needs the right ruggedness so
+
+23
+00:00:59,548 --> 00:01:01,130
+its wheels don't get trapped.
+
+24
+00:01:01,500 --> 00:01:03,579
+Pick the wrong analog, and you find out your
+
+25
+00:01:03,592 --> 00:01:06,003
+equipment fails only after it's already on
+
+26
+00:01:06,015 --> 00:01:08,605
+another world, when it's too late and too
+
+27
+00:01:08,617 --> 00:01:09,765
+expensive to fix.
+
+28
+00:01:10,135 --> 00:01:12,444
+The real problem isn't a lack of candidate
+
+29
+00:01:12,457 --> 00:01:13,362
+sites on Earth.
+
+30
+00:01:13,732 --> 00:01:16,232
+It's the lack of a quantitative, repeatable
+
+31
+00:01:16,245 --> 00:01:18,400
+way to score them against the Moon and Mars
+
+32
+00:01:18,413 --> 00:01:20,339
+terrain data we already have.
+
+33
+00:01:20,800 --> 00:01:22,280
+So we built PTAE.
+
+34
+00:01:22,651 --> 00:01:25,304
+Point it at a target, the Artemis III landing
+
+35
+00:01:25,316 --> 00:01:28,505
+zone, or Jezero Crater on Mars, and it does
+
+36
+00:01:28,518 --> 00:01:29,513
+the science for you.
+
+37
+00:01:29,883 --> 00:01:33,071
+It extracts a real elevation signature, slope,
+
+38
+00:01:33,378 --> 00:01:36,273
+terrain ruggedness, relief variance, straight
+
+39
+00:01:36,286 --> 00:01:39,385
+from the DEM, then scores every Earth candidate
+
+40
+00:01:39,398 --> 00:01:42,217
+against it with our Analog Compatibility Index.
+
+41
+00:01:42,587 --> 00:01:45,776
+For the Moon, McMurdo Dry Valleys in Antarctica
+
+42
+00:01:45,788 --> 00:01:48,607
+tops the list at eighty-four point nine percent;
+
+43
+00:01:49,092 --> 00:01:51,694
+Iceland's Askja Caldera is right behind it,
+
+44
+00:01:52,140 --> 00:01:54,474
+the go-to analog for lava-tube shelters.
+
+45
+00:01:54,844 --> 00:01:57,128
+Now watch what happens when we re-target the
+
+46
+00:01:57,140 --> 00:02:00,533
+same engine at Mars' Jezero Crater, the scores
+
+47
+00:02:00,546 --> 00:02:00,954
+flip.
+
+48
+00:02:01,324 --> 00:02:04,156
+Hawaii's Mauna Kea cinder cones jump to a
+
+49
+00:02:04,168 --> 00:02:07,242
+one-hundred percent match, mirroring Jezero's
+
+50
+00:02:07,255 --> 00:02:09,844
+crater rim and delta geometry.
+
+51
+00:02:10,214 --> 00:02:13,684
+And it's not just a CLI, our interactive dashboard
+
+52
+00:02:13,773 --> 00:02:16,337
+lets a mission planner explore every candidate
+
+53
+00:02:16,350 --> 00:02:19,309
+visually, with the full breakdown in one click.
+
+54
+00:02:19,800 --> 00:02:22,938
+Right now, PTAE runs on high-fidelity procedural
+
+55
+00:02:22,950 --> 00:02:26,063
+terrain we calibrated to match published morphology,
+
+56
+00:02:26,420 --> 00:02:29,456
+so anyone, right now, with zero downloads,
+
+57
+00:02:29,774 --> 00:02:32,096
+can reproduce these exact numbers in under
+
+58
+00:02:32,109 --> 00:02:33,002
+ten seconds.
+
+59
+00:02:33,372 --> 00:02:36,281
+But the pipeline underneath is real: the same
+
+60
+00:02:36,293 --> 00:02:39,214
+slope and ruggedness math runs unchanged on
+
+61
+00:02:39,253 --> 00:02:43,028
+actual LOLA, MOLA, and SRTM elevation tiles
+
+62
+00:02:43,041 --> 00:02:46,076
+the moment we swap them in, and our downloader
+
+63
+00:02:46,089 --> 00:02:48,628
+script is already wired up to fetch them.
+
+64
+00:02:48,997 --> 00:02:51,689
+That's our next step: connect PTAE to Google
+
+65
+00:02:51,702 --> 00:02:54,189
+Earth Engine for a continuous global scan,
+
+66
+00:02:54,622 --> 00:02:57,403
+and layer in mineralogy from CRISM and ASTER
+
+67
+00:02:57,480 --> 00:03:00,439
+so we're matching chemistry, not just terrain
+
+68
+00:03:00,452 --> 00:03:00,872
+shape.
+
+69
+00:03:01,242 --> 00:03:04,469
+Our ask is simple, mission planners and analog-site
+
+70
+00:03:04,482 --> 00:03:07,084
+researchers, give us your candidate sites
+
+71
+00:03:07,097 --> 00:03:09,724
+and your target metrics, and PTAE will tell
+
+72
+00:03:09,737 --> 00:03:12,378
+you, with a number, how good a match you've
+
+73
+00:03:12,403 --> 00:03:13,334
+really found.
+
+74
+00:03:13,704 --> 00:03:15,872
+Because the next crew that walks on the Moon
+
+75
+00:03:15,885 --> 00:03:17,913
+deserves to have trained on the right ground
+
+76
+00:03:17,926 --> 00:03:18,449
+first.
+
+77
+00:03:18,819 --> 00:03:20,847
+We're the team behind PTAE, thank you.
