@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <radialGradient id="ocean" cx="30%" cy="25%" r="82%">
+      <stop offset="0" stop-color="#58b8ec"/>
+      <stop offset="0.5" stop-color="#1476b5"/>
+      <stop offset="1" stop-color="#06254b"/>
+    </radialGradient>
+    <linearGradient id="land" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a9bf79"/>
+      <stop offset="0.55" stop-color="#568c54"/>
+      <stop offset="1" stop-color="#776342"/>
+    </linearGradient>
+    <radialGradient id="shade" cx="26%" cy="22%" r="88%">
+      <stop offset="0.48" stop-color="#031326" stop-opacity="0"/>
+      <stop offset="1" stop-color="#020918" stop-opacity="0.78"/>
+    </radialGradient>
+    <clipPath id="sphere"><circle cx="64" cy="64" r="58"/></clipPath>
+  </defs>
+  <circle cx="64" cy="64" r="58" fill="url(#ocean)"/>
+  <g clip-path="url(#sphere)">
+    <path d="M54 25 66 20 78 24 85 32 79 38 69 37 65 43 57 41 52 35 45 33Z" fill="url(#land)" stroke="#b6c58a" stroke-opacity=".55" stroke-width="1.4"/>
+    <path d="m62 43 12 1 9 8 3 13-6 12-3 14-8 12-6-4-2-12-7-11-2-13 4-9-2-7Z" fill="url(#land)" stroke="#9ebd78" stroke-opacity=".5" stroke-width="1.5"/>
+    <path d="m22 35 9-8 11 2 7 7-3 9-9 2-2 8-7 4-4-7-8-3Z" fill="#72894d" stroke="#b0bd7d" stroke-opacity=".45" stroke-width="1.2"/>
+    <path d="m31 59 8 3 5 10-2 12-5 11-6 7-4-9 1-11-4-8 2-9Z" fill="#91764b" stroke="#c0a16c" stroke-opacity=".45" stroke-width="1.2"/>
+    <path d="M15 47c12-8 19-7 27-4M47 22c9 3 13 2 19-2M69 45c12 4 22 3 31-2M37 75c8 3 12 8 13 14M73 96c9-2 16-7 22-14" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3" opacity=".55"/>
+    <path d="M18 52c10-5 17-5 23-2M55 29c7 2 12 2 19 0M71 53c10 3 18 2 25-2M29 91c5-5 9-6 14-6" fill="none" stroke="#eaf8ff" stroke-linecap="round" stroke-width="1.5" opacity=".68"/>
+    <circle cx="64" cy="64" r="58" fill="url(#shade)"/>
+  </g>
+  <circle cx="64" cy="64" r="59.5" fill="none" stroke="#8ed9ff" stroke-width="2" opacity=".88"/>
+  <circle cx="64" cy="64" r="57.5" fill="none" stroke="#d4f3ff" stroke-width=".7" opacity=".55"/>
+</svg>

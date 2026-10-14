@@ -129,8 +129,8 @@ def generate_hawaii_mauna_kea(size=300, seed=88):
         dem = create_crater(dem, cx, cy, r, d)
     return dem
 
-def generate_all_datasets(data_dir="data", size=300):
-    """Generates all planetary targets and terrestrial analog datasets."""
+def generate_all_datasets(data_dir="data", size=300, generate=True):
+    """Generate datasets or return their paths and metadata without writing them."""
     os.makedirs(data_dir, exist_ok=True)
     
     generators = {
@@ -206,11 +206,12 @@ def generate_all_datasets(data_dir="data", size=300):
         }
     }
     
-    created_files = []
+    dataset_files = []
     for filename, gen_fn in generators.items():
         file_path = os.path.join(data_dir, filename)
-        arr = gen_fn(size=size)
-        np.save(file_path, arr)
-        created_files.append(file_path)
+        if generate:
+            arr = gen_fn(size=size)
+            np.save(file_path, arr)
+        dataset_files.append(file_path)
         
-    return created_files, metadata
+    return dataset_files, metadata

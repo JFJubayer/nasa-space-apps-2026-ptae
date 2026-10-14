@@ -132,11 +132,11 @@ So we built PTAE.
 
 34
 00:01:22,651 --> 00:01:25,304
-Point it at a target, the Artemis III landing
+Point it at a target, the lunar south pole
 
 35
 00:01:25,316 --> 00:01:28,505
-zone, or Jezero Crater on Mars, and it does
+region, or Jezero Crater on Mars, and it does
 
 36
 00:01:28,518 --> 00:01:29,513
@@ -144,111 +144,118 @@ the science for you.
 
 37
 00:01:29,883 --> 00:01:33,071
-It extracts a real elevation signature, slope,
+The demo scores Earth
+candidates against calibrated
 
 38
 00:01:33,378 --> 00:01:36,273
-terrain ruggedness, relief variance, straight
+synthetic terrain matched to
+published morphometrics with our
 
 39
 00:01:36,286 --> 00:01:39,385
-from the DEM, then scores every Earth candidate
+Analog Compatibility Index;
+the pipeline is designed
 
 40
 00:01:39,398 --> 00:01:42,217
-against it with our Analog Compatibility Index.
+to accept real LOLA, MOLA, and
+SRTM DEMs.
 
 41
 00:01:42,587 --> 00:01:45,776
-For the Moon, McMurdo Dry Valleys in Antarctica
+In our calibrated-synthetic-terrain demo,
+McMurdo Dry Valleys tops the lunar
 
 42
 00:01:45,788 --> 00:01:48,607
-tops the list at eighty-four point nine percent;
+south pole ranking at 82.52%; its
+katabatic slopes and fine-scale roughness
 
 43
 00:01:49,092 --> 00:01:51,694
-Iceland's Askja Caldera is right behind it,
+echo lunar highlands. Askja follows
+at 74.05%, a strong lava-tube analog.
 
 44
 00:01:52,140 --> 00:01:54,474
-the go-to analog for lava-tube shelters.
+Now watch what happens when we
 
 45
 00:01:54,844 --> 00:01:57,128
-Now watch what happens when we re-target the
+re-target to Mars' Jezero Crater —
 
 46
 00:01:57,140 --> 00:02:00,533
-same engine at Mars' Jezero Crater, the scores
+our calibrated-synthetic-terrain demo ranks Mauna Kea's cinder cones
 
 47
 00:02:00,546 --> 00:02:00,954
-flip.
+first.
 
 48
 00:02:01,324 --> 00:02:04,156
-Hawaii's Mauna Kea cinder cones jump to a
+at 96.98%, mirroring Jezero's rim and delta.
 
 49
 00:02:04,168 --> 00:02:07,242
-one-hundred percent match, mirroring Jezero's
+Real-data validation used the 20 m
 
 50
 00:02:07,255 --> 00:02:09,844
-crater rim and delta geometry.
+LRO LOLA Moon target and real Askja terrain.
 
 51
 00:02:10,214 --> 00:02:13,684
-And it's not just a CLI, our interactive dashboard
+Rankings were scale-sensitive:
 
 52
 00:02:13,773 --> 00:02:16,337
-lets a mission planner explore every candidate
+the leader changed by window; McMurdo
 
 53
 00:02:16,350 --> 00:02:19,309
-visually, with the full breakdown in one click.
+was last every time, while Mauna Kea and Atacama stayed in the top three.
 
 54
 00:02:19,800 --> 00:02:22,938
-Right now, PTAE runs on high-fidelity procedural
+Right now, PTAE's demo uses
 
 55
 00:02:22,950 --> 00:02:26,063
-terrain we calibrated to match published morphology,
+calibrated synthetic terrain matched
 
 56
 00:02:26,420 --> 00:02:29,456
-so anyone, right now, with zero downloads,
+to published morphometrics — so
 
 57
 00:02:29,774 --> 00:02:32,096
-can reproduce these exact numbers in under
+anyone, right now, with zero
 
 58
 00:02:32,109 --> 00:02:33,002
-ten seconds.
+downloads, can reproduce these exact numbers
 
 59
 00:02:33,372 --> 00:02:36,281
-But the pipeline underneath is real: the same
+in under ten seconds. The pipeline
 
 60
 00:02:36,293 --> 00:02:39,214
-slope and ruggedness math runs unchanged on
+is designed to accept real LOLA,
 
 61
 00:02:39,253 --> 00:02:43,028
-actual LOLA, MOLA, and SRTM elevation tiles
+MOLA, and SRTM DEMs, but
 
 62
 00:02:43,041 --> 00:02:46,076
-the moment we swap them in, and our downloader
+ingesting them is still
 
 63
 00:02:46,089 --> 00:02:48,628
-script is already wired up to fetch them.
+future work.
 
 64
 00:02:48,997 --> 00:02:51,689

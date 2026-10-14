@@ -65,30 +65,30 @@
 **[VISUAL]** Cut to full-screen terminal.
 
 > **[SPEAKER, voiceover over live screen capture]**
-> "So we built PTAE. Point it at a target — the Artemis III landing zone, or Jezero Crater on Mars — and it does the science for you."
+> "So we built PTAE. Point it at a target — the lunar south pole region, or Jezero Crater on Mars — and it does the science for you."
 
 **[SCREEN ACTION]** Type and run:
 ```bash
 python main.py --target moon
 ```
 **[SPEAKER continues as the terminal output scrolls]**
-> "It extracts a real elevation signature — slope, terrain ruggedness, relief variance — straight from the DEM, then scores every Earth candidate against it with our **Analog Compatibility Index**."
+> "The demo scores Earth candidates against calibrated synthetic terrain matched to published morphometrics with our **Analog Compatibility Index**; the pipeline is designed to accept real LOLA, MOLA, and SRTM DEMs."
 
 **[VISUAL]** Highlight the live leaderboard in the terminal (or cut to `analog_compatibility_leaderboard.png`):
 ```
-#1  McMurdo Dry Valleys           84.9%   Hyper-Arid Polar Desert
-#2  Askja & Holuhraun Caldera     77.8%   Volcanic / Basaltic Caldera & Lava Tubes
+#1  McMurdo Dry Valleys           82.52%  Hyper-Arid Polar Desert
+#2  Askja & Holuhraun Caldera     74.05%  Volcanic / Basaltic Caldera & Lava Tubes
 ```
-> "For the Moon, McMurdo Dry Valleys in Antarctica comes out on top at 84.9% — its katabatic-carved slopes and fine-scale roughness track lunar highland terrain almost exactly. Iceland's Askja Caldera is right behind it, the go-to analog for lava-tube shelters."
+> "In our calibrated-synthetic-terrain demo, McMurdo Dry Valleys tops the lunar south pole ranking at 82.52%; its katabatic slopes and fine-scale roughness echo lunar highlands. Askja follows at 74.05%, a strong lava-tube analog."
 
 **[SCREEN ACTION]** Switch target:
 ```bash
 python main.py --target mars
 ```
-> "Now watch what happens when we re-target the *same* engine at Mars' Jezero Crater — the scores flip. Hawaii's Mauna Kea cinder cones jump to a **100% match**, mirroring Jezero's crater rim and delta geometry."
+> "Now watch what happens when we re-target to Mars' Jezero Crater — our calibrated-synthetic-terrain demo ranks Mauna Kea's cinder cones first at 96.98%, mirroring Jezero's rim and delta."
 
 **[VISUAL]** Cut to `dashboard/index.html` — click between Moon/Mars toggle, click a marker to show the radar chart animating live.
-> "And it's not just a CLI — our interactive dashboard lets a mission planner explore every candidate visually, with the full breakdown in one click."
+> "Real-data validation used the 20 m LRO LOLA Moon target and real Askja terrain. Rankings were scale-sensitive: the leader changed by window; McMurdo was last every time, while Mauna Kea and Atacama stayed in the top three."
 
 *(~141 words — verified at ~54s spoken, leaving room for the on-screen typing/dashboard-click beats.)*
 
@@ -99,7 +99,7 @@ python main.py --target mars
 **[VISUAL]** Speaker back on camera, architecture diagram slide behind/beside them.
 
 > **[SPEAKER, on camera]**
-> "Right now, PTAE runs on high-fidelity procedural terrain we calibrated to match published morphology — so anyone, right now, with zero downloads, can reproduce these exact numbers in under ten seconds. But the pipeline underneath is real: the same slope and ruggedness math runs unchanged on actual LOLA, MOLA, and SRTM elevation tiles the moment we swap them in — and our downloader script is already wired up to fetch them.
+> "Right now, PTAE's demo uses calibrated synthetic terrain matched to published morphometrics — so anyone, right now, with zero downloads, can reproduce these exact numbers in under ten seconds. The pipeline is designed to accept real LOLA, MOLA, and SRTM DEMs, but ingesting them is still future work.
 >
 > That's our next step: connect PTAE to Google Earth Engine for a continuous global scan, and layer in mineralogy from CRISM and ASTER so we're matching chemistry, not just terrain shape.
 >
@@ -118,7 +118,7 @@ python main.py --target mars
 *(Use only if selected as a global nominee — trim to picture-locked essentials.)*
 
 > **[SPEAKER]**
-> "Before astronauts land on the Moon or Mars, their gear is tested on Earth — but analog sites are picked by guesswork. We built PTAE: it extracts real elevation signatures from Moon and Mars terrain, then scores Earth candidates against them with our Analog Compatibility Index. McMurdo Dry Valleys scores 84% for the lunar south pole; Mauna Kea in Hawaii scores a perfect 100% for Jezero Crater — reproducible live, in one command. PTAE turns guesswork into a verifiable number."
+> "Before astronauts travel to the lunar south pole region or Mars, their gear is tested on Earth — but analog sites are picked by guesswork. We built PTAE: the demo scores Earth candidates against calibrated synthetic terrain matched to published morphometrics; the pipeline is designed for real LOLA, MOLA, and SRTM DEMs. McMurdo Dry Valleys scores 82.52% for the lunar south pole; in that synthetic-terrain demo, Mauna Kea in Hawaii is the top Mars match at 96.98%, a top-ranked analog — reproducible live, in one command. PTAE turns guesswork into a verifiable number."
 
 *(~81 words at a faster, trailer-style pace — verified at ~30s spoken.)*
 
