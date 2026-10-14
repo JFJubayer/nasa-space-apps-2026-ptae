@@ -1,0 +1,28 @@
+{
+  "source_file": "earth_iceland_askja_srtm.tif",
+  "source_dataset": "AWS Terrain Tiles (composite)",
+  "original_ground_resolution_m_per_pixel": 32.373161,
+  "output_ground_resolution_m_per_pixel": 33.398267,
+  "original_ground_resolution_axes_m_per_pixel": {
+    "x": 32.392551,
+    "y": 32.353782
+  },
+  "output_ground_resolution_axes_m_per_pixel": {
+    "x": 33.364327,
+    "y": 33.432241
+  },
+  "center_lat": 65.0,
+  "center_lon": -16.7,
+  "bounds": {
+    "left": -1870872.7043079739,
+    "bottom": 9596592.464175591,
+    "right": -1847253.6625678546,
+    "top": 9620287.942943994,
+    "crs": "EPSG:3857"
+  },
+  "output_size": [
+    300,
+    300
+  ],
+  "resampling": "bilinear"
+}

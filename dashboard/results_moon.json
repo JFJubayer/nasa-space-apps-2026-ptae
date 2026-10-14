@@ -1,0 +1,188 @@
+{
+  "target": "moon",
+  "target_name": "Moon (Artemis III Lunar South Pole)",
+  "target_terrain_metrics": {
+    "slope_mean": 43.78109245462466,
+    "slope_std": 15.23789339200829,
+    "tri_mean": 135.29342799188024,
+    "tri_std": 51.62517933618168,
+    "elevation_std": 217.53969572963635
+  },
+  "rankings": [
+    {
+      "rank": 1,
+      "site_name": "McMurdo Dry Valleys",
+      "site_id": "earth_mcmurdo_dry_valleys",
+      "base_topographic_score": 80.85,
+      "applied_bonus": 1.67,
+      "aci": 82.52,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 31.513443302338953,
+        "slope_std": 13.057661056374199,
+        "tri_mean": 82.76624827305449,
+        "tri_std": 31.091383354581655,
+        "elevation_std": 136.80461067223797
+      },
+      "sub_scores": {
+        "slope_mean": 85.5,
+        "slope_std": 96.0,
+        "tri_mean": 74.0,
+        "tri_std": 72.9,
+        "elevation_std": 75.9
+      },
+      "metadata": {
+        "name": "McMurdo Dry Valleys",
+        "country": "Antarctica",
+        "lat": -77.47,
+        "lon": 162.27,
+        "type": "Hyper-Arid Polar Desert",
+        "primary_analog_for": "Mars (Permafrost & Aridity)",
+        "is_basaltic": false,
+        "has_lava_tubes": false,
+        "is_hyper_arid": true,
+        "description": "Coldest, driest desert on Earth with katabatic winds, polygon permafrost soils, and extreme subsurface ice stability directly mirroring Martian high-latitude plains."
+      }
+    },
+    {
+      "rank": 2,
+      "site_name": "Askja & Holuhraun Caldera, Iceland",
+      "site_id": "earth_iceland_askja",
+      "base_topographic_score": 70.72,
+      "applied_bonus": 3.33,
+      "aci": 74.05,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 29.512842419285857,
+        "slope_std": 12.609569450652762,
+        "tri_mean": 75.37798246924939,
+        "tri_std": 28.392078342765615,
+        "elevation_std": 62.5013688444528
+      },
+      "sub_scores": {
+        "slope_mean": 80.9,
+        "slope_std": 94.2,
+        "tri_mean": 67.6,
+        "tri_std": 66.7,
+        "elevation_std": 36.2
+      },
+      "metadata": {
+        "name": "Askja & Holuhraun Caldera, Iceland",
+        "country": "Iceland",
+        "lat": 65.03,
+        "lon": -16.75,
+        "type": "Volcanic / Basaltic Caldera & Lava Tubes",
+        "primary_analog_for": "Moon (Artemis Landing Sites)",
+        "is_basaltic": true,
+        "has_lava_tubes": true,
+        "is_hyper_arid": false,
+        "description": "Young basaltic lava fields, collapse calderas, and subterranean lava tubes sharing high surface roughness and radiation-shielding morphology with lunar mare."
+      }
+    },
+    {
+      "rank": 3,
+      "site_name": "Haughton Impact Crater, Devon Island",
+      "site_id": "earth_haughton_crater",
+      "base_topographic_score": 57.87,
+      "applied_bonus": 1.67,
+      "aci": 59.54,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 23.461843069574787,
+        "slope_std": 10.815621697292572,
+        "tri_mean": 57.00612624301473,
+        "tri_std": 21.703619373626907,
+        "elevation_std": 59.682303945604176
+      },
+      "sub_scores": {
+        "slope_mean": 65.0,
+        "slope_std": 84.5,
+        "tri_mean": 51.2,
+        "tri_std": 51.1,
+        "elevation_std": 34.9
+      },
+      "metadata": {
+        "name": "Haughton Impact Crater, Devon Island",
+        "country": "Canada",
+        "lat": 75.38,
+        "lon": -89.67,
+        "type": "Polar Impact Structure",
+        "primary_analog_for": "Moon & Mars (Impact Geology)",
+        "is_basaltic": false,
+        "has_lava_tubes": false,
+        "is_hyper_arid": true,
+        "description": "23-km diameter impact crater in high-arctic polar desert. Features shatter cones, polymict impact breccia, and permanently cold ground simulating lunar/martian impactites."
+      }
+    },
+    {
+      "rank": 4,
+      "site_name": "Puna de Atacama",
+      "site_id": "earth_atacama_puna",
+      "base_topographic_score": 50.59,
+      "applied_bonus": 3.33,
+      "aci": 53.92,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 19.18758518920074,
+        "slope_std": 9.161483224972129,
+        "tri_mean": 44.94138857400377,
+        "tri_std": 17.062533041839725,
+        "elevation_std": 87.6670697476698
+      },
+      "sub_scores": {
+        "slope_mean": 53.2,
+        "slope_std": 72.8,
+        "tri_mean": 41.0,
+        "tri_std": 40.8,
+        "elevation_std": 49.0
+      },
+      "metadata": {
+        "name": "Puna de Atacama",
+        "country": "Chile / Argentina",
+        "lat": -24.5,
+        "lon": -68.3,
+        "type": "High-Altitude Hyper-Arid Plateau",
+        "primary_analog_for": "Mars (UV & Desiccation)",
+        "is_basaltic": true,
+        "has_lava_tubes": false,
+        "is_hyper_arid": true,
+        "description": "Hyper-arid high plateau (>4,000m) with high UV-B radiation fluxes, perchlorate-rich saline deposits, and near-zero organic matter simulating Martian surface chemistry."
+      }
+    },
+    {
+      "rank": 5,
+      "site_name": "Mauna Kea Cinder Cones",
+      "site_id": "earth_hawaii_mauna_kea",
+      "base_topographic_score": 46.37,
+      "applied_bonus": 3.33,
+      "aci": 49.7,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 16.77027713243968,
+        "slope_std": 8.183092707484871,
+        "tri_mean": 38.04790694935318,
+        "tri_std": 14.147371325122405,
+        "elevation_std": 101.14321191785358
+      },
+      "sub_scores": {
+        "slope_mean": 46.7,
+        "slope_std": 65.1,
+        "tri_mean": 35.6,
+        "tri_std": 34.9,
+        "elevation_std": 56.4
+      },
+      "metadata": {
+        "name": "Mauna Kea Cinder Cones",
+        "country": "USA (Hawaii)",
+        "lat": 19.82,
+        "lon": -155.47,
+        "type": "Basaltic Tephra & Pyroclastic Cones",
+        "primary_analog_for": "Moon (Lunar Regolith Simulant)",
+        "is_basaltic": true,
+        "has_lava_tubes": true,
+        "is_hyper_arid": false,
+        "description": "Sub-alpine basaltic volcanic tephra cones used historically as the reference source for JSC-1A lunar regolith simulant and rover mobility tests."
+      }
+    }
+  ]
+}

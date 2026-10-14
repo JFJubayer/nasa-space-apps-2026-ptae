@@ -1,46 +1,46 @@
 1
 00:00:00,100 --> 00:00:02,418
-Before astronauts land on the Moon or Mars,
+Before astronauts travel to the lunar south pole region
 
 2
 00:00:02,748 --> 00:00:05,202
-their gear is tested on Earth, but analog
+or Mars, their gear is tested on Earth — but analog
 
 3
 00:00:05,214 --> 00:00:06,827
-sites are picked by guesswork.
+sites are picked by guesswork. We built PTAE:
 
 4
 00:00:07,152 --> 00:00:09,732
-We built PTAE: it extracts real elevation
+the demo scores Earth candidates against
 
 5
 00:00:09,743 --> 00:00:12,164
-signatures from Moon and Mars terrain, then
+calibrated synthetic terrain matched to
 
 6
 00:00:12,175 --> 00:00:14,073
-scores Earth candidates against them with
+published morphometrics; the pipeline is designed
 
 7
 00:00:14,084 --> 00:00:15,936
-our Analog Compatibility Index.
+for real LOLA, MOLA, and SRTM DEMs.
 
 8
 00:00:16,266 --> 00:00:18,720
-McMurdo Dry Valleys scores eighty-four percent
+McMurdo Dry Valleys scores 82.52% for
 
 9
 00:00:18,732 --> 00:00:21,550
-for the lunar south pole; Mauna Kea in Hawaii
+the lunar south pole; in that synthetic-terrain demo, Mauna Kea in Hawaii
 
 10
 00:00:21,561 --> 00:00:24,289
-scores a perfect one hundred percent for Jezero
+is the top Mars match at 96.98%, a
 
 11
 00:00:24,300 --> 00:00:27,209
-Crater, reproducible live, in one command.
+top-ranked analog — reproducible live, in one command.
 
 12
 00:00:27,539 --> 00:00:30,209

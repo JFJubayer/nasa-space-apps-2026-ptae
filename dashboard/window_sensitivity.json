@@ -1,0 +1,156 @@
+{
+  "window_sizes_km": [
+    5,
+    10,
+    15
+  ],
+  "candidates": [
+    {
+      "site_id": "earth_iceland_askja",
+      "name": "Askja & Holuhraun Caldera, Iceland",
+      "windows": {
+        "5": {
+          "rank": 1,
+          "base_topographic_score": 66.91,
+          "applied_bonus": 3.33,
+          "final_aci": 70.24
+        },
+        "10": {
+          "rank": 4,
+          "base_topographic_score": 60.27,
+          "applied_bonus": 3.33,
+          "final_aci": 63.6
+        },
+        "15": {
+          "rank": 4,
+          "base_topographic_score": 53.73,
+          "applied_bonus": 3.33,
+          "final_aci": 57.06
+        }
+      }
+    },
+    {
+      "site_id": "earth_hawaii_mauna_kea",
+      "name": "Mauna Kea Cinder Cones",
+      "windows": {
+        "5": {
+          "rank": 2,
+          "base_topographic_score": 49.47,
+          "applied_bonus": 3.33,
+          "final_aci": 52.8
+        },
+        "10": {
+          "rank": 1,
+          "base_topographic_score": 84.15,
+          "applied_bonus": 3.33,
+          "final_aci": 87.48
+        },
+        "15": {
+          "rank": 2,
+          "base_topographic_score": 81.65,
+          "applied_bonus": 3.33,
+          "final_aci": 84.98
+        }
+      }
+    },
+    {
+      "site_id": "earth_atacama_puna",
+      "name": "Puna de Atacama",
+      "windows": {
+        "5": {
+          "rank": 3,
+          "base_topographic_score": 48.53,
+          "applied_bonus": 3.33,
+          "final_aci": 51.86
+        },
+        "10": {
+          "rank": 2,
+          "base_topographic_score": 81.13,
+          "applied_bonus": 3.33,
+          "final_aci": 84.46
+        },
+        "15": {
+          "rank": 1,
+          "base_topographic_score": 85.89,
+          "applied_bonus": 3.33,
+          "final_aci": 89.22
+        }
+      }
+    },
+    {
+      "site_id": "earth_haughton_crater",
+      "name": "Haughton Impact Crater, Devon Island",
+      "windows": {
+        "5": {
+          "rank": 4,
+          "base_topographic_score": 46.14,
+          "applied_bonus": 1.67,
+          "final_aci": 47.81
+        },
+        "10": {
+          "rank": 3,
+          "base_topographic_score": 64.27,
+          "applied_bonus": 1.67,
+          "final_aci": 65.94
+        },
+        "15": {
+          "rank": 3,
+          "base_topographic_score": 80.19,
+          "applied_bonus": 1.67,
+          "final_aci": 81.86
+        }
+      }
+    },
+    {
+      "site_id": "earth_mcmurdo_dry_valleys",
+      "name": "McMurdo Dry Valleys",
+      "windows": {
+        "5": {
+          "rank": 5,
+          "base_topographic_score": 35.1,
+          "applied_bonus": 1.67,
+          "final_aci": 36.77
+        },
+        "10": {
+          "rank": 5,
+          "base_topographic_score": 34.58,
+          "applied_bonus": 1.67,
+          "final_aci": 36.25
+        },
+        "15": {
+          "rank": 5,
+          "base_topographic_score": 44.69,
+          "applied_bonus": 1.67,
+          "final_aci": 46.36
+        }
+      }
+    }
+  ],
+  "window_diagnostics": {
+    "5": {
+      "target_mean_slope": 21.956446190483693,
+      "iceland_output_ground_resolution_m_per_pixel": 16.726224,
+      "moon_output_ground_resolution_m_per_pixel": 16.733332
+    },
+    "10": {
+      "target_mean_slope": 22.276735050884454,
+      "iceland_output_ground_resolution_m_per_pixel": 33.398267,
+      "moon_output_ground_resolution_m_per_pixel": 33.399998
+    },
+    "15": {
+      "target_mean_slope": 19.25590376611665,
+      "iceland_output_ground_resolution_m_per_pixel": 50.070488,
+      "moon_output_ground_resolution_m_per_pixel": 50.066664
+    }
+  },
+  "verdict": {
+    "same_top_candidate_across_windows": false,
+    "leader_by_window": {
+      "5": "Askja & Holuhraun Caldera, Iceland",
+      "10": "Mauna Kea Cinder Cones",
+      "15": "Puna de Atacama"
+    },
+    "largest_rank_change_places": 3,
+    "largest_rank_change_candidate": "Askja & Holuhraun Caldera, Iceland"
+  }
+}

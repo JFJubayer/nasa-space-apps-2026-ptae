@@ -1,0 +1,28 @@
+{
+  "source_file": "mars_mola_global_463m.tif",
+  "source_dataset": "MOLA global 463 m",
+  "original_ground_resolution_m_per_pixel": 451.09195,
+  "output_ground_resolution_m_per_pixel": 333.686104,
+  "original_ground_resolution_axes_m_per_pixel": {
+    "x": 439.401393,
+    "y": 463.093541
+  },
+  "output_ground_resolution_axes_m_per_pixel": {
+    "x": 333.945059,
+    "y": 333.42735
+  },
+  "center_lat": 18.4,
+  "center_lon": 77.7,
+  "bounds": {
+    "left": 4552672.606981697,
+    "bottom": 1041034.2814052338,
+    "right": 4658257.934455181,
+    "top": 1141062.4863801138,
+    "crs": "PROJCS[\"Equirectangular Mars\",GEOGCS[\"GCS_Mars\",DATUM[\"D_Mars\",SPHEROID[\"Mars_localRadius\",3396190,0]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Equirectangular\"],PARAMETER[\"standard_parallel_1\",0],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
+  },
+  "output_size": [
+    300,
+    300
+  ],
+  "resampling": "bilinear"
+}

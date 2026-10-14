@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "match_basis": "Qualitative shared-feature mapping; not ACI.",
+  "target_sites": [
+    {
+      "id": "jezero-crater",
+      "name": "Jezero Crater",
+      "body": "Mars",
+      "lat": 18.4,
+      "lon": 77.6,
+      "coords_approximate": true,
+      "short_description": "Impact crater with an ancient lake and delta region.",
+      "key_features": ["ancient lake/delta", "impact crater", "basaltic", "dry/arid"],
+      "mission_relevance": "Mars 2020 Perseverance landing and sample-cache region.",
+      "images": [
+        {"src": "assets/targets/mars-jezero-landing-site.webp", "alt": "Orbital image marking Perseverance's landing spot in Jezero Crater", "caption": "Perseverance landing location in Jezero Crater", "credit": "NASA/JPL-Caltech/University of Arizona", "source_url": "https://science.nasa.gov/photojournal/perseverances-landing-spot-in-jezero-crater"},
+        {"src": "assets/targets/mars-jezero-rover-floor.webp", "alt": "Perseverance rover mosaic of terrain on the floor of Jezero Crater", "caption": "Perseverance view across the Jezero crater floor", "credit": "NASA/JPL-Caltech", "source_url": "https://science.nasa.gov/photojournal/the-end-of-one-drive-by-perseverance-on-the-floor-of-jezero-crater"}
+      ],
+      "source_note": "Approximate coordinates; verify against NASA/USGS mission cartography before use."
+    },
+    {
+      "id": "gale-crater",
+      "name": "Gale Crater",
+      "body": "Mars",
+      "lat": -5.4,
+      "lon": 137.8,
+      "coords_approximate": true,
+      "short_description": "Impact crater containing a layered central mound and evidence of past water.",
+      "key_features": ["ancient lake", "impact crater", "sedimentary layers", "dry/arid"],
+      "mission_relevance": "Curiosity rover exploration region.",
+      "images": [
+        {"src": "assets/targets/mars-gale-curiosity-landing.webp", "alt": "Orbital view of Gale Crater showing the Curiosity landing location", "caption": "Gale Crater, selected landing site for Curiosity", "credit": "NASA/JPL-Caltech/University of Arizona", "source_url": "https://science.nasa.gov/photojournal/gale-crater-the-selected-landing-site-for-curiosity"},
+        {"src": "assets/targets/mars-gale-odyssey-view.webp", "alt": "NASA Mars Odyssey view of part of Gale Crater", "caption": "Orbital view of Gale Crater", "credit": "NASA/JPL-Caltech/ASU", "source_url": "https://science.nasa.gov/photojournal/gale-crater-9"}
+      ],
+      "source_note": "Approximate coordinates; verify against NASA/USGS mission cartography before use."
+    },
+    {
+      "id": "gusev-crater",
+      "name": "Gusev Crater",
+      "body": "Mars",
+      "lat": -14.5,
+      "lon": 175.5,
+      "coords_approximate": true,
+      "short_description": "Impact crater with volcanic terrain and evidence of past water activity.",
+      "key_features": ["impact crater", "basaltic", "volcanic", "ancient lake"],
+      "mission_relevance": "Spirit rover landing and exploration region.",
+      "images": [
+        {"src": "assets/targets/mars-gusev-maadim-vallis.webp", "alt": "Orbital image of Maadim Vallis where it intersects Gusev Crater", "caption": "Maadim Vallis at Gusev Crater", "credit": "NASA/JPL/ASU", "source_url": "https://science.nasa.gov/photojournal/maadim-vallis-2"},
+        {"src": "assets/targets/mars-gusev-rippled-sands.webp", "alt": "Rippled sand deposits photographed by the Spirit rover in Gusev Crater", "caption": "Ripply sand deposits in Gusev Crater", "credit": "NASA/JPL-Caltech/Cornell", "source_url": "https://science.nasa.gov/photojournal/intricately-rippled-sand-deposits"}
+      ],
+      "source_note": "Approximate coordinates; verify against NASA/USGS mission cartography before use."
+    },
+    {
+      "id": "meridiani-planum",
+      "name": "Meridiani Planum",
+      "body": "Mars",
+      "lat": -2.0,
+      "lon": 354.5,
+      "coords_approximate": true,
+      "short_description": "Equatorial plains with sedimentary deposits and hematite-bearing formations.",
+      "key_features": ["dry/arid", "sedimentary plains", "hematite"],
+      "mission_relevance": "Opportunity rover exploration region.",
+      "images": [
+        {"src": "assets/targets/mars-meridiani-crater-map.webp", "alt": "Orbital context map showing Opportunity among craters in the Meridiani Planum region", "caption": "Opportunity among craters in Meridiani Planum", "credit": "NASA/JPL-Caltech/Malin Space Science Systems", "source_url": "https://science.nasa.gov/photojournal/opportunity-amid-mars-craters"},
+        {"src": "assets/targets/mars-meridiani-odyssey-view.webp", "alt": "NASA Mars Odyssey orbital image of Meridiani Planum", "caption": "Orbital view of Meridiani Planum", "credit": "NASA/JPL/ASU", "source_url": "https://science.nasa.gov/photojournal/pj-meridiani-2"}
+      ],
+      "source_note": "Approximate coordinates; verify against NASA/USGS mission cartography before use."
+    },
+    {
+      "id": "oxia-planum",
+      "name": "Oxia Planum",
+      "body": "Mars",
+      "lat": 18.2,
+      "lon": 335.4,
+      "coords_approximate": true,
+      "short_description": "Ancient terrain with clay-bearing deposits and a record of past water.",
+      "key_features": ["ancient lake", "clay-bearing plains", "impact crater"],
+      "mission_relevance": "Selected ExoMars Rosalind Franklin rover landing region.",
+      "images": [
+        {"src": "assets/targets/mars-oxia-landing-region.webp", "alt": "NASA Mars Reconnaissance Orbiter image of the proposed Oxia Planum landing region", "caption": "Proposed landing region in Oxia Planum", "credit": "NASA/JPL-Caltech/University of Arizona", "source_url": "https://science.nasa.gov/photojournal/possible-future-mars-landing-site-in-oxia-planum"},
+        {"src": "assets/targets/mars-oxia-clay-terrain.webp", "alt": "Orbital image of clay-rich terrain at Oxia Planum", "caption": "Clay-rich terrain in Oxia Planum", "credit": "NASA/JPL-Caltech/University of Arizona", "source_url": "https://science.nasa.gov/photojournal/clay-rich-terrain-in-oxia-planum-a-proposed-exomars-landing-site"}
+      ],
+      "source_note": "Approximate coordinates; verify against ESA/NASA/USGS mission cartography before use."
+    },
+    {
+      "id": "hellas-planitia",
+      "name": "Hellas Planitia",
+      "body": "Mars",
+      "lat": -42.0,
+      "lon": 70.0,
+      "coords_approximate": true,
+      "short_description": "Large southern impact basin with cold, dry regional conditions.",
+      "key_features": ["impact basin", "cold", "dry/arid"],
+      "mission_relevance": "Regional context for studying large impact basins and cold-climate processes.",
+      "images": [
+        {"src": "assets/targets/mars-hellas-crater-structure.webp", "alt": "Orbital image of layered structure in the northwestern Hellas Basin", "caption": "Intra-crater structure in northwestern Hellas Basin", "credit": "NASA/JPL-Caltech/University of Arizona", "source_url": "https://science.nasa.gov/photojournal/intra-crater-structure-in-nw-hellas-basin-mars"},
+        {"src": "assets/targets/mars-hellas-dunes.webp", "alt": "NASA Mars Odyssey view of dunes on the western margin of Hellas Planitia", "caption": "Dunes at Hellas Planitia", "credit": "NASA/JPL/ASU", "source_url": "https://science.nasa.gov/photojournal/hellas-dunes-3"}
+      ],
+      "source_note": "Approximate coordinates; verify against NASA/USGS regional mapping before use."
+    },
+    {
+      "id": "shackleton-crater",
+      "name": "Shackleton Crater",
+      "body": "Moon",
+      "lat": -89.9,
+      "lon": 132.3,
+      "coords_approximate": true,
+      "short_description": "South-polar impact crater with permanently shadowed areas nearby.",
+      "key_features": ["polar/cold", "dry/arid", "impact crater", "permanently shadowed regions"],
+      "mission_relevance": "Lunar south-pole illumination and volatile exploration context.",
+      "images": [
+        {"src": "assets/targets/moon-south-polar-cabeus-context.webp", "alt": "LRO oblique view of Cabeus Crater near the lunar south pole; regional context, not a Shackleton image", "caption": "Nearby south-polar Cabeus Crater context; not a Shackleton image", "credit": "NASA/Goddard/Arizona State University", "source_url": "https://images.nasa.gov/details/GSFC_20171208_Archive_e002006"},
+        {"src": "assets/targets/moon-south-polar-gravity-context.webp", "alt": "NASA gravity and topography visualization covering lunar southern latitudes from the south pole to 50 degrees south; regional context, not site-specific", "caption": "Lunar south-polar gravity and terrain context; not a Shackleton image", "credit": "NASA Scientific Visualization Studio", "source_url": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001048"}
+      ],
+      "source_note": "Approximate coordinates; longitude rounded from the existing dashboard marker. Verify against NASA/USGS lunar mapping before use."
+    },
+    {
+      "id": "malapert-massif",
+      "name": "Malapert Massif",
+      "body": "Moon",
+      "lat": -86.0,
+      "lon": 0.0,
+      "coords_approximate": true,
+      "short_description": "Lunar south-polar highland massif with variable illumination.",
+      "key_features": ["polar/cold", "highland massif", "illumination variation", "dry/arid"],
+      "mission_relevance": "Candidate south-polar exploration region.",
+      "images": [
+        {"src": "assets/targets/moon-south-polar-cabeus-context.webp", "alt": "LRO oblique view of Cabeus Crater near the lunar south pole; regional context, not a Malapert image", "caption": "Nearby south-polar Cabeus Crater context; not a Malapert image", "credit": "NASA/Goddard/Arizona State University", "source_url": "https://images.nasa.gov/details/GSFC_20171208_Archive_e002006"},
+        {"src": "assets/targets/moon-south-polar-gravity-context.webp", "alt": "NASA gravity and topography visualization covering lunar southern latitudes from the south pole to 50 degrees south; regional context, not site-specific", "caption": "Lunar south-polar gravity and terrain context; not a Malapert image", "credit": "NASA Scientific Visualization Studio", "source_url": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001048"}
+      ],
+      "source_note": "Approximate coordinates; verify against NASA/USGS lunar mapping before use."
+    },
+    {
+      "id": "marius-hills",
+      "name": "Marius Hills",
+      "body": "Moon",
+      "lat": 14.0,
+      "lon": 303.3,
+      "coords_approximate": true,
+      "short_description": "Volcanic region associated with sinuous rilles and possible lava-tube skylights.",
+      "key_features": ["basaltic", "lava tubes", "mare plains"],
+      "mission_relevance": "Lunar volcanism and subsurface-access exploration context.",
+      "images": [
+        {"src": "assets/targets/moon-marius-hills-pit.webp", "alt": "Lunar Reconnaissance Orbiter image of a possible lava-tube skylight in the Marius Hills", "caption": "Marius Hills pit, a possible lava-tube skylight", "credit": "NASA/GSFC/Arizona State University", "source_url": "https://science.nasa.gov/photojournal/marius-hills-pit-lava-tube-skylight"}
+      ],
+      "source_note": "Approximate coordinates; verify against NASA/USGS lunar mapping before use."
+    },
+    {
+      "id": "mare-tranquillitatis-apollo-11",
+      "name": "Mare Tranquillitatis / Apollo 11 area",
+      "body": "Moon",
+      "lat": 0.7,
+      "lon": 23.5,
+      "coords_approximate": true,
+      "short_description": "Basaltic mare region containing the Apollo 11 landing area.",
+      "key_features": ["basaltic", "impact crater", "mare plains", "dry/arid"],
+      "mission_relevance": "Apollo 11 landing area and lunar mare geology context.",
+      "images": [
+        {"src": "assets/targets/moon-tranquillitatis-panorama.webp", "alt": "Apollo 11 panorama of the lunar surface at Tranquility Base", "caption": "Apollo 11 surface panorama at Tranquility Base", "credit": "NASA/JSC; photographer Harnett", "source_url": "https://images.nasa.gov/details/jsc2008e040725"},
+        {"src": "assets/targets/moon-apollo-11-site-map.webp", "alt": "NASA reference illustration locating Apollo 11 landing Site 2 in Mare Tranquillitatis over an Apollo 10 lunar photograph", "caption": "Apollo 11 Site 2 location reference for Mare Tranquillitatis", "credit": "NASA/JSC", "source_url": "https://images.nasa.gov/details/S69-38667"}
+      ],
+      "source_note": "Approximate coordinates; verify against NASA/USGS lunar mapping before use."
+    }
+  ],
+  "analog_matches": {
+    "mars": [
+      {"earth_analog_id": "atacama", "target_site_id": "meridiani-planum", "shared_features": ["dry/arid"]},
+      {"earth_analog_id": "mcmurdo", "target_site_id": "hellas-planitia", "shared_features": ["cold", "dry/arid"]},
+      {"earth_analog_id": "haughton", "target_site_id": "gale-crater", "shared_features": ["impact crater"]},
+      {"earth_analog_id": "iceland", "target_site_id": "gusev-crater", "shared_features": ["basaltic"]},
+      {"earth_analog_id": "hawaii", "target_site_id": "jezero-crater", "shared_features": ["basaltic"]}
+    ],
+    "moon": [
+      {"earth_analog_id": "hawaii", "target_site_id": "marius-hills", "shared_features": ["basaltic", "lava tubes"]},
+      {"earth_analog_id": "iceland", "target_site_id": "marius-hills", "shared_features": ["basaltic", "lava tubes"]},
+      {"earth_analog_id": "mcmurdo", "target_site_id": "shackleton-crater", "shared_features": ["polar/cold", "dry/arid"]},
+      {"earth_analog_id": "atacama", "target_site_id": "malapert-massif", "shared_features": ["dry/arid"]},
+      {"earth_analog_id": "haughton", "target_site_id": "mare-tranquillitatis-apollo-11", "shared_features": ["impact crater"]}
+    ]
+  }
+}

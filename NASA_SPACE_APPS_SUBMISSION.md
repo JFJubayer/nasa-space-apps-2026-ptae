@@ -8,12 +8,12 @@
 ---
 
 ### 🚀 High-Level Project Summary
-The **Planetary Terrestrial Analog Engine (PTAE)** is an automated geospatial platform that ingests open elevation and environmental data from NASA’s Moon, Mars, and Earth missions to quantitatively discover, score, and rank uncharted terrestrial analogs for future permanent base sites.
+The **Planetary Terrestrial Analog Engine (PTAE)** is an automated geospatial demo that quantitatively scores and ranks terrestrial analogs for future permanent base sites. The current demo uses calibrated synthetic terrain matched to published morphometrics; the pipeline is designed to accept real LOLA, MOLA, and SRTM DEMs.
 
 ---
 
 ### 📖 Detailed Project Description
-Before astronauts and rovers touch down on the Lunar South Pole (Artemis III) or the Martian surface, their equipment, habitats, life-support systems, and In-Situ Resource Utilization (ISRU) techniques must be tested in real-world extreme environments on Earth. 
+Before astronauts and rovers operate in the lunar south pole region or on the Martian surface, their equipment, habitats, life-support systems, and In-Situ Resource Utilization (ISRU) techniques must be tested in real-world extreme environments on Earth.
 
 Historically, researchers have relied on qualitative analogies (e.g., "this desert looks dry like Mars" or "this volcanic rock looks like the Moon"). However, as missions grow more complex, mission planners need **quantitative, multi-parameter physical alignment**. 
 
@@ -24,7 +24,7 @@ Historically, researchers have relied on qualitative analogies (e.g., "this dese
 
 ---
 
-### 🛰️ Space Agency Data Used
+### 🛰️ Space Agency Data Sources
 
 | Planetary Body | Mission / Source | Instrument / Dataset | Purpose |
 | :--- | :--- | :--- | :--- |
@@ -36,20 +36,24 @@ Historically, researchers have relied on qualitative analogies (e.g., "this dese
 | **Earth** | **Terra Satellite** | **ASTER GDEM & Thermal Infrared** | High-resolution elevation and multispectral mineralogy / surface temperature. |
 | **Earth** | **Landsat 8/9 & MODIS** | **NDVI & Surface Reflectance** | Vegetation filtration to isolate truly barren, space-like planetary analog zones. |
 
+These are intended sources for real-data ingestion. The current demo rankings use calibrated synthetic terrain rather than measurements from these datasets.
+
 ---
 
 ### 🎯 Key Findings & Characterized Analogs
 *Scores below are reproduced live by running `python main.py --target moon` / `--target mars` against the five candidate sites currently modeled.*
 
-1. **Top Lunar South Pole Analog — McMurdo Dry Valleys, Antarctica (ACI: 84.9%)**
+1. **Top Lunar South Pole Demo Analog on Calibrated Synthetic Terrain — McMurdo Dry Valleys, Antarctica (ACI: 82.52%)**
    - *Topographical Congruence:* Katabatic-wind-carved valley walls and frozen polygon ground produce the steep slope and fine-scale ruggedness (TRI) profile closest to lunar highland terrain around Shackleton/Faustini.
-   - *Runner-up:* Askja & Holuhraun Caldera, Iceland (ACI: 77.8%) — collapse calderas and basaltic lava tubes remain the best analog for subsurface radiation/thermal shielding, even though its topographic ACI trails McMurdo.
+   - *Runner-up:* Askja & Holuhraun Caldera, Iceland (ACI: 74.05%) — collapse calderas and basaltic lava tubes remain the best analog for subsurface radiation/thermal shielding, even though its topographic ACI trails McMurdo.
 
-2. **Top Mars Jezero Crater Analog — Mauna Kea Cinder Cones, Hawaii (ACI: 100.0%)**
+2. **Top Mars Demo Analog on Calibrated Synthetic Terrain — Mauna Kea Cinder Cones, Hawaii (ACI: 96.98%; top-ranked analog)**
    - *Topographical Congruence:* Pyroclastic cinder-cone slopes and basaltic tephra ruggedness closely match the crater-rim and delta-fan relief profile computed for Jezero.
-   - *Runner-up:* Puna de Atacama, Chile (ACI: 89.8%) — high-altitude (>4,000m), hyper-arid, perchlorate-rich terrain remains the strongest environmental/chemical analog for Martian desiccation and UV exposure.
+   - *Runner-up:* Puna de Atacama, Chile (ACI: 84.98%) — high-altitude (>4,000m), hyper-arid, perchlorate-rich terrain remains the strongest environmental/chemical analog for Martian desiccation and UV exposure.
 
-> These rankings come from the **topographic + environmental-boost ACI** (slope, TRI, relief variance, plus aridity/basalt/lava-tube priors) computed on procedurally generated DEMs calibrated to published morphometrics for each site. Swapping in the real GeoTIFF tiles fetched by `scripts/download_nasa_samples.py` recomputes these same metrics from actual LOLA/HiRISE/SRTM data without any pipeline changes.
+> These rankings come from the **topographic + environmental-boost ACI** (slope, TRI, relief variance, plus aridity/basalt/lava-tube priors) computed on calibrated synthetic DEMs matched to published morphometrics. The pipeline is designed to accept real LOLA, MOLA, and SRTM DEMs; real-data ingestion remains future work.
+
+A real-data validation using a 20 m LRO LOLA Moon target and real Askja terrain showed scale sensitivity: the top candidate changes with window size, McMurdo ranks last in all windows, and Mauna Kea and Atacama stay in the top three.
 
 ---
 

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <radialGradient id="martian" cx="29%" cy="24%" r="84%">
+      <stop offset="0" stop-color="#ffbb78"/>
+      <stop offset="0.48" stop-color="#d75d32"/>
+      <stop offset="1" stop-color="#61251f"/>
+    </radialGradient>
+    <radialGradient id="shade" cx="24%" cy="20%" r="90%">
+      <stop offset="0.45" stop-color="#230c0b" stop-opacity="0"/>
+      <stop offset="1" stop-color="#16090a" stop-opacity=".82"/>
+    </radialGradient>
+    <clipPath id="sphere"><circle cx="64" cy="64" r="58"/></clipPath>
+  </defs>
+  <circle cx="64" cy="64" r="58" fill="url(#martian)"/>
+  <g clip-path="url(#sphere)">
+    <path d="M20 47c9-8 17-9 27-5l8 8-8 7-12-1-8 6-10-4ZM72 49l13-7 16 5 5 10-8 8-15-3-8 5-9-7ZM34 82l12-8 11 5-2 10-12 7-10-4ZM77 87l11-8 14 2 5 9-10 7-13-2Z" fill="#7f3328" opacity=".7"/>
+    <path d="M24 65c12-8 21-9 31-4 8 4 14 5 23 0 12-7 20-7 31-2M34 39c10 2 15 6 20 13M69 74c9-5 17-4 26 1" fill="none" stroke="#542326" stroke-width="3.2" stroke-linecap="round" opacity=".78"/>
+    <path d="M39 17c8-7 18-11 27-11 10 0 19 4 26 11l-5 8-9 3-9-4-8 5-10-3-8 3-7-5Z" fill="#f3eee1" stroke="#fff7e8" stroke-width="1.4"/>
+    <path d="M47 20c7-4 14-5 22-3M70 24c6-2 11-1 16 2" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".78"/>
+    <g fill="#6d2b25" stroke="#f18a59" stroke-width="1.2" opacity=".9">
+      <circle cx="51" cy="48" r="4.5"/><circle cx="51" cy="48" r="2.2" fill="#a84530" stroke="none"/>
+      <circle cx="91" cy="73" r="5.5"/><circle cx="91" cy="73" r="2.8" fill="#a84530" stroke="none"/>
+      <circle cx="42" cy="95" r="3.5"/><circle cx="42" cy="95" r="1.6" fill="#a84530" stroke="none"/>
+    </g>
+    <path d="M65 59c7-5 15-6 23-2-4 3-8 5-12 8l-8 6-6-3 4-9Z" fill="#4b2524" opacity=".7"/>
+    <circle cx="64" cy="64" r="58" fill="url(#shade)"/>
+  </g>
+  <circle cx="64" cy="64" r="59" fill="none" stroke="#ffc18b" stroke-width="1.6" opacity=".82"/>
+</svg>
