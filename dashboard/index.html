@@ -5290,6 +5290,11 @@
         // SITE SELECTION
         function selectSite(site, panToSite = true) {
             selectedSite = site;
+            if (currentView !== 'earth') {
+                const match = targetSiteCatalog?.analog_matches[currentView]
+                    ?.find(entry => entry.earth_analog_id === site.id);
+                if (match) selectedTargetSiteId = match.target_site_id;
+            }
             updateSiteNavigationControls();
             if (currentView === 'earth' && !detailedMapMode) {
                 detailedMapView.center = [site.lat, site.lon];
@@ -5325,6 +5330,7 @@
             update3DAnalog(site.id);
             renderTargetAnalogPanel();
             renderTargetComparisonPanel();
+            renderTargetSiteCatalog();
             updateTargetSiteHighlights();
         }
 

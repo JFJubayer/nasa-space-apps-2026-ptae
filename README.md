@@ -126,6 +126,17 @@ This will automatically:
    - `analog_compatibility_leaderboard.png`
    - `analog_radar_comparison.png`
 
+### 3. Run Regression Tests
+```bash
+python -m pip install -r requirements-dev.txt
+python -m playwright install chromium
+python -m unittest discover -s tests -v
+```
+
+The browser tests serve the dashboard locally and block external requests. To use an installed Chrome instead of downloading Chromium, set `PTAE_TEST_BROWSER=/usr/bin/google-chrome` when running the tests. Without Playwright, the Python suite still runs and marks browser tests as skipped.
+
+Prepared DEM sidecars preserve separate X/Y ground resolution. Terrain calculations use that spacing for rectangular pixels; scalar-resolution inputs remain supported. CRS parsing uses `pyproj`, including with older supported `rasterio` releases.
+
 ---
 
 ## 🌐 Interactive Web Dashboard

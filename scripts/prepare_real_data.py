@@ -4,10 +4,10 @@
 import argparse
 import json
 import math
-import re
 from pathlib import Path
 
 import numpy as np
+from pyproj import CRS
 
 SITE_OUTPUTS = {
     "moon": "target_moon_artemis_south_pole.npy",
@@ -22,15 +22,11 @@ SITE_OUTPUTS = {
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
-def _ellipsoid_parameters(crs):
-    match = re.search(
-        r'(?:SPHEROID|ELLIPSOID)\s*\[\s*"[^"]+"\s*,\s*([\d.eE+-]+)\s*,\s*([\d.eE+-]+)',
-        crs.to_wkt(),
-        re.IGNORECASE,
-    )
-    if not match:
-        raise ValueError(f"Could not read ellipsoid parameters from CRS: {crs}")
-    return float(match.group(1)), float(match.group(2))
+def _geodetic_crs(crs):
+    geodetic = CRS.from_wkt(crs.to_wkt()).geodetic_crs
+    if geodetic is None:
+        raise ValueError("GeoTIFF CRS must define a geodetic coordinate system")
+    return geodetic
 
 
 def _geocentric_point(longitude, latitude, semi_major_axis, inverse_flattening):
@@ -60,14 +56,15 @@ def _resolution_m_per_pixel(dataset, row, col):
     ]
     from rasterio.warp import transform as reproject
 
-    geodetic_crs = dataset.crs.geodetic_crs
+    geodetic_crs = _geodetic_crs(dataset.crs)
     x_coords, y_coords = reproject(
-        dataset.crs,
-        geodetic_crs,
+        dataset.crs.to_wkt(),
+        geodetic_crs.to_wkt(),
         [point[0] for point in points],
         [point[1] for point in points],
     )
-    semi_major_axis, inverse_flattening = _ellipsoid_parameters(geodetic_crs)
+    semi_major_axis = geodetic_crs.ellipsoid.semi_major_metre
+    inverse_flattening = geodetic_crs.ellipsoid.inverse_flattening
     ground_points = [
         _geocentric_point(longitude, latitude, semi_major_axis, inverse_flattening)
         for longitude, latitude in zip(x_coords, y_coords)
@@ -87,7 +84,7 @@ def _center_lat_lon(dataset, window):
     center_x = (left + right) / 2
     center_y = (bottom + top) / 2
     try:
-        longitudes, latitudes = transform(dataset.crs, dataset.crs.geodetic_crs, [center_x], [center_y])
+        longitudes, latitudes = transform(dataset.crs, _geodetic_crs(dataset.crs).to_wkt(), [center_x], [center_y])
         return latitudes[0], longitudes[0]
     except Exception:
         return None, None
@@ -110,7 +107,7 @@ def _crop_window(dataset, window_km, center_lat, center_lon):
 
     try:
         x_coords, y_coords = transform(
-            dataset.crs.geodetic_crs, dataset.crs, [center_lon], [center_lat]
+            _geodetic_crs(dataset.crs).to_wkt(), dataset.crs, [center_lon], [center_lat]
         )
     except Exception as exc:
         raise ValueError(f"Could not transform the requested center into raster CRS: {exc}") from exc

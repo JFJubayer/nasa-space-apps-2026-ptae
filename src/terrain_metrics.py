@@ -2,11 +2,18 @@ import os
 import numpy as np
 from scipy.ndimage import generic_filter, uniform_filter
 
+def _pixel_spacing(resolution):
+    """Return row/column spacing for a scalar or a (row, column) pair."""
+    spacing = (resolution, resolution) if np.isscalar(resolution) else tuple(resolution)
+    if len(spacing) != 2 or not all(np.isfinite(value) and value > 0 for value in spacing):
+        raise ValueError("resolution must be positive finite row and column spacing")
+    return tuple(float(value) for value in spacing)
+
 def calculate_slope(dem_array, resolution=30.0):
     """
     Calculate the surface slope in degrees using central differences.
     """
-    dy, dx = np.gradient(dem_array, resolution, resolution)
+    dy, dx = np.gradient(dem_array, *_pixel_spacing(resolution))
     slope_rad = np.arctan(np.sqrt(dx**2 + dy**2))
     return np.degrees(slope_rad)
 
@@ -14,7 +21,7 @@ def calculate_aspect(dem_array, resolution=30.0):
     """
     Calculate the aspect (slope direction) in degrees (0-360, with 0=North).
     """
-    dy, dx = np.gradient(dem_array, resolution, resolution)
+    dy, dx = np.gradient(dem_array, *_pixel_spacing(resolution))
     aspect_rad = np.arctan2(-dx, dy)
     aspect_deg = np.degrees(aspect_rad)
     return np.where(aspect_deg < 0, aspect_deg + 360, aspect_deg)
@@ -70,6 +77,7 @@ def extract_terrain_signature(dem_path, resolution=30.0):
     Extracts comprehensive quantitative topographical metrics from a DEM.
     """
     dem, res = load_dem(dem_path, default_resolution=resolution)
+    row_resolution, column_resolution = _pixel_spacing(res)
     
     # Filter out NaNs if any
     valid_mask = ~np.isnan(dem)
@@ -91,6 +99,8 @@ def extract_terrain_signature(dem_path, resolution=30.0):
         "tri_std": float(np.nanstd(tri)),
         "tri_max": float(np.nanmax(tri)),
         "tpi_std": float(np.nanstd(tpi)),
-        "resolution_m": float(res)
+        "resolution_m": float(np.sqrt(row_resolution * column_resolution)),
+        "resolution_x_m": column_resolution,
+        "resolution_y_m": row_resolution
     }
     return signature, dem, slope, tri

@@ -109,6 +109,15 @@ def _resolution_for_dem(dem_path, use_existing_data):
 
     with open(sidecar_path, encoding="utf-8") as sidecar:
         metadata = json.load(sidecar)
+    axes = metadata.get("output_ground_resolution_axes_m_per_pixel")
+    if isinstance(axes, dict):
+        spacing = (axes.get("y"), axes.get("x"))
+        if all(
+            not isinstance(value, bool) and isinstance(value, (int, float))
+            and math.isfinite(value) and value > 0
+            for value in spacing
+        ):
+            return tuple(float(value) for value in spacing)
     resolution = metadata.get("output_ground_resolution_m_per_pixel")
     if isinstance(resolution, bool) or not isinstance(resolution, (int, float)) or not math.isfinite(resolution) or resolution <= 0:
         print(f"WARNING: Sidecar '{os.path.basename(sidecar_path)}' has no valid output ground resolution; using {default_resolution} m/pixel.")

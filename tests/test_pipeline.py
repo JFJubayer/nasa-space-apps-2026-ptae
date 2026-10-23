@@ -4,18 +4,19 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import patch
 
 import numpy as np
 import main
-from src.terrain_metrics import calculate_slope, calculate_tri
+from src.terrain_metrics import calculate_aspect, calculate_slope, calculate_tri
 from src.synthetic_generator import generate_all_datasets
 from src.similarity_matcher import (
     compute_metric_similarity,
     calculate_analog_compatibility_index,
     rank_candidates,
 )
-from scripts.prepare_real_data import prepare_geotiff
+from scripts.prepare_real_data import _resolution_m_per_pixel, prepare_geotiff
 from scripts.window_sensitivity import build_comparison_table
 
 try:
@@ -494,6 +495,65 @@ class TestPipelineDataModes(unittest.TestCase):
 
 
 class TestRealDataPreparation(unittest.TestCase):
+
+    def test_sidecar_preserves_axis_spacing_and_falls_back_for_invalid_axes(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            dem_path = Path(temp_dir) / "earth_iceland_askja.npy"
+            sidecar_path = dem_path.with_suffix(".json")
+            metadata = {
+                "output_ground_resolution_m_per_pixel": 42.5,
+                "output_ground_resolution_axes_m_per_pixel": {"x": 60.0, "y": 30.0},
+            }
+            sidecar_path.write_text(json.dumps(metadata), encoding="utf-8")
+            self.assertEqual(main._resolution_for_dem(str(dem_path), True), (30.0, 60.0))
+
+            for invalid_value in (0, -1, True, "30", None):
+                metadata["output_ground_resolution_axes_m_per_pixel"]["x"] = invalid_value
+                sidecar_path.write_text(json.dumps(metadata), encoding="utf-8")
+                with self.subTest(value=invalid_value):
+                    self.assertEqual(main._resolution_for_dem(str(dem_path), True), 42.5)
+
+    def test_slope_and_aspect_accept_separate_row_and_column_spacing(self):
+        rows, columns = np.indices((20, 30))
+        dem = rows * 30.0 + columns * 60.0
+        slope = calculate_slope(dem, resolution=(30.0, 60.0))
+        aspect = calculate_aspect(dem, resolution=(30.0, 60.0))
+        np.testing.assert_allclose(slope, np.degrees(np.arctan(np.sqrt(2.0))))
+        np.testing.assert_allclose(aspect, 315.0)
+
+    @unittest.skipIf(rasterio is None, "rasterio is not installed; skipping CRS compatibility test")
+    def test_ground_resolution_uses_portable_crs_interface(self):
+        legacy_crs = SimpleNamespace(to_wkt=rasterio.crs.CRS.from_epsg(32633).to_wkt)
+        dataset = SimpleNamespace(
+            crs=legacy_crs,
+            transform=from_origin(500000, 5200000, 30, 30),
+        )
+        x_resolution, y_resolution = _resolution_m_per_pixel(dataset, 2, 3)
+        self.assertAlmostEqual(x_resolution, 30.012, delta=0.01)
+        self.assertAlmostEqual(y_resolution, 30.012, delta=0.01)
+
+    @unittest.skipIf(rasterio is None, "rasterio is not installed; skipping rectangular DEM test")
+    def test_rectangular_dem_preparation_preserves_plane_slope(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            source = Path(temp_dir) / "ramp.tif"
+            dem = np.tile(np.arange(80, dtype=np.float32) * 30.0, (40, 1))
+            with rasterio.open(
+                source, "w", driver="GTiff", height=40, width=80, count=1,
+                dtype="float32", crs="EPSG:32633",
+                transform=from_origin(500000, 5200000, 30, 30),
+            ) as dataset:
+                dataset.write(dem, 1)
+
+            output_path, _ = prepare_geotiff(
+                source, "iceland", "Controlled 45-degree ramp", size=40,
+                output_dir=Path(temp_dir) / "data",
+            )
+            resolution = main._resolution_for_dem(str(output_path), True)
+            signature, _, slope, _ = main.extract_terrain_signature(
+                str(output_path), resolution=resolution
+            )
+            self.assertAlmostEqual(float(np.mean(slope[2:-2, 2:-2])), 45.0, delta=0.05)
+            self.assertAlmostEqual(signature["slope_mean"], 45.0, delta=0.5)
 
     @unittest.skipIf(rasterio is None, "rasterio is not installed; skipping GeoTIFF conversion test")
     def test_geotiff_converts_to_expected_npy_and_metadata(self):
