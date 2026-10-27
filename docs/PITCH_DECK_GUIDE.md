@@ -6,7 +6,9 @@ This guide provides a slide-by-slide structure, talking points, and a 30-second 
 ---
 
 ### ⏱️ The 30-Second Elevator Pitch
-> *"Before astronauts travel to the lunar south pole region or touch down on Mars, every habitat, rover, and spacesuit must be rigorously stress-tested on Earth. But today, analog sites are chosen mostly by guesswork and qualitative impressions. We built **PTAE**, a demo that scores calibrated synthetic terrain matched to published morphometrics to discover and rank planetary analogs. The pipeline is designed to accept real LOLA, MOLA, and SRTM DEMs. Using our Analog Compatibility Index, we can identify promising locations on Earth—from Icelandic lava tubes to Antarctic dry valleys—that can help prepare crews for other worlds."*
+> *"Before astronauts travel to the lunar south pole region or Mars, their equipment is tested on Earth. We built **PTAE** to compare terrain statistics from 20 Earth field sites against lunar and Martian target DEMs. The current real-data results rank Teide at 87.22% for the Moon target and Kilauea at 55.84% for Jezero. These ACI values measure terrain-statistics similarity, not mission suitability; Mars and Earth DEM resolutions differ."*
+
+The new sensitivity analysis covers only center crops of the existing window (no larger windows); mappings for added sites are provisional; the default synthetic demo and legacy `results.json` cover only the original five sites.
 
 ---
 
@@ -32,27 +34,28 @@ This guide provides a slide-by-slide structure, talking points, and a 30-second 
   - Automated quantitative matching engine.
   - Combines Surface Slope, Riley's Terrain Ruggedness (TRI), and Relief Variance.
   - Introduces the **Analog Compatibility Index (ACI)**.
-- **Speaker Script:** "We developed PTAE. Our demo uses calibrated synthetic terrain matched to published morphometrics to calculate slope, roughness, and relief variance, then scores Earth candidates; the pipeline is designed to accept real LOLA, MOLA, and SRTM DEMs."
+- **Speaker Script:** "We developed PTAE. Its current ranking uses a south-polar LRO LOLA target, a Jezero MOLA target, and AWS Terrain Tiles DEM windows for 20 Earth candidates. Prepared 300-by-300 grids feed slope, roughness, and elevation-variation metrics into the ACI."
 
 #### Slide 4: Scientific Methodology
 - **Visual:** Side-by-side heatmaps of Elevation, Slope, and TRI; formula for ACI.
 - **Key Points:**
   - **Slope ($^\circ$):** Critical for rover mobility, landing stability, and traverse routing.
   - **TRI (Terrain Ruggedness Index):** Quantifies micro-scale roughness and wheel-trap hazards.
-  - **Environmental Modifiers:** Basaltic composition, hyper-aridity, and presence of lava tubes.
-- **Speaker Script:** "Rather than just looking at pictures, we calculate the Riley Terrain Ruggedness Index and slope vectors across hundreds of square kilometers. We then score candidates against mission safety profiles."
+  - **Environmental Modifiers:** Additive catalog-flag bonus for basaltic terrain, hyper-aridity, and lava tubes.
+- **Speaker Script:** "Rather than just looking at pictures, we compare slope and Riley's Terrain Ruggedness Index as terrain statistics; the DEM windows differ in resolution and physical footprint. A fixed weighted similarity model ranks those statistics; it is not a validated mission-safety profile."
 
 #### Slide 5: The Top Discoveries
 - **Visual:** Leaderboard ranking + radar chart screenshot from our dashboard.
 - **Key Discoveries:**
-  - **#1 Moon Demo Analog (calibrated synthetic terrain):** *McMurdo Dry Valleys, Antarctica (82.52% ACI)* — katabatic-carved slopes and fine-scale ruggedness matching lunar highland micro-roughness; Iceland's Askja Caldera is #2 (74.05%) for its lava-tube shielding.
-  - **#1 Mars Demo Analog (calibrated synthetic terrain):** *Mauna Kea Cinder Cones, Hawaii (96.98% ACI; top-ranked analog)* — basaltic cinder-cone slopes mirroring Jezero Crater's rim and delta relief.
-- **Speaker Script:** "Live, right now, our calibrated-synthetic-terrain demo ranks McMurdo Dry Valleys as an 82.52% topographic match for the lunar south pole region, with Askja at 74.05% — and Mauna Kea's cinder cones as the top Mars match at 96.98%, a top-ranked analog. Every number on this leaderboard is reproducible in under ten seconds by running `python main.py`. A real-data validation using a 20 m LRO LOLA Moon target and real Askja terrain showed scale sensitivity: the top candidate changes with window size, McMurdo ranks last in all windows, and Mauna Kea and Atacama stay in the top three."
+  - **#1 Moon terrain-statistics match:** *Teide / Tenerife Volcanic Field (87.22% ACI)*; runner-up *Mount Etna (86.79%)*.
+  - **#1 Mars terrain-statistics match:** *Kilauea Volcanic Field (55.84% ACI)*; runner-up *Craters of the Moon, Idaho (54.99%)*.
+- **Speaker Script:** "Our current sidecar-backed results rank Teide first for the lunar target at 87.22%, with Etna second at 86.79%. For Jezero, Kilauea ranks first at 55.84%, followed by Craters of the Moon at 54.99%. These are terrain-statistics similarities, not evidence of mission suitability. The Mars target is about 334 meters per pixel while the Earth windows are about 33 meters per pixel, so Mars scores are indicative and not directly comparable."
+- **Reproduce the current rankings:** Run `python scripts/fetch_site_dems.py`, then run `python main.py --target moon --use-existing-data --data-dir data_real --no-vis --json-out dashboard/results_moon.json` and the corresponding `--target mars` command for `dashboard/results_mars.json`.
 
 #### Slide 6: Interactive Demo (Live Walkthrough)
-- **Visual:** Screenshot of `dashboard/index.html` with active markers, Leaflet map, and radar charts.
+- **Visual:** Screenshot of `dashboard/index.html` with the CesiumJS globe, 20 Earth candidate markers, and radar chart; Leaflet is the Earth fallback.
 - **Key Action:** Switch between Moon and Mars target in the live UI.
-- **Speaker Script:** "We built an intuitive, responsive dashboard. In one click, mission teams can switch between Artemis Lunar South Pole and Mars Jezero Crater, viewing global candidates with instant quantitative breakdowns."
+- **Speaker Script:** "We built a responsive dashboard that loads all 20 catalog-listed Earth sites, their JSON rankings, and per-site DEM provenance. Teams can switch between Earth, the lunar south-pole target, and Jezero, then inspect site details and the current target's ACI breakdown."
 
 #### Slide 7: Vision & Future Impact
 - **Visual:** Astronaut on lunar surface pointing to future roadmap.
@@ -60,4 +63,4 @@ This guide provides a slide-by-slide structure, talking points, and a 30-second 
   - Google Earth Engine global continuous scanning.
   - Integration with mineralogical spectrometer data (CRISM / ASTER).
   - Open-source tool for NASA Artemis and international space agencies.
-- **Speaker Script:** "By pairing calibrated terrain signatures with automated spatial analytics, PTAE helps identify the best ground on Earth for testing crews and rovers before they travel to other worlds. Thank you!"
+- **Speaker Script:** "By pairing DEM-derived terrain statistics with a reproducible ranking workflow, PTAE helps researchers compare candidate field sites. The scores are exploratory terrain similarities, not proof that a site is the best or operationally suitable test ground. Thank you!"

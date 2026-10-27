@@ -1,0 +1,39 @@
+{
+  "source_file": "aws_terrain_tiles_mosaic.tif",
+  "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+  "original_ground_resolution_m_per_pixel": 16.633662,
+  "output_ground_resolution_m_per_pixel": 33.378215,
+  "original_ground_resolution_axes_m_per_pixel": {
+    "x": 16.636348,
+    "y": 16.630976
+  },
+  "output_ground_resolution_axes_m_per_pixel": {
+    "x": 33.383606,
+    "y": 33.372824
+  },
+  "center_lat": -77.47,
+  "center_lon": 162.27,
+  "bounds": {
+    "left": 18040743.852895584,
+    "bottom": -14113867.961772943,
+    "right": 18086758.943923257,
+    "top": -14067852.870745266,
+    "crs": "EPSG:3857"
+  },
+  "output_size": [
+    300,
+    300
+  ],
+  "resampling": "bilinear",
+  "site_id": "mcmurdo_dry_valleys",
+  "source_tile_zoom": 10,
+  "source_tile_urls": [
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/972/871.tif",
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/973/871.tif",
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/974/871.tif",
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/972/872.tif",
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/973/872.tif",
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/974/872.tif"
+  ],
+  "coordinate_verification_required": true
+}

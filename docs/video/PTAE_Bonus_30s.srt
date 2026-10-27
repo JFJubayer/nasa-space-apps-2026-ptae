@@ -12,36 +12,36 @@ sites are picked by guesswork. We built PTAE:
 
 4
 00:00:07,152 --> 00:00:09,732
-the demo scores Earth candidates against
+current results compare 20 real Earth DEMs:
 
 5
 00:00:09,743 --> 00:00:12,164
-calibrated synthetic terrain matched to
+AWS terrain for Earth, LOLA for the Moon,
 
 6
 00:00:12,175 --> 00:00:14,073
-published morphometrics; the pipeline is designed
+and MOLA for Mars. The synthetic demo
 
 7
 00:00:14,084 --> 00:00:15,936
-for real LOLA, MOLA, and SRTM DEMs.
+is a separate five-site illustration.
 
 8
 00:00:16,266 --> 00:00:18,720
-McMurdo Dry Valleys scores 82.52% for
+Teide leads the Moon ranking at 87.22%;
 
 9
 00:00:18,732 --> 00:00:21,550
-the lunar south pole; in that synthetic-terrain demo, Mauna Kea in Hawaii
+Kilauea leads the Mars ranking at 55.84%.
 
 10
 00:00:21,561 --> 00:00:24,289
-is the top Mars match at 96.98%, a
+Different DEM scales make these indicative,
 
 11
 00:00:24,300 --> 00:00:27,209
-top-ranked analog — reproducible live, in one command.
+not proof that a field site is mission-suitable.
 
 12
 00:00:27,539 --> 00:00:30,209
-PTAE turns guesswork into a verifiable number.
+PTAE compares terrain statistics, not mission safety.

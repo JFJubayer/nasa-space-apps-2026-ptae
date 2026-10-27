@@ -21,6 +21,91 @@ from src.synthetic_generator import generate_all_datasets
 from src.visualizer import plot_dem_suite, plot_analog_leaderboard, plot_radar_comparison, export_json_summary
 
 ACI_METRICS = ("slope_mean", "slope_std", "tri_mean", "tri_std", "elevation_std")
+SITE_CATALOG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "sites.json")
+
+
+def load_earth_site_catalog(catalog_path=None):
+    if catalog_path is None:
+        catalog_path = SITE_CATALOG_PATH
+    with open(catalog_path, encoding="utf-8") as catalog_file:
+        catalog = json.load(catalog_file)
+
+    sites = catalog.get("sites") if isinstance(catalog, dict) else None
+    if not isinstance(sites, list) or not sites:
+        raise ValueError("Earth site catalog must include a non-empty sites list.")
+
+    sites_by_id = {}
+    metadata = {}
+    required_fields = (
+        "site_id", "name", "country", "lat", "lon", "window_km",
+        "flags", "analog_for", "short_description", "verify_coordinates_manually",
+    )
+    required_flags = ("hyper_arid", "basaltic", "lava_tubes")
+    for site in sites:
+        if not isinstance(site, dict) or any(
+            field not in site or site[field] is None or site[field] == ""
+            for field in required_fields
+        ):
+            raise ValueError("Each Earth site must include all required catalog fields.")
+
+        site_id = site["site_id"]
+        if (
+            not isinstance(site_id, str)
+            or not site_id
+            or not site_id[0].islower()
+            or not site_id.replace("_", "").isalnum()
+            or site_id in sites_by_id
+        ):
+            raise ValueError(f"Invalid or duplicate Earth site_id: {site_id!r}")
+
+        for coordinate, lower, upper in (("lat", -90, 90), ("lon", -180, 180)):
+            value = site[coordinate]
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or not lower <= value <= upper:
+                raise ValueError(f"Earth site '{site_id}' has an invalid {coordinate}.")
+
+        window_km = site["window_km"]
+        if isinstance(window_km, bool) or not isinstance(window_km, (int, float)) or not math.isfinite(window_km) or window_km <= 0:
+            raise ValueError(f"Earth site '{site_id}' has an invalid window_km.")
+
+        flags = site["flags"]
+        if not isinstance(flags, dict) or any(
+            not isinstance(flags.get(flag), bool) for flag in required_flags
+        ):
+            raise ValueError(f"Earth site '{site_id}' must have Boolean hyper_arid, basaltic, and lava_tubes flags.")
+
+        analog_for = site["analog_for"]
+        if not isinstance(analog_for, list) or not analog_for or any(body not in ("moon", "mars") for body in analog_for):
+            raise ValueError(f"Earth site '{site_id}' analog_for must contain moon and/or mars.")
+        if not isinstance(site["verify_coordinates_manually"], bool):
+            raise ValueError(f"Earth site '{site_id}' must state whether coordinates need manual verification.")
+
+        if not isinstance(site["name"], str) or not site["name"].strip() or not isinstance(site["country"], str) or not site["country"].strip() or not isinstance(site["short_description"], str) or not site["short_description"].strip():
+            raise ValueError(f"Earth site '{site_id}' has invalid descriptive fields.")
+
+        sites_by_id[site_id] = site
+        type_flags = [
+            label for key, label in (
+                ("hyper_arid", "Hyper-arid"),
+                ("basaltic", "Basaltic"),
+                ("lava_tubes", "Lava tubes"),
+            ) if flags[key]
+        ]
+        metadata[f"earth_{site_id}"] = {
+            "name": site["name"],
+            "country": site["country"],
+            "lat": float(site["lat"]),
+            "lon": float(site["lon"]),
+            "type": " / ".join(type_flags) or "Terrestrial analog terrain",
+            "primary_analog_for": " & ".join(body.title() for body in analog_for),
+            "is_hyper_arid": flags["hyper_arid"],
+            "is_basaltic": flags["basaltic"],
+            "has_lava_tubes": flags["lava_tubes"],
+            "description": site["short_description"],
+            "analog_for": analog_for,
+            "window_km": float(window_km),
+            "verify_coordinates_manually": site["verify_coordinates_manually"],
+        }
+    return sites, metadata
 
 
 def load_target_site_catalog(catalog_path=None):
@@ -118,7 +203,7 @@ def _resolution_for_dem(dem_path, use_existing_data):
 
 def run_pipeline(target_key="moon", generate=True, visualize=True, output_dir="results", json_output_path=None, use_existing_data=False, data_dir="data"):
     print("=" * 70)
-    print("🚀 NASA SPACE APPS CHALLENGE 2026: PLANETARY ANALOG FINDER")
+    print("NASA SPACE APPS CHALLENGE 2026: PLANETARY ANALOG FINDER")
     print("   Identifying Terrestrial Analogs for Moon and Mars Base Locations")
     print("=" * 70)
     
@@ -136,12 +221,8 @@ def run_pipeline(target_key="moon", generate=True, visualize=True, output_dir="r
     # 1. Dataset Generation / Check
     existing_candidate_files = None
     if use_existing_data:
-        dataset_paths, metadata = generate_all_datasets(data_dir=data_dir, generate=False)
-        existing_candidate_files = [
-            os.path.basename(path)
-            for path in dataset_paths
-            if os.path.basename(path).startswith("earth_")
-        ]
+        site_records, metadata = load_earth_site_catalog()
+        existing_candidate_files = [f"earth_{site['site_id']}.npy" for site in site_records]
         required_files = [target_file] + [
             os.path.join(data_dir, filename) for filename in existing_candidate_files
         ]
@@ -167,16 +248,16 @@ def run_pipeline(target_key="moon", generate=True, visualize=True, output_dir="r
     target_sig, target_dem, target_slope, target_tri = extract_terrain_signature(
         target_file, resolution=target_resolution
     )
-    print(f"    • Mean Slope:         {target_sig['slope_mean']:.2f}° (± {target_sig['slope_std']:.2f}°)")
-    print(f"    • Ruggedness (TRI):   {target_sig['tri_mean']:.2f}")
-    print(f"    • Elevation Range:    {target_sig['elevation_min']:.1f}m to {target_sig['elevation_max']:.1f}m")
+    print(f"    - Mean Slope:         {target_sig['slope_mean']:.2f} deg (+/- {target_sig['slope_std']:.2f} deg)")
+    print(f"    - Ruggedness (TRI):   {target_sig['tri_mean']:.2f}")
+    print(f"    - Elevation Range:    {target_sig['elevation_min']:.1f}m to {target_sig['elevation_max']:.1f}m")
 
     # 3. Analyze Earth Candidates
     print("\n[Step 3/4] Evaluating candidate terrestrial environments...")
     if use_existing_data:
         candidate_files = existing_candidate_files
     else:
-        candidate_files = [f for f in os.listdir(data_dir) if f.startswith("earth_") and f.endswith((".npy", ".tif"))]
+        candidate_files = [f for f in os.listdir(data_dir) if f.startswith("earth_") and f.endswith(".npy")]
     
     candidates_dict = {}
     candidate_caches = {}
@@ -207,7 +288,7 @@ def run_pipeline(target_key="moon", generate=True, visualize=True, output_dir="r
     
     top_candidate = rankings[0]
     top_name = top_candidate["metadata"].get("name", top_candidate["site_name"])
-    print(f"\n🏆 TOP CANDIDATE IDENTIFIED: {top_name}")
+    print(f"\nTOP CANDIDATE IDENTIFIED: {top_name}")
     print(f"   Analog Compatibility Index: {top_candidate['aci']}%")
     print(f"   Sub-scores:")
     for metric, score in top_candidate["sub_scores"].items():
@@ -252,10 +333,10 @@ def run_pipeline(target_key="moon", generate=True, visualize=True, output_dir="r
         json_file = export_json_summary(rankings, target_display_name, os.path.join(output_dir, "summary.json"))
         print(f" -> Exported quantitative summary to '{json_file}'")
         print(f" -> High-res plots saved in '{output_dir}/':")
-        print("    • target_terrain_suite.png")
-        print("    • top_analog_terrain_suite.png")
-        print("    • analog_compatibility_leaderboard.png")
-        print("    • analog_radar_comparison.png")
+        print("    - target_terrain_suite.png")
+        print("    - top_analog_terrain_suite.png")
+        print("    - analog_compatibility_leaderboard.png")
+        print("    - analog_radar_comparison.png")
 
     if json_output_path:
         json_file = export_ranked_results(
@@ -268,7 +349,7 @@ def run_pipeline(target_key="moon", generate=True, visualize=True, output_dir="r
         )
         print(f" -> Exported ranked candidate details to '{json_file}'")
         
-    print("\n✅ Pipeline complete! Open 'dashboard/index.html' to interact with the visual web map.")
+    print("\nOK: Pipeline complete. Open 'dashboard/index.html' to interact with the visual web map.")
     return rankings
 
 def main():

@@ -2,186 +2,1060 @@
   "target": "mars",
   "target_name": "Mars (Jezero Crater - Delta & Rim)",
   "target_terrain_metrics": {
-    "slope_mean": 16.26752234190733,
-    "slope_std": 8.062483989950868,
-    "tri_mean": 33.466073452004245,
-    "tri_std": 11.697979658582662,
-    "elevation_std": 168.63811648935274
+    "slope_mean": 3.1809005495155294,
+    "slope_std": 3.061924144079334,
+    "tri_mean": 47.16696116283884,
+    "tri_std": 44.39986808284868,
+    "elevation_std": 409.4389252575134
   },
+  "target_sites": [
+    {
+      "id": "jezero-crater",
+      "name": "Jezero Crater",
+      "body": "Mars",
+      "lat": 18.4,
+      "lon": 77.6,
+      "coords_approximate": true,
+      "short_description": "Impact crater with an ancient lake and delta region.",
+      "key_features": [
+        "ancient lake/delta",
+        "impact crater",
+        "basaltic",
+        "dry/arid"
+      ],
+      "mission_relevance": "Mars 2020 Perseverance landing and sample-cache region.",
+      "images": [
+        {
+          "src": "assets/targets/mars-jezero-landing-site.webp",
+          "alt": "Orbital image marking Perseverance's landing spot in Jezero Crater",
+          "caption": "Perseverance landing location in Jezero Crater",
+          "credit": "NASA/JPL-Caltech/University of Arizona",
+          "source_url": "https://science.nasa.gov/photojournal/perseverances-landing-spot-in-jezero-crater"
+        },
+        {
+          "src": "assets/targets/mars-jezero-rover-floor.webp",
+          "alt": "Perseverance rover mosaic of terrain on the floor of Jezero Crater",
+          "caption": "Perseverance view across the Jezero crater floor",
+          "credit": "NASA/JPL-Caltech",
+          "source_url": "https://science.nasa.gov/photojournal/the-end-of-one-drive-by-perseverance-on-the-floor-of-jezero-crater"
+        }
+      ],
+      "source_note": "Approximate coordinates; verify against NASA/USGS mission cartography before use."
+    },
+    {
+      "id": "gale-crater",
+      "name": "Gale Crater",
+      "body": "Mars",
+      "lat": -5.4,
+      "lon": 137.8,
+      "coords_approximate": true,
+      "short_description": "Impact crater containing a layered central mound and evidence of past water.",
+      "key_features": [
+        "ancient lake",
+        "impact crater",
+        "sedimentary layers",
+        "dry/arid"
+      ],
+      "mission_relevance": "Curiosity rover exploration region.",
+      "images": [
+        {
+          "src": "assets/targets/mars-gale-curiosity-landing.webp",
+          "alt": "Orbital view of Gale Crater showing the Curiosity landing location",
+          "caption": "Gale Crater, selected landing site for Curiosity",
+          "credit": "NASA/JPL-Caltech/University of Arizona",
+          "source_url": "https://science.nasa.gov/photojournal/gale-crater-the-selected-landing-site-for-curiosity"
+        },
+        {
+          "src": "assets/targets/mars-gale-odyssey-view.webp",
+          "alt": "NASA Mars Odyssey view of part of Gale Crater",
+          "caption": "Orbital view of Gale Crater",
+          "credit": "NASA/JPL-Caltech/ASU",
+          "source_url": "https://science.nasa.gov/photojournal/gale-crater-9"
+        }
+      ],
+      "source_note": "Approximate coordinates; verify against NASA/USGS mission cartography before use."
+    },
+    {
+      "id": "gusev-crater",
+      "name": "Gusev Crater",
+      "body": "Mars",
+      "lat": -14.5,
+      "lon": 175.5,
+      "coords_approximate": true,
+      "short_description": "Impact crater with volcanic terrain and evidence of past water activity.",
+      "key_features": [
+        "impact crater",
+        "basaltic",
+        "volcanic",
+        "ancient lake"
+      ],
+      "mission_relevance": "Spirit rover landing and exploration region.",
+      "images": [
+        {
+          "src": "assets/targets/mars-gusev-maadim-vallis.webp",
+          "alt": "Orbital image of Maadim Vallis where it intersects Gusev Crater",
+          "caption": "Maadim Vallis at Gusev Crater",
+          "credit": "NASA/JPL/ASU",
+          "source_url": "https://science.nasa.gov/photojournal/maadim-vallis-2"
+        },
+        {
+          "src": "assets/targets/mars-gusev-rippled-sands.webp",
+          "alt": "Rippled sand deposits photographed by the Spirit rover in Gusev Crater",
+          "caption": "Ripply sand deposits in Gusev Crater",
+          "credit": "NASA/JPL-Caltech/Cornell",
+          "source_url": "https://science.nasa.gov/photojournal/intricately-rippled-sand-deposits"
+        }
+      ],
+      "source_note": "Approximate coordinates; verify against NASA/USGS mission cartography before use."
+    },
+    {
+      "id": "meridiani-planum",
+      "name": "Meridiani Planum",
+      "body": "Mars",
+      "lat": -2.0,
+      "lon": 354.5,
+      "coords_approximate": true,
+      "short_description": "Equatorial plains with sedimentary deposits and hematite-bearing formations.",
+      "key_features": [
+        "dry/arid",
+        "sedimentary plains",
+        "hematite"
+      ],
+      "mission_relevance": "Opportunity rover exploration region.",
+      "images": [
+        {
+          "src": "assets/targets/mars-meridiani-crater-map.webp",
+          "alt": "Orbital context map showing Opportunity among craters in the Meridiani Planum region",
+          "caption": "Opportunity among craters in Meridiani Planum",
+          "credit": "NASA/JPL-Caltech/Malin Space Science Systems",
+          "source_url": "https://science.nasa.gov/photojournal/opportunity-amid-mars-craters"
+        },
+        {
+          "src": "assets/targets/mars-meridiani-odyssey-view.webp",
+          "alt": "NASA Mars Odyssey orbital image of Meridiani Planum",
+          "caption": "Orbital view of Meridiani Planum",
+          "credit": "NASA/JPL/ASU",
+          "source_url": "https://science.nasa.gov/photojournal/pj-meridiani-2"
+        }
+      ],
+      "source_note": "Approximate coordinates; verify against NASA/USGS mission cartography before use."
+    },
+    {
+      "id": "oxia-planum",
+      "name": "Oxia Planum",
+      "body": "Mars",
+      "lat": 18.2,
+      "lon": 335.4,
+      "coords_approximate": true,
+      "short_description": "Ancient terrain with clay-bearing deposits and a record of past water.",
+      "key_features": [
+        "ancient lake",
+        "clay-bearing plains",
+        "impact crater"
+      ],
+      "mission_relevance": "Selected ExoMars Rosalind Franklin rover landing region.",
+      "images": [
+        {
+          "src": "assets/targets/mars-oxia-landing-region.webp",
+          "alt": "NASA Mars Reconnaissance Orbiter image of the proposed Oxia Planum landing region",
+          "caption": "Proposed landing region in Oxia Planum",
+          "credit": "NASA/JPL-Caltech/University of Arizona",
+          "source_url": "https://science.nasa.gov/photojournal/possible-future-mars-landing-site-in-oxia-planum"
+        },
+        {
+          "src": "assets/targets/mars-oxia-clay-terrain.webp",
+          "alt": "Orbital image of clay-rich terrain at Oxia Planum",
+          "caption": "Clay-rich terrain in Oxia Planum",
+          "credit": "NASA/JPL-Caltech/University of Arizona",
+          "source_url": "https://science.nasa.gov/photojournal/clay-rich-terrain-in-oxia-planum-a-proposed-exomars-landing-site"
+        }
+      ],
+      "source_note": "Approximate coordinates; verify against ESA/NASA/USGS mission cartography before use."
+    },
+    {
+      "id": "hellas-planitia",
+      "name": "Hellas Planitia",
+      "body": "Mars",
+      "lat": -42.0,
+      "lon": 70.0,
+      "coords_approximate": true,
+      "short_description": "Large southern impact basin with cold, dry regional conditions.",
+      "key_features": [
+        "impact basin",
+        "cold",
+        "dry/arid"
+      ],
+      "mission_relevance": "Regional context for studying large impact basins and cold-climate processes.",
+      "images": [
+        {
+          "src": "assets/targets/mars-hellas-crater-structure.webp",
+          "alt": "Orbital image of layered structure in the northwestern Hellas Basin",
+          "caption": "Intra-crater structure in northwestern Hellas Basin",
+          "credit": "NASA/JPL-Caltech/University of Arizona",
+          "source_url": "https://science.nasa.gov/photojournal/intra-crater-structure-in-nw-hellas-basin-mars"
+        },
+        {
+          "src": "assets/targets/mars-hellas-dunes.webp",
+          "alt": "NASA Mars Odyssey view of dunes on the western margin of Hellas Planitia",
+          "caption": "Dunes at Hellas Planitia",
+          "credit": "NASA/JPL/ASU",
+          "source_url": "https://science.nasa.gov/photojournal/hellas-dunes-3"
+        }
+      ],
+      "source_note": "Approximate coordinates; verify against NASA/USGS regional mapping before use."
+    }
+  ],
+  "analog_matches": [
+    {
+      "earth_analog_id": "atacama",
+      "target_site_id": "meridiani-planum",
+      "shared_features": [
+        "dry/arid"
+      ]
+    },
+    {
+      "earth_analog_id": "mcmurdo",
+      "target_site_id": "hellas-planitia",
+      "shared_features": [
+        "cold",
+        "dry/arid"
+      ]
+    },
+    {
+      "earth_analog_id": "haughton",
+      "target_site_id": "gale-crater",
+      "shared_features": [
+        "impact crater"
+      ]
+    },
+    {
+      "earth_analog_id": "iceland",
+      "target_site_id": "gusev-crater",
+      "shared_features": [
+        "basaltic"
+      ]
+    },
+    {
+      "earth_analog_id": "hawaii",
+      "target_site_id": "jezero-crater",
+      "shared_features": [
+        "basaltic"
+      ]
+    }
+  ],
+  "analog_match_basis": "Qualitative shared-feature mapping; not ACI.",
   "rankings": [
     {
       "rank": 1,
-      "site_name": "Mauna Kea Cinder Cones",
-      "site_id": "earth_hawaii_mauna_kea",
-      "base_topographic_score": 93.65,
+      "site_name": "Kilauea Volcanic Field",
+      "site_id": "earth_kilauea_hawaii",
+      "base_topographic_score": 52.51,
       "applied_bonus": 3.33,
-      "aci": 96.98,
+      "aci": 55.84,
       "capped": false,
       "terrain_metrics": {
-        "slope_mean": 16.77027713243968,
-        "slope_std": 8.183092707484871,
-        "tri_mean": 38.04790694935318,
-        "tri_std": 14.147371325122405,
-        "elevation_std": 101.14321191785358
+        "slope_mean": 3.5484888090666074,
+        "slope_std": 4.545051272327596,
+        "tri_mean": 5.548890596066222,
+        "tri_std": 7.4019135542100845,
+        "elevation_std": 103.31985862208153
       },
       "sub_scores": {
-        "slope_mean": 99.8,
-        "slope_std": 100.0,
-        "tri_mean": 96.3,
-        "tri_std": 91.6,
-        "elevation_std": 72.6
+        "slope_mean": 97.4,
+        "slope_std": 62.5,
+        "tri_mean": 21.1,
+        "tri_std": 24.9,
+        "elevation_std": 32.7
       },
       "metadata": {
-        "name": "Mauna Kea Cinder Cones",
-        "country": "USA (Hawaii)",
-        "lat": 19.82,
-        "lon": -155.47,
-        "type": "Basaltic Tephra & Pyroclastic Cones",
-        "primary_analog_for": "Moon (Lunar Regolith Simulant)",
+        "name": "Kilauea Volcanic Field",
+        "country": "United States (Hawaii)",
+        "lat": 19.42,
+        "lon": -155.29,
+        "type": "Basaltic / Lava tubes",
+        "primary_analog_for": "Moon & Mars",
+        "is_hyper_arid": false,
         "is_basaltic": true,
         "has_lava_tubes": true,
-        "is_hyper_arid": false,
-        "description": "Sub-alpine basaltic volcanic tephra cones used historically as the reference source for JSC-1A lunar regolith simulant and rover mobility tests."
+        "description": "Active shield-volcano terrain with basaltic flows, pits, and lava-tube systems.",
+        "analog_for": [
+          "moon",
+          "mars"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
       }
     },
     {
       "rank": 2,
-      "site_name": "Puna de Atacama",
-      "site_id": "earth_atacama_puna",
-      "base_topographic_score": 81.65,
+      "site_name": "Craters of the Moon",
+      "site_id": "earth_craters_of_the_moon_idaho",
+      "base_topographic_score": 51.66,
       "applied_bonus": 3.33,
-      "aci": 84.98,
+      "aci": 54.99,
       "capped": false,
       "terrain_metrics": {
-        "slope_mean": 19.18758518920074,
-        "slope_std": 9.161483224972129,
-        "tri_mean": 44.94138857400377,
-        "tri_std": 17.062533041839725,
-        "elevation_std": 87.6670697476698
+        "slope_mean": 2.660838710287125,
+        "slope_std": 4.061393531237963,
+        "tri_mean": 4.243956648329664,
+        "tri_std": 6.057866214948095,
+        "elevation_std": 40.44586282612846
       },
       "sub_scores": {
-        "slope_mean": 93.8,
-        "slope_std": 96.4,
-        "tri_mean": 79.0,
-        "tri_std": 65.7,
-        "elevation_std": 63.1
+        "slope_mean": 94.8,
+        "slope_std": 80.8,
+        "tri_mean": 19.1,
+        "tri_std": 22.5,
+        "elevation_std": 19.7
+      },
+      "metadata": {
+        "name": "Craters of the Moon",
+        "country": "United States (Idaho)",
+        "lat": 43.42,
+        "lon": -113.52,
+        "type": "Basaltic / Lava tubes",
+        "primary_analog_for": "Moon & Mars",
+        "is_hyper_arid": false,
+        "is_basaltic": true,
+        "has_lava_tubes": true,
+        "description": "Basaltic volcanic field with lava tubes, spatter cones, and young flows.",
+        "analog_for": [
+          "moon",
+          "mars"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
+      }
+    },
+    {
+      "rank": 3,
+      "site_name": "Lonar Crater",
+      "site_id": "earth_lonar_crater",
+      "base_topographic_score": 44.28,
+      "applied_bonus": 0.0,
+      "aci": 44.28,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 1.7937320666506602,
+        "slope_std": 2.557862962631989,
+        "tri_mean": 2.910202690639108,
+        "tri_std": 3.8185378629140243,
+        "elevation_std": 19.389868071855222
+      },
+      "sub_scores": {
+        "slope_mean": 68.4,
+        "slope_std": 94.7,
+        "tri_mean": 17.2,
+        "tri_std": 18.8,
+        "elevation_std": 16.3
+      },
+      "metadata": {
+        "name": "Lonar Crater",
+        "country": "India (Maharashtra)",
+        "lat": 19.98,
+        "lon": 76.51,
+        "type": "Terrestrial analog terrain",
+        "primary_analog_for": "Moon & Mars",
+        "is_hyper_arid": false,
+        "is_basaltic": false,
+        "has_lava_tubes": false,
+        "description": "Impact crater excavated in basalt, with a saline lake and preserved rim morphology.",
+        "analog_for": [
+          "moon",
+          "mars"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
+      }
+    },
+    {
+      "rank": 4,
+      "site_name": "Meteor Crater",
+      "site_id": "earth_meteor_crater_arizona",
+      "base_topographic_score": 42.36,
+      "applied_bonus": 0.0,
+      "aci": 42.36,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 1.541046322527877,
+        "slope_std": 2.908654450100583,
+        "tri_mean": 2.635752463085831,
+        "tri_std": 4.602541333993075,
+        "elevation_std": 25.86287127548336
+      },
+      "sub_scores": {
+        "slope_mean": 58.8,
+        "slope_std": 99.5,
+        "tri_mean": 16.8,
+        "tri_std": 20.1,
+        "elevation_std": 17.3
+      },
+      "metadata": {
+        "name": "Meteor Crater",
+        "country": "United States (Arizona)",
+        "lat": 35.03,
+        "lon": -111.02,
+        "type": "Terrestrial analog terrain",
+        "primary_analog_for": "Moon & Mars",
+        "is_hyper_arid": false,
+        "is_basaltic": false,
+        "has_lava_tubes": false,
+        "description": "Well-preserved impact structure in a semi-arid plateau setting.",
+        "analog_for": [
+          "moon",
+          "mars"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
+      }
+    },
+    {
+      "rank": 5,
+      "site_name": "Mojave / Amboy Lava Field",
+      "site_id": "earth_mojave_amboy_lava_field",
+      "base_topographic_score": 37.34,
+      "applied_bonus": 3.33,
+      "aci": 40.67,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 1.5535804942316307,
+        "slope_std": 1.7020232157457307,
+        "tri_mean": 2.503990698879329,
+        "tri_std": 2.4864940784462024,
+        "elevation_std": 33.24432246890687
+      },
+      "sub_scores": {
+        "slope_mean": 59.2,
+        "slope_std": 67.4,
+        "tri_mean": 16.6,
+        "tri_std": 16.8,
+        "elevation_std": 18.5
+      },
+      "metadata": {
+        "name": "Mojave / Amboy Lava Field",
+        "country": "United States (California)",
+        "lat": 34.55,
+        "lon": -115.78,
+        "type": "Hyper-arid / Basaltic",
+        "primary_analog_for": "Moon & Mars",
+        "is_hyper_arid": true,
+        "is_basaltic": true,
+        "has_lava_tubes": false,
+        "description": "Cinder cones and basaltic lava flows in the Mojave Desert near Amboy Crater.",
+        "analog_for": [
+          "moon",
+          "mars"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
+      }
+    },
+    {
+      "rank": 6,
+      "site_name": "Svalbard / Longyearbyen Region",
+      "site_id": "earth_svalbard_longyearbyen",
+      "base_topographic_score": 40.47,
+      "applied_bonus": 0.0,
+      "aci": 40.47,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 12.509423047908758,
+        "slope_std": 14.07656573174944,
+        "tri_mean": 24.296355153000146,
+        "tri_std": 51.5391796344334,
+        "elevation_std": 238.84003796068328
+      },
+      "sub_scores": {
+        "slope_mean": 0.0,
+        "slope_std": 0.0,
+        "tri_mean": 62.5,
+        "tri_std": 95.0,
+        "elevation_std": 70.7
+      },
+      "metadata": {
+        "name": "Svalbard / Longyearbyen Region",
+        "country": "Norway (Svalbard)",
+        "lat": 78.22,
+        "lon": 15.65,
+        "type": "Terrestrial analog terrain",
+        "primary_analog_for": "Mars & Moon",
+        "is_hyper_arid": false,
+        "is_basaltic": false,
+        "has_lava_tubes": false,
+        "description": "High-Arctic glacial and permafrost landscape for cold-environment field testing.",
+        "analog_for": [
+          "mars",
+          "moon"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
+      }
+    },
+    {
+      "rank": 7,
+      "site_name": "Teide / Tenerife Volcanic Field",
+      "site_id": "earth_teide_tenerife",
+      "base_topographic_score": 36.08,
+      "applied_bonus": 3.33,
+      "aci": 39.41,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 15.361793433165197,
+        "slope_std": 9.124406031729764,
+        "tri_mean": 23.37255099091283,
+        "tri_std": 14.571529857890754,
+        "elevation_std": 424.45552371887527
+      },
+      "sub_scores": {
+        "slope_mean": 0.0,
+        "slope_std": 0.0,
+        "tri_mean": 60.1,
+        "tri_std": 40.5,
+        "elevation_std": 99.7
+      },
+      "metadata": {
+        "name": "Teide / Tenerife Volcanic Field",
+        "country": "Spain (Canary Islands)",
+        "lat": 28.27,
+        "lon": -16.64,
+        "type": "Basaltic / Lava tubes",
+        "primary_analog_for": "Moon & Mars",
+        "is_hyper_arid": false,
+        "is_basaltic": true,
+        "has_lava_tubes": true,
+        "description": "High-altitude volcanic terrain with basaltic fields and tube-forming lava flows.",
+        "analog_for": [
+          "moon",
+          "mars"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
+      }
+    },
+    {
+      "rank": 8,
+      "site_name": "Wadi Rum Protected Area",
+      "site_id": "earth_wadi_rum",
+      "base_topographic_score": 37.56,
+      "applied_bonus": 1.67,
+      "aci": 39.23,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 16.639064686364105,
+        "slope_std": 14.610283026105579,
+        "tri_mean": 28.319544938083496,
+        "tri_std": 27.94453309782479,
+        "elevation_std": 179.92466005522328
+      },
+      "sub_scores": {
+        "slope_mean": 0.0,
+        "slope_std": 0.0,
+        "tri_mean": 72.7,
+        "tri_std": 76.0,
+        "elevation_std": 53.3
+      },
+      "metadata": {
+        "name": "Wadi Rum Protected Area",
+        "country": "Jordan",
+        "lat": 29.58,
+        "lon": 35.42,
+        "type": "Hyper-arid",
+        "primary_analog_for": "Mars",
+        "is_hyper_arid": true,
+        "is_basaltic": false,
+        "has_lava_tubes": false,
+        "description": "Arid sandstone desert with exposed rock, dunes, and strong Mars field-operations analog value.",
+        "analog_for": [
+          "mars"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
+      }
+    },
+    {
+      "rank": 9,
+      "site_name": "Mount Etna",
+      "site_id": "earth_etna_sicily",
+      "base_topographic_score": 35.43,
+      "applied_bonus": 3.33,
+      "aci": 38.76,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 15.528909439665265,
+        "slope_std": 7.693838227074464,
+        "tri_mean": 23.347475400608218,
+        "tri_std": 12.29718726539595,
+        "elevation_std": 417.6685580877631
+      },
+      "sub_scores": {
+        "slope_mean": 0.0,
+        "slope_std": 1.0,
+        "tri_mean": 60.0,
+        "tri_std": 35.1,
+        "elevation_std": 99.9
+      },
+      "metadata": {
+        "name": "Mount Etna",
+        "country": "Italy (Sicily)",
+        "lat": 37.75,
+        "lon": 14.99,
+        "type": "Basaltic / Lava tubes",
+        "primary_analog_for": "Moon & Mars",
+        "is_hyper_arid": false,
+        "is_basaltic": true,
+        "has_lava_tubes": true,
+        "description": "Basaltic stratovolcano with lava flows, vents, and documented lava tubes.",
+        "analog_for": [
+          "moon",
+          "mars"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
+      }
+    },
+    {
+      "rank": 10,
+      "site_name": "Puna de Atacama",
+      "site_id": "earth_atacama_puna",
+      "base_topographic_score": 34.06,
+      "applied_bonus": 3.33,
+      "aci": 37.39,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 15.20758807935621,
+        "slope_std": 8.82888516116943,
+        "tri_mean": 23.05517716207327,
+        "tri_std": 13.97546681481809,
+        "elevation_std": 310.98663456936396
+      },
+      "sub_scores": {
+        "slope_mean": 0.0,
+        "slope_std": 0.1,
+        "tri_mean": 59.3,
+        "tri_std": 39.1,
+        "elevation_std": 89.1
       },
       "metadata": {
         "name": "Puna de Atacama",
         "country": "Chile / Argentina",
         "lat": -24.5,
         "lon": -68.3,
-        "type": "High-Altitude Hyper-Arid Plateau",
-        "primary_analog_for": "Mars (UV & Desiccation)",
+        "type": "Hyper-arid / Basaltic",
+        "primary_analog_for": "Mars",
+        "is_hyper_arid": true,
         "is_basaltic": true,
         "has_lava_tubes": false,
-        "is_hyper_arid": true,
-        "description": "Hyper-arid high plateau (>4,000m) with high UV-B radiation fluxes, perchlorate-rich saline deposits, and near-zero organic matter simulating Martian surface chemistry."
+        "description": "High-altitude, hyper-arid plateau with volcanic terrain and strong desiccation analog value.",
+        "analog_for": [
+          "mars"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
       }
     },
     {
-      "rank": 3,
-      "site_name": "Haughton Impact Crater, Devon Island",
-      "site_id": "earth_haughton_crater",
-      "base_topographic_score": 51.44,
-      "applied_bonus": 1.67,
-      "aci": 53.11,
+      "rank": 11,
+      "site_name": "Lanzarote / Timanfaya Volcanic Field",
+      "site_id": "earth_lanzarote_timanfaya",
+      "base_topographic_score": 32.12,
+      "applied_bonus": 5.0,
+      "aci": 37.12,
       "capped": false,
       "terrain_metrics": {
-        "slope_mean": 23.461843069574787,
-        "slope_std": 10.815621697292572,
-        "tri_mean": 57.00612624301473,
-        "tri_std": 21.703619373626907,
-        "elevation_std": 59.682303945604176
+        "slope_mean": 5.146893153042588,
+        "slope_std": 5.720411701629841,
+        "tri_mean": 7.797307111407774,
+        "tri_std": 8.698490394529564,
+        "elevation_std": 91.88311786887489
       },
       "sub_scores": {
-        "slope_mean": 67.6,
-        "slope_std": 79.2,
-        "tri_mean": 37.2,
-        "tri_std": 23.1,
-        "elevation_std": 43.4
+        "slope_mean": 46.6,
+        "slope_std": 22.1,
+        "tri_mean": 24.8,
+        "tri_std": 27.4,
+        "elevation_std": 30.0
       },
       "metadata": {
-        "name": "Haughton Impact Crater, Devon Island",
-        "country": "Canada",
-        "lat": 75.38,
-        "lon": -89.67,
-        "type": "Polar Impact Structure",
-        "primary_analog_for": "Moon & Mars (Impact Geology)",
-        "is_basaltic": false,
-        "has_lava_tubes": false,
+        "name": "Lanzarote / Timanfaya Volcanic Field",
+        "country": "Spain (Canary Islands)",
+        "lat": 29.0,
+        "lon": -13.75,
+        "type": "Hyper-arid / Basaltic / Lava tubes",
+        "primary_analog_for": "Moon & Mars",
         "is_hyper_arid": true,
-        "description": "23-km diameter impact crater in high-arctic polar desert. Features shatter cones, polymict impact breccia, and permanently cold ground simulating lunar/martian impactites."
+        "is_basaltic": true,
+        "has_lava_tubes": true,
+        "description": "Young basaltic lava fields with volcanic tubes and arid conditions.",
+        "analog_for": [
+          "moon",
+          "mars"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
       }
     },
     {
-      "rank": 4,
+      "rank": 12,
       "site_name": "McMurdo Dry Valleys",
       "site_id": "earth_mcmurdo_dry_valleys",
-      "base_topographic_score": 26.5,
+      "base_topographic_score": 35.34,
       "applied_bonus": 1.67,
-      "aci": 28.17,
+      "aci": 37.01,
       "capped": false,
       "terrain_metrics": {
-        "slope_mean": 31.513443302338953,
-        "slope_std": 13.057661056374199,
-        "tri_mean": 82.76624827305449,
-        "tri_std": 31.091383354581655,
-        "elevation_std": 136.80461067223797
+        "slope_mean": 9.097864357206545,
+        "slope_std": 4.3591263473862245,
+        "tri_mean": 13.224334888736433,
+        "tri_std": 6.362624377783947,
+        "elevation_std": 285.86978398262227
       },
       "sub_scores": {
-        "slope_mean": 17.3,
-        "slope_std": 46.4,
-        "tri_mean": 1.3,
-        "tri_std": 0.4,
-        "elevation_std": 93.1
+        "slope_mean": 0.1,
+        "slope_std": 69.8,
+        "tri_mean": 35.5,
+        "tri_std": 23.0,
+        "elevation_std": 83.3
       },
       "metadata": {
         "name": "McMurdo Dry Valleys",
         "country": "Antarctica",
         "lat": -77.47,
         "lon": 162.27,
-        "type": "Hyper-Arid Polar Desert",
-        "primary_analog_for": "Mars (Permafrost & Aridity)",
+        "type": "Hyper-arid",
+        "primary_analog_for": "Mars & Moon",
+        "is_hyper_arid": true,
         "is_basaltic": false,
         "has_lava_tubes": false,
-        "is_hyper_arid": true,
-        "description": "Coldest, driest desert on Earth with katabatic winds, polygon permafrost soils, and extreme subsurface ice stability directly mirroring Martian high-latitude plains."
+        "description": "Cold polar desert with exposed soils, permafrost, and extreme aridity.",
+        "analog_for": [
+          "mars",
+          "moon"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
       }
     },
     {
-      "rank": 5,
-      "site_name": "Askja & Holuhraun Caldera, Iceland",
-      "site_id": "earth_iceland_askja",
-      "base_topographic_score": 24.04,
+      "rank": 13,
+      "site_name": "Mauna Kea Cinder Cones",
+      "site_id": "earth_hawaii_mauna_kea",
+      "base_topographic_score": 31.33,
       "applied_bonus": 3.33,
-      "aci": 27.37,
+      "aci": 34.66,
       "capped": false,
       "terrain_metrics": {
-        "slope_mean": 29.512842419285857,
-        "slope_std": 12.609569450652762,
-        "tri_mean": 75.37798246924939,
-        "tri_std": 28.392078342765615,
-        "elevation_std": 62.5013688444528
+        "slope_mean": 11.960854510960862,
+        "slope_std": 5.396544738753612,
+        "tri_mean": 17.746687483832847,
+        "tri_std": 8.17841841651643,
+        "elevation_std": 252.97293317319517
       },
       "sub_scores": {
-        "slope_mean": 26.6,
-        "slope_std": 52.9,
-        "tri_mean": 4.3,
-        "tri_std": 1.7,
-        "elevation_std": 45.3
+        "slope_mean": 0.0,
+        "slope_std": 31.3,
+        "tri_mean": 45.9,
+        "tri_std": 26.4,
+        "elevation_std": 74.7
       },
       "metadata": {
-        "name": "Askja & Holuhraun Caldera, Iceland",
+        "name": "Mauna Kea Cinder Cones",
+        "country": "United States (Hawaii)",
+        "lat": 19.82,
+        "lon": -155.47,
+        "type": "Basaltic / Lava tubes",
+        "primary_analog_for": "Moon & Mars",
+        "is_hyper_arid": false,
+        "is_basaltic": true,
+        "has_lava_tubes": true,
+        "description": "High-elevation basaltic tephra and cinder-cone terrain.",
+        "analog_for": [
+          "moon",
+          "mars"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
+      }
+    },
+    {
+      "rank": 14,
+      "site_name": "Haughton Impact Crater / Devon Island",
+      "site_id": "earth_haughton_crater",
+      "base_topographic_score": 31.67,
+      "applied_bonus": 1.67,
+      "aci": 33.34,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 5.27705058222679,
+        "slope_std": 5.099394096802191,
+        "tri_mean": 8.106003462229179,
+        "tri_std": 7.503219833533373,
+        "elevation_std": 33.773837372865486
+      },
+      "sub_scores": {
+        "slope_mean": 42.0,
+        "slope_std": 41.2,
+        "tri_mean": 25.4,
+        "tri_std": 25.1,
+        "elevation_std": 18.6
+      },
+      "metadata": {
+        "name": "Haughton Impact Crater / Devon Island",
+        "country": "Canada",
+        "lat": 75.38,
+        "lon": -89.67,
+        "type": "Hyper-arid",
+        "primary_analog_for": "Moon & Mars",
+        "is_hyper_arid": true,
+        "is_basaltic": false,
+        "has_lava_tubes": false,
+        "description": "High-Arctic impact structure and polar-desert field site.",
+        "analog_for": [
+          "moon",
+          "mars"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
+      }
+    },
+    {
+      "rank": 15,
+      "site_name": "Askja & Holuhraun Caldera",
+      "site_id": "earth_iceland_askja",
+      "base_topographic_score": 26.51,
+      "applied_bonus": 3.33,
+      "aci": 29.84,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 9.287143273752863,
+        "slope_std": 10.245422300865824,
+        "tri_mean": 15.752875919285845,
+        "tri_std": 17.96017663376473,
+        "elevation_std": 198.4062011071597
+      },
+      "sub_scores": {
+        "slope_mean": 0.1,
+        "slope_std": 0.0,
+        "tri_mean": 41.2,
+        "tri_std": 49.2,
+        "elevation_std": 58.8
+      },
+      "metadata": {
+        "name": "Askja & Holuhraun Caldera",
         "country": "Iceland",
         "lat": 65.03,
         "lon": -16.75,
-        "type": "Volcanic / Basaltic Caldera & Lava Tubes",
-        "primary_analog_for": "Moon (Artemis Landing Sites)",
+        "type": "Basaltic / Lava tubes",
+        "primary_analog_for": "Moon",
+        "is_hyper_arid": false,
         "is_basaltic": true,
         "has_lava_tubes": true,
+        "description": "Basaltic caldera and lava fields used as a volcanic and subsurface-cavity analog.",
+        "analog_for": [
+          "moon"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
+      }
+    },
+    {
+      "rank": 16,
+      "site_name": "Danakil Depression",
+      "site_id": "earth_danakil_depression",
+      "base_topographic_score": 26.02,
+      "applied_bonus": 3.33,
+      "aci": 29.35,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 1.0371977782293096,
+        "slope_std": 0.9052237564056995,
+        "tri_mean": 1.8381923808697818,
+        "tri_std": 1.2206209229645992,
+        "elevation_std": 6.47541477761068
+      },
+      "sub_scores": {
+        "slope_mean": 40.3,
+        "slope_std": 37.1,
+        "tri_mean": 15.8,
+        "tri_std": 15.1,
+        "elevation_std": 14.4
+      },
+      "metadata": {
+        "name": "Danakil Depression",
+        "country": "Ethiopia",
+        "lat": 14.24,
+        "lon": 40.3,
+        "type": "Hyper-arid / Basaltic",
+        "primary_analog_for": "Mars",
+        "is_hyper_arid": true,
+        "is_basaltic": true,
+        "has_lava_tubes": false,
+        "description": "Hyper-arid Afar Rift terrain with volcanic and evaporite environments.",
+        "analog_for": [
+          "mars"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
+      }
+    },
+    {
+      "rank": 17,
+      "site_name": "Rio Tinto Mining District",
+      "site_id": "earth_rio_tinto",
+      "base_topographic_score": 24.26,
+      "applied_bonus": 0.0,
+      "aci": 24.26,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 6.728988513857585,
+        "slope_std": 4.937822020745197,
+        "tri_mean": 10.13980796901678,
+        "tri_std": 7.743546769645419,
+        "elevation_std": 62.121200117762626
+      },
+      "sub_scores": {
+        "slope_mean": 8.3,
+        "slope_std": 47.2,
+        "tri_mean": 29.2,
+        "tri_std": 25.6,
+        "elevation_std": 23.7
+      },
+      "metadata": {
+        "name": "Rio Tinto Mining District",
+        "country": "Spain",
+        "lat": 37.7,
+        "lon": -6.62,
+        "type": "Terrestrial analog terrain",
+        "primary_analog_for": "Mars",
         "is_hyper_arid": false,
-        "description": "Young basaltic lava fields, collapse calderas, and subterranean lava tubes sharing high surface roughness and radiation-shielding morphology with lunar mare."
+        "is_basaltic": false,
+        "has_lava_tubes": false,
+        "description": "Acidic, iron-rich river and mining landscape relevant to Mars astrobiology analog studies.",
+        "analog_for": [
+          "mars"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
+      }
+    },
+    {
+      "rank": 18,
+      "site_name": "Mount Suswa Volcanic Field",
+      "site_id": "earth_suswa_volcano_kenya",
+      "base_topographic_score": 20.5,
+      "applied_bonus": 3.33,
+      "aci": 23.83,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 8.510864797292879,
+        "slope_std": 9.357021357765154,
+        "tri_mean": 13.316412517415825,
+        "tri_std": 15.755722131601376,
+        "elevation_std": 104.19927463058582
+      },
+      "sub_scores": {
+        "slope_mean": 0.4,
+        "slope_std": 0.0,
+        "tri_mean": 35.7,
+        "tri_std": 43.5,
+        "elevation_std": 32.9
+      },
+      "metadata": {
+        "name": "Mount Suswa Volcanic Field",
+        "country": "Kenya",
+        "lat": -1.15,
+        "lon": 36.35,
+        "type": "Basaltic / Lava tubes",
+        "primary_analog_for": "Moon & Mars",
+        "is_hyper_arid": false,
+        "is_basaltic": true,
+        "has_lava_tubes": true,
+        "description": "Rift volcano with basaltic lava caves and caldera terrain.",
+        "analog_for": [
+          "moon",
+          "mars"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
+      }
+    },
+    {
+      "rank": 19,
+      "site_name": "Salar de Uyuni",
+      "site_id": "earth_salar_de_uyuni",
+      "base_topographic_score": 20.6,
+      "applied_bonus": 1.67,
+      "aci": 22.27,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 0.6676271645625731,
+        "slope_std": 0.5698822164665541,
+        "tri_mean": 1.3029318769048275,
+        "tri_std": 0.8380875529248035,
+        "elevation_std": 0.9223083758954559
+      },
+      "sub_scores": {
+        "slope_mean": 28.7,
+        "slope_std": 26.6,
+        "tri_mean": 15.1,
+        "tri_std": 14.6,
+        "elevation_std": 13.7
+      },
+      "metadata": {
+        "name": "Salar de Uyuni",
+        "country": "Bolivia",
+        "lat": -20.13,
+        "lon": -67.49,
+        "type": "Hyper-arid",
+        "primary_analog_for": "Mars",
+        "is_hyper_arid": true,
+        "is_basaltic": false,
+        "has_lava_tubes": false,
+        "description": "High-altitude salt flat and evaporite basin in the Bolivian Altiplano.",
+        "analog_for": [
+          "mars"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
+      }
+    },
+    {
+      "rank": 20,
+      "site_name": "Namib Desert / Sossusvlei",
+      "site_id": "earth_namib_sossusvlei",
+      "base_topographic_score": 18.75,
+      "applied_bonus": 1.67,
+      "aci": 20.42,
+      "capped": false,
+      "terrain_metrics": {
+        "slope_mean": 9.79980177732741,
+        "slope_std": 7.065802885931603,
+        "tri_mean": 14.970904043237725,
+        "tri_std": 10.587135218186663,
+        "elevation_std": 67.16484959932998
+      },
+      "sub_scores": {
+        "slope_mean": 0.0,
+        "slope_std": 3.3,
+        "tri_mean": 39.4,
+        "tri_std": 31.4,
+        "elevation_std": 24.7
+      },
+      "metadata": {
+        "name": "Namib Desert / Sossusvlei",
+        "country": "Namibia",
+        "lat": -24.73,
+        "lon": 15.29,
+        "type": "Hyper-arid",
+        "primary_analog_for": "Mars",
+        "is_hyper_arid": true,
+        "is_basaltic": false,
+        "has_lava_tubes": false,
+        "description": "Hyper-arid dune and gravel-plain environment in the Namib Desert.",
+        "analog_for": [
+          "mars"
+        ],
+        "window_km": 10.0,
+        "verify_coordinates_manually": true
       }
     }
   ]

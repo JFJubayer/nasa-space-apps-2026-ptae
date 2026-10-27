@@ -1083,6 +1083,8 @@
         .results-load-error { margin: 0 16px; padding: 8px 10px; border: 1px solid #a66b52; border-radius: 4px; background: rgba(82, 39, 30, 0.72); color: #ffd2b6; font-size: 0.68rem; line-height: 1.4; }
         .results-load-error[hidden] { display: none !important; }
         .demo-ranking-label { width: fit-content; max-width: calc(100% - 20px); margin: 0 10px 8px; padding: 4px 7px; border: 1px solid #8b7440; border-radius: 3px; background: rgba(89, 66, 21, 0.28); color: #e6d29a; font-size: 0.62rem; line-height: 1.35; }
+        .calculator-aci-note { max-width: 100%; margin: 0; }
+        .home-demo-disclosure { max-width: 100%; margin: 4px 0 0; }
         .validation-panel { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; min-width: 0; margin-top: 12px; }
         #validation-content { min-width: 0; }
         .validation-loading, .validation-verdict, .validation-caveat { margin: 0; color: var(--text-dim); font-size: 0.68rem; line-height: 1.45; }
@@ -1098,6 +1100,19 @@
         .validation-table .validation-leader { background: rgba(56, 177, 146, 0.14); color: #7be0bf; font-weight: 750; }
         .validation-table .validation-leader:first-child { box-shadow: inset 2px 0 #5ad5ad; }
         .validation-panel [hidden] { display: none !important; }
+        #weight-stability-card[hidden] { display: none; }
+        .weight-stability-values { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 20px; margin: 0; }
+        .weight-stability-values > div { min-width: 0; }
+        .weight-stability-values dt { color: var(--text-main); font-size: 0.74rem; font-weight: 650; overflow-wrap: anywhere; }
+        .weight-stability-values dd { margin: 3px 0 0; color: var(--text-dim); font-size: 0.72rem; overflow-wrap: anywhere; }
+        @media (max-width: 600px) { .weight-stability-values { grid-template-columns: minmax(0, 1fr); } }
+        .crop-sensitivity-table { min-width: 1040px; }
+        .crop-sensitivity-table th:first-child, .crop-sensitivity-table td:first-child { width: 8%; }
+        .crop-sensitivity-table th:nth-child(2), .crop-sensitivity-table td:nth-child(2) { width: 14%; }
+        .crop-sensitivity-table th:nth-child(3), .crop-sensitivity-table td:nth-child(3) { width: 25%; }
+        .crop-sensitivity-table th:nth-child(4), .crop-sensitivity-table td:nth-child(4) { width: 15%; }
+        .crop-sensitivity-table th:last-child, .crop-sensitivity-table td:last-child { width: 38%; }
+        .crop-sensitivity-table td:nth-child(5) { text-align: left; white-space: normal; }
         .globe-site-popup { position: absolute; z-index: 650; display: grid; gap: 4px; max-width: min(320px, calc(100% - 16px)); max-height: 50%; overflow: auto; padding: 9px 11px; border: 1px solid #2373a1; border-radius: 4px; background: rgba(4, 17, 34, 0.96); box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4); pointer-events: none; }
         .globe-site-popup[hidden] { display: none !important; }
         .globe-site-popup strong { color: #d9f4ff; font-size: 0.76rem; }
@@ -2169,6 +2184,30 @@
             .site-photo-gallery,
             .site-photo-open img { transition: none; }
         }
+        @media (max-width: 780px) {
+            .map-heading-overlay { top: 8px; left: 50px; max-width: calc(100% - 112px); padding: 5px 7px; }
+            .map-heading-overlay > span:first-child { display: none; }
+            .map-heading-overlay h2 { font-size: 0.68rem; }
+            .map-heading-overlay #target-badge { font-size: 0.52rem; }
+            .planet-landmark-marker { max-width: 112px; gap: 3px; padding: 3px 5px; font-size: 0.52rem; line-height: 1.15; white-space: normal; }
+            .planet-landmark-marker:not(.target-site-marker) { display: none !important; }
+            .site-navigation { bottom: 8px !important; left: 50%; gap: 4px; max-width: calc(100% - 16px); padding: 3px 4px; }
+            .site-navigation-button { width: 44px; min-width: 44px; min-height: 44px; flex: 0 0 44px; padding: 3px; }
+            .site-navigation-status { max-width: min(190px, calc(100vw - 144px)); }
+            .site-navigation-name { max-width: 100%; }
+            .map-frame > #map-notice { right: auto; bottom: 62px !important; left: 8px; width: 52%; max-width: 380px; padding: 5px 7px; font-size: 0.52rem; }
+            .map-imagery-status, .globe-caption { display: none !important; }
+            #map .cesium-widget-credits { position: absolute !important; top: auto !important; right: 5px !important; bottom: 62px !important; left: auto !important; max-width: 38% !important; font-size: 8px !important; transform: none !important; }
+            .planet-landmark-marker[data-target-site-id="malapert-massif"] { display: none !important; }
+        }
+        @media (max-width: 420px) {
+            .map-heading-overlay { left: 48px; max-width: calc(100% - 104px); }
+            .map-heading-overlay h2 { font-size: 0.63rem; }
+            .planet-landmark-marker { max-width: 96px; gap: 2px; padding: 2px 4px; font-size: 0.48rem; }
+            .site-navigation-status { max-width: min(112px, calc(100vw - 132px)); }
+            .map-frame > #map-notice { bottom: 62px !important; width: 50%; font-size: 0.49rem; line-height: 1.25; }
+            #map .cesium-widget-credits { max-width: 39% !important; }
+        }
     </style>
 </head>
 <body>
@@ -2209,7 +2248,7 @@
             <a href="#about-section" class="tab-btn" id="tab-about" data-section="about-section" data-pane="about-tab" role="tab" aria-selected="false" aria-controls="about-section" onclick="navigateToDashboardSection('about-section','about-tab','tab-about'); return false;" title="About PTAE"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span>About PTAE</span></a>
         </nav>
         <blockquote class="sidebar-quote">“From Earth Data to Mission Readiness.”<cite>PTAE project tagline</cite></blockquote>
-        <div class="sidebar-status" role="status"><strong>Demo data</strong><span>Python demo rankings<br>Real-data validation available</span></div>
+        <div class="sidebar-status" role="status"><strong id="sidebar-provenance-title">Loading DEM provenance…</strong><span id="sidebar-provenance-summary">Loading site catalog</span></div>
     </aside>
 
     <div class="dashboard-main">
@@ -2264,21 +2303,23 @@
             <section class="content-section home-section" id="home-section" aria-labelledby="home-heading">
                 <div class="section-heading">
                     <div><span class="eyebrow">Mission overview</span><h2 id="home-heading">Home</h2></div>
-                    <p>Explore demo rankings and real-data window sensitivity for planetary analogs.</p>
+                    <p>Explore site rankings, per-site DEM provenance, and historical window sensitivity.</p>
                 </div>
                 <p class="start-here-hint" id="start-here-hint" role="status">Start here: choose Earth, Moon, or Mars, then select a site to inspect its JSON-backed ACI.</p>
                 <div class="key-takeaways-grid" aria-label="Key takeaways from loaded result data">
                     <article class="key-takeaway-card">
-                        <div class="takeaway-card-heading"><h3>Moon demo leader</h3><span class="evidence-badge synthetic">Calibrated synthetic</span></div>
+                        <div class="takeaway-card-heading"><h3>Moon top-ranked analog</h3><span class="target-label" id="takeaway-moon-provenance">Loading provenance…</span></div>
                         <strong class="takeaway-site json-loading-skeleton" id="takeaway-moon-site">Loading result JSON…</strong>
                         <span class="takeaway-score" id="takeaway-moon-score">—</span>
                         <span class="takeaway-breakdown" id="takeaway-moon-breakdown"></span>
+                        <p class="demo-ranking-label home-demo-disclosure" id="takeaway-moon-caption">Loading DEM provenance…</p>
                     </article>
                     <article class="key-takeaway-card">
-                        <div class="takeaway-card-heading"><h3>Mars demo leader</h3><span class="evidence-badge synthetic">Calibrated synthetic</span></div>
+                        <div class="takeaway-card-heading"><h3>Mars top-ranked analog</h3><span class="target-label" id="takeaway-mars-provenance">Loading provenance…</span></div>
                         <strong class="takeaway-site json-loading-skeleton" id="takeaway-mars-site">Loading result JSON…</strong>
                         <span class="takeaway-score" id="takeaway-mars-score">—</span>
                         <span class="takeaway-breakdown" id="takeaway-mars-breakdown"></span>
+                        <p class="demo-ranking-label home-demo-disclosure" id="takeaway-mars-caption">Loading DEM provenance…</p>
                     </article>
                     <article class="key-takeaway-card">
                         <div class="takeaway-card-heading"><h3>Real-data check</h3><span class="evidence-badge real-data">Window validation</span></div>
@@ -2317,11 +2358,11 @@
                             </div>
                             <div class="site-navigation" id="site-navigation-controls" aria-label="3D site navigation" hidden>
                                 <button type="button" class="site-navigation-button" id="site-navigation-prev" aria-label="Previous site"><span aria-hidden="true">‹</span><span class="site-navigation-label">Prev</span></button>
-                                <div class="site-navigation-status" role="status" aria-live="polite" aria-atomic="true"><span class="site-navigation-counter" id="site-navigation-counter">1 / 5</span><span class="site-navigation-name" id="site-navigation-name">Askja &amp; Holuhraun Caldera</span></div>
+                                <div class="site-navigation-status" role="status" aria-live="polite" aria-atomic="true"><span class="site-navigation-counter" id="site-navigation-counter">— / —</span><span class="site-navigation-name" id="site-navigation-name">Loading sites…</span></div>
                                 <button type="button" class="site-navigation-button" id="site-navigation-next" aria-label="Next site"><span class="site-navigation-label">Next</span><span aria-hidden="true">›</span></button>
                             </div>
                             <div class="map-legend" id="aci-tier-legend" aria-label="Illustrative ACI tiers for the current target">
-                                <strong id="aci-tier-legend-title">Moon demo ACI tiers</strong>
+                                <strong id="aci-tier-legend-title">Moon ACI tiers</strong>
                                 <span class="legend-entry"><span class="legend-swatch tier-strong" aria-hidden="true"></span>Strong ≥ 80</span>
                                 <span class="legend-entry"><span class="legend-swatch tier-moderate" aria-hidden="true"></span>Moderate 60–&lt;80</span>
                                 <span class="legend-entry"><span class="legend-swatch tier-weak" aria-hidden="true"></span>Weak 40–&lt;60</span>
@@ -2344,6 +2385,7 @@
                             <div class="map-state" id="map-state" role="status">Loading map and candidate locations…</div>
                             <div class="map-notice" id="map-notice" role="status" aria-live="polite" hidden></div>
                         </div>
+                        <p class="provenance-note" id="mars-resolution-note" hidden></p>
                     </div>
                 </div>
 
@@ -2370,12 +2412,12 @@
                     <div class="card-header"><div><span class="eyebrow">Selected candidate</span><h2 id="site-details-heading">Site details</h2></div></div>
                     <div class="site-card-detail" aria-live="polite">
                         <div class="site-detail-top">
-                            <div><h3 id="site-title">Askja & Holuhraun Caldera</h3><div class="site-subtitle" id="site-sub">Iceland · Volcanic Caldera & Lava Tubes</div><span class="evidence-badge synthetic" id="site-demo-badge" hidden>Demo data</span></div>
+                            <div><h3 id="site-title">Loading site catalog…</h3><div class="site-subtitle" id="site-sub"></div><span class="evidence-badge synthetic" id="site-demo-badge" hidden>Demo data</span><span class="evidence-badge synthetic" id="site-provenance-badge" hidden>Synthetic demo</span><span class="evidence-badge synthetic" id="site-flags-status-badge" hidden title="">Flags: provisional</span></div>
                             <div class="site-texture-thumb"><img src="assets/earth-topology.png" alt="Global shaded-relief texture, not site-specific imagery" width="2048" height="1024" loading="lazy"><span>GLOBAL TOPOGRAPHY</span></div>
                             <div class="site-score-box" id="site-score-box" aria-label="Selected site's Python ACI result"><strong id="site-score">—</strong><span>Final ACI · JSON</span><small id="site-score-breakdown"></small></div>
                         </div>
                         <div class="site-photo-gallery" id="site-photo-gallery" aria-label="Selected site photos" hidden></div>
-                        <div class="site-location-meta"><span id="site-coordinates"><strong>Coordinates</strong> 65.0300, -16.7500</span><span id="site-target-label"><strong>Target view</strong> Moon · South Pole</span></div>
+                        <div class="site-location-meta"><span id="site-coordinates"><strong>Coordinates</strong> —</span><span id="site-target-label"><strong>Target view</strong> —</span><span id="site-coordinate-verification" hidden>Coordinates approximate; verify manually.</span></div>
                         <div class="site-environment-flags" id="site-environment-flags" aria-label="Environmental flags"></div>
                         <p class="mission-relevance"><strong>Mission relevance</strong><span id="site-mission-relevance"></span></p>
                         <div class="target-site-context" id="target-site-context" hidden>
@@ -2383,7 +2425,8 @@
                             <p><strong>Why it matches</strong><span id="site-why-match"></span></p>
                             <p><strong>Source note</strong><span id="site-source-note"></span></p>
                         </div>
-                        <p id="site-desc">Young basaltic lava fields and caldera terrain are included as qualitative context for exploring volcanic landforms. This dashboard does not establish lunar terrain equivalence.</p>
+                        <p id="site-desc"></p>
+                        <p class="provenance-note" id="site-qualitative-match" hidden></p>
                         <p class="provenance-note" id="earth-mode-note" hidden>Earth browse view · candidate locations and descriptive context only; no planetary similarity score is shown.</p>
                         <div class="site-metrics" id="site-metrics" aria-label="Embedded per-feature similarity values"></div>
                         <a href="#compare-section" class="site-analysis-link" onclick="navigateToDashboardSection('compare-section','terrain3d-tab','tab-terrain3d'); return false;">View terrain comparison</a>
@@ -2430,10 +2473,11 @@
             <div class="card ranking-card">
                 <div class="card-header ranking-card-header">
                     <div class="ranking-card-heading"><span class="eyebrow">Candidate comparison</span><h2>Top Ranked Sites</h2></div>
-                    <div class="ranking-header-tools"><span class="target-label" id="ranking-target">Moon target</span><label for="leaderboard-sort">Rank by</label><select id="leaderboard-sort" aria-label="Rank candidates by"><option value="score">Embedded ACI</option><option value="name">Site name</option></select><span class="target-label" id="candidate-count">5 sites</span><p class="demo-ranking-label">Demo ranking: synthetic terrain (see Real-Data Validation)</p></div>
+                    <div class="ranking-header-tools"><span class="target-label" id="ranking-target">Moon target</span><label for="leaderboard-sort">Rank by</label><select id="leaderboard-sort" aria-label="Rank candidates by"><option value="score">Embedded ACI</option><option value="name">Site name</option></select><span class="target-label" id="candidate-count">— sites</span><p class="demo-ranking-label" id="leaderboard-data-caption">Loading DEM provenance…</p></div>
                 </div>
                 <p class="provenance-note" id="leaderboard-provenance">Loading rankings from the Python result files…</p>
                 <div class="ranking-scroll"><table class="ranking-table" aria-label="Ranked candidate sites with base, bonus, final ACI, and evidence"><thead><tr><th scope="col">#</th><th scope="col">Site</th><th scope="col">Base</th><th scope="col">Bonus</th><th scope="col">Final ACI</th><th scope="col">Evidence</th></tr></thead><tbody id="leaderboard"></tbody></table></div>
+                <button type="button" class="catalog-link" id="leaderboard-show-all" hidden>Show all sites</button>
                 <p class="empty-state" id="leaderboard-empty" hidden>No field sites match these filters. Adjust the search or environment.</p>
             </div>
 
@@ -2446,7 +2490,7 @@
                 </div>
             <section class="card validation-panel" aria-labelledby="validation-heading">
                 <div class="card-header">
-                    <div><span class="eyebrow">Window sensitivity · real data</span><h2 id="validation-heading">Real-Data Validation</h2></div>
+                    <div><span class="eyebrow">Window sensitivity · historical</span><h2 id="validation-heading">Historical (synthetic, 5 sites)</h2></div>
                     <span class="target-label">5 / 10 / 15 km</span>
                 </div>
                 <p class="validation-loading json-loading-skeleton" id="validation-loading" role="status">Loading window sensitivity results…</p>
@@ -2459,9 +2503,31 @@
                             <tbody id="validation-table-body"></tbody>
                         </table>
                     </div>
-                    <p class="validation-caveat">Only the Moon target and Askja use real data (LRO LOLA 20 m, AWS Terrain Tiles); the other four candidates are synthetic and fixed across windows, so part of the sensitivity comes from resolution and scale mismatch.</p>
+                    <p class="validation-caveat" id="validation-provenance-summary">Loading current DEM provenance…</p>
                 </div>
             </section>
+            <section class="card validation-panel" id="weight-stability-card" aria-labelledby="weight-stability-heading" hidden>
+                <div class="card-header"><h2 id="weight-stability-heading">Weight stability</h2></div>
+                <dl class="weight-stability-values" id="weight-stability-values"></dl>
+                <p class="validation-loading">Tests weight robustness, not scientific correctness of weights</p>
+            </section>
+            </section>
+            <section class="card validation-panel" aria-labelledby="real-crop-heading">
+                <div class="card-header">
+                    <div><span class="eyebrow">Window sensitivity · real DEMs</span><h2 id="real-crop-heading">Real DEM, 20 sites</h2></div>
+                    <span class="target-label">300 / 225 / 150 px</span>
+                </div>
+                <p class="validation-loading json-loading-skeleton" id="real-crop-loading" role="status">Loading real DEM crop sensitivity…</p>
+                <p class="results-load-error" id="real-crop-error" role="alert" hidden></p>
+                <div id="real-crop-content" hidden>
+                    <p class="validation-caveat">Centered crops retain each DEM's original pixel resolution; physical window size shrinks with each crop. Rankings use the unchanged ACI.</p>
+                    <div class="validation-table-scroll" role="region" aria-label="Real DEM crop rankings by target and crop size" tabindex="0">
+                        <table class="validation-table crop-sensitivity-table" aria-label="Leader, top five, and Spearman rank correlation for real DEM crops">
+                            <thead><tr><th scope="col">Target</th><th scope="col">Crop</th><th scope="col">Leader</th><th scope="col">Spearman vs 100%</th><th scope="col">Top five, ACI</th></tr></thead>
+                            <tbody id="real-crop-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
             </section>
         </div>
 
@@ -2486,7 +2552,7 @@
                         <div class="instructions-overlay">Left Click: Rotate | Right Click: Pan | Scroll: Zoom</div>
                     </div>
                     <div class="canvas-card" id="canvas-analog-container">
-                        <div class="badge-overlay" id="badge-3d-analog">Earth Analog: Askja Caldera, Iceland</div>
+                        <div class="badge-overlay" id="badge-3d-analog">Earth Analog Terrain</div>
                         <div class="instructions-overlay">Left Click: Rotate | Right Click: Pan | Scroll: Zoom</div>
                     </div>
                 </div>
@@ -2523,6 +2589,7 @@
                     <h2><span class="mission-calculator-title-icon" aria-hidden="true">⚖️</span><span>Interactive Mission Weight Calculator</span></h2>
                     <span class="target-label">Exploratory scenario · separate from embedded ACI</span>
                 </div>
+                <p class="demo-ranking-label calculator-aci-note">The calculator is a separate scenario heuristic, not the Python ACI. Official rankings are in the main leaderboard.</p>
                 
                 <div class="mission-preset-control">
                     <div class="mission-preset-buttons" role="group" aria-label="Mission type presets">
@@ -2587,8 +2654,8 @@
                     </div>
 
                     <div style="display: flex; flex-direction: column; gap: 15px;">
-                        <h3 style="font-size: 1rem; color: var(--accent-cyan);">Dynamic Compatibility Ranking</h3>
-                        <p style="font-size: 0.82rem; color: var(--text-dim); line-height: 1.5;">Scenario rankings recalculate the embedded feature-similarity percentages using adjustable weights. This is a heuristic what-if view, not a live Python calculation or validated mission suitability score.</p>
+                        <h3 style="font-size: 1rem; color: var(--accent-cyan);">Scenario ranking (heuristic)</h3>
+                        <p class="demo-ranking-label calculator-aci-note">Scenario heuristic - not the official Python ACI. Official rankings are in the main leaderboard.</p>
                         <ul class="leaderboard-list" id="calc-leaderboard"></ul>
                     </div>
                 </div>
@@ -2605,21 +2672,21 @@
                 <section class="card method-card" aria-labelledby="method-heading">
                     <div class="card-header"><div><span class="eyebrow">Scoring method</span><h3 id="method-heading">Method</h3></div></div>
                     <p>Weighted Gaussian similarity over slope mean/std, TRI mean/std, and elevation std, plus an additive environmental bonus of up to +5 points.</p>
-                    <p class="method-formula" aria-label="ACI formula">ACI = min(100, 100 × Σ(wᵢ · exp(−½(Δᵢ/σᵢ)²)) / Σwᵢ + environmental bonus)</p>
+                    <p class="method-formula" aria-label="ACI formula">ACI = min(99.99, 100 × Σ(wᵢ · exp(−½(Δᵢ/σᵢ)²)) / Σwᵢ + environmental bonus)</p>
+                    <p>Only an exact match on all positively weighted metrics reaches 100; otherwise the cap is 99.99.</p>
                 </section>
                 <section class="card source-summary-card" aria-labelledby="source-summary-heading">
                     <div class="card-header"><div><span class="eyebrow">Validation inputs</span><h3 id="source-summary-heading">Data Sources &amp; Notes</h3></div></div>
                     <ul class="source-summary-list">
                         <li><strong>LRO LOLA</strong><span>Moon · real 20 m south-polar windows used for validation</span></li>
-                        <li><strong>MOLA</strong><span>Mars · 463 m/pixel; too coarse for like-for-like comparison</span></li>
-                        <li><strong>AWS Terrain Tiles</strong><span>Askja · real composite terrain · approximately 30 m</span></li>
-                        <li><strong>Calibrated synthetic terrain</strong><span>Atacama, McMurdo, Haughton, and Mauna Kea</span></li>
+                        <li><strong>MOLA</strong><span>Mars · source ground resolution 451.09195 m/pixel; prepared grid 333.686104 m/pixel (300 px ≈ 100 km per side). Too coarse for like-for-like Earth comparison.</span></li>
+                        <li><strong>Earth DEM provenance</strong><span id="science-earth-provenance">Loading site sidecars…</span></li>
                     </ul>
                     <div id="science-source-card-slot"></div>
                 </section>
                 <section class="card limitations-card" aria-labelledby="limitations-heading">
                     <div class="card-header"><div><span class="eyebrow">Scope and next steps</span><h3 id="limitations-heading">Limitations</h3></div></div>
-                    <p class="limitations-note">Main rankings use calibrated synthetic terrain and a heuristic scoring model. Real-data validation is limited and scale-sensitive. The Moon target is the lunar south pole region, not a specific Artemis III landing site.</p>
+                    <p class="limitations-note" id="limitations-provenance">Loading DEM provenance…</p>
                     <div class="next-steps"><strong>Next steps</strong><span>Use real DEMs for all candidates at one common ground resolution; use HiRISE/CTX for Mars.</span></div>
                 </section>
                 <section class="card target-sites-science-card" aria-labelledby="target-site-catalog-heading">
@@ -2720,7 +2787,8 @@
                 <div class="section-heading"><div><span class="eyebrow">Mission-specific analog discovery</span><h2 id="about-heading">About PTAE</h2></div><p>Project scope, prototype behavior, and intended use.</p></div>
             <div class="card">
                 <div class="card-header"><div><span class="eyebrow">Current project</span><h3>Planetary Terrestrial Analog Engine</h3></div><span class="target-label">NASA Space Apps Challenge 2026</span></div>
-                <p class="science-note">PTAE explores how terrestrial terrain signatures can be compared with lunar and Martian targets. This browser prototype contains five named Earth candidates, loads target rankings from JSON result files, and presents real-data window sensitivity separately from the calibrated synthetic demo rankings.</p>
+                <p class="science-note">PTAE explores how terrestrial terrain signatures can be compared with lunar and Martian targets. This browser prototype contains <span id="about-candidate-count">catalog-listed</span> Earth candidates, loads target rankings from JSON result files, and presents the historical window-sensitivity analysis separately.</p>
+                <p class="provenance-note">Photo credits are shown with each image. New catalog-site photos are sourced from Wikimedia Commons and linked to their license and source pages.</p>
                 <div class="card-header"><div><span class="eyebrow">Current prototype scope</span><h2>Data and method</h2></div></div>
                 <p class="provenance-note">The Python pipeline calculates terrain metrics and ranks candidate signatures. The dashboard reads the generated target JSON files and separate window-sensitivity validation JSON. Map imagery has separate provider attribution and is not live telemetry.</p>
                 <a class="catalog-link" href="#compare-section" onclick="navigateToDashboardSection('compare-section','terrain3d-tab','tab-terrain3d'); return false;">Open comparison tools</a>
@@ -2784,102 +2852,50 @@
 
         initializePlanetSelectorImages();
 
-        const analogSites = [
-            {
-                id: 'iceland',
-                pipelineId: 'earth_iceland_askja',
-                name: 'Askja & Holuhraun Caldera',
-                country: 'Iceland',
-                lat: 65.03,
-                lon: -16.75,
-                type: 'Volcanic Caldera & Lava Tubes',
-                isBasaltic: true,
-                hasTubes: true,
-                isArid: false,
-                images: [
-                    { src: 'assets/sites/iceland-askja/1.webp', alt: 'Askja highlands and Öskjuvatn lake in Iceland', caption: 'Askja highlands, Iceland', credit: 'Luca Temporelli', license: 'CC BY-SA 2.0' },
-                    { src: 'assets/sites/iceland-askja/2.webp', alt: 'Víti and Öskjuvatn craters at Askja volcano caldera', caption: 'Víti and Öskjuvatn craters, Askja volcano', credit: 'Ulrich Latzenhofer', license: 'CC BY-SA 2.0' },
-                    { src: 'assets/sites/iceland-askja/3.webp', alt: 'Landsat 8 false-color image of the Holuhraun lava field', caption: 'Holuhraun lava field, Landsat 8 false-color image', credit: 'Operational Land Imager (OLI)', license: 'Public domain (NASA)' }
-                ],
-                desc: 'Young basaltic lava fields and caldera terrain are included as qualitative context for exploring volcanic landforms. This dashboard does not establish lunar terrain equivalence.'
-            },
-            {
-                id: 'haughton',
-                pipelineId: 'earth_haughton_crater',
-                name: 'Haughton Impact Crater',
-                country: 'Devon Island, Canada',
-                lat: 75.38,
-                lon: -89.67,
-                type: 'Polar Impact Structure',
-                isBasaltic: false,
-                hasTubes: false,
-                isArid: true,
-                images: [
-                    { src: 'assets/sites/devon-island/1.webp', alt: 'NASA K-10 rover near the Haughton-Mars Project base camp on Devon Island', caption: 'K-10 near the Haughton-Mars Project base camp', credit: 'NASA / Matt Deans', license: 'Public domain (NASA)' },
-                    { src: 'assets/sites/devon-island/2.webp', alt: 'Haughton-Mars Project team at the Devon Island base camp', caption: 'Dr. Hans Utz and the K-10 team at base camp', credit: 'NASA / Mars Institute / Haughton-Mars Project; photo by Dr. Matthew Deans (NASA Ames)', license: 'Public domain (NASA)' },
-                    { src: 'assets/sites/devon-island/3.webp', alt: 'K-10 rover lift setup at the Haughton-Mars Project on Devon Island', caption: 'K-10 lift setup, Devon Island', credit: 'NASA / Mars Institute / Haughton-Mars Project', license: 'Public domain (NASA)' }
-                ],
-                desc: 'A high-Arctic impact structure in a polar-desert setting, included as qualitative field context. Its inclusion does not establish a verified lunar or Martian terrain match.'
-            },
-            {
-                id: 'mcmurdo',
-                pipelineId: 'earth_mcmurdo_dry_valleys',
-                name: 'McMurdo Dry Valleys',
-                country: 'Antarctica',
-                lat: -77.47,
-                lon: 162.27,
-                type: 'Hyper-Arid Polar Desert',
-                isBasaltic: false,
-                hasTubes: false,
-                isArid: true,
-                images: [
-                    { src: 'assets/sites/antarctica-mcmurdo/1.webp', alt: 'Glacier flowing through the McMurdo Dry Valleys', caption: 'A glacier through the McMurdo Dry Valleys', credit: 'U.S. Department of State', license: 'Public domain' },
-                    { src: 'assets/sites/antarctica-mcmurdo/2.webp', alt: 'Gargoyle Ridge in the McMurdo Dry Valleys', caption: 'Gargoyle Ridge, McMurdo Dry Valleys', credit: 'U.S. Department of State', license: 'Public domain' },
-                    { src: 'assets/sites/antarctica-mcmurdo/3.webp', alt: 'Ice flow in the McMurdo Dry Valleys', caption: 'Ice flow, McMurdo Dry Valleys', credit: 'U.S. Department of State', license: 'Public domain' }
-                ],
-                desc: 'An Antarctic dry-valley environment included as qualitative cold-desert and permafrost context. Its inclusion does not establish quantitative similarity to Mars.'
-            },
-            {
-                id: 'atacama',
-                pipelineId: 'earth_atacama_puna',
-                name: 'Puna de Atacama',
-                country: 'Chile / Argentina',
-                lat: -24.50,
-                lon: -68.30,
-                type: 'High-Altitude Hyper-Arid Plateau',
-                isBasaltic: true,
-                hasTubes: false,
-                isArid: true,
-                images: [
-                    { src: 'assets/sites/atacama-puna/1.webp', alt: 'Piedras Rojas rock formation at Aguas Calientes salt flat in the high puna of Chile', caption: 'Piedras Rojas, Aguas Calientes salt flat', credit: 'Diego Delso, delso.photo', license: 'CC BY-SA 4.0' },
-                    { src: 'assets/sites/atacama-puna/2.webp', alt: 'Salar de Tara in northern Chile', caption: 'Salar de Tara, Chile', credit: 'Diego Delso, delso.photo', license: 'CC BY-SA 4.0' },
-                    { src: 'assets/sites/atacama-puna/3.webp', alt: 'Laguna Miscanti in northern Chile', caption: 'Laguna Miscanti, Chile', credit: 'Diego Delso, delso.photo', license: 'CC BY-SA 4.0' }
-                ],
-                desc: 'A high-altitude arid plateau included as a field-site candidate. This dashboard does not load site measurements or establish equivalence to Martian surface conditions.'
-            },
-            {
-                id: 'hawaii',
-                pipelineId: 'earth_hawaii_mauna_kea',
-                name: 'Mauna Kea Cinder Cones',
-                country: 'USA (Hawaii)',
-                lat: 19.82,
-                lon: -155.47,
-                type: 'Basaltic Tephra Cones',
-                isBasaltic: true,
-                hasTubes: true,
-                isArid: false,
-                images: [
-                    { src: 'assets/sites/hawaii-mauna-kea/1.webp', alt: 'Cinder cones on Mauna Kea above 4,100 meters', caption: 'Cinder cones near the Mauna Kea observatories', credit: 'Kevstan', license: 'CC BY-SA 3.0' },
-                    { src: 'assets/sites/hawaii-mauna-kea/2.webp', alt: 'Mauna Kea cinder cones on the Big Island of Hawaii', caption: 'Mauna Kea Cinder Cones, Hawaii', credit: 'Robert Linsdell', license: 'CC BY 2.0' },
-                    { src: 'assets/sites/hawaii-mauna-kea/3.webp', alt: 'Puʻu ka Pele cinder cone on the southeast flank of Mauna Kea', caption: 'Puʻu ka Pele cinder cone', credit: 'J.P. Lockwood, USGS employee', license: 'Public domain (USGS)' }
-                ],
-                desc: 'A basaltic volcanic tephra candidate described in project notes in connection with lunar regolith simulant work. This dashboard does not provide compositional measurements or independently verify that context.'
-            }
-        ];
+        const SITE_PHOTO_GALLERIES = {
+            iceland_askja: [
+                { src: 'assets/sites/iceland-askja/1.webp', alt: 'Askja highlands and Öskjuvatn lake in Iceland', caption: 'Askja highlands, Iceland', credit: 'Luca Temporelli', license: 'CC BY-SA 2.0' },
+                { src: 'assets/sites/iceland-askja/2.webp', alt: 'Víti and Öskjuvatn craters at Askja volcano caldera', caption: 'Víti and Öskjuvatn craters, Askja volcano', credit: 'Ulrich Latzenhofer', license: 'CC BY-SA 2.0' },
+                { src: 'assets/sites/iceland-askja/3.webp', alt: 'Landsat 8 false-color image of the Holuhraun lava field', caption: 'Holuhraun lava field, Landsat 8 false-color image', credit: 'Operational Land Imager (OLI)', license: 'Public domain (NASA)' }
+            ],
+            haughton_crater: [
+                { src: 'assets/sites/devon-island/1.webp', alt: 'NASA K-10 rover near the Haughton-Mars Project base camp on Devon Island', caption: 'K-10 near the Haughton-Mars Project base camp', credit: 'NASA / Matt Deans', license: 'Public domain (NASA)' },
+                { src: 'assets/sites/devon-island/2.webp', alt: 'Haughton-Mars Project team at the Devon Island base camp', caption: 'Dr. Hans Utz and the K-10 team at base camp', credit: 'NASA / Mars Institute / Haughton-Mars Project; photo by Dr. Matthew Deans (NASA Ames)', license: 'Public domain (NASA)' },
+                { src: 'assets/sites/devon-island/3.webp', alt: 'K-10 rover lift setup at the Haughton-Mars Project on Devon Island', caption: 'K-10 lift setup, Devon Island', credit: 'NASA / Mars Institute / Haughton-Mars Project', license: 'Public domain (NASA)' }
+            ],
+            mcmurdo_dry_valleys: [
+                { src: 'assets/sites/antarctica-mcmurdo/1.webp', alt: 'Glacier flowing through the McMurdo Dry Valleys', caption: 'A glacier through the McMurdo Dry Valleys', credit: 'U.S. Department of State', license: 'Public domain' },
+                { src: 'assets/sites/antarctica-mcmurdo/2.webp', alt: 'Gargoyle Ridge in the McMurdo Dry Valleys', caption: 'Gargoyle Ridge, McMurdo Dry Valleys', credit: 'U.S. Department of State', license: 'Public domain' },
+                { src: 'assets/sites/antarctica-mcmurdo/3.webp', alt: 'Ice flow in the McMurdo Dry Valleys', caption: 'Ice flow, McMurdo Dry Valleys', credit: 'U.S. Department of State', license: 'Public domain' }
+            ],
+            atacama_puna: [
+                { src: 'assets/sites/atacama-puna/1.webp', alt: 'Piedras Rojas rock formation at Aguas Calientes salt flat in the high puna of Chile', caption: 'Piedras Rojas, Aguas Calientes salt flat', credit: 'Diego Delso, delso.photo', license: 'CC BY-SA 4.0' },
+                { src: 'assets/sites/atacama-puna/2.webp', alt: 'Salar de Tara in northern Chile', caption: 'Salar de Tara, Chile', credit: 'Diego Delso, delso.photo', license: 'CC BY-SA 4.0' },
+                { src: 'assets/sites/atacama-puna/3.webp', alt: 'Laguna Miscanti in northern Chile', caption: 'Laguna Miscanti, Chile', credit: 'Diego Delso, delso.photo', license: 'CC BY-SA 4.0' }
+            ],
+            hawaii_mauna_kea: [
+                { src: 'assets/sites/hawaii-mauna-kea/1.webp', alt: 'Cinder cones on Mauna Kea above 4,100 meters', caption: 'Cinder cones near the Mauna Kea observatories', credit: 'Kevstan', license: 'CC BY-SA 3.0' },
+                { src: 'assets/sites/hawaii-mauna-kea/2.webp', alt: 'Mauna Kea cinder cones on the Big Island of Hawaii', caption: 'Mauna Kea Cinder Cones, Hawaii', credit: 'Robert Linsdell', license: 'CC BY 2.0' },
+                { src: 'assets/sites/hawaii-mauna-kea/3.webp', alt: 'Puʻu ka Pele cinder cone on the southeast flank of Mauna Kea', caption: 'Puʻu ka Pele cinder cone', credit: 'J.P. Lockwood, USGS employee', license: 'Public domain (USGS)' }
+            ]
+        };
+        const LEGACY_ANALOG_IDS = {
+            atacama_puna: 'atacama',
+            haughton_crater: 'haughton',
+            hawaii_mauna_kea: 'hawaii',
+            iceland_askja: 'iceland',
+            mcmurdo_dry_valleys: 'mcmurdo'
+        };
 
         let currentTarget = 'moon';
         let currentView = 'moon';
-        let selectedSite = analogSites[0];
+        let analogSites = [];
+        let selectedSite = null;
+        let siteCatalogLoadError = false;
+        let earthResolution = null;
+        let marsTargetResolution = null;
+        let leaderboardExpanded = false;
+        let hoveredCesiumSiteId = null;
         let targetSiteCatalog = null;
         let targetSiteCatalogLoadError = false;
         let selectedTargetSiteId = null;
@@ -2925,6 +2941,210 @@
         let cesiumMarsFallbackActive = false;
         let lastImageryAlpha = -1;
 
+        function validateEarthSiteCatalog(payload) {
+            if (!payload || !Array.isArray(payload.sites) || !payload.sites.length) {
+                throw new Error('Earth site catalog must contain a non-empty sites list.');
+            }
+            const foundIds = new Set();
+            for (const site of payload.sites) {
+                const required = ['site_id', 'name', 'country', 'lat', 'lon', 'window_km', 'flags', 'analog_for', 'short_description', 'verify_coordinates_manually'];
+                if (!site || required.some(field => site[field] === undefined || site[field] === null || site[field] === '')) {
+                    throw new Error('Earth site catalog contains a record with missing required fields.');
+                }
+                if (typeof site.site_id !== 'string' || !/^[a-z][a-z0-9_]*$/.test(site.site_id) || foundIds.has(site.site_id)) {
+                    throw new Error(`Invalid or duplicate Earth site ID: ${site.site_id}.`);
+                }
+                if (!Number.isFinite(site.lat) || site.lat < -90 || site.lat > 90
+                    || !Number.isFinite(site.lon) || site.lon < -180 || site.lon > 180) {
+                    throw new Error(`Earth site ${site.site_id} has invalid coordinates.`);
+                }
+                if (!Number.isFinite(site.window_km) || site.window_km <= 0
+                    || !site.flags || ['hyper_arid', 'basaltic', 'lava_tubes'].some(flag => typeof site.flags[flag] !== 'boolean')
+                    || !Array.isArray(site.analog_for) || !site.analog_for.length
+                    || site.analog_for.some(body => !['moon', 'mars'].includes(body))
+                    || typeof site.verify_coordinates_manually !== 'boolean'
+                    || typeof site.short_description !== 'string' || !site.short_description.trim()) {
+                    throw new Error(`Earth site ${site.site_id} has invalid catalog values.`);
+                }
+                foundIds.add(site.site_id);
+            }
+            return payload;
+        }
+
+        function buildEarthSite(record) {
+            const flags = record.flags;
+            const searchable = `${record.name} ${record.short_description}`.toLowerCase();
+            const type = [
+                flags.hyper_arid ? 'Hyper-arid' : '',
+                flags.basaltic ? 'Basaltic' : '',
+                flags.lava_tubes ? 'Lava tubes' : ''
+            ].filter(Boolean).join(' / ') || 'Terrestrial analog terrain';
+            const terrainKind = /impact|crater/.test(searchable)
+                ? 'impact'
+                : flags.basaltic
+                    ? 'volcanic'
+                    : /polar|permafrost|glacial|cold/.test(searchable)
+                        ? 'polar'
+                        : flags.hyper_arid ? 'arid' : 'rolling';
+            return {
+                ...record,
+                id: record.site_id,
+                pipelineId: `earth_${record.site_id}`,
+                legacyAnalogId: LEGACY_ANALOG_IDS[record.site_id] || record.site_id,
+                type,
+                desc: record.short_description,
+                isArid: flags.hyper_arid,
+                isBasaltic: flags.basaltic,
+                hasTubes: flags.lava_tubes,
+                terrainKind,
+                images: SITE_PHOTO_GALLERIES[record.site_id] || [],
+                provenance: { kind: 'unknown', label: 'Unknown', resolutionM: null, sourceDataset: null }
+            };
+        }
+
+        function getSiteByAnalogId(analogId) {
+            return analogSites.find(site => site.id === analogId || site.legacyAnalogId === analogId) || null;
+        }
+
+        function setEvidenceBadge(element, provenance) {
+            if (!element) return;
+            const isReal = provenance?.kind === 'real';
+            const isSynthetic = provenance?.kind === 'synthetic';
+            element.className = `evidence-badge ${isReal ? 'real-data' : isSynthetic ? 'synthetic' : ''}`.trim();
+            element.textContent = isReal ? 'Real DEM' : isSynthetic ? 'Synthetic demo' : 'Unknown';
+        }
+
+        async function loadEarthSiteCatalog() {
+            const errorBanner = document.getElementById('results-load-error');
+            try {
+                const response = await fetch('sites.json', { cache: 'no-store' });
+                if (!response.ok) throw new Error(`Earth site catalog returned HTTP ${response.status}.`);
+                const catalog = validateEarthSiteCatalog(await response.json());
+                analogSites = catalog.sites.map(buildEarthSite);
+                selectedSite = analogSites[0] || null;
+
+                try {
+                    const provenanceResponse = await fetch('site_provenance.json', { cache: 'no-store' });
+                    if (!provenanceResponse.ok) throw new Error(`DEM provenance returned HTTP ${provenanceResponse.status}.`);
+                    const provenance = await provenanceResponse.json();
+                    for (const site of analogSites) {
+                        const record = provenance.sites?.[site.id];
+                        const resolutionM = record?.output_ground_resolution_m_per_pixel;
+                        if (typeof record?.source_dataset === 'string' && record.source_dataset.trim()
+                            && Number.isFinite(resolutionM) && resolutionM > 0) {
+                            site.provenance = {
+                                kind: 'real',
+                                label: 'Real DEM',
+                                resolutionM,
+                                sourceDataset: record.source_dataset
+                            };
+                        }
+                    }
+                    const marsTarget = provenance.planetary_targets?.mars;
+                    if (typeof marsTarget?.source_dataset === 'string'
+                        && Number.isFinite(marsTarget.output_ground_resolution_m_per_pixel)
+                        && marsTarget.output_ground_resolution_m_per_pixel > 0) {
+                        marsTargetResolution = marsTarget.output_ground_resolution_m_per_pixel;
+                    }
+                } catch (error) {
+                    console.warn('Could not load site DEM provenance.', error);
+                }
+
+                const resolutions = analogSites
+                    .map(site => site.provenance.kind === 'real' ? site.provenance.resolutionM : null)
+                    .filter(Number.isFinite);
+                earthResolution = resolutions.length
+                    ? resolutions.reduce((sum, value) => sum + value, 0) / resolutions.length
+                    : null;
+                siteCatalogLoadError = false;
+                if (errorBanner) errorBanner.hidden = true;
+                updateProvenanceCaptions();
+            } catch (error) {
+                analogSites = [];
+                selectedSite = null;
+                siteCatalogLoadError = true;
+                if (errorBanner) {
+                    errorBanner.textContent = 'Earth site catalog could not be loaded. Check dashboard/sites.json.';
+                    errorBanner.hidden = false;
+                }
+                console.error('Could not load the Earth site catalog.', error);
+            }
+        }
+
+        async function loadSitePhotoCatalog() {
+            try {
+                const response = await fetch('site_photos.json', { cache: 'no-store' });
+                if (!response.ok) throw new Error(`Site photo catalog returned HTTP ${response.status}.`);
+                const manifest = await response.json();
+                for (const site of analogSites) {
+                    if (site.images.length) continue;
+                    const entries = Array.isArray(manifest[site.id]) ? manifest[site.id] : [];
+                    site.images = entries.filter(entry => entry.file_path && entry.commons_title && entry.source_page_url)
+                        .map(entry => ({
+                            src: entry.file_path,
+                            alt: entry.commons_title.replace(/^File:/, ''),
+                            commons_title: entry.commons_title,
+                            author: entry.author || 'Author not credited',
+                            license_name: entry.license_name,
+                            license_url: entry.license_url,
+                            source_page_url: entry.source_page_url
+                        }));
+                }
+            } catch (error) {
+                console.warn('Could not load the Commons photo catalog.', error);
+            }
+        }
+
+        function getMarsResolutionNote() {
+            if (!Number.isFinite(marsTargetResolution) || !Number.isFinite(earthResolution)) return '';
+            return `Mars target DEM is ~${Math.round(marsTargetResolution)} m/pixel while Earth candidates are ~${Math.round(earthResolution)} m/pixel; terrain metrics are resolution-dependent, so Mars scores are indicative, not directly comparable.`;
+        }
+
+        function updateProvenanceCaptions() {
+            const realCount = analogSites.filter(site => site.provenance.kind === 'real').length;
+            const syntheticCount = analogSites.filter(site => site.provenance.kind === 'synthetic').length;
+            const unknownCount = analogSites.length - realCount - syntheticCount;
+            const unknownNote = unknownCount ? ` · ${unknownCount} Unknown` : '';
+            for (const target of ['moon', 'mars']) {
+                const result = scoreResults[target]?.rankings?.find(candidate => candidate.rank === 1);
+                const winner = result && analogSites.find(site => site.pipelineId === result.site_id);
+                const badge = document.getElementById(`takeaway-${target}-provenance`);
+                const caption = document.getElementById(`takeaway-${target}-caption`);
+                if (winner) setEvidenceBadge(badge, winner.provenance);
+                if (caption) caption.textContent = `${realCount} Real DEM · ${syntheticCount} Synthetic demo candidates${unknownNote}`;
+            }
+            const leaderboardCaption = document.getElementById('leaderboard-data-caption');
+            if (leaderboardCaption) {
+                const marsNote = currentTarget === 'mars' ? getMarsResolutionNote() : '';
+                leaderboardCaption.textContent = `${realCount} Real DEM · ${syntheticCount} Synthetic demo candidates${unknownNote}${marsNote ? ` · ${marsNote}` : ''}`;
+            }
+            const leaderboardProvenance = document.getElementById('leaderboard-provenance');
+            if (leaderboardProvenance && !scoreResultsLoadError && scoreResults[currentTarget]) {
+                leaderboardProvenance.textContent = `Ranked from dashboard/results_${currentTarget}.json`;
+                if (currentTarget === 'mars' && getMarsResolutionNote()) {
+                    leaderboardProvenance.textContent += ` · ${getMarsResolutionNote()}`;
+                }
+            }
+            const validationSummary = document.getElementById('validation-provenance-summary');
+            if (validationSummary) validationSummary.textContent = `Current catalog provenance: ${realCount} Real DEM and ${syntheticCount} synthetic Earth candidates${unknownNote}. The historical window-sensitivity table is a separate five-site run where the four non-Askja Earth candidates were synthetic; it does not represent the current ${analogSites.length}-site ranking.`;
+            const scienceProvenance = document.getElementById('science-earth-provenance');
+            if (scienceProvenance) scienceProvenance.textContent = `${realCount} sidecar-declared real DEMs · ${syntheticCount} synthetic candidates${unknownNote}`;
+            const sidebarTitle = document.getElementById('sidebar-provenance-title');
+            if (sidebarTitle) sidebarTitle.textContent = `${realCount} Real DEM · ${syntheticCount} Synthetic${unknownNote}`;
+            const sidebarSummary = document.getElementById('sidebar-provenance-summary');
+            if (sidebarSummary) sidebarSummary.textContent = `${analogSites.length} catalog sites · per-site provenance`;
+            const limitations = document.getElementById('limitations-provenance');
+            if (limitations) limitations.textContent = `${realCount} of ${analogSites.length} catalog Earth candidates have sidecar-declared DEM provenance; ${syntheticCount} are synthetic demos.${unknownCount ? ` ${unknownCount} have Unknown provenance.` : ''} ACI is a terrain-similarity heuristic, not mission suitability. The Moon target is the lunar south-pole region, not a specific Artemis III landing site.`;
+            const aboutCount = document.getElementById('about-candidate-count');
+            if (aboutCount) aboutCount.textContent = String(analogSites.length);
+            const marsNote = getMarsResolutionNote();
+            const marsMapNote = document.getElementById('mars-resolution-note');
+            if (marsMapNote) {
+                marsMapNote.textContent = marsNote;
+                marsMapNote.hidden = currentView !== 'mars' || !marsNote;
+            }
+        }
+
         const PLANETARY_SURFACES = {
             moon: {
                 name: 'Moon',
@@ -2948,17 +3168,6 @@
             }
         };
 
-        const PLANETARY_LANDMARKS = {
-            moon: [
-                { name: 'Tycho', longitude: -11.361923, latitude: -43.310139, detail: 'IAU-named impact crater · 86.2 km' },
-                { name: 'Shackleton', longitude: 132.321845, latitude: -89.625776, detail: 'IAU-named south-polar crater · 21 km' }
-            ],
-            mars: [
-                { name: 'Olympus Mons', longitude: -133.802507, latitude: 18.652759, detail: 'IAU-adopted volcano · 610 km' },
-                { name: 'Valles Marineris', longitude: -58.587674, latitude: -14.005869, detail: 'IAU-adopted canyon system · 3,761 km' }
-            ]
-        };
-
         const RADAR_LABELS = ['Slope Mean', 'Slope Std Dev', 'TRI Mean', 'TRI Std Dev', 'Elevation Std Dev'];
         const RADAR_KEYS = ['slope_mean', 'slope_std', 'tri_mean', 'tri_std', 'elevation_std'];
         const METRIC_LABELS = {
@@ -2974,12 +3183,12 @@
             const category = document.getElementById('site-filter')?.value || 'all';
 
             return analogSites.filter(site => {
-                const searchable = `${site.name} ${site.country} ${site.type} ${site.desc}`.toLowerCase();
+                const searchable = `${site.name} ${site.country} ${site.type} ${site.desc} ${site.site_id}`.toLowerCase();
                 if (query && !searchable.includes(query)) return false;
-                if (category === 'volcanic' && !/volcanic|basaltic|tephra/i.test(site.type)) return false;
-                if (category === 'polar' && !/polar|arctic|antarctic/i.test(`${site.type} ${site.country}`)) return false;
+                if (category === 'volcanic' && !site.isBasaltic && !/volcanic|basalt|tephra|lava/i.test(site.desc)) return false;
+                if (category === 'polar' && !/polar|arctic|antarctic|svalbard|permafrost/i.test(`${site.type} ${site.country} ${site.desc}`)) return false;
                 if (category === 'arid' && !site.isArid) return false;
-                if (category === 'impact' && !/impact/i.test(site.type)) return false;
+                if (category === 'impact' && !/impact|crater/i.test(`${site.name} ${site.desc}`)) return false;
                 return true;
             });
         }
@@ -2994,7 +3203,7 @@
             });
         }
 
-        const SCORE_RESULTS_ERROR_MESSAGE = 'Run `python main.py --target moon --json-out` and `python main.py --target mars --json-out`, then open the dashboard via `python -m http.server`.';
+        const SCORE_RESULTS_ERROR_MESSAGE = 'Restore the checked-in 20-site real-data ranking JSONs or follow the explicit real-data reproduction instructions in README.md, then open the dashboard via `python -m http.server`. Synthetic-demo exports cannot supply these rankings.';
         const WINDOW_SENSITIVITY_ERROR_MESSAGE = 'Run `python scripts/window_sensitivity.py` and open the dashboard via `python -m http.server`.';
 
         function getCandidateResult(site, target = currentTarget) {
@@ -3018,19 +3227,25 @@
             });
             for (const body of ['moon', 'mars']) {
                 const matches = payload.analog_matches[body];
-                if (!Array.isArray(matches) || matches.length !== analogSites.length) {
-                    throw new Error(`The ${body} mapping must include each Earth analog once.`);
+                if (!Array.isArray(matches)) {
+                    throw new Error(`The ${body} mapping must be a list.`);
                 }
                 const matchedAnalogIds = new Set();
                 matches.forEach(match => {
                     const target = sitesById.get(match.target_site_id);
-                    if (!analogSites.some(site => site.id === match.earth_analog_id)
+                    if (!getSiteByAnalogId(match.earth_analog_id)
                         || matchedAnalogIds.has(match.earth_analog_id)
                         || !target || target.body.toLowerCase() !== body
                         || !Array.isArray(match.shared_features)
-                        || !match.shared_features.length
+                        || (!match.shared_features.length && !(match.status === 'provisional' && typeof match.reason === 'string' && match.reason.trim()))
                         || !match.shared_features.every(feature => target.key_features.includes(feature))) {
                         throw new Error(`Invalid ${body} analog match for ${match.earth_analog_id || 'unknown'}.`);
+                    }
+                    if (match.status !== undefined && match.status !== 'provisional') {
+                        throw new Error(`Invalid mapping status for ${match.earth_analog_id}.`);
+                    }
+                    if (match.reason !== undefined && (typeof match.reason !== 'string' || !match.reason.trim())) {
+                        throw new Error(`Invalid mapping reason for ${match.earth_analog_id}.`);
                     }
                     matchedAnalogIds.add(match.earth_analog_id);
                 });
@@ -3050,6 +3265,20 @@
             const latitudeDirection = site.lat < 0 ? 'S' : 'N';
             const longitudeDirection = site.lon < 0 ? 'W' : 'E';
             return `Approx. ${Math.abs(site.lat)}° ${latitudeDirection}, ${Math.abs(site.lon)}° ${longitudeDirection}`;
+        }
+
+        function createEarthAnalogJumpLink(analog) {
+            const link = document.createElement('a');
+            link.href = '#explore-section';
+            link.className = 'catalog-link';
+            link.textContent = 'Jump to Earth site';
+            link.addEventListener('click', event => {
+                event.preventDefault();
+                switchTarget('earth');
+                selectSite(analog, true);
+                navigateToDashboardSection('explore-section', 'map-tab', 'tab-map');
+            });
+            return link;
         }
 
         function renderTargetAnalogPanel() {
@@ -3075,17 +3304,27 @@
             }
             if (!targetSiteCatalog || earthView) return;
 
-            orderNote.textContent = `${targetSiteCatalog.match_basis} Ordered from the data file; separate from the ACI ranking.`;
-            targetSiteCatalog.analog_matches[body].forEach(match => {
-                const analog = analogSites.find(site => site.id === match.earth_analog_id);
+            orderNote.textContent = `Mapping: provisional. ${targetSiteCatalog.match_basis} Ordered from the data file; separate from the ACI ranking.`;
+            const matches = targetSiteCatalog.analog_matches[body] || [];
+            const entries = [];
+            const mappedSiteIds = new Set();
+            matches.forEach(match => {
+                const analog = getSiteByAnalogId(match.earth_analog_id);
                 const target = getTargetSiteById(match.target_site_id);
                 if (!analog || !target) return;
+                mappedSiteIds.add(analog.id);
+                entries.push({ analog, target, match });
+            });
+            analogSites.filter(site => !mappedSiteIds.has(site.id)).forEach(analog => {
+                entries.push({ analog, target: null, match: null });
+            });
+            entries.forEach(({ analog, target, match }) => {
                 const item = document.createElement('article');
                 item.className = 'target-match-item';
                 item.dataset.earthAnalogId = analog.id;
-                item.dataset.targetSiteId = target.id;
+                if (target) item.dataset.targetSiteId = target.id;
                 item.classList.toggle('is-selected', selectedSite?.id === analog.id);
-                item.classList.toggle('is-target-selected', selectedTargetSiteId === target.id);
+                item.classList.toggle('is-target-selected', Boolean(target && selectedTargetSiteId === target.id));
                 const selectButton = document.createElement('button');
                 selectButton.type = 'button';
                 selectButton.className = 'target-match-select';
@@ -3094,11 +3333,16 @@
                 selectButton.addEventListener('click', () => selectSite(analog, false));
                 const targetName = document.createElement('span');
                 targetName.className = 'target-match-target';
-                targetName.textContent = target.name;
+                targetName.hidden = !target;
+                if (target) targetName.textContent = target.name;
                 const reason = document.createElement('p');
                 reason.className = 'target-match-reason';
-                reason.textContent = `Shared features: ${match.shared_features.join(', ')}.`;
-                item.append(selectButton, targetName, reason);
+                reason.textContent = match
+                    ? `${match.status === 'provisional' ? 'Mapping: provisional. ' : ''}${match.reason || `Shared features: ${match.shared_features.join(', ')}.`}`
+                    : analog.analog_for.includes(body)
+                        ? 'No qualitative mapping yet.'
+                        : `Not tagged as an analog for ${bodyName}.`;
+                item.append(selectButton, targetName, reason, createEarthAnalogJumpLink(analog));
                 list.appendChild(item);
             });
         }
@@ -3125,12 +3369,12 @@
             if (!targetSiteCatalog || earthView) return;
 
             const matches = targetSiteCatalog.analog_matches[body];
-            const match = matches.find(entry => entry.earth_analog_id === selectedSite?.id
-                && (!selectedTargetSiteId || entry.target_site_id === selectedTargetSiteId))
-                || matches.find(entry => entry.target_site_id === selectedTargetSiteId)
-                || matches[0];
-            const analog = analogSites.find(site => site.id === match.earth_analog_id);
-            const target = getTargetSiteById(match.target_site_id);
+            const match = selectedSite
+                ? matches.find(entry => getSiteByAnalogId(entry.earth_analog_id)?.id === selectedSite.id)
+                : matches.find(entry => entry.target_site_id === selectedTargetSiteId) || matches[0];
+            const analog = selectedSite || (match && getSiteByAnalogId(match.earth_analog_id));
+            const target = (match && getTargetSiteById(match.target_site_id))
+                || getTargetSiteById(selectedTargetSiteId);
             if (!analog || !target) return;
 
             const analogSide = document.createElement('div');
@@ -3142,7 +3386,7 @@
             analogName.textContent = analog.name;
             const analogDescription = document.createElement('p');
             analogDescription.textContent = analog.desc;
-            analogSide.append(analogLabel, analogName, analogDescription);
+            analogSide.append(analogLabel, analogName, analogDescription, createEarthAnalogJumpLink(analog));
 
             const targetSide = document.createElement('div');
             targetSide.className = 'target-comparison-side target-side';
@@ -3156,7 +3400,11 @@
             const targetFeatures = document.createElement('p');
             targetFeatures.textContent = `Key features: ${target.key_features.join(', ')}.`;
             const analogLink = document.createElement('p');
-            analogLink.textContent = `Linked Earth analog: ${analog.name}. Shared features: ${match.shared_features.join(', ')}.`;
+            analogLink.textContent = match
+                ? `${match.status === 'provisional' ? 'Mapping: provisional. ' : ''}${match.reason || `Linked Earth analog: ${analog.name}. Shared features: ${match.shared_features.join(', ')}.`}`
+                : analog.analog_for.includes(body)
+                    ? 'No qualitative mapping yet.'
+                    : `Not tagged as an analog for ${bodyName}.`;
             const sourceNote = document.createElement('p');
             sourceNote.textContent = `Source note: ${target.source_note}`;
             targetSide.append(targetLabel, targetName, targetDescription, targetFeatures, analogLink, sourceNote);
@@ -3359,10 +3607,11 @@
                 }
             }
             updateLeaderboards();
-            selectSite(selectedSite, false);
+            if (selectedSite) selectSite(selectedSite, false);
             updateRadarChart();
             renderMapMarkers();
             updateKeyTakeaways();
+            updateProvenanceCaptions();
         }
 
         function updateKeyTakeaways() {
@@ -3507,6 +3756,101 @@
             document.getElementById('validation-verdict').textContent = `${consistency}; the largest candidate rank change is ${change}.`;
         }
 
+        function validateRealDemSensitivity(payload) {
+            if (!payload || payload.label !== 'Real DEM, 20 sites' || payload.site_count !== 20
+                || !payload.protocol || !payload.targets) {
+                throw new Error('Invalid real DEM crop sensitivity results schema.');
+            }
+            for (const body of ['moon', 'mars']) {
+                const crops = payload.targets[body];
+                if (!crops) throw new Error(`Missing ${body} crop rankings.`);
+                for (const [label, expectedSize] of [['100%', 300], ['75%', 225], ['50%', 150]]) {
+                    const crop = crops[label];
+                    if (!crop || crop.crop_size_px !== expectedSize || !Array.isArray(crop.rankings)
+                        || crop.rankings.length !== 20 || !Array.isArray(crop.top5) || crop.top5.length !== 5
+                        || !Number.isFinite(crop.rank_correlation_vs_100_percent)
+                        || crop.rank_correlation_vs_100_percent < -1 || crop.rank_correlation_vs_100_percent > 1
+                        || crop.leader !== crop.rankings[0]?.site_name) {
+                        throw new Error(`Invalid ${body} ${label} crop results.`);
+                    }
+                    crop.rankings.forEach((result, index) => {
+                        if (!result || result.rank !== index + 1 || typeof result.site_id !== 'string'
+                            || typeof result.site_name !== 'string' || !Number.isFinite(result.aci)) {
+                            throw new Error(`Invalid ranked candidate for ${body} ${label} crop.`);
+                        }
+                    });
+                    if (crop.top5.some((result, index) => result.site_id !== crop.rankings[index].site_id)) {
+                        throw new Error(`Top five do not match rankings for ${body} ${label} crop.`);
+                    }
+                }
+            }
+            return payload;
+        }
+
+        function renderRealDemSensitivity(payload) {
+            const body = document.getElementById('real-crop-table-body');
+            body.replaceChildren();
+            for (const [targetKey, targetName] of [['moon', 'Moon'], ['mars', 'Mars']]) {
+                for (const label of ['100%', '75%', '50%']) {
+                    const crop = payload.targets[targetKey][label];
+                    const row = document.createElement('tr');
+                    const target = document.createElement('th');
+                    target.scope = 'row';
+                    target.textContent = targetName;
+                    const size = document.createElement('td');
+                    size.textContent = `${label} · ${crop.crop_size_px} px`;
+                    const leader = document.createElement('td');
+                    leader.textContent = crop.leader;
+                    const correlation = document.createElement('td');
+                    correlation.textContent = crop.rank_correlation_vs_100_percent.toFixed(3);
+                    const topFive = document.createElement('td');
+                    topFive.textContent = crop.top5.map(candidate => `${candidate.rank}. ${candidate.site_name} (${candidate.aci.toFixed(2)}%)`).join(' · ');
+                    if (label === '100%') {
+                        for (const cell of [target, size, leader, correlation, topFive]) cell.classList.add('validation-leader');
+                    }
+                    row.append(target, size, leader, correlation, topFive);
+                    body.appendChild(row);
+                }
+            }
+        }
+
+        async function loadWeightStability() {
+            const card = document.getElementById('weight-stability-card');
+            const values = document.getElementById('weight-stability-values');
+            card.hidden = true;
+            values.replaceChildren();
+            try {
+                const response = await fetch('weight_sensitivity.json', { cache: 'no-store' });
+                if (!response.ok) return;
+                const payload = await response.json();
+                if (payload?.schema_version !== 1 || !Number.isInteger(payload.scenario_count_per_target)
+                    || payload.scenario_count_per_target <= 0) return;
+                const fragment = document.createDocumentFragment();
+                for (const [body, label] of [['moon', 'Moon'], ['mars', 'Mars']]) {
+                    const target = payload.targets?.[body];
+                    const summary = target?.summary;
+                    const leader = analogSites.find(site => site.pipelineId === target?.baseline_leader_site_id);
+                    if (!leader || !summary || summary.scenario_count !== payload.scenario_count_per_target
+                        || !Number.isFinite(summary.leader_stability_percent)
+                        || !Number.isFinite(summary.top3_stability_percent)
+                        || summary.leader_stability_percent < 0 || summary.top3_stability_percent > 100
+                        || summary.top3_stability_percent < summary.leader_stability_percent) return;
+                    const row = document.createElement('div');
+                    const name = document.createElement('dt');
+                    name.textContent = `${label}: ${leader.name}`;
+                    const stability = document.createElement('dd');
+                    stability.textContent = `#1 in ${summary.leader_stability_percent.toFixed(2)}% / top-3 in ${summary.top3_stability_percent.toFixed(2)}%`;
+                    row.append(name, stability);
+                    fragment.appendChild(row);
+                }
+                values.appendChild(fragment);
+                card.hidden = false;
+            } catch {
+                card.hidden = true;
+                values.replaceChildren();
+            }
+        }
+
         async function loadWindowSensitivity() {
             const loading = document.getElementById('validation-loading');
             const error = document.getElementById('validation-error');
@@ -3515,11 +3859,25 @@
             try {
                 const response = await fetch('window_sensitivity.json', { cache: 'no-store' });
                 if (!response.ok) throw new Error(`Window sensitivity returned HTTP ${response.status}.`);
-                windowSensitivityData = validateWindowSensitivity(await response.json());
+                const payload = await response.json();
+                windowSensitivityData = validateWindowSensitivity(payload);
                 renderWindowSensitivity(windowSensitivityData);
                 loading.hidden = true;
                 error.hidden = true;
                 content.hidden = false;
+                const realLoading = document.getElementById('real-crop-loading');
+                const realError = document.getElementById('real-crop-error');
+                try {
+                    renderRealDemSensitivity(validateRealDemSensitivity(payload.real_dem_sensitivity));
+                    realLoading.hidden = true;
+                    realError.hidden = true;
+                    document.getElementById('real-crop-content').hidden = false;
+                } catch (realErrorValue) {
+                    realLoading.hidden = true;
+                    document.getElementById('real-crop-content').hidden = true;
+                    realError.textContent = 'Real DEM crop sensitivity results unavailable. Run `python scripts/window_sensitivity.py --real-dem-only --data-dir data_real`.';
+                    realError.hidden = false;
+                }
             } catch (loadError) {
                 windowSensitivityData = null;
                 windowSensitivityLoadError = true;
@@ -3527,6 +3885,10 @@
                 content.hidden = true;
                 error.textContent = WINDOW_SENSITIVITY_ERROR_MESSAGE;
                 error.hidden = false;
+                document.getElementById('real-crop-loading').hidden = true;
+                document.getElementById('real-crop-content').hidden = true;
+                document.getElementById('real-crop-error').textContent = 'Real DEM crop sensitivity results unavailable.';
+                document.getElementById('real-crop-error').hidden = false;
             }
             updateKeyTakeaways();
         }
@@ -3546,10 +3908,11 @@
             if (selectedNote) selectedNote.textContent = 'Moon · Mars targets';
 
             const top = scoreResults[currentTarget]?.rankings?.find(result => result.rank === 1);
+            const topSite = top && analogSites.find(site => site.pipelineId === top.site_id);
             if (top || scoreResultsLoadError) leader?.classList.remove('json-loading-skeleton');
             if (leader) leader.textContent = top?.site_name || (scoreResultsLoadError ? 'Results unavailable' : 'Loading results…');
             if (leaderScore) leaderScore.textContent = top
-                ? `${top.aci.toFixed(2)}% · ${currentTarget} demo`
+                ? `${top.aci.toFixed(2)}% · ${topSite?.provenance.label || 'Source unavailable'}`
                 : scoreResultsLoadError ? 'Load target result JSON' : 'ACI from JSON';
         }
 
@@ -3576,7 +3939,7 @@
 
         function updateAciTierLegend() {
             const title = document.getElementById('aci-tier-legend-title');
-            if (title) title.textContent = `${currentTarget === 'moon' ? 'Moon' : 'Mars'} demo ACI tiers`;
+            if (title) title.textContent = `${currentTarget === 'moon' ? 'Moon' : 'Mars'} ACI tiers`;
         }
 
         function loadCesiumLibrary() {
@@ -4005,6 +4368,7 @@
 
                 cesiumPickHandler = new Cesium.ScreenSpaceEventHandler(cesiumViewer.scene.canvas);
                 cesiumPickHandler.setInputAction(handleEarthGlobeClick, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+                cesiumPickHandler.setInputAction(handleEarthGlobeHover, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
                 cesiumCameraChangedRemoval = cesiumViewer.camera.changed.addEventListener(updateCesiumMapState);
                 cesiumMoveEndRemoval = cesiumViewer.camera.moveEnd.addEventListener(updateDetailedCoordinateReadout);
                 cesiumRenderErrorRemoval = cesiumViewer.scene.renderError.addEventListener(() => {
@@ -4034,7 +4398,7 @@
             }
 
             sites.forEach(site => {
-                const selected = site.id === selectedSite.id;
+                const selected = site.id === selectedSite?.id;
                 const score = getRealScore(site, currentTarget);
                 const color = new THREE.Color(getAciTier(score).color);
                 const radius = selected ? 0.034 : 0.024 + Math.max(0, Math.min(100, score)) * 0.00004;
@@ -4053,8 +4417,8 @@
             if (currentView !== 'earth') {
                 const picked = cesiumViewer.scene.pick(event.position);
                 const pickedId = picked?.id?.id;
-                const landmark = PLANETARY_LANDMARKS[currentView]?.find(item =>
-                    pickedId === `planet-landmark-${currentView}-${item.name.toLowerCase().replace(/\s+/g, '-')}`
+                const landmark = targetSiteCatalog?.planetary_landmarks?.[currentView]?.find(item =>
+                    pickedId === `planet-landmark-${currentView}-${item.id}`
                 );
                 if (landmark) showPlanetaryLandmarkPopup(landmark, event);
                 else document.getElementById('globe-site-popup').hidden = true;
@@ -4074,6 +4438,16 @@
                 clientX: event.position.x,
                 clientY: event.position.y
             });
+        }
+
+        function handleEarthGlobeHover(movement) {
+            if (!cesiumViewer || currentView !== 'earth') return;
+            const picked = cesiumViewer.scene.pick(movement.endPosition);
+            const entity = picked?.id;
+            const siteId = [...cesiumSiteEntities.entries()].find(([, marker]) => marker === entity)?.[0] || null;
+            if (hoveredCesiumSiteId === siteId) return;
+            hoveredCesiumSiteId = siteId;
+            updateCesiumMarkerLabels();
         }
 
         function updateCesiumImageryForHeight() {
@@ -4172,8 +4546,19 @@
                 if (imageryStatus) imageryStatus.innerHTML = 'EARTH OBSERVATION · BLUE MARBLE<br>NASA GIBS static surface';
             }
             updateCesiumImageryForHeight();
+            if (currentView === 'earth') updateCesiumMarkerLabels();
             updateDetailedCoordinateReadout();
             updateCesiumLandmarkPositions();
+        }
+
+        function updateCesiumMarkerLabels() {
+            if (!cesiumViewer) return;
+            const cameraHeight = getCesiumCameraCartographic('earth')?.height ?? Infinity;
+            const showLabelsAtZoom = cameraHeight < 3500000;
+            cesiumSiteEntities.forEach((entity, siteId) => {
+                if (entity.label) entity.label.show = siteId === selectedSite?.id
+                    || siteId === hoveredCesiumSiteId || showLabelsAtZoom;
+            });
         }
 
         function renderCesiumMarkers(sites) {
@@ -4183,7 +4568,8 @@
             const selectedTargetMatches = currentView === 'earth' && selectedTargetSiteId
                 ? new Set((targetSiteCatalog?.analog_matches[currentTarget] || [])
                     .filter(match => match.target_site_id === selectedTargetSiteId)
-                    .map(match => match.earth_analog_id))
+                    .map(match => getSiteByAnalogId(match.earth_analog_id)?.id)
+                    .filter(Boolean))
                 : new Set();
             cesiumSiteEntities.forEach((entity, id) => {
                 if (!activeIds.has(id)) {
@@ -4192,7 +4578,9 @@
                 }
             });
             sites.forEach(site => {
-                const selected = site.id === selectedSite.id || selectedTargetMatches.has(site.id);
+                const selected = site.id === selectedSite?.id || selectedTargetMatches.has(site.id);
+                const hovered = site.id === hoveredCesiumSiteId;
+                const showLabel = selected || hovered || (getCesiumCameraCartographic('earth')?.height ?? Infinity) < 3500000;
                 const score = getRealScore(site, currentTarget);
                 const color = Cesium.Color.fromCssColorString(getAciTier(score).color);
                 const outlineColor = selected ? Cesium.Color.fromCssColorString('#ffd783') : Cesium.Color.WHITE;
@@ -4205,7 +4593,8 @@
                         point: { pixelSize: pointSize, color, outlineColor, outlineWidth: selected ? 3 : 2, disableDepthTestDistance: 10000000 },
                         label: {
                             text: site.name,
-                            font: '12px sans-serif',
+                            show: showLabel,
+                            font: '10px sans-serif',
                             fillColor: Cesium.Color.WHITE,
                             outlineColor: Cesium.Color.fromCssColorString('#071423'),
                             outlineWidth: 3,
@@ -4221,6 +4610,7 @@
                     entity.point.color = color;
                     entity.point.outlineColor = outlineColor;
                     entity.point.outlineWidth = selected ? 3 : 2;
+                    entity.label.show = showLabel;
                 }
             });
             cesiumViewer.scene.requestRender();
@@ -4248,12 +4638,10 @@
                     detail: site.short_description,
                     targetSite: true
                 }));
-            const legacyLandmarks = (PLANETARY_LANDMARKS[body] || [])
+            const legacyLandmarks = (targetSiteCatalog?.planetary_landmarks?.[body] || [])
                 .filter(landmark => !targetSites.some(site => site.name.toLowerCase().includes(landmark.name.toLowerCase())))
                 .map(landmark => ({
                     ...landmark,
-                    longitude: landmark.longitude,
-                    latitude: landmark.latitude,
                     targetSite: false
                 }));
             const markers = [...legacyLandmarks, ...targetSites];
@@ -4295,7 +4683,7 @@
             const body = getDisplayedTargetBody();
             const matches = targetSiteCatalog.analog_matches[body] || [];
             const matchedTargetIds = new Set(matches
-                .filter(match => match.earth_analog_id === selectedSite?.id)
+                .filter(match => getSiteByAnalogId(match.earth_analog_id)?.id === selectedSite?.id)
                 .map(match => match.target_site_id));
             document.querySelectorAll('.target-site-marker').forEach(marker => {
                 marker.classList.toggle('is-highlighted', matchedTargetIds.has(marker.dataset.targetSiteId)
@@ -4374,8 +4762,8 @@
             const matches = (targetSiteCatalog?.analog_matches[body] || [])
                 .filter(match => match.target_site_id === site.id);
             const linkedAnalogs = matches.map(match => {
-                const analog = analogSites.find(candidate => candidate.id === match.earth_analog_id);
-                return analog ? `${analog.name} (${match.shared_features.join(', ')})` : null;
+                const analog = getSiteByAnalogId(match.earth_analog_id);
+                return analog ? `${analog.name} (${match.reason || match.shared_features.join(', ')})` : null;
             }).filter(Boolean);
             popup.querySelector('strong').textContent = site.name;
             popup.querySelector('.globe-popup-type').textContent = `${site.body} target site`;
@@ -4384,7 +4772,7 @@
             popup.querySelector('.globe-popup-features').textContent = `Key features: ${site.key_features.join(', ')}.`;
             popup.querySelector('.globe-popup-analogs').textContent = linkedAnalogs.length
                 ? `Linked Earth analogs: ${linkedAnalogs.join('; ')}.`
-                : 'No Earth analog mapping is listed.';
+                : 'No qualitative mapping yet.';
             popup.querySelector('.globe-popup-source').textContent = `Source note: ${site.source_note}`;
             popup.querySelector('.globe-popup-demo').hidden = false;
             popup.hidden = false;
@@ -4438,7 +4826,8 @@
             status?.setAttribute('aria-label', currentIndex < 0
                 ? `${activeSite?.name || 'No current site'}, ${sites.length} sites available`
                 : `${currentIndex + 1} of ${sites.length}: ${activeSite.name}`);
-            controls.hidden = !cesiumViewer || !['earth', 'moon', 'mars'].includes(currentView);
+            controls.hidden = !['earth', 'moon', 'mars'].includes(currentView)
+                || (!cesiumViewer && !(currentView === 'earth' && map));
             controls.querySelectorAll('.site-navigation-button').forEach(button => {
                 button.disabled = siteNavigationInFlight || sites.length <= 1;
             });
@@ -4457,6 +4846,7 @@
             updateSiteNavigationControls(sites);
             if (currentView === 'earth') {
                 selectSite(site, false);
+                if (!cesiumViewer && map) map.flyTo([site.lat, site.lon], Math.max(6, map.getZoom()), { animate: true, duration: 0.65 });
             } else {
                 selectTargetSite(site.id, false);
                 updateSiteNavigationControls(sites);
@@ -4467,7 +4857,8 @@
                 siteNavigationInFlight = false;
                 updateSiteNavigationControls();
             };
-            if (!focusEarthGlobe(site.lat, site.lon, 1200, 1600000, finishFlight, finishFlight)) finishFlight();
+            if (currentView === 'earth' && !cesiumViewer && map) finishFlight();
+            else if (!focusEarthGlobe(site.lat, site.lon, 1200, 1600000, finishFlight, finishFlight)) finishFlight();
         }
 
         function zoomEarthGlobe(multiplier) {
@@ -4822,7 +5213,7 @@
                 markers.forEach(marker => map.removeLayer(marker));
                 markers = [];
                 visibleSites.forEach(site => {
-                    const selected = site.id === selectedSite.id;
+                    const selected = site.id === selectedSite?.id;
                     const score = getRealScore(site, currentTarget);
                     const marker = L.circleMarker([site.lat, site.lon], {
                         radius: selected ? 9 : 7,
@@ -4831,7 +5222,7 @@
                         weight: selected ? 2.5 : 1.5,
                         fillOpacity: 0.92
                     }).addTo(map);
-                    marker.bindPopup(`<b>${site.name}</b><br>${site.country}<br>${site.type}<br>${currentTarget} demo ACI: ${score?.toFixed(2) ?? '—'}% · ${getAciTier(score).name}`);
+                    marker.bindPopup(`<b>${site.name}</b><br>${site.country}<br>${site.type}<br>${site.provenance.label} · ${currentTarget} ACI: ${score?.toFixed(2) ?? '—'}% · ${getAciTier(score).name}`);
                     marker.on('click', () => selectSite(site));
                     markers.push(marker);
                 });
@@ -4849,7 +5240,7 @@
 
             visibleSites.forEach(site => {
                 const score = getRealScore(site, currentTarget);
-                const selected = site.id === selectedSite.id;
+                    const selected = site.id === selectedSite?.id;
                 const marker = L.circleMarker([site.lat, site.lon], {
                     radius: currentView === 'earth' ? (selected ? 9 : 8) : Number.isFinite(score) ? Math.max(5, Math.min(15, 8 + (score - 60) / 4)) : 8,
                     fillColor: getAciTier(score).color,
@@ -4859,8 +5250,8 @@
                 }).addTo(map);
 
                 marker.bindPopup(currentView === 'earth'
-                    ? `<b>${site.name}</b><br>${site.type}<br>${currentTarget} demo ACI: ${score?.toFixed(2) ?? '—'}% · ${getAciTier(score).name}`
-                    : `<b>${site.name}</b><br>${site.type}<br><b>${currentTarget} demo ACI: ${score?.toFixed(2) ?? '—'}%</b>`);
+                    ? `<b>${site.name}</b><br>${site.type}<br>${site.provenance.label} · ${currentTarget} ACI: ${score?.toFixed(2) ?? '—'}% · ${getAciTier(score).name}`
+                    : `<b>${site.name}</b><br>${site.type}<br>${site.provenance.label} · <b>${currentTarget} ACI: ${score?.toFixed(2) ?? '—'}%</b>`);
                 marker.on('click', () => selectSite(site));
                 markers.push(marker);
             });
@@ -4869,6 +5260,7 @@
 
         // RADAR CHART - real sub-scores (0-100 similarity per metric) vs. a perfect-match baseline of 100
         function radarValues(site, target) {
+            if (!site) return RADAR_KEYS.map(() => null);
             const sub = getCandidateResult(site, target)?.sub_scores;
             if (!sub) return RADAR_KEYS.map(() => null);
             return RADAR_KEYS.map(k => sub[k]);
@@ -4944,6 +5336,7 @@
             if (chartCaption) chartCaption.hidden = currentView === 'earth';
             if (earthNote) earthNote.hidden = currentView !== 'earth';
             if (!radarChartInstance) return;
+            if (!selectedSite) return;
             radarChartInstance.data.datasets[1].label = selectedSite.name;
             radarChartInstance.data.datasets[1].data = radarValues(selectedSite, currentTarget);
             radarChartInstance.data.datasets[1].borderColor = currentTarget === 'moon' ? '#64c9d0' : '#e3a56b';
@@ -4960,10 +5353,10 @@
             if (!select) return;
             const selectedValue = comparisonSiteId;
             select.innerHTML = '<option value="">No comparison</option>' + analogSites
-                .filter(site => site.id !== selectedSite.id)
+                .filter(site => site.id !== selectedSite?.id)
                 .map(site => `<option value="${site.id}">${site.name}</option>`)
                 .join('');
-            comparisonSiteId = analogSites.some(site => site.id === selectedValue && site.id !== selectedSite.id)
+            comparisonSiteId = analogSites.some(site => site.id === selectedValue && site.id !== selectedSite?.id)
                 ? selectedValue
                 : '';
             select.value = comparisonSiteId;
@@ -5023,6 +5416,30 @@
         let sitePhotoLightboxIndex = 0;
         let sitePhotoLightboxTrigger = null;
 
+        function appendCommonsPhotoAttribution(container, photo, className) {
+            const attribution = document.createElement('span');
+            attribution.className = className;
+            attribution.append(document.createTextNode(`Photo: ${photo.author || 'Author not credited'}, `));
+            if (photo.license_url) {
+                const license = document.createElement('a');
+                license.href = photo.license_url;
+                license.target = '_blank';
+                license.rel = 'noopener noreferrer';
+                license.textContent = photo.license_name || 'License';
+                attribution.append(license);
+            } else {
+                attribution.append(document.createTextNode(photo.license_name || 'License not specified'));
+            }
+            attribution.append(document.createTextNode(' ('));
+            const source = document.createElement('a');
+            source.href = photo.source_page_url;
+            source.target = '_blank';
+            source.rel = 'noopener noreferrer';
+            source.textContent = 'Wikimedia Commons';
+            attribution.append(source, document.createTextNode(')'));
+            container.append(attribution);
+        }
+
         function renderSitePhotoGallery(site) {
             const gallery = document.getElementById('site-photo-gallery');
             if (!gallery) return;
@@ -5032,20 +5449,22 @@
             gallery.replaceChildren();
             gallery.hidden = true;
             const photos = Array.isArray(site?.images) ? site.images.filter(photo => photo && photo.src) : [];
-            if (!photos.length && !targetSite) {
-                gallery.classList.remove('is-changing');
-                return;
-            }
-
             const appendPlaceholder = slot => {
                 const figure = document.createElement('figure');
                 figure.className = 'site-photo-figure';
                 const placeholder = document.createElement('div');
                 placeholder.className = 'site-photo-placeholder';
-                placeholder.textContent = 'Image not added yet';
+                placeholder.textContent = targetSite ? 'Image not added yet' : 'No photos yet';
                 figure.append(placeholder);
                 gallery.append(figure);
             };
+
+            if (!photos.length && !targetSite) {
+                appendPlaceholder(0);
+                gallery.hidden = false;
+                gallery.classList.remove('is-changing');
+                return;
+            }
 
             const entries = [];
             photos.forEach((photo, photoIndex) => {
@@ -5073,28 +5492,33 @@
                 button.append(image);
                 figure.append(button);
 
-                if (photo.caption) {
+                if (photo.commons_title) {
+                    const caption = document.createElement('figcaption');
+                    caption.className = 'site-photo-caption';
+                    appendCommonsPhotoAttribution(caption, photo, 'site-photo-caption');
+                    figure.append(caption);
+                } else if (photo.caption) {
                     const caption = document.createElement('figcaption');
                     caption.className = 'site-photo-caption';
                     caption.textContent = photo.caption;
                     figure.append(caption);
                 }
 
-                const creditText = typeof photo.credit === 'string' ? photo.credit.trim() : '';
+                const creditText = !photo.commons_title && typeof photo.credit === 'string' ? photo.credit.trim() : '';
                 if (creditText) {
                     const credit = document.createElement('p');
                     credit.className = 'site-photo-credit';
                     credit.textContent = creditText;
                     figure.append(credit);
                 }
-                const licenseText = typeof photo.license === 'string' ? photo.license.trim() : '';
+                const licenseText = !photo.commons_title && typeof photo.license === 'string' ? photo.license.trim() : '';
                 if (licenseText) {
                     const license = document.createElement('p');
                     license.className = 'site-photo-license';
                     license.textContent = licenseText;
                     figure.append(license);
                 }
-                if (photo.source_url) {
+                if (!photo.commons_title && photo.source_url) {
                     const source = document.createElement('a');
                     source.className = 'site-photo-source';
                     source.href = photo.source_url;
@@ -5132,7 +5556,11 @@
             image.onerror = closeSitePhotoLightbox;
             image.src = entry.photo.src;
             caption.replaceChildren();
-            if (entry.photo.caption) caption.append(document.createTextNode(entry.photo.caption));
+            if (entry.photo.commons_title) {
+                appendCommonsPhotoAttribution(caption, entry.photo, 'site-photo-lightbox-credit');
+            } else if (entry.photo.caption) {
+                caption.append(document.createTextNode(entry.photo.caption));
+            }
             const creditText = typeof entry.photo.credit === 'string' ? entry.photo.credit.trim() : '';
             if (creditText) {
                 const credit = document.createElement('span');
@@ -5240,12 +5668,19 @@
             const targetSite = ['Moon', 'Mars'].includes(site?.body);
             const result = targetSite ? null : getCandidateResult(site, currentTarget);
             if (cesiumViewer) document.getElementById('globe-site-popup').hidden = true;
+            if (!site) return;
             updateQuickStats();
             document.getElementById('site-title').textContent = site.name;
             document.getElementById('site-sub').textContent = targetSite
                 ? `${site.body} · target region`
                 : `${site.country} • ${site.type}`;
             document.getElementById('site-demo-badge').hidden = !targetSite;
+            const provenanceBadge = document.getElementById('site-provenance-badge');
+            provenanceBadge.hidden = targetSite;
+            if (!targetSite) setEvidenceBadge(provenanceBadge, site.provenance);
+            const flagsStatusBadge = document.getElementById('site-flags-status-badge');
+            flagsStatusBadge.hidden = targetSite || site.flags_status !== 'provisional_unverified';
+            flagsStatusBadge.title = site.flags_note || '';
             document.querySelector('.site-texture-thumb').hidden = targetSite;
             document.getElementById('site-coordinates').innerHTML = targetSite
                 ? `<strong>Coordinates</strong> ${formatApproxTargetCoordinates(site)}`
@@ -5253,6 +5688,8 @@
             document.getElementById('site-target-label').innerHTML = `<strong>Target view</strong> ${targetSite
                 ? `${site.body} · approximate target`
                 : currentView === 'earth' ? 'Earth browse' : currentTarget === 'moon' ? 'Moon · South Pole' : 'Mars · Jezero crater'}`;
+            const verificationNote = document.getElementById('site-coordinate-verification');
+            verificationNote.hidden = targetSite || !site.verify_coordinates_manually;
             document.getElementById('site-desc').textContent = targetSite ? site.short_description : site.desc;
             if (targetSite) {
                 updateTargetSiteFeatures(site);
@@ -5271,16 +5708,31 @@
             document.getElementById('site-metrics').hidden = targetSite;
             const targetContext = document.getElementById('target-site-context');
             targetContext.hidden = !targetSite;
+            const qualitativeMatch = document.getElementById('site-qualitative-match');
+            qualitativeMatch.hidden = targetSite;
+            if (!targetSite && qualitativeMatch) {
+                const body = currentTarget;
+                const matches = (targetSiteCatalog?.analog_matches[body] || [])
+                    .filter(match => getSiteByAnalogId(match.earth_analog_id)?.id === site.id);
+                qualitativeMatch.textContent = matches.length
+                    ? `Qualitative mapping: ${matches.map(match => {
+                        const targetRecord = getTargetSiteById(match.target_site_id);
+                        return targetRecord ? `${targetRecord.name}. ${match.status === 'provisional' ? 'Mapping: provisional. ' : ''}${match.reason || `Shared features: ${match.shared_features.join(', ')}.`}` : null;
+                    }).filter(Boolean).join('; ')}`
+                    : site.analog_for.includes(body)
+                        ? 'No qualitative mapping yet.'
+                        : `Not tagged as an analog for ${body === 'moon' ? 'Moon' : 'Mars'}.`;
+            }
             if (targetSite) {
                 const matches = (targetSiteCatalog?.analog_matches[site.body.toLowerCase()] || [])
                     .filter(match => match.target_site_id === site.id);
-                const analogNames = matches.map(match => analogSites.find(analog => analog.id === match.earth_analog_id)?.name).filter(Boolean);
+                const analogNames = matches.map(match => getSiteByAnalogId(match.earth_analog_id)?.name).filter(Boolean);
                 document.getElementById('site-analog-match').textContent = analogNames.length
                     ? analogNames.join('; ')
-                    : 'No Earth analog mapping is listed.';
+                    : 'No qualitative mapping yet.';
                 document.getElementById('site-why-match').textContent = matches.length
-                    ? matches.map(match => match.shared_features.join(', ')).join('; ')
-                    : 'No shared-feature reason is listed.';
+                    ? matches.map(match => `${match.status === 'provisional' ? 'Provisional: ' : ''}${match.reason || match.shared_features.join(', ')}`).join('; ')
+                    : 'No qualitative mapping yet.';
                 document.getElementById('site-source-note').textContent = site.source_note;
             }
             updateSiteMetrics(site);
@@ -5289,6 +5741,7 @@
 
         // SITE SELECTION
         function selectSite(site, panToSite = true) {
+            if (!site) return;
             selectedSite = site;
             updateSiteNavigationControls();
             if (currentView === 'earth' && !detailedMapMode) {
@@ -5322,7 +5775,7 @@
             if (cesiumViewer) updateCesiumMapState();
             updateComparisonOptions();
             updateRadarChart();
-            update3DAnalog(site.id);
+            update3DAnalog(site);
             renderTargetAnalogPanel();
             renderTargetComparisonPanel();
             updateTargetSiteHighlights();
@@ -5357,6 +5810,12 @@
             if (sortLabel) sortLabel.textContent = 'Rank by';
             const emptyState = document.getElementById('leaderboard-empty');
             if (emptyState) emptyState.hidden = visibleSites.length !== 0;
+            const showAllButton = document.getElementById('leaderboard-show-all');
+            if (showAllButton) {
+                showAllButton.hidden = sorted.length <= 5;
+                showAllButton.textContent = leaderboardExpanded ? 'Show top 5' : `Show all ${sorted.length} sites`;
+                showAllButton.setAttribute('aria-expanded', String(leaderboardExpanded));
+            }
 
             if (!scoreResults[currentTarget] && !scoreResultsLoadError) {
                 if (list) {
@@ -5373,13 +5832,14 @@
                 return;
             }
 
-            sorted.forEach((site, index) => {
+            const displayedSites = leaderboardExpanded ? sorted : sorted.slice(0, 5);
+            displayedSites.forEach((site, index) => {
                 const result = getCandidateResult(site, currentTarget);
                 const score = result?.aci ?? null;
                 const scoreColor = score >= 90 ? '#8ac5a8' : score >= 80 ? '#64c9d0' : '#e3a56b';
                 if (!list) return;
                 const row = document.createElement('tr');
-                row.className = `leaderboard-item ${site.id === selectedSite.id ? 'selected' : ''}`;
+                row.className = `leaderboard-item ${site.id === selectedSite?.id ? 'selected' : ''}`;
                 row.id = `item-${site.id}`;
                 const rank = result?.rank ?? '—';
                 const finalScore = score === null ? '—' : `${score.toFixed(2)}%`;
@@ -5388,12 +5848,13 @@
                 const capMarker = result?.capped ? '<span class="ranking-cap-marker" title="Final ACI capped below 100">CAP</span>' : '';
                 row.innerHTML = `
                     <td>${String(rank).padStart(2, '0')}</td>
-                    <td><button type="button" class="leaderboard-select" aria-pressed="${site.id === selectedSite.id}" aria-label="${currentView === 'earth' ? `Select Earth candidate site ${site.name}` : result ? `Select ${site.name}, ACI ${score.toFixed(2)}%` : `Select ${site.name}, no score result loaded`}"><span class="leaderboard-name">${site.name}</span><span class="leaderboard-type">${site.country}</span></button></td>
+                    <td><button type="button" class="leaderboard-select" aria-pressed="${site.id === selectedSite?.id}" aria-label="${currentView === 'earth' ? `Select Earth candidate site ${site.name}` : result ? `Select ${site.name}, ACI ${score.toFixed(2)}%` : `Select ${site.name}, no score result loaded`}"><span class="leaderboard-name">${site.name}</span><span class="leaderboard-type">${site.country}</span></button></td>
                     <td>${baseScore}</td>
                     <td>${bonus}</td>
                     <td style="color:${result ? scoreColor : '#9eb5cf'}"><span>${finalScore}</span>${capMarker}</td>
-                    <td><span class="evidence-badge synthetic">Calibrated synthetic</span></td>
+                    <td><span class="leaderboard-evidence"></span></td>
                 `;
+                setEvidenceBadge(row.querySelector('.leaderboard-evidence'), site.provenance);
                 row.querySelector('button').addEventListener('click', () => selectSite(site));
                 list.appendChild(row);
             });
@@ -5432,6 +5893,7 @@
             if (!['earth', 'moon', 'mars'].includes(target)) return;
             const targetChanged = currentView !== target;
             if (targetChanged) siteNavigationInFlight = false;
+            if (targetChanged) leaderboardExpanded = false;
             const sortControl = document.getElementById('leaderboard-sort');
             if (sortControl && currentView !== target) {
                 if (target === 'earth') sortControl.dataset.previousPlanetSort = sortControl.value;
@@ -5483,11 +5945,18 @@
                     : 'Planetary Target: Mars Jezero Crater';
             }
 
-            if (target !== 'earth') selectedSite = target === 'moon' ? analogSites[0] : analogSites[2];
+            if (target !== 'earth') {
+                const leaderId = scoreResults[target]?.rankings?.find(result => result.rank === 1)?.site_id;
+                selectedSite = analogSites.find(site => site.pipelineId === leaderId)
+                    || analogSites.find(site => site.analog_for.includes(target))
+                    || analogSites[0]
+                    || null;
+            }
 
             renderMapMarkers();
             updateLeaderboards();
             selectSite(selectedSite);
+            updateProvenanceCaptions();
             if (target !== 'earth') {
                 generate3DTargetMesh(target);
             }
@@ -5627,6 +6096,10 @@
         function initializeDashboardControls() {
             document.getElementById('site-navigation-prev')?.addEventListener('click', () => navigateActiveSite(-1));
             document.getElementById('site-navigation-next')?.addEventListener('click', () => navigateActiveSite(1));
+            document.getElementById('leaderboard-show-all')?.addEventListener('click', () => {
+                leaderboardExpanded = !leaderboardExpanded;
+                updateLeaderboards();
+            });
             document.getElementById('map-expand-toggle')?.addEventListener('click', event => {
                 const mapContainer = document.getElementById('map');
                 if (!mapContainer) return;
@@ -5656,7 +6129,9 @@
             document.getElementById('leaderboard-sort')?.addEventListener('change', updateLeaderboards);
             document.getElementById('globe-zoom-in')?.addEventListener('click', () => zoomEarthGlobe(0.78));
             document.getElementById('globe-zoom-out')?.addEventListener('click', () => zoomEarthGlobe(1.28));
-            document.getElementById('globe-focus-selected')?.addEventListener('click', () => focusEarthGlobe(selectedSite.lat, selectedSite.lon, 700, 1600000));
+            document.getElementById('globe-focus-selected')?.addEventListener('click', () => {
+                if (selectedSite) focusEarthGlobe(selectedSite.lat, selectedSite.lon, 700, 1600000);
+            });
             document.getElementById('globe-reset')?.addEventListener('click', () => setDetailedMapMode(false));
             document.getElementById('detailed-map-toggle')?.addEventListener('click', () => setDetailedMapMode(true));
             document.getElementById('globe-overview-toggle')?.addEventListener('click', () => setDetailedMapMode(false));
@@ -5776,7 +6251,7 @@
 
                 webgl3DAvailable = true;
                 generate3DTargetMesh('moon');
-                update3DAnalog('iceland');
+                update3DAnalog(selectedSite);
 
                 animate3D();
             } catch (err) {
@@ -5813,28 +6288,23 @@
                     }
                     if (r > 20) y += (r - 20) * 0.6;
                     y += Math.sin(x * 0.8) * 0.6;
-                } else if (type === 'iceland') {
-                    // Volcanic caldera with rough fissures
+                } else if (type === 'volcanic') {
                     if (r < 14) y = -7 * (1 - (r / 14) ** 2);
                     y += Math.cos((x + z) * 0.3) * 2.5;
-                } else if (type === 'mcmurdo') {
-                    // Glacial valley walls
+                } else if (type === 'polar') {
                     y = Math.abs(x) * 0.45;
                     y += (Math.sin(x * 0.5) * Math.sin(z * 0.5)) * 1.2;
-                } else if (type === 'haughton') {
-                    // Simplified impact basin
+                } else if (type === 'impact') {
                     if (r < 20) y = -9 * (1 - (r / 20) ** 2);
                     if (r >= 20 && r < 25) y = 3 * (1 - (r - 20) / 5);
                     y += Math.sin(x * 0.35) * Math.cos(z * 0.35) * 1.1;
-                } else if (type === 'hawaii') {
-                    // Illustrative cinder-cone field
+                } else if (type === 'basaltic') {
                     y = -r * 0.12;
                     [[-12, -10, 8], [10, -6, 6], [3, 13, 7]].forEach(([cx, cz, height]) => {
                         const coneRadius = Math.sqrt((x - cx) ** 2 + (z - cz) ** 2);
                         y += Math.max(0, height * (1 - coneRadius / 8));
                     });
-                } else if (type === 'atacama') {
-                    // Low-relief plateau texture
+                } else if (type === 'arid') {
                     y = (Math.sin(x * 0.16) * Math.cos(z * 0.13)) * 1.4 + x * 0.035;
                 } else {
                     // Rolling desert plateau
@@ -5865,16 +6335,16 @@
             sceneTarget.add(meshTarget);
         }
 
-        function update3DAnalog(siteId) {
-            if (!webgl3DAvailable) return;
+        function update3DAnalog(site) {
+            if (!webgl3DAvailable || !site) return;
             if (meshAnalog) {
                 sceneAnalog.remove(meshAnalog);
                 meshAnalog.geometry.dispose();
                 meshAnalog.material.dispose();
             }
-            const geom = createProceduralTerrainGeometry(siteId);
+            const geom = createProceduralTerrainGeometry(site.terrainKind);
             const mat = new THREE.MeshStandardMaterial({
-                color: siteId === 'iceland' ? 0x38bdf8 : siteId === 'mcmurdo' ? 0x67e8f9 : 0xf59e0b,
+                color: site.isBasaltic ? 0x38bdf8 : site.isArid ? 0xe8a55c : 0x67c7cc,
                 wireframe: isWireframe,
                 roughness: 0.8,
                 metalness: 0.1
@@ -5884,7 +6354,7 @@
 
             const badge = document.getElementById('badge-3d-analog');
             if (badge) {
-                badge.innerText = `Earth Analog: ${selectedSite.name}`;
+                badge.innerText = `Earth Analog: ${site.name}`;
             }
         }
 
@@ -5931,13 +6401,15 @@
         window.addEventListener('resize', onWindowResize3D);
 
         // INITIALIZATION ON LOAD
-        window.addEventListener('load', () => {
+        window.addEventListener('load', async () => {
             initializeStartHereHint();
             organizeDashboardSections();
             observeDashboardSections();
             initializeDashboardControls();
             initializeSitePhotoLightbox();
             initializeMapResizeObserver();
+            await loadEarthSiteCatalog();
+            await loadSitePhotoCatalog();
             loadTargetSiteCatalog();
             initMap();
             try {
@@ -5952,9 +6424,10 @@
             }
             init3D();
             updateLeaderboards();
-            selectSite(analogSites[0], false);
-            loadAciResults();
+            if (selectedSite) selectSite(selectedSite, false);
+            await loadAciResults();
             loadWindowSensitivity();
+            loadWeightStability();
         });
     </script>
 </body>

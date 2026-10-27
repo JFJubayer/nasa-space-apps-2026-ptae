@@ -1,0 +1,35 @@
+{
+  "source_file": "aws_terrain_tiles_mosaic.tif",
+  "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+  "original_ground_resolution_m_per_pixel": 71.651452,
+  "output_ground_resolution_m_per_pixel": 33.437344,
+  "original_ground_resolution_axes_m_per_pixel": {
+    "x": 71.86432,
+    "y": 71.439215
+  },
+  "output_ground_resolution_axes_m_per_pixel": {
+    "x": 33.536683,
+    "y": 33.3383
+  },
+  "center_lat": 19.98,
+  "center_lon": 76.51,
+  "bounds": {
+    "left": 8511645.2846958,
+    "bottom": 2265364.207287769,
+    "right": 8522346.468655726,
+    "top": 2276065.391247693,
+    "crs": "EPSG:3857"
+  },
+  "output_size": [
+    300,
+    300
+  ],
+  "resampling": "bilinear",
+  "site_id": "lonar_crater",
+  "source_tile_zoom": 10,
+  "source_tile_urls": [
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/729/453.tif",
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/729/454.tif"
+  ],
+  "coordinate_verification_required": true
+}

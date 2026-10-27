@@ -8,7 +8,7 @@
 ---
 
 ### 🚀 High-Level Project Summary
-The **Planetary Terrestrial Analog Engine (PTAE)** is an automated geospatial demo that quantitatively scores and ranks terrestrial analogs for future permanent base sites. The current demo uses calibrated synthetic terrain matched to published morphometrics; the pipeline is designed to accept real LOLA, MOLA, and SRTM DEMs.
+The **Planetary Terrestrial Analog Engine (PTAE)** is an automated geospatial prototype that ranks 20 catalog-listed Earth sites against lunar and Martian terrain statistics. The checked-in current rankings use real LRO LOLA and MOLA target DEMs plus real AWS Terrain Tiles DEMs for all 20 Earth candidates. The default CLI mode remains a separate procedural synthetic demo.
 
 ---
 
@@ -18,8 +18,8 @@ Before astronauts and rovers operate in the lunar south pole region or on the Ma
 Historically, researchers have relied on qualitative analogies (e.g., "this desert looks dry like Mars" or "this volcanic rock looks like the Moon"). However, as missions grow more complex, mission planners need **quantitative, multi-parameter physical alignment**. 
 
 **PTAE bridges this critical gap by:**
-1. **Extracting Topographical Signatures:** Using Digital Elevation Models (DEMs) to compute continuous mathematical metrics including Surface Slope, Aspect, Riley's Terrain Ruggedness Index (TRI), and Topographic Position Index (TPI).
-2. **Multi-Criteria Similarity Matching:** Normalizing topographic and environmental variance (desiccation, UV exposure, basaltic mineralogy, presence of volcanic lava tubes) into a unified **Analog Compatibility Index (ACI: 0–100%)**.
+1. **Extracting Topographical Signatures:** Using Digital Elevation Models (DEMs) to extract slope, Riley's Terrain Ruggedness Index (TRI), TPI, and elevation statistics. TPI is extracted but not scored; Aspect is not computed by signature extraction.
+2. **Multi-Criteria Similarity Matching:** Computing the **Analog Compatibility Index (ACI: 0–100%)** from five terrain metrics (slope mean/std, TRI mean/std, and elevation std) plus an additive candidate-only flag bonus for hyper-aridity, basaltic terrain, and lava tubes.
 3. **Interactive Explorer:** Providing an interactive 2D/3D web dashboard and geospatial CLI to allow engineers and planetary geologists to rapidly evaluate test sites across the globe.
 
 ---
@@ -28,40 +28,45 @@ Historically, researchers have relied on qualitative analogies (e.g., "this dese
 
 | Planetary Body | Mission / Source | Instrument / Dataset | Purpose |
 | :--- | :--- | :--- | :--- |
-| **The Moon** | **Lunar Reconnaissance Orbiter (LRO)** | **LOLA (Lunar Orbiter Laser Altimeter)** | 5m–30m South Polar Stereographic DEMs for slope, roughness, and crater wall metrics. |
+| **The Moon** | **Lunar Reconnaissance Orbiter (LRO)** | **LOLA (Lunar Orbiter Laser Altimeter)** | South-polar target DEM; 20 m source resampled to 300×300 at 33.40 m/pixel for the current run. |
 | **The Moon** | **LRO** | **Diviner Lunar Radiometer Experiment** | Surface and subsurface thermal environment data for cryogenic cold traps. |
-| **Mars** | **Mars Global Surveyor (MGS)** | **MOLA (Mars Orbiter Laser Altimeter)** | Megameter-scale topography and roughness profiles for Jezero and Gale craters. |
+| **Mars** | **Mars Global Surveyor (MGS)** | **MOLA (Mars Orbiter Laser Altimeter)** | Jezero target DEM; the prepared 300×300 grid is 333.69 m/pixel. |
 | **Mars** | **Mars Reconnaissance Orbiter (MRO)** | **HiRISE & CRISM** | High-resolution morphology and hyperspectral mineralogical evidence (sulfates, phyllosilicates). |
-| **Earth** | **Space Shuttle Radar Topography Mission (SRTM)** | **SRTM 1 Arc-Second Global (30m)** | Global terrestrial digital elevation benchmark for slope and ruggedness calculations. |
+| **Earth** | **AWS Terrain Tiles** | **Zoom 10 GeoTIFF terrain tiles** | Current source for all 20 catalog candidates; each 10 km window is resampled to 300×300 at approximately 33.3–33.5 m/pixel. |
+| **Earth** | **Space Shuttle Radar Topography Mission (SRTM)** | **SRTM 1 Arc-Second Global (30m)** | Reference/future source; not used in the current AWS candidate run. |
 | **Earth** | **Terra Satellite** | **ASTER GDEM & Thermal Infrared** | High-resolution elevation and multispectral mineralogy / surface temperature. |
 | **Earth** | **Landsat 8/9 & MODIS** | **NDVI & Surface Reflectance** | Vegetation filtration to isolate truly barren, space-like planetary analog zones. |
 
-These are intended sources for real-data ingestion. The current demo rankings use calibrated synthetic terrain rather than measurements from these datasets.
+Diviner, HiRISE/CRISM, ASTER, and Landsat/MODIS are reference or future data sources, not inputs to the current ACI runs. Prepared target and Earth DEM provenance and resolutions are recorded in `data_real/*.json`.
 
 ---
 
 ### 🎯 Key Findings & Characterized Analogs
-*Scores below are reproduced live by running `python main.py --target moon` / `--target mars` against the five candidate sites currently modeled.*
+The current result files rank all 20 Earth candidates using the prepared real DEMs. The default commands without `--use-existing-data` still produce a separate synthetic demo.
 
-1. **Top Lunar South Pole Demo Analog on Calibrated Synthetic Terrain — McMurdo Dry Valleys, Antarctica (ACI: 82.52%)**
-   - *Topographical Congruence:* Katabatic-wind-carved valley walls and frozen polygon ground produce the steep slope and fine-scale ruggedness (TRI) profile closest to lunar highland terrain around Shackleton/Faustini.
-   - *Runner-up:* Askja & Holuhraun Caldera, Iceland (ACI: 74.05%) — collapse calderas and basaltic lava tubes remain the best analog for subsurface radiation/thermal shielding, even though its topographic ACI trails McMurdo.
+1. **Moon south-polar terrain-statistics leader — Teide / Tenerife Volcanic Field (ACI: 87.22%)**
+   - *Second-ranked:* Mount Etna (ACI: 86.79%).
 
-2. **Top Mars Demo Analog on Calibrated Synthetic Terrain — Mauna Kea Cinder Cones, Hawaii (ACI: 96.98%; top-ranked analog)**
-   - *Topographical Congruence:* Pyroclastic cinder-cone slopes and basaltic tephra ruggedness closely match the crater-rim and delta-fan relief profile computed for Jezero.
-   - *Runner-up:* Puna de Atacama, Chile (ACI: 84.98%) — high-altitude (>4,000m), hyper-arid, perchlorate-rich terrain remains the strongest environmental/chemical analog for Martian desiccation and UV exposure.
+2. **Mars Jezero terrain-statistics leader — Kilauea Volcanic Field (ACI: 55.84%)**
+   - *Second-ranked:* Craters of the Moon, Idaho (ACI: 54.99%).
 
-> These rankings come from the **topographic + environmental-boost ACI** (slope, TRI, relief variance, plus aridity/basalt/lava-tube priors) computed on calibrated synthetic DEMs matched to published morphometrics. The pipeline is designed to accept real LOLA, MOLA, and SRTM DEMs; real-data ingestion remains future work.
+> These are weighted terrain-statistics similarities over slope, TRI, elevation variation, and catalog flags. They are not proof of mission suitability or operational readiness. Mars and Earth input resolutions differ substantially, so Mars scores are indicative only.
 
-A real-data validation using a 20 m LRO LOLA Moon target and real Askja terrain showed scale sensitivity: the top candidate changes with window size, McMurdo ranks last in all windows, and Mauna Kea and Atacama stay in the top three.
+**Weight robustness:** Moon Teide stays #1 in 92.83% of 1,018 scenarios (top-3: 100%); Mars Kilauea stays #1 in 22.30% (top-3: 42.34%). Four deterministic Mars scenarios change the leader (Craters of the Moon x3, Svalbard x1). Percentages describe the chosen scenario mix, not scientific probabilities; this tests weight robustness, not correctness of weights or flags.
+
+The separate `window_sensitivity.json` preserves a historical Moon-window experiment using real LOLA and Askja plus four synthetic Earth candidates, so its five-site leaders are not the current 20-site results. It also contains a new Moon/Mars sensitivity run across all 20 real Earth DEMs using centered 300×300, 225×225, and 150×150 crops at each input's unchanged pixel resolution; physical window size therefore shrinks with crop size. The `target_sites.json` qualitative mappings for added candidates are provisional and separate from the ACI ranking.
+
+For 14 of the 15 added Earth sites, AWS DEMs were upsampled from ~55.5-76.2 m/pixel to ~33 m/pixel; Svalbard was downsampled from 15.65 to 33.34 m/pixel. Upsampling does not add terrain detail. The Mars grid was resampled from ~451 to ~334 m/pixel and spans ~100 km per side, versus ~10 km for Earth windows. Flags on added sites are unverified. DEM metrics check terrain morphology only, not geology.
+
+The new sensitivity analysis covers only center crops of the existing window (no larger windows); mappings for added sites are provisional; the default synthetic demo and legacy `results.json` cover only the original five sites.
 
 ---
 
 ### 💻 Technologies & Software Stack
 - **Language:** Python 3.10+
 - **Spatial Analytics:** NumPy, SciPy (multidimensional filters, gradient operators), Rasterio / GDAL
-- **Geographic Information Systems:** QGIS, Leaflet.js, OpenStreetMap / Carto Dark Basemaps
-- **Visualization:** Matplotlib, Chart.js, HTML5/CSS3
+- **Geographic Visualization:** CesiumJS globe, Leaflet fallback for Earth, OpenStreetMap tiles
+- **Visualization:** Matplotlib, Chart.js, Three.js, HTML5/CSS3
 - **Data Standards:** GeoTIFF, Cloud-Optimized GeoTIFF (COG), NumPy N-D Arrays, JSON
 
 ---
@@ -69,4 +74,4 @@ A real-data validation using a 20 m LRO LOLA Moon target and real Askja terrain 
 ### 🔮 Future Expansion & Impact
 - **Automated Earth Engine Ingestion:** Integrating Google Earth Engine API to automatically scan all continental landmasses with satellite masks.
 - **ISRU Simulant Matching:** Pairing geological database APIs (USGS Mineral Resources) to rank sites by chemical yield for oxygen/water extraction.
-- **Support for Artemis Base Camp:** Supplying the Artemis mission planning team with verified operational testing grounds for autonomous uncrewed rovers and lunar mobility suits.
+- **Potential future use:** Explore whether better-characterized field sites can support autonomous rover and lunar mobility testing. Current rankings do not verify operational suitability.

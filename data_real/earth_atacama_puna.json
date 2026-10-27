@@ -1,0 +1,35 @@
+{
+  "source_file": "aws_terrain_tiles_mosaic.tif",
+  "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+  "original_ground_resolution_m_per_pixel": 69.401367,
+  "output_ground_resolution_m_per_pixel": 33.428125,
+  "original_ground_resolution_axes_m_per_pixel": {
+    "x": 69.59483,
+    "y": 69.208442
+  },
+  "output_ground_resolution_axes_m_per_pixel": {
+    "x": 33.405518,
+    "y": 33.450747
+  },
+  "center_lat": -24.5,
+  "center_lon": -68.3,
+  "bounds": {
+    "left": -7608694.669563014,
+    "bottom": -2819991.284525008,
+    "right": -7597687.737489949,
+    "top": -2808907.9154236573,
+    "crs": "EPSG:3857"
+  },
+  "output_size": [
+    300,
+    300
+  ],
+  "resampling": "bilinear",
+  "site_id": "atacama_puna",
+  "source_tile_zoom": 10,
+  "source_tile_urls": [
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/317/583.tif",
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/317/584.tif"
+  ],
+  "coordinate_verification_required": true
+}

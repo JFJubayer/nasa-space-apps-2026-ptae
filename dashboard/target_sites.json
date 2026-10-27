@@ -1,6 +1,16 @@
 {
   "schema_version": 1,
   "match_basis": "Qualitative shared-feature mapping; not ACI.",
+  "planetary_landmarks": {
+    "moon": [
+      {"id": "tycho", "name": "Tycho", "longitude": -11.361923, "latitude": -43.310139, "detail": "IAU-named impact crater · 86.2 km"},
+      {"id": "shackleton", "name": "Shackleton", "longitude": 132.321845, "latitude": -89.625776, "detail": "IAU-named south-polar crater · 21 km"}
+    ],
+    "mars": [
+      {"id": "olympus-mons", "name": "Olympus Mons", "longitude": -133.802507, "latitude": 18.652759, "detail": "IAU-adopted volcano · 610 km"},
+      {"id": "valles-marineris", "name": "Valles Marineris", "longitude": -58.587674, "latitude": -14.005869, "detail": "IAU-adopted canyon system · 3,761 km"}
+    ]
+  },
   "target_sites": [
     {
       "id": "jezero-crater",
@@ -168,14 +178,39 @@
       {"earth_analog_id": "mcmurdo", "target_site_id": "hellas-planitia", "shared_features": ["cold", "dry/arid"]},
       {"earth_analog_id": "haughton", "target_site_id": "gale-crater", "shared_features": ["impact crater"]},
       {"earth_analog_id": "iceland", "target_site_id": "gusev-crater", "shared_features": ["basaltic"]},
-      {"earth_analog_id": "hawaii", "target_site_id": "jezero-crater", "shared_features": ["basaltic"]}
+      {"earth_analog_id": "hawaii", "target_site_id": "jezero-crater", "shared_features": ["basaltic"]},
+      {"earth_analog_id": "mojave_amboy_lava_field", "target_site_id": "gusev-crater", "shared_features": ["basaltic"], "reason": "Catalog description notes basaltic lava flows and cinder cones; the existing 10 km DEM has 218 m relief and -30.2 m center-minus-edge contrast.", "status": "provisional"},
+      {"earth_analog_id": "svalbard_longyearbyen", "target_site_id": "hellas-planitia", "shared_features": ["cold"], "reason": "Catalog description notes Arctic permafrost; the existing 10 km DEM has 1,168 m relief and -254.3 m center-minus-edge contrast. Cold-region association only.", "status": "provisional"},
+      {"earth_analog_id": "danakil_depression", "target_site_id": "gusev-crater", "shared_features": ["basaltic"], "reason": "Catalog description notes volcanic and evaporite terrain; the existing 10 km DEM has 53 m relief and +32.6 m center-minus-edge contrast.", "status": "provisional"},
+      {"earth_analog_id": "namib_sossusvlei", "target_site_id": "meridiani-planum", "shared_features": ["dry/arid"], "reason": "Catalog description identifies a hyper-arid dune and gravel plain; the existing 10 km DEM has 354 m relief and -43.0 m center-minus-edge contrast.", "status": "provisional"},
+      {"earth_analog_id": "lanzarote_timanfaya", "target_site_id": "jezero-crater", "shared_features": ["basaltic"], "reason": "Catalog description notes basaltic flows, volcanic tubes, and arid conditions; the existing 10 km DEM has 572 m relief and +182.2 m center-minus-edge contrast.", "status": "provisional"},
+      {"earth_analog_id": "craters_of_the_moon_idaho", "target_site_id": "gusev-crater", "shared_features": ["basaltic"], "reason": "Catalog description notes basaltic volcanic flows and tubes; the existing 10 km DEM has 314 m relief and +20.1 m center-minus-edge contrast.", "status": "provisional"},
+      {"earth_analog_id": "rio_tinto", "target_site_id": "meridiani-planum", "shared_features": [], "reason": "Catalog descriptions identify an acidic, iron-rich river/mining landscape and hematite-bearing plains. This is a provisional thematic association, not a confirmed shared mineral feature; the existing 10 km DEM has 484 m relief and +14.3 m center-minus-edge contrast.", "status": "provisional"},
+      {"earth_analog_id": "kilauea_hawaii", "target_site_id": "gusev-crater", "shared_features": ["basaltic"], "reason": "Catalog description notes basaltic flows and lava-tube systems; the existing 10 km DEM has 529 m relief and +38.0 m center-minus-edge contrast.", "status": "provisional"},
+      {"earth_analog_id": "etna_sicily", "target_site_id": "gusev-crater", "shared_features": ["basaltic"], "reason": "Catalog description notes basaltic volcanic flows; the existing 10 km DEM has 1,824 m relief and +1,273.1 m center-minus-edge contrast.", "status": "provisional"},
+      {"earth_analog_id": "teide_tenerife", "target_site_id": "jezero-crater", "shared_features": ["basaltic"], "reason": "Catalog description notes basaltic fields; the existing 10 km DEM has 2,271 m relief and +1,446.4 m center-minus-edge contrast.", "status": "provisional"},
+      {"earth_analog_id": "wadi_rum", "target_site_id": "meridiani-planum", "shared_features": ["dry/arid"], "reason": "Catalog description identifies an arid sandstone desert; the existing 10 km DEM has 872 m relief and -56.0 m center-minus-edge contrast.", "status": "provisional"},
+      {"earth_analog_id": "salar_de_uyuni", "target_site_id": "meridiani-planum", "shared_features": ["dry/arid"], "reason": "Catalog description identifies a high-altitude salt flat; the existing 10 km DEM has only 11 m relief and -0.2 m center-minus-edge contrast, consistent with a very flat window.", "status": "provisional"},
+      {"earth_analog_id": "lonar_crater", "target_site_id": "gale-crater", "shared_features": ["impact crater"], "reason": "Catalog description identifies an impact crater; the existing 10 km DEM has 138 m relief and -68.5 m center-minus-edge contrast. The catalog basaltic flag remains false and is not used as a match feature.", "status": "provisional"},
+      {"earth_analog_id": "meteor_crater_arizona", "target_site_id": "gale-crater", "shared_features": ["impact crater"], "reason": "Catalog description identifies an impact structure; the existing 10 km DEM has 179 m relief and -16.9 m center-minus-edge contrast, a weak depression signal.", "status": "provisional"},
+      {"earth_analog_id": "suswa_volcano_kenya", "target_site_id": "gusev-crater", "shared_features": ["basaltic"], "reason": "Catalog description notes a basaltic rift volcano and lava caves; the 10 km DEM has 741 m relief and -6.1 m center-minus-edge contrast. The site morphology remains provisional.", "status": "provisional"}
     ],
     "moon": [
       {"earth_analog_id": "hawaii", "target_site_id": "marius-hills", "shared_features": ["basaltic", "lava tubes"]},
       {"earth_analog_id": "iceland", "target_site_id": "marius-hills", "shared_features": ["basaltic", "lava tubes"]},
       {"earth_analog_id": "mcmurdo", "target_site_id": "shackleton-crater", "shared_features": ["polar/cold", "dry/arid"]},
       {"earth_analog_id": "atacama", "target_site_id": "malapert-massif", "shared_features": ["dry/arid"]},
-      {"earth_analog_id": "haughton", "target_site_id": "mare-tranquillitatis-apollo-11", "shared_features": ["impact crater"]}
+      {"earth_analog_id": "haughton", "target_site_id": "mare-tranquillitatis-apollo-11", "shared_features": ["impact crater"]},
+      {"earth_analog_id": "mojave_amboy_lava_field", "target_site_id": "mare-tranquillitatis-apollo-11", "shared_features": ["basaltic"], "reason": "Catalog description notes basaltic lava flows; the existing 10 km DEM has 218 m relief and -30.2 m center-minus-edge contrast. Basaltic association only; no lava-tube match asserted.", "status": "provisional"},
+      {"earth_analog_id": "svalbard_longyearbyen", "target_site_id": "shackleton-crater", "shared_features": ["polar/cold"], "reason": "Catalog description notes Arctic permafrost; the existing 10 km DEM has 1,168 m relief and -254.3 m center-minus-edge contrast. Cold-region association only.", "status": "provisional"},
+      {"earth_analog_id": "lanzarote_timanfaya", "target_site_id": "marius-hills", "shared_features": ["basaltic", "lava tubes"], "reason": "Catalog description notes young basaltic flows and volcanic tubes; the existing 10 km DEM has 572 m relief and +182.2 m center-minus-edge contrast.", "status": "provisional"},
+      {"earth_analog_id": "craters_of_the_moon_idaho", "target_site_id": "marius-hills", "shared_features": ["basaltic", "lava tubes"], "reason": "Catalog description notes basaltic flows and lava tubes; the existing 10 km DEM has 314 m relief and +20.1 m center-minus-edge contrast.", "status": "provisional"},
+      {"earth_analog_id": "kilauea_hawaii", "target_site_id": "marius-hills", "shared_features": ["basaltic", "lava tubes"], "reason": "Catalog description notes basaltic flows and lava-tube systems; the existing 10 km DEM has 529 m relief and +38.0 m center-minus-edge contrast.", "status": "provisional"},
+      {"earth_analog_id": "etna_sicily", "target_site_id": "marius-hills", "shared_features": ["basaltic", "lava tubes"], "reason": "Catalog description notes basaltic lava flows and tubes; the existing 10 km DEM has 1,824 m relief and +1,273.1 m center-minus-edge contrast.", "status": "provisional"},
+      {"earth_analog_id": "teide_tenerife", "target_site_id": "marius-hills", "shared_features": ["basaltic", "lava tubes"], "reason": "Catalog description notes basaltic fields and tube-forming flows; the existing 10 km DEM has 2,271 m relief and +1,446.4 m center-minus-edge contrast.", "status": "provisional"},
+      {"earth_analog_id": "lonar_crater", "target_site_id": "mare-tranquillitatis-apollo-11", "shared_features": ["impact crater"], "reason": "Catalog description identifies an impact crater; the existing 10 km DEM has 138 m relief and -68.5 m center-minus-edge contrast. The catalog basaltic flag remains false and is not used as a match feature.", "status": "provisional"},
+      {"earth_analog_id": "meteor_crater_arizona", "target_site_id": "mare-tranquillitatis-apollo-11", "shared_features": ["impact crater"], "reason": "Catalog description identifies an impact structure; the existing 10 km DEM has 179 m relief and -16.9 m center-minus-edge contrast, a weak depression signal.", "status": "provisional"},
+      {"earth_analog_id": "suswa_volcano_kenya", "target_site_id": "marius-hills", "shared_features": ["basaltic", "lava tubes"], "reason": "Catalog description notes basaltic lava caves; the 10 km DEM has 741 m relief and -6.1 m center-minus-edge contrast. The site morphology remains provisional.", "status": "provisional"}
     ]
   }
 }

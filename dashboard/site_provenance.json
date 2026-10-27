@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "planetary_targets": {
+    "mars": {
+      "source_dataset": "MOLA global 463 m",
+      "output_ground_resolution_m_per_pixel": 333.686104
+    }
+  },
+  "sites": {
+    "iceland_askja": {
+      "source_dataset": "AWS Terrain Tiles (composite)",
+      "output_ground_resolution_m_per_pixel": 33.398267
+    },
+    "atacama_puna": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.428125
+    },
+    "mcmurdo_dry_valleys": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.378215
+    },
+    "haughton_crater": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.346277
+    },
+    "hawaii_mauna_kea": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.470787
+    },
+    "mojave_amboy_lava_field": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.431185
+    },
+    "svalbard_longyearbyen": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.340823
+    },
+    "danakil_depression": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.36432
+    },
+    "namib_sossusvlei": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.367455
+    },
+    "lanzarote_timanfaya": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.47817
+    },
+    "craters_of_the_moon_idaho": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.397281
+    },
+    "rio_tinto": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.436434
+    },
+    "kilauea_hawaii": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.43309
+    },
+    "etna_sicily": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.414074
+    },
+    "teide_tenerife": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.485322
+    },
+    "wadi_rum": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.511738
+    },
+    "salar_de_uyuni": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.52495
+    },
+    "lonar_crater": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.437344
+    },
+    "meteor_crater_arizona": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.447246
+    },
+    "suswa_volcano_kenya": {
+      "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+      "output_ground_resolution_m_per_pixel": 33.38569
+    }
+  }
+}

@@ -2,6 +2,7 @@
 """Compare lunar analog rankings across small, centered DEM windows."""
 
 import contextlib
+import argparse
 import csv
 import io
 import json
@@ -9,6 +10,8 @@ import shutil
 import sys
 import tempfile
 from pathlib import Path
+
+import numpy as np
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
@@ -24,6 +27,143 @@ SYNTHETIC_EARTH_FILES = (
     "earth_haughton_crater.npy",
     "earth_hawaii_mauna_kea.npy",
 )
+REAL_CROP_FRACTIONS = (1.0, 0.75, 0.5)
+
+
+def center_crop(array, fraction):
+    """Return a centered square crop without changing its source pixel scale."""
+    if not 0 < fraction <= 1:
+        raise ValueError("crop fraction must be in (0, 1]")
+    if array.ndim != 2 or array.shape[0] != array.shape[1]:
+        raise ValueError("DEM crop input must be a square 2D array")
+    size = max(1, int(round(array.shape[0] * fraction)))
+    start = (array.shape[0] - size) // 2
+    return array[start:start + size, start:start + size]
+
+
+def _spearman_rank_correlation(baseline, comparison):
+    shared_ids = sorted(set(baseline) & set(comparison))
+    if len(shared_ids) < 2:
+        return None
+    count = len(shared_ids)
+    difference_sum = sum((baseline[site_id] - comparison[site_id]) ** 2 for site_id in shared_ids)
+    return round(1.0 - 6.0 * difference_sum / (count * (count ** 2 - 1)), 6)
+
+
+def build_real_dem_sensitivity_payload(crop_results, site_records):
+    """Summarize crop rankings against each body's 100% existing-window baseline."""
+    site_names = {site["site_id"]: site["name"] for site in site_records}
+    targets = {}
+    for body, crops in crop_results.items():
+        baseline = crops.get("100%", {}).get("rankings", [])
+        if not baseline:
+            raise ValueError(f"Missing 100% baseline rankings for {body}.")
+        baseline_ranks = {entry["site_id"]: entry["rank"] for entry in baseline}
+        target_crops = {}
+        for label in ("100%", "75%", "50%"):
+            crop = crops.get(label)
+            if not crop or not crop.get("rankings"):
+                raise ValueError(f"Missing {label} crop rankings for {body}.")
+            rankings = crop["rankings"]
+            ranks = {entry["site_id"]: entry["rank"] for entry in rankings}
+            target_crops[label] = {
+                "crop_size_px": crop["crop_size_px"],
+                "leader": rankings[0]["site_name"],
+                "top5": [
+                    {"rank": entry["rank"], "site_id": entry["site_id"], "site_name": entry["site_name"], "aci": entry["aci"]}
+                    for entry in rankings[:5]
+                ],
+                "rank_correlation_vs_100_percent": _spearman_rank_correlation(baseline_ranks, ranks),
+                "rankings": rankings,
+            }
+        targets[body] = target_crops
+
+    return {
+        "label": "Real DEM, 20 sites",
+        "protocol": {
+            "description": "Centered crops of existing 300x300 target and Earth DEM arrays; no downloads and no larger windows.",
+            "crop_fractions": [1.0, 0.75, 0.5],
+            "crop_sizes_px": {"100%": 300, "75%": 225, "50%": 150},
+            "resolution_policy": "Retain each input array's existing sidecar output_ground_resolution_m_per_pixel for all crop sizes.",
+            "physical_window_policy": "No resampling: crop side length is 100%, 75%, or 50% of each input's existing window, so physical coverage shrinks at fixed pixel resolution.",
+            "ranking_policy": "Use the existing main.rank_candidates ACI implementation and unchanged weights.",
+        },
+        "site_count": len(site_names),
+        "targets": targets,
+    }
+
+
+def run_real_dem_sensitivity(data_dir=None, crop_fractions=REAL_CROP_FRACTIONS):
+    """Rank both targets against all real Earth DEMs using centered existing-window crops."""
+    data_dir = Path(data_dir) if data_dir else PROJECT_ROOT / "data_real"
+    site_records, metadata = main.load_earth_site_catalog()
+    if len(site_records) != 20:
+        raise ValueError(f"Expected 20 Earth sites for real DEM sensitivity; found {len(site_records)}.")
+    if tuple(crop_fractions) != REAL_CROP_FRACTIONS:
+        raise ValueError(f"Real DEM sensitivity requires crop fractions {REAL_CROP_FRACTIONS}.")
+    target_files = {
+        "moon": "target_moon_artemis_south_pole.npy",
+        "mars": "target_mars_jezero_crater.npy",
+    }
+    target_arrays = {}
+    target_resolutions = {}
+    candidate_arrays = {}
+    candidate_resolutions = {}
+    for body, filename in target_files.items():
+        dem_path = data_dir / filename
+        if not dem_path.is_file():
+            raise FileNotFoundError(f"Missing {body} target DEM: {dem_path}")
+        target_arrays[body] = np.load(dem_path)
+        if target_arrays[body].shape != (300, 300):
+            raise ValueError(f"Expected a 300x300 existing {body} DEM, found {target_arrays[body].shape}.")
+        target_resolutions[body] = _read_output_resolution(dem_path.with_suffix(".json"))
+    for site in site_records:
+        site_id = site["site_id"]
+        dem_path = data_dir / f"earth_{site_id}.npy"
+        if not dem_path.is_file():
+            raise FileNotFoundError(f"Missing Earth DEM for {site_id}: {dem_path}")
+        candidate_arrays[site_id] = np.load(dem_path)
+        if candidate_arrays[site_id].shape != (300, 300):
+            raise ValueError(f"Expected a 300x300 existing Earth DEM for {site_id}, found {candidate_arrays[site_id].shape}.")
+        candidate_resolutions[site_id] = _read_output_resolution(dem_path.with_suffix(".json"))
+
+    crop_results = {}
+    with tempfile.TemporaryDirectory(prefix="ptae-real-crop-sensitivity-") as temp_dir:
+        crop_dir = Path(temp_dir)
+        for body, target_array in target_arrays.items():
+            body_results = {}
+            for fraction in crop_fractions:
+                label = f"{int(round(fraction * 100))}%"
+                target_crop_path = crop_dir / f"target_{body}_{label}.npy"
+                np.save(target_crop_path, center_crop(target_array, fraction))
+                target_signature, _, _, _ = main.extract_terrain_signature(
+                    str(target_crop_path), resolution=target_resolutions[body]
+                )
+                candidates = {}
+                for site in site_records:
+                    site_id = site["site_id"]
+                    candidate_path = crop_dir / f"earth_{site_id}_{label}.npy"
+                    np.save(candidate_path, center_crop(candidate_arrays[site_id], fraction))
+                    signature, _, _, _ = main.extract_terrain_signature(
+                        str(candidate_path), resolution=candidate_resolutions[site_id]
+                    )
+                    candidates[f"earth_{site_id}"] = signature
+
+                ranked = main.rank_candidates(target_signature, candidates, metadata=metadata)
+                body_results[label] = {
+                    "crop_size_px": int(round(target_array.shape[0] * fraction)),
+                    "rankings": [
+                        {
+                            "rank": rank,
+                            "site_id": result["site_name"].removeprefix("earth_"),
+                            "site_name": result["metadata"].get("name", result["site_name"]),
+                            "aci": result["aci"],
+                        }
+                        for rank, result in enumerate(ranked, 1)
+                    ],
+                }
+            crop_results[body] = body_results
+    return build_real_dem_sensitivity_payload(crop_results, site_records)
 
 
 def build_comparison_table(window_results, window_sizes=WINDOW_SIZES_KM):
@@ -281,6 +421,11 @@ def run_sensitivity(data_dir=None, csv_path=None, json_path=None):
         writer.writerows(rows)
 
     validation_payload = build_validation_payload(window_results)
+    if json_path.is_file():
+        with json_path.open(encoding="utf-8") as json_file:
+            previous_payload = json.load(json_file)
+        if "real_dem_sensitivity" in previous_payload:
+            validation_payload["real_dem_sensitivity"] = previous_payload["real_dem_sensitivity"]
     json_path.parent.mkdir(parents=True, exist_ok=True)
     with json_path.open("w", encoding="utf-8") as json_file:
         json.dump(validation_payload, json_file, indent=2)
@@ -300,5 +445,27 @@ def run_sensitivity(data_dir=None, csv_path=None, json_path=None):
     return window_results, columns, rows
 
 
+def write_real_dem_sensitivity(data_dir=None, json_path=None):
+    json_path = Path(json_path) if json_path else PROJECT_ROOT / "dashboard" / "window_sensitivity.json"
+    with json_path.open(encoding="utf-8") as json_file:
+        payload = json.load(json_file)
+    if not isinstance(payload, dict):
+        raise ValueError("Window-sensitivity JSON must contain a root object.")
+    payload["real_dem_sensitivity"] = run_real_dem_sensitivity(data_dir=data_dir)
+    with json_path.open("w", encoding="utf-8") as json_file:
+        json.dump(payload, json_file, indent=2)
+        json_file.write("\n")
+    print(f"Real DEM sensitivity JSON: {json_path}")
+    return payload["real_dem_sensitivity"]
+
+
 if __name__ == "__main__":
-    run_sensitivity()
+    parser = argparse.ArgumentParser(description="Run historical and real-DEM terrain-window sensitivity analyses.")
+    parser.add_argument("--real-dem-only", action="store_true", help="Add the 20-site center-crop results without rerunning the historical experiment.")
+    parser.add_argument("--data-dir", help="Input directory (data_real for --real-dem-only; data otherwise).")
+    parser.add_argument("--json-out", help="Sensitivity JSON path to update or write.")
+    args = parser.parse_args()
+    if args.real_dem_only:
+        write_real_dem_sensitivity(data_dir=args.data_dir, json_path=args.json_out)
+    else:
+        run_sensitivity(data_dir=args.data_dir, json_path=args.json_out)

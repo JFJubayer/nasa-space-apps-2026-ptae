@@ -1,0 +1,35 @@
+{
+  "source_file": "aws_terrain_tiles_mosaic.tif",
+  "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+  "original_ground_resolution_m_per_pixel": 67.195002,
+  "output_ground_resolution_m_per_pixel": 33.485322,
+  "original_ground_resolution_axes_m_per_pixel": {
+    "x": 67.370314,
+    "y": 67.020146
+  },
+  "output_ground_resolution_axes_m_per_pixel": {
+    "x": 33.460589,
+    "y": 33.510073
+  },
+  "center_lat": 28.27,
+  "center_lon": -16.64,
+  "bounds": {
+    "left": -1858107.7205843495,
+    "bottom": 3277390.461783503,
+    "right": -1846718.6033698583,
+    "top": 3288856.016026279,
+    "crs": "EPSG:3857"
+  },
+  "output_size": [
+    300,
+    300
+  ],
+  "resampling": "bilinear",
+  "site_id": "teide_tenerife",
+  "source_tile_zoom": 10,
+  "source_tile_urls": [
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/464/427.tif",
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/464/428.tif"
+  ],
+  "coordinate_verification_required": true
+}

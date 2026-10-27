@@ -144,118 +144,118 @@ the science for you.
 
 37
 00:01:29,883 --> 00:01:33,071
-The demo scores Earth
-candidates against calibrated
+Current results rank 20 Earth sites
+using real AWS Terrain Tiles DEMs,
 
 38
 00:01:33,378 --> 00:01:36,273
-synthetic terrain matched to
-published morphometrics with our
+with LOLA for the Moon target
+and MOLA for the Mars target.
 
 39
 00:01:36,286 --> 00:01:39,385
-Analog Compatibility Index;
-the pipeline is designed
+Our Analog Compatibility Index
+compares their terrain statistics.
 
 40
 00:01:39,398 --> 00:01:42,217
-to accept real LOLA, MOLA, and
-SRTM DEMs.
+The synthetic demo is a separate
+five-site illustration.
 
 41
 00:01:42,587 --> 00:01:45,776
-In our calibrated-synthetic-terrain demo,
-McMurdo Dry Valleys tops the lunar
+For the lunar south-pole target,
+Teide leads the 20-site ranking
 
 42
 00:01:45,788 --> 00:01:48,607
-south pole ranking at 82.52%; its
-katabatic slopes and fine-scale roughness
+at 87.22 percent; Mount Etna
+follows at 86.79 percent.
 
 43
 00:01:49,092 --> 00:01:51,694
-echo lunar highlands. Askja follows
-at 74.05%, a strong lava-tube analog.
+These are terrain similarities,
+not proof of mission suitability.
 
 44
 00:01:52,140 --> 00:01:54,474
-Now watch what happens when we
+Now switch to the current
 
 45
 00:01:54,844 --> 00:01:57,128
-re-target to Mars' Jezero Crater —
+Mars Jezero terrain ranking.
 
 46
 00:01:57,140 --> 00:02:00,533
-our calibrated-synthetic-terrain demo ranks Mauna Kea's cinder cones
+Kilauea leads at 55.84 percent,
 
 47
 00:02:00,546 --> 00:02:00,954
-first.
+with
 
 48
 00:02:01,324 --> 00:02:04,156
-at 96.98%, mirroring Jezero's rim and delta.
+Craters of the Moon second at 54.99 percent.
 
 49
 00:02:04,168 --> 00:02:07,242
-Real-data validation used the 20 m
+A separate historical five-site study
 
 50
 00:02:07,255 --> 00:02:09,844
-LRO LOLA Moon target and real Askja terrain.
+used real LOLA and Askja, plus four synthetic sites.
 
 51
 00:02:10,214 --> 00:02:13,684
-Rankings were scale-sensitive:
+Its leader changed across 5, 10, and 15 km windows.
 
 52
 00:02:13,773 --> 00:02:16,337
-the leader changed by window; McMurdo
+The new all-real crop study uses existing windows only.
 
 53
 00:02:16,350 --> 00:02:19,309
-was last every time, while Mauna Kea and Atacama stayed in the top three.
+Mars and Earth still differ in resolution and physical footprint.
 
 54
 00:02:19,800 --> 00:02:22,938
-Right now, PTAE's demo uses
+Current results use 20 real Earth DEMs,
 
 55
 00:02:22,950 --> 00:02:26,063
-calibrated synthetic terrain matched
+from AWS Terrain Tiles, with LOLA
 
 56
 00:02:26,420 --> 00:02:29,456
-to published morphometrics — so
+and MOLA target DEMs for Moon and Mars.
 
 57
 00:02:29,774 --> 00:02:32,096
-anyone, right now, with zero
+A separate five-site synthetic illustration
 
 58
 00:02:32,109 --> 00:02:33,002
-downloads, can reproduce these exact numbers
+provides a self-contained example,
 
 59
 00:02:33,372 --> 00:02:36,281
-in under ten seconds. The pipeline
+not the current dashboard rankings.
 
 60
 00:02:36,293 --> 00:02:39,214
-is designed to accept real LOLA,
+The prepared arrays are already included;
 
 61
 00:02:39,253 --> 00:02:43,028
-MOLA, and SRTM DEMs, but
+the dashboard reads checked-in JSON results.
 
 62
 00:02:43,041 --> 00:02:46,076
-ingesting them is still
+These terrain similarities do not prove
 
 63
 00:02:46,089 --> 00:02:48,628
-future work.
+mission suitability.
 
 64
 00:02:48,997 --> 00:02:51,689

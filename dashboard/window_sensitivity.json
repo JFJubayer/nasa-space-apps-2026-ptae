@@ -152,5 +152,985 @@
     },
     "largest_rank_change_places": 3,
     "largest_rank_change_candidate": "Askja & Holuhraun Caldera, Iceland"
+  },
+  "real_dem_sensitivity": {
+    "label": "Real DEM, 20 sites",
+    "protocol": {
+      "description": "Centered crops of existing 300x300 target and Earth DEM arrays; no downloads and no larger windows.",
+      "crop_fractions": [
+        1.0,
+        0.75,
+        0.5
+      ],
+      "crop_sizes_px": {
+        "100%": 300,
+        "75%": 225,
+        "50%": 150
+      },
+      "resolution_policy": "Retain each input array's existing sidecar output_ground_resolution_m_per_pixel for all crop sizes.",
+      "physical_window_policy": "No resampling: crop side length is 100%, 75%, or 50% of each input's existing window, so physical coverage shrinks at fixed pixel resolution.",
+      "ranking_policy": "Use the existing main.rank_candidates ACI implementation and unchanged weights."
+    },
+    "site_count": 20,
+    "targets": {
+      "moon": {
+        "100%": {
+          "crop_size_px": 300,
+          "leader": "Teide / Tenerife Volcanic Field",
+          "top5": [
+            {
+              "rank": 1,
+              "site_id": "teide_tenerife",
+              "site_name": "Teide / Tenerife Volcanic Field",
+              "aci": 87.22
+            },
+            {
+              "rank": 2,
+              "site_id": "etna_sicily",
+              "site_name": "Mount Etna",
+              "aci": 86.79
+            },
+            {
+              "rank": 3,
+              "site_id": "atacama_puna",
+              "site_name": "Puna de Atacama",
+              "aci": 84.57
+            },
+            {
+              "rank": 4,
+              "site_id": "hawaii_mauna_kea",
+              "site_name": "Mauna Kea Cinder Cones",
+              "aci": 66.15
+            },
+            {
+              "rank": 5,
+              "site_id": "iceland_askja",
+              "site_name": "Askja & Holuhraun Caldera",
+              "aci": 63.6
+            }
+          ],
+          "rank_correlation_vs_100_percent": 1.0,
+          "rankings": [
+            {
+              "rank": 1,
+              "site_id": "teide_tenerife",
+              "site_name": "Teide / Tenerife Volcanic Field",
+              "aci": 87.22
+            },
+            {
+              "rank": 2,
+              "site_id": "etna_sicily",
+              "site_name": "Mount Etna",
+              "aci": 86.79
+            },
+            {
+              "rank": 3,
+              "site_id": "atacama_puna",
+              "site_name": "Puna de Atacama",
+              "aci": 84.57
+            },
+            {
+              "rank": 4,
+              "site_id": "hawaii_mauna_kea",
+              "site_name": "Mauna Kea Cinder Cones",
+              "aci": 66.15
+            },
+            {
+              "rank": 5,
+              "site_id": "iceland_askja",
+              "site_name": "Askja & Holuhraun Caldera",
+              "aci": 63.6
+            },
+            {
+              "rank": 6,
+              "site_id": "wadi_rum",
+              "site_name": "Wadi Rum Protected Area",
+              "aci": 63.22
+            },
+            {
+              "rank": 7,
+              "site_id": "suswa_volcano_kenya",
+              "site_name": "Mount Suswa Volcanic Field",
+              "aci": 61.53
+            },
+            {
+              "rank": 8,
+              "site_id": "namib_sossusvlei",
+              "site_name": "Namib Desert / Sossusvlei",
+              "aci": 61.1
+            },
+            {
+              "rank": 9,
+              "site_id": "svalbard_longyearbyen",
+              "site_name": "Svalbard / Longyearbyen Region",
+              "aci": 53.02
+            },
+            {
+              "rank": 10,
+              "site_id": "mcmurdo_dry_valleys",
+              "site_name": "McMurdo Dry Valleys",
+              "aci": 52.06
+            },
+            {
+              "rank": 11,
+              "site_id": "lanzarote_timanfaya",
+              "site_name": "Lanzarote / Timanfaya Volcanic Field",
+              "aci": 48.16
+            },
+            {
+              "rank": 12,
+              "site_id": "rio_tinto",
+              "site_name": "Rio Tinto Mining District",
+              "aci": 43.86
+            },
+            {
+              "rank": 13,
+              "site_id": "haughton_crater",
+              "site_name": "Haughton Impact Crater / Devon Island",
+              "aci": 41.8
+            },
+            {
+              "rank": 14,
+              "site_id": "kilauea_hawaii",
+              "site_name": "Kilauea Volcanic Field",
+              "aci": 39.29
+            },
+            {
+              "rank": 15,
+              "site_id": "craters_of_the_moon_idaho",
+              "site_name": "Craters of the Moon",
+              "aci": 34.08
+            },
+            {
+              "rank": 16,
+              "site_id": "meteor_crater_arizona",
+              "site_name": "Meteor Crater",
+              "aci": 24.53
+            },
+            {
+              "rank": 17,
+              "site_id": "mojave_amboy_lava_field",
+              "site_name": "Mojave / Amboy Lava Field",
+              "aci": 23.54
+            },
+            {
+              "rank": 18,
+              "site_id": "lonar_crater",
+              "site_name": "Lonar Crater",
+              "aci": 23.28
+            },
+            {
+              "rank": 19,
+              "site_id": "danakil_depression",
+              "site_name": "Danakil Depression",
+              "aci": 20.33
+            },
+            {
+              "rank": 20,
+              "site_id": "salar_de_uyuni",
+              "site_name": "Salar de Uyuni",
+              "aci": 17.39
+            }
+          ]
+        },
+        "75%": {
+          "crop_size_px": 225,
+          "leader": "Teide / Tenerife Volcanic Field",
+          "top5": [
+            {
+              "rank": 1,
+              "site_id": "teide_tenerife",
+              "site_name": "Teide / Tenerife Volcanic Field",
+              "aci": 95.8
+            },
+            {
+              "rank": 2,
+              "site_id": "etna_sicily",
+              "site_name": "Mount Etna",
+              "aci": 94.07
+            },
+            {
+              "rank": 3,
+              "site_id": "atacama_puna",
+              "site_name": "Puna de Atacama",
+              "aci": 87.67
+            },
+            {
+              "rank": 4,
+              "site_id": "wadi_rum",
+              "site_name": "Wadi Rum Protected Area",
+              "aci": 64.31
+            },
+            {
+              "rank": 5,
+              "site_id": "iceland_askja",
+              "site_name": "Askja & Holuhraun Caldera",
+              "aci": 63.37
+            }
+          ],
+          "rank_correlation_vs_100_percent": 0.98797,
+          "rankings": [
+            {
+              "rank": 1,
+              "site_id": "teide_tenerife",
+              "site_name": "Teide / Tenerife Volcanic Field",
+              "aci": 95.8
+            },
+            {
+              "rank": 2,
+              "site_id": "etna_sicily",
+              "site_name": "Mount Etna",
+              "aci": 94.07
+            },
+            {
+              "rank": 3,
+              "site_id": "atacama_puna",
+              "site_name": "Puna de Atacama",
+              "aci": 87.67
+            },
+            {
+              "rank": 4,
+              "site_id": "wadi_rum",
+              "site_name": "Wadi Rum Protected Area",
+              "aci": 64.31
+            },
+            {
+              "rank": 5,
+              "site_id": "iceland_askja",
+              "site_name": "Askja & Holuhraun Caldera",
+              "aci": 63.37
+            },
+            {
+              "rank": 6,
+              "site_id": "hawaii_mauna_kea",
+              "site_name": "Mauna Kea Cinder Cones",
+              "aci": 62.21
+            },
+            {
+              "rank": 7,
+              "site_id": "namib_sossusvlei",
+              "site_name": "Namib Desert / Sossusvlei",
+              "aci": 58.09
+            },
+            {
+              "rank": 8,
+              "site_id": "suswa_volcano_kenya",
+              "site_name": "Mount Suswa Volcanic Field",
+              "aci": 57.31
+            },
+            {
+              "rank": 9,
+              "site_id": "mcmurdo_dry_valleys",
+              "site_name": "McMurdo Dry Valleys",
+              "aci": 54.41
+            },
+            {
+              "rank": 10,
+              "site_id": "svalbard_longyearbyen",
+              "site_name": "Svalbard / Longyearbyen Region",
+              "aci": 48.07
+            },
+            {
+              "rank": 11,
+              "site_id": "lanzarote_timanfaya",
+              "site_name": "Lanzarote / Timanfaya Volcanic Field",
+              "aci": 47.06
+            },
+            {
+              "rank": 12,
+              "site_id": "rio_tinto",
+              "site_name": "Rio Tinto Mining District",
+              "aci": 46.19
+            },
+            {
+              "rank": 13,
+              "site_id": "kilauea_hawaii",
+              "site_name": "Kilauea Volcanic Field",
+              "aci": 43.34
+            },
+            {
+              "rank": 14,
+              "site_id": "haughton_crater",
+              "site_name": "Haughton Impact Crater / Devon Island",
+              "aci": 38.91
+            },
+            {
+              "rank": 15,
+              "site_id": "craters_of_the_moon_idaho",
+              "site_name": "Craters of the Moon",
+              "aci": 37.99
+            },
+            {
+              "rank": 16,
+              "site_id": "meteor_crater_arizona",
+              "site_name": "Meteor Crater",
+              "aci": 28.28
+            },
+            {
+              "rank": 17,
+              "site_id": "lonar_crater",
+              "site_name": "Lonar Crater",
+              "aci": 27.26
+            },
+            {
+              "rank": 18,
+              "site_id": "mojave_amboy_lava_field",
+              "site_name": "Mojave / Amboy Lava Field",
+              "aci": 23.54
+            },
+            {
+              "rank": 19,
+              "site_id": "danakil_depression",
+              "site_name": "Danakil Depression",
+              "aci": 20.47
+            },
+            {
+              "rank": 20,
+              "site_id": "salar_de_uyuni",
+              "site_name": "Salar de Uyuni",
+              "aci": 17.47
+            }
+          ]
+        },
+        "50%": {
+          "crop_size_px": 150,
+          "leader": "Teide / Tenerife Volcanic Field",
+          "top5": [
+            {
+              "rank": 1,
+              "site_id": "teide_tenerife",
+              "site_name": "Teide / Tenerife Volcanic Field",
+              "aci": 99.99
+            },
+            {
+              "rank": 2,
+              "site_id": "etna_sicily",
+              "site_name": "Mount Etna",
+              "aci": 98.82
+            },
+            {
+              "rank": 3,
+              "site_id": "atacama_puna",
+              "site_name": "Puna de Atacama",
+              "aci": 97.29
+            },
+            {
+              "rank": 4,
+              "site_id": "iceland_askja",
+              "site_name": "Askja & Holuhraun Caldera",
+              "aci": 77.3
+            },
+            {
+              "rank": 5,
+              "site_id": "wadi_rum",
+              "site_name": "Wadi Rum Protected Area",
+              "aci": 69.26
+            }
+          ],
+          "rank_correlation_vs_100_percent": 0.962406,
+          "rankings": [
+            {
+              "rank": 1,
+              "site_id": "teide_tenerife",
+              "site_name": "Teide / Tenerife Volcanic Field",
+              "aci": 99.99
+            },
+            {
+              "rank": 2,
+              "site_id": "etna_sicily",
+              "site_name": "Mount Etna",
+              "aci": 98.82
+            },
+            {
+              "rank": 3,
+              "site_id": "atacama_puna",
+              "site_name": "Puna de Atacama",
+              "aci": 97.29
+            },
+            {
+              "rank": 4,
+              "site_id": "iceland_askja",
+              "site_name": "Askja & Holuhraun Caldera",
+              "aci": 77.3
+            },
+            {
+              "rank": 5,
+              "site_id": "wadi_rum",
+              "site_name": "Wadi Rum Protected Area",
+              "aci": 69.26
+            },
+            {
+              "rank": 6,
+              "site_id": "suswa_volcano_kenya",
+              "site_name": "Mount Suswa Volcanic Field",
+              "aci": 68.43
+            },
+            {
+              "rank": 7,
+              "site_id": "svalbard_longyearbyen",
+              "site_name": "Svalbard / Longyearbyen Region",
+              "aci": 61.92
+            },
+            {
+              "rank": 8,
+              "site_id": "hawaii_mauna_kea",
+              "site_name": "Mauna Kea Cinder Cones",
+              "aci": 61.71
+            },
+            {
+              "rank": 9,
+              "site_id": "namib_sossusvlei",
+              "site_name": "Namib Desert / Sossusvlei",
+              "aci": 57.48
+            },
+            {
+              "rank": 10,
+              "site_id": "mcmurdo_dry_valleys",
+              "site_name": "McMurdo Dry Valleys",
+              "aci": 55.26
+            },
+            {
+              "rank": 11,
+              "site_id": "rio_tinto",
+              "site_name": "Rio Tinto Mining District",
+              "aci": 52.51
+            },
+            {
+              "rank": 12,
+              "site_id": "lanzarote_timanfaya",
+              "site_name": "Lanzarote / Timanfaya Volcanic Field",
+              "aci": 49.12
+            },
+            {
+              "rank": 13,
+              "site_id": "kilauea_hawaii",
+              "site_name": "Kilauea Volcanic Field",
+              "aci": 47.44
+            },
+            {
+              "rank": 14,
+              "site_id": "craters_of_the_moon_idaho",
+              "site_name": "Craters of the Moon",
+              "aci": 42.56
+            },
+            {
+              "rank": 15,
+              "site_id": "meteor_crater_arizona",
+              "site_name": "Meteor Crater",
+              "aci": 35.16
+            },
+            {
+              "rank": 16,
+              "site_id": "lonar_crater",
+              "site_name": "Lonar Crater",
+              "aci": 34.17
+            },
+            {
+              "rank": 17,
+              "site_id": "haughton_crater",
+              "site_name": "Haughton Impact Crater / Devon Island",
+              "aci": 32.36
+            },
+            {
+              "rank": 18,
+              "site_id": "mojave_amboy_lava_field",
+              "site_name": "Mojave / Amboy Lava Field",
+              "aci": 25.22
+            },
+            {
+              "rank": 19,
+              "site_id": "danakil_depression",
+              "site_name": "Danakil Depression",
+              "aci": 21.5
+            },
+            {
+              "rank": 20,
+              "site_id": "salar_de_uyuni",
+              "site_name": "Salar de Uyuni",
+              "aci": 17.41
+            }
+          ]
+        }
+      },
+      "mars": {
+        "100%": {
+          "crop_size_px": 300,
+          "leader": "Kilauea Volcanic Field",
+          "top5": [
+            {
+              "rank": 1,
+              "site_id": "kilauea_hawaii",
+              "site_name": "Kilauea Volcanic Field",
+              "aci": 55.84
+            },
+            {
+              "rank": 2,
+              "site_id": "craters_of_the_moon_idaho",
+              "site_name": "Craters of the Moon",
+              "aci": 54.99
+            },
+            {
+              "rank": 3,
+              "site_id": "lonar_crater",
+              "site_name": "Lonar Crater",
+              "aci": 44.28
+            },
+            {
+              "rank": 4,
+              "site_id": "meteor_crater_arizona",
+              "site_name": "Meteor Crater",
+              "aci": 42.36
+            },
+            {
+              "rank": 5,
+              "site_id": "mojave_amboy_lava_field",
+              "site_name": "Mojave / Amboy Lava Field",
+              "aci": 40.67
+            }
+          ],
+          "rank_correlation_vs_100_percent": 1.0,
+          "rankings": [
+            {
+              "rank": 1,
+              "site_id": "kilauea_hawaii",
+              "site_name": "Kilauea Volcanic Field",
+              "aci": 55.84
+            },
+            {
+              "rank": 2,
+              "site_id": "craters_of_the_moon_idaho",
+              "site_name": "Craters of the Moon",
+              "aci": 54.99
+            },
+            {
+              "rank": 3,
+              "site_id": "lonar_crater",
+              "site_name": "Lonar Crater",
+              "aci": 44.28
+            },
+            {
+              "rank": 4,
+              "site_id": "meteor_crater_arizona",
+              "site_name": "Meteor Crater",
+              "aci": 42.36
+            },
+            {
+              "rank": 5,
+              "site_id": "mojave_amboy_lava_field",
+              "site_name": "Mojave / Amboy Lava Field",
+              "aci": 40.67
+            },
+            {
+              "rank": 6,
+              "site_id": "svalbard_longyearbyen",
+              "site_name": "Svalbard / Longyearbyen Region",
+              "aci": 40.47
+            },
+            {
+              "rank": 7,
+              "site_id": "teide_tenerife",
+              "site_name": "Teide / Tenerife Volcanic Field",
+              "aci": 39.41
+            },
+            {
+              "rank": 8,
+              "site_id": "wadi_rum",
+              "site_name": "Wadi Rum Protected Area",
+              "aci": 39.23
+            },
+            {
+              "rank": 9,
+              "site_id": "etna_sicily",
+              "site_name": "Mount Etna",
+              "aci": 38.76
+            },
+            {
+              "rank": 10,
+              "site_id": "atacama_puna",
+              "site_name": "Puna de Atacama",
+              "aci": 37.39
+            },
+            {
+              "rank": 11,
+              "site_id": "lanzarote_timanfaya",
+              "site_name": "Lanzarote / Timanfaya Volcanic Field",
+              "aci": 37.12
+            },
+            {
+              "rank": 12,
+              "site_id": "mcmurdo_dry_valleys",
+              "site_name": "McMurdo Dry Valleys",
+              "aci": 37.01
+            },
+            {
+              "rank": 13,
+              "site_id": "hawaii_mauna_kea",
+              "site_name": "Mauna Kea Cinder Cones",
+              "aci": 34.66
+            },
+            {
+              "rank": 14,
+              "site_id": "haughton_crater",
+              "site_name": "Haughton Impact Crater / Devon Island",
+              "aci": 33.34
+            },
+            {
+              "rank": 15,
+              "site_id": "iceland_askja",
+              "site_name": "Askja & Holuhraun Caldera",
+              "aci": 29.84
+            },
+            {
+              "rank": 16,
+              "site_id": "danakil_depression",
+              "site_name": "Danakil Depression",
+              "aci": 29.35
+            },
+            {
+              "rank": 17,
+              "site_id": "rio_tinto",
+              "site_name": "Rio Tinto Mining District",
+              "aci": 24.26
+            },
+            {
+              "rank": 18,
+              "site_id": "suswa_volcano_kenya",
+              "site_name": "Mount Suswa Volcanic Field",
+              "aci": 23.83
+            },
+            {
+              "rank": 19,
+              "site_id": "salar_de_uyuni",
+              "site_name": "Salar de Uyuni",
+              "aci": 22.27
+            },
+            {
+              "rank": 20,
+              "site_id": "namib_sossusvlei",
+              "site_name": "Namib Desert / Sossusvlei",
+              "aci": 20.42
+            }
+          ]
+        },
+        "75%": {
+          "crop_size_px": 225,
+          "leader": "Craters of the Moon",
+          "top5": [
+            {
+              "rank": 1,
+              "site_id": "craters_of_the_moon_idaho",
+              "site_name": "Craters of the Moon",
+              "aci": 56.66
+            },
+            {
+              "rank": 2,
+              "site_id": "kilauea_hawaii",
+              "site_name": "Kilauea Volcanic Field",
+              "aci": 54.42
+            },
+            {
+              "rank": 3,
+              "site_id": "lonar_crater",
+              "site_name": "Lonar Crater",
+              "aci": 48.12
+            },
+            {
+              "rank": 4,
+              "site_id": "wadi_rum",
+              "site_name": "Wadi Rum Protected Area",
+              "aci": 45.43
+            },
+            {
+              "rank": 5,
+              "site_id": "haughton_crater",
+              "site_name": "Haughton Impact Crater / Devon Island",
+              "aci": 44.77
+            }
+          ],
+          "rank_correlation_vs_100_percent": 0.819549,
+          "rankings": [
+            {
+              "rank": 1,
+              "site_id": "craters_of_the_moon_idaho",
+              "site_name": "Craters of the Moon",
+              "aci": 56.66
+            },
+            {
+              "rank": 2,
+              "site_id": "kilauea_hawaii",
+              "site_name": "Kilauea Volcanic Field",
+              "aci": 54.42
+            },
+            {
+              "rank": 3,
+              "site_id": "lonar_crater",
+              "site_name": "Lonar Crater",
+              "aci": 48.12
+            },
+            {
+              "rank": 4,
+              "site_id": "wadi_rum",
+              "site_name": "Wadi Rum Protected Area",
+              "aci": 45.43
+            },
+            {
+              "rank": 5,
+              "site_id": "haughton_crater",
+              "site_name": "Haughton Impact Crater / Devon Island",
+              "aci": 44.77
+            },
+            {
+              "rank": 6,
+              "site_id": "lanzarote_timanfaya",
+              "site_name": "Lanzarote / Timanfaya Volcanic Field",
+              "aci": 43.71
+            },
+            {
+              "rank": 7,
+              "site_id": "meteor_crater_arizona",
+              "site_name": "Meteor Crater",
+              "aci": 42.75
+            },
+            {
+              "rank": 8,
+              "site_id": "teide_tenerife",
+              "site_name": "Teide / Tenerife Volcanic Field",
+              "aci": 41.36
+            },
+            {
+              "rank": 9,
+              "site_id": "mcmurdo_dry_valleys",
+              "site_name": "McMurdo Dry Valleys",
+              "aci": 40.97
+            },
+            {
+              "rank": 10,
+              "site_id": "etna_sicily",
+              "site_name": "Mount Etna",
+              "aci": 40.37
+            },
+            {
+              "rank": 11,
+              "site_id": "svalbard_longyearbyen",
+              "site_name": "Svalbard / Longyearbyen Region",
+              "aci": 38.6
+            },
+            {
+              "rank": 12,
+              "site_id": "atacama_puna",
+              "site_name": "Puna de Atacama",
+              "aci": 38.53
+            },
+            {
+              "rank": 13,
+              "site_id": "mojave_amboy_lava_field",
+              "site_name": "Mojave / Amboy Lava Field",
+              "aci": 38.02
+            },
+            {
+              "rank": 14,
+              "site_id": "hawaii_mauna_kea",
+              "site_name": "Mauna Kea Cinder Cones",
+              "aci": 33.6
+            },
+            {
+              "rank": 15,
+              "site_id": "iceland_askja",
+              "site_name": "Askja & Holuhraun Caldera",
+              "aci": 32.48
+            },
+            {
+              "rank": 16,
+              "site_id": "danakil_depression",
+              "site_name": "Danakil Depression",
+              "aci": 28.66
+            },
+            {
+              "rank": 17,
+              "site_id": "suswa_volcano_kenya",
+              "site_name": "Mount Suswa Volcanic Field",
+              "aci": 27.03
+            },
+            {
+              "rank": 18,
+              "site_id": "rio_tinto",
+              "site_name": "Rio Tinto Mining District",
+              "aci": 26.73
+            },
+            {
+              "rank": 19,
+              "site_id": "salar_de_uyuni",
+              "site_name": "Salar de Uyuni",
+              "aci": 22.06
+            },
+            {
+              "rank": 20,
+              "site_id": "namib_sossusvlei",
+              "site_name": "Namib Desert / Sossusvlei",
+              "aci": 21.51
+            }
+          ]
+        },
+        "50%": {
+          "crop_size_px": 150,
+          "leader": "Lonar Crater",
+          "top5": [
+            {
+              "rank": 1,
+              "site_id": "lonar_crater",
+              "site_name": "Lonar Crater",
+              "aci": 52.66
+            },
+            {
+              "rank": 2,
+              "site_id": "haughton_crater",
+              "site_name": "Haughton Impact Crater / Devon Island",
+              "aci": 51.56
+            },
+            {
+              "rank": 3,
+              "site_id": "wadi_rum",
+              "site_name": "Wadi Rum Protected Area",
+              "aci": 51.28
+            },
+            {
+              "rank": 4,
+              "site_id": "craters_of_the_moon_idaho",
+              "site_name": "Craters of the Moon",
+              "aci": 50.28
+            },
+            {
+              "rank": 5,
+              "site_id": "kilauea_hawaii",
+              "site_name": "Kilauea Volcanic Field",
+              "aci": 49.81
+            }
+          ],
+          "rank_correlation_vs_100_percent": 0.705263,
+          "rankings": [
+            {
+              "rank": 1,
+              "site_id": "lonar_crater",
+              "site_name": "Lonar Crater",
+              "aci": 52.66
+            },
+            {
+              "rank": 2,
+              "site_id": "haughton_crater",
+              "site_name": "Haughton Impact Crater / Devon Island",
+              "aci": 51.56
+            },
+            {
+              "rank": 3,
+              "site_id": "wadi_rum",
+              "site_name": "Wadi Rum Protected Area",
+              "aci": 51.28
+            },
+            {
+              "rank": 4,
+              "site_id": "craters_of_the_moon_idaho",
+              "site_name": "Craters of the Moon",
+              "aci": 50.28
+            },
+            {
+              "rank": 5,
+              "site_id": "kilauea_hawaii",
+              "site_name": "Kilauea Volcanic Field",
+              "aci": 49.81
+            },
+            {
+              "rank": 6,
+              "site_id": "meteor_crater_arizona",
+              "site_name": "Meteor Crater",
+              "aci": 45.48
+            },
+            {
+              "rank": 7,
+              "site_id": "teide_tenerife",
+              "site_name": "Teide / Tenerife Volcanic Field",
+              "aci": 45.11
+            },
+            {
+              "rank": 8,
+              "site_id": "etna_sicily",
+              "site_name": "Mount Etna",
+              "aci": 43.9
+            },
+            {
+              "rank": 9,
+              "site_id": "mcmurdo_dry_valleys",
+              "site_name": "McMurdo Dry Valleys",
+              "aci": 43.67
+            },
+            {
+              "rank": 10,
+              "site_id": "mojave_amboy_lava_field",
+              "site_name": "Mojave / Amboy Lava Field",
+              "aci": 42.7
+            },
+            {
+              "rank": 11,
+              "site_id": "atacama_puna",
+              "site_name": "Puna de Atacama",
+              "aci": 42.11
+            },
+            {
+              "rank": 12,
+              "site_id": "iceland_askja",
+              "site_name": "Askja & Holuhraun Caldera",
+              "aci": 38.25
+            },
+            {
+              "rank": 13,
+              "site_id": "lanzarote_timanfaya",
+              "site_name": "Lanzarote / Timanfaya Volcanic Field",
+              "aci": 35.22
+            },
+            {
+              "rank": 14,
+              "site_id": "danakil_depression",
+              "site_name": "Danakil Depression",
+              "aci": 33.21
+            },
+            {
+              "rank": 15,
+              "site_id": "hawaii_mauna_kea",
+              "site_name": "Mauna Kea Cinder Cones",
+              "aci": 32.14
+            },
+            {
+              "rank": 16,
+              "site_id": "suswa_volcano_kenya",
+              "site_name": "Mount Suswa Volcanic Field",
+              "aci": 31.11
+            },
+            {
+              "rank": 17,
+              "site_id": "svalbard_longyearbyen",
+              "site_name": "Svalbard / Longyearbyen Region",
+              "aci": 30.35
+            },
+            {
+              "rank": 18,
+              "site_id": "namib_sossusvlei",
+              "site_name": "Namib Desert / Sossusvlei",
+              "aci": 22.45
+            },
+            {
+              "rank": 19,
+              "site_id": "salar_de_uyuni",
+              "site_name": "Salar de Uyuni",
+              "aci": 21.94
+            },
+            {
+              "rank": 20,
+              "site_id": "rio_tinto",
+              "site_name": "Rio Tinto Mining District",
+              "aci": 21.59
+            }
+          ]
+        }
+      }
+    }
   }
 }

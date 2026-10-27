@@ -1,6 +1,6 @@
 {
   "source_file": "luna_south_pole_lola_window.tif",
-  "source_dataset": "LRO LOLA 20 m South Polar 20 km window",
+  "source_dataset": "LRO LOLA 20 m South Polar 10.02 km x 10.02 km window",
   "original_ground_resolution_m_per_pixel": 19.999999,
   "output_ground_resolution_m_per_pixel": 33.399998,
   "original_ground_resolution_axes_m_per_pixel": {

@@ -1,0 +1,35 @@
+{
+  "source_file": "aws_terrain_tiles_mosaic.tif",
+  "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+  "original_ground_resolution_m_per_pixel": 71.583977,
+  "output_ground_resolution_m_per_pixel": 33.52495,
+  "original_ground_resolution_axes_m_per_pixel": {
+    "x": 71.796385,
+    "y": 71.372197
+  },
+  "output_ground_resolution_axes_m_per_pixel": {
+    "x": 33.50498,
+    "y": 33.544933
+  },
+  "center_lat": -20.13,
+  "center_lon": -67.49,
+  "bounds": {
+    "left": -7518346.102129936,
+    "bottom": -2293798.7818098543,
+    "right": -7507644.918170012,
+    "top": -2283021.1608216446,
+    "crs": "EPSG:3857"
+  },
+  "output_size": [
+    300,
+    300
+  ],
+  "resampling": "bilinear",
+  "site_id": "salar_de_uyuni",
+  "source_tile_zoom": 10,
+  "source_tile_urls": [
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/319/570.tif",
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/320/570.tif"
+  ],
+  "coordinate_verification_required": true
+}

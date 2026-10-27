@@ -3,7 +3,7 @@
 **Project:** PTAE (Planetary Terrestrial Analog Engine)
 **Total runtime:** 4:00 (240s) local-judging cut, + 0:30 global-nominee cut at the end
 
-> Fill in `[Team Name]` / `[Speaker]` placeholders before recording. Everything else — commands, numbers, filenames — is verified against the actual repo, so what you show on screen is exactly what the judges can reproduce themselves.
+> Fill in `[Team Name]` / `[Speaker]` placeholders before recording. Existing audio/video assets have not been regenerated for this revised script; re-record/render and verify synchronization before submission. The standalone subtitle timestamps and line counts are unchanged.
 
 > 🎙️ **AI scratch-track available:** [docs/voiceover/](voiceover/) has a synthesized narration of this script (`en-US-AvaNeural`) — files are named by their position on the 240s timeline: `000s-060s_who.mp3`, `060s-120s_why.mp3`, `120s-180s_what.mp3`, `180s-240s_how.mp3`, plus `000s-240s_full.mp3` (combined, ~3:23) and `240s-270s_bonus.mp3` (the 30s global-nominee cut). Use it as a scratch track for editing timing, or as a placeholder if a human narrator isn't available — swap in your own voice for the final cut where you can.
 
@@ -13,8 +13,8 @@
 
 ## Before you hit record
 
-1. `cd "Nasa Space 2026" && rm -rf data results && python main.py --target moon` then `python main.py --target mars` — this regenerates fresh DEMs and PNGs so the terminal output on screen matches this script exactly.
-2. Open `dashboard/index.html` in a browser tab, and `results/analog_compatibility_leaderboard.png` / `results/analog_radar_comparison.png` in an image viewer or VS Code tab — you'll switch to these during Section 3.
+1. Use the checked-in 20-site real-data rankings for filming without regenerating data. If a separate five-site synthetic illustration is needed, follow README's isolated `data_synthetic_demo/` and `results_synthetic_demo/` commands; never export synthetic results into the dashboard.
+2. Start the dashboard from its directory with `cd dashboard && python -m http.server 8000`, then open `http://localhost:8000`. Show its current JSON-backed leaderboard and radar chart for Section 3; do not substitute older generated plots without verifying their dataset and scope.
 3. Have one slide ready: the mermaid architecture diagram from [README.md](../README.md) (Data Sources → Processing Engine → Deliverables), exported as an image.
 4. Record screen at 1080p/60fps; record voiceover separately if possible for cleaner audio (or start from the AI scratch-track above).
 
@@ -62,35 +62,29 @@
 
 ## 2:00–3:00 — WHAT: Your Big Idea (Live Demo)
 
-**[VISUAL]** Cut to full-screen terminal.
+**[VISUAL]** Cut to full-screen dashboard rankings.
 
 > **[SPEAKER, voiceover over live screen capture]**
 > "So we built PTAE. Point it at a target — the lunar south pole region, or Jezero Crater on Mars — and it does the science for you."
 
-**[SCREEN ACTION]** Type and run:
-```bash
-python main.py --target moon
-```
-**[SPEAKER continues as the terminal output scrolls]**
-> "The demo scores Earth candidates against calibrated synthetic terrain matched to published morphometrics with our **Analog Compatibility Index**; the pipeline is designed to accept real LOLA, MOLA, and SRTM DEMs."
+**[SCREEN ACTION]** Open the checked-in Moon ranking in the dashboard; do not regenerate data during filming.
+**[SPEAKER continues as the ranking loads]**
+> "Current results compare 20 real Earth DEMs from AWS Terrain Tiles with LOLA for the lunar target and MOLA for the Martian target. Our **Analog Compatibility Index** compares terrain statistics. The synthetic demo is a separate five-site illustration."
 
-**[VISUAL]** Highlight the live leaderboard in the terminal (or cut to `analog_compatibility_leaderboard.png`):
+**[VISUAL]** Highlight the checked-in Moon leaderboard in the dashboard:
 ```
-#1  McMurdo Dry Valleys           82.52%  Hyper-Arid Polar Desert
-#2  Askja & Holuhraun Caldera     74.05%  Volcanic / Basaltic Caldera & Lava Tubes
+#1  Teide / Tenerife Volcanic Field  87.22%
+#2  Mount Etna                      86.79%
 ```
-> "In our calibrated-synthetic-terrain demo, McMurdo Dry Valleys tops the lunar south pole ranking at 82.52%; its katabatic slopes and fine-scale roughness echo lunar highlands. Askja follows at 74.05%, a strong lava-tube analog."
+> "For the current lunar south-pole target, Teide leads the 20-site ranking at 87.22%; Mount Etna follows at 86.79%. These are terrain-statistics similarities, not proof of mission suitability."
 
-**[SCREEN ACTION]** Switch target:
-```bash
-python main.py --target mars
-```
-> "Now watch what happens when we re-target to Mars' Jezero Crater — our calibrated-synthetic-terrain demo ranks Mauna Kea's cinder cones first at 96.98%, mirroring Jezero's rim and delta."
+**[SCREEN ACTION]** Switch to the checked-in Mars ranking in the dashboard.
+> "For the current Jezero target, Kilauea leads at 55.84%, with Craters of the Moon second at 54.99%."
 
 **[VISUAL]** Cut to `dashboard/index.html` — click between Moon/Mars toggle, click a marker to show the radar chart animating live.
-> "Real-data validation used the 20 m LRO LOLA Moon target and real Askja terrain. Rankings were scale-sensitive: the leader changed by window; McMurdo was last every time, while Mauna Kea and Atacama stayed in the top three."
+> "A separate historical five-site study used real LOLA and Askja plus four synthetic Earth candidates; its leader changed across 5, 10, and 15 km windows. The new all-real crop study uses existing windows only. Mars and Earth still differ in resolution and physical footprint."
 
-*(~141 words — verified at ~54s spoken, leaving room for the on-screen typing/dashboard-click beats.)*
+*(Recheck narration timing against the unchanged subtitle timestamps before recording.)*
 
 ---
 
@@ -99,7 +93,7 @@ python main.py --target mars
 **[VISUAL]** Speaker back on camera, architecture diagram slide behind/beside them.
 
 > **[SPEAKER, on camera]**
-> "Right now, PTAE's demo uses calibrated synthetic terrain matched to published morphometrics — so anyone, right now, with zero downloads, can reproduce these exact numbers in under ten seconds. The pipeline is designed to accept real LOLA, MOLA, and SRTM DEMs, but ingesting them is still future work.
+> "Current results use 20 real Earth DEMs from AWS Terrain Tiles, with LOLA and MOLA target DEMs for Moon and Mars. The prepared arrays and JSON rankings are already included. A separate five-site synthetic illustration provides a self-contained example, not the current dashboard rankings. These terrain similarities do not prove mission suitability.
 >
 > That's our next step: connect PTAE to Google Earth Engine for a continuous global scan, and layer in mineralogy from CRISM and ASTER so we're matching chemistry, not just terrain shape.
 >
@@ -109,7 +103,7 @@ python main.py --target mars
 
 **[VISUAL]** End card: project name, GitHub link, team names, NASA Space Apps 2026 logo.
 
-*(~155 words.)*
+*(Recheck the revised narration's timing before recording.)*
 
 ---
 
@@ -118,9 +112,9 @@ python main.py --target mars
 *(Use only if selected as a global nominee — trim to picture-locked essentials.)*
 
 > **[SPEAKER]**
-> "Before astronauts travel to the lunar south pole region or Mars, their gear is tested on Earth — but analog sites are picked by guesswork. We built PTAE: the demo scores Earth candidates against calibrated synthetic terrain matched to published morphometrics; the pipeline is designed for real LOLA, MOLA, and SRTM DEMs. McMurdo Dry Valleys scores 82.52% for the lunar south pole; in that synthetic-terrain demo, Mauna Kea in Hawaii is the top Mars match at 96.98%, a top-ranked analog — reproducible live, in one command. PTAE turns guesswork into a verifiable number."
+> "Before astronauts travel to the lunar south pole region or Mars, their gear is tested on Earth. PTAE compares 20 real Earth DEMs from AWS Terrain Tiles with LOLA and MOLA targets. The synthetic demo is a separate five-site illustration. Teide leads the Moon ranking at 87.22%; Kilauea leads Mars at 55.84%. Different DEM scales make these indicative terrain similarities, not proof of mission suitability."
 
-*(~81 words at a faster, trailer-style pace — verified at ~30s spoken.)*
+*(Recheck the revised narration against the unchanged 30-second subtitle timing.)*
 
 ---
 

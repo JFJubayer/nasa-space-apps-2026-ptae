@@ -1,0 +1,35 @@
+{
+  "source_file": "aws_terrain_tiles_mosaic.tif",
+  "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+  "original_ground_resolution_m_per_pixel": 66.360238,
+  "output_ground_resolution_m_per_pixel": 33.511738,
+  "original_ground_resolution_axes_m_per_pixel": {
+    "x": 66.529052,
+    "y": 66.191852
+  },
+  "output_ground_resolution_axes_m_per_pixel": {
+    "x": 33.48629,
+    "y": 33.537205
+  },
+  "center_lat": 29.58,
+  "center_lon": 35.42,
+  "bounds": {
+    "left": 3937118.452912858,
+    "bottom": 3443870.3093886133,
+    "right": 3948660.4441839196,
+    "top": 3455488.7376879607,
+    "crs": "EPSG:3857"
+  },
+  "output_size": [
+    300,
+    300
+  ],
+  "resampling": "bilinear",
+  "site_id": "wadi_rum",
+  "source_tile_zoom": 10,
+  "source_tile_urls": [
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/612/423.tif",
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/612/424.tif"
+  ],
+  "coordinate_verification_required": true
+}

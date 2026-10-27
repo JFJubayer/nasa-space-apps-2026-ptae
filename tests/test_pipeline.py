@@ -1,5 +1,9 @@
 import os
 import json
+import copy
+import hashlib
+import re
+import shlex
 import sys
 import tempfile
 import unittest
@@ -16,7 +20,13 @@ from src.similarity_matcher import (
     rank_candidates,
 )
 from scripts.prepare_real_data import prepare_geotiff
-from scripts.window_sensitivity import build_comparison_table
+from scripts.window_sensitivity import (
+    SYNTHETIC_EARTH_FILES,
+    _spearman_rank_correlation,
+    build_comparison_table,
+    build_real_dem_sensitivity_payload,
+    center_crop,
+)
 
 try:
     import rasterio
@@ -40,15 +50,26 @@ class TestPlanetaryAnalogEngine(unittest.TestCase):
     def test_target_site_catalog_has_approximate_coordinates_and_valid_matches(self):
         catalog = main.load_target_site_catalog()
         sites_by_id = {site["id"]: site for site in catalog["target_sites"]}
+        earth_sites, _ = main.load_earth_site_catalog()
+        added_site_ids = {site["site_id"] for site in earth_sites[5:]}
 
         self.assertEqual(len(sites_by_id), 10)
         self.assertTrue(all(site["coords_approximate"] is True for site in sites_by_id.values()))
         for body, matches in catalog["analog_matches"].items():
-            self.assertEqual(len(matches), 5)
+            self.assertEqual(len(matches), 20 if body == "mars" else 15)
+            self.assertEqual(len({match["earth_analog_id"] for match in matches}), len(matches))
             for match in matches:
                 target = sites_by_id[match["target_site_id"]]
                 self.assertEqual(target["body"].lower(), body)
                 self.assertTrue(set(match["shared_features"]).issubset(target["key_features"]))
+                if match["earth_analog_id"] in added_site_ids:
+                    earth_site = next(site for site in earth_sites if site["site_id"] == match["earth_analog_id"])
+                    self.assertIn(body, earth_site["analog_for"])
+                    self.assertEqual(match["status"], "provisional")
+                    self.assertTrue(match["reason"].strip())
+            added_matches = {match["earth_analog_id"] for match in matches} & added_site_ids
+            expected_added = {site["site_id"] for site in earth_sites[5:] if body in site["analog_for"]}
+            self.assertEqual(added_matches, expected_added)
         self.assertNotEqual(
             [match["earth_analog_id"] for match in catalog["analog_matches"]["mars"]],
             [match["earth_analog_id"] for match in catalog["analog_matches"]["moon"]],
@@ -77,8 +98,34 @@ class TestPlanetaryAnalogEngine(unittest.TestCase):
             payload = json.loads(output_path.read_text(encoding="utf-8"))
 
         self.assertEqual(len(payload["target_sites"]), 6)
-        self.assertEqual(len(payload["analog_matches"]), 5)
+        self.assertEqual(len(payload["analog_matches"]), len(catalog["analog_matches"]["mars"]))
         self.assertEqual(payload["rankings"][0]["aci"], score)
+
+    def test_real_dem_crop_sensitivity_schema_and_rank_correlation(self):
+        dem = np.arange(300 * 300).reshape(300, 300)
+        self.assertEqual(center_crop(dem, 1.0).shape, (300, 300))
+        self.assertEqual(center_crop(dem, 0.75).shape, (225, 225))
+        self.assertEqual(center_crop(dem, 0.5).shape, (150, 150))
+        self.assertEqual(_spearman_rank_correlation({"a": 1, "b": 2}, {"a": 1, "b": 2}), 1.0)
+        self.assertEqual(_spearman_rank_correlation({"a": 1, "b": 2}, {"a": 2, "b": 1}), -1.0)
+
+        sites = [{"site_id": f"site_{index}", "name": f"Site {index}"} for index in range(20)]
+        rankings = [
+            {"rank": index + 1, "site_id": site["site_id"], "site_name": site["name"], "aci": 90.0 - index}
+            for index, site in enumerate(sites)
+        ]
+        crops = {
+            body: {
+                label: {"crop_size_px": size, "rankings": rankings}
+                for label, size in (("100%", 300), ("75%", 225), ("50%", 150))
+            }
+            for body in ("moon", "mars")
+        }
+        payload = build_real_dem_sensitivity_payload(crops, sites)
+        self.assertEqual(payload["site_count"], 20)
+        self.assertEqual(payload["targets"]["moon"]["75%"]["crop_size_px"], 225)
+        self.assertEqual(payload["targets"]["mars"]["50%"]["rank_correlation_vs_100_percent"], 1.0)
+        self.assertEqual(len(payload["targets"]["moon"]["100%"]["top5"]), 5)
 
     def test_flat_terrain_slope_and_tri(self):
         """A completely flat DEM should yield 0 slope and 0 TRI."""
@@ -360,6 +407,63 @@ class TestPlanetaryAnalogEngine(unittest.TestCase):
         )
 
 
+class TestEarthSiteCatalog(unittest.TestCase):
+
+    @staticmethod
+    def _read_catalog():
+        with Path(main.SITE_CATALOG_PATH).open(encoding="utf-8") as catalog_file:
+            return json.load(catalog_file)
+
+    def _assert_invalid_catalog(self, catalog, message):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            catalog_path = Path(temp_dir) / "sites.json"
+            catalog_path.write_text(json.dumps(catalog), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, message):
+                main.load_earth_site_catalog(catalog_path)
+
+    def test_valid_catalog_has_twenty_unique_sites_and_metadata(self):
+        sites, metadata = main.load_earth_site_catalog()
+
+        self.assertEqual(len(sites), 20)
+        self.assertEqual(len({site["site_id"] for site in sites}), 20)
+        self.assertEqual(len(metadata), 20)
+        self.assertIn("earth_iceland_askja", metadata)
+        self.assertIn("earth_suswa_volcano_kenya", metadata)
+        self.assertEqual(len(sites[5:]), 15)
+        for site in sites[:5]:
+            self.assertNotIn("flags_status", site)
+            self.assertNotIn("flags_note", site)
+        for site in sites[5:]:
+            self.assertEqual(site["flags_status"], "provisional_unverified")
+            self.assertEqual(
+                site["flags_note"],
+                "Hyper-aridity, basalt, lava-tube and analog_for flags are curator estimates, not independently verified.",
+            )
+
+    def test_catalog_rejects_each_missing_required_field(self):
+        required_fields = (
+            "site_id", "name", "country", "lat", "lon", "window_km",
+            "flags", "analog_for", "short_description", "verify_coordinates_manually",
+        )
+        for field in required_fields:
+            catalog = self._read_catalog()
+            del catalog["sites"][0][field]
+            with self.subTest(field=field):
+                self._assert_invalid_catalog(catalog, "required catalog fields")
+
+    def test_catalog_rejects_out_of_range_coordinates(self):
+        for field, value in (("lat", 90.01), ("lat", -90.01), ("lon", 180.01), ("lon", -180.01)):
+            catalog = self._read_catalog()
+            catalog["sites"][0][field] = value
+            with self.subTest(field=field, value=value):
+                self._assert_invalid_catalog(catalog, f"invalid {field}")
+
+    def test_catalog_rejects_duplicate_site_ids(self):
+        catalog = self._read_catalog()
+        catalog["sites"].append(copy.deepcopy(catalog["sites"][0]))
+        self._assert_invalid_catalog(catalog, "Invalid or duplicate Earth site_id")
+
+
 class TestPipelineDataModes(unittest.TestCase):
 
     def test_use_existing_data_reports_missing_required_file(self):
@@ -391,10 +495,10 @@ class TestPipelineDataModes(unittest.TestCase):
         try:
             try:
                 os.chdir(temp_dir.name)
-                dataset_paths, _ = generate_all_datasets(data_dir="data", generate=False)
+                Path("data").mkdir()
+                sites, _ = main.load_earth_site_catalog()
                 candidate_paths = [
-                    path for path in dataset_paths
-                    if os.path.basename(path).startswith("earth_")
+                    f"data/earth_{site['site_id']}.npy" for site in sites
                 ]
                 moon_target = "data/target_moon_artemis_south_pole.npy"
                 expected_paths = [moon_target] + candidate_paths
@@ -421,14 +525,18 @@ class TestPipelineDataModes(unittest.TestCase):
                     "sub_scores": {},
                 }]
 
-                with patch("main.generate_all_datasets", wraps=generate_all_datasets) as dataset_loader:
+                with patch("main.generate_all_datasets", side_effect=AssertionError("real-data mode must not generate synthetic DEMs")):
                     with patch("main.extract_terrain_signature", return_value=extracted) as extract:
                         with patch("main.rank_candidates", return_value=ranking):
                             main.run_pipeline(use_existing_data=True, visualize=False)
 
-                dataset_loader.assert_called_once_with(data_dir="data", generate=False)
                 loaded_files = {os.path.basename(call.args[0]) for call in extract.call_args_list}
                 self.assertEqual(loaded_files, {os.path.basename(path) for path in expected_paths})
+                self.assertEqual(len(candidate_paths), 20)
+                loaded_earth_files = [
+                    path for path in loaded_files if path.startswith("earth_")
+                ]
+                self.assertEqual(len(loaded_earth_files), 20)
                 self.assertFalse(Path("data/target_mars_jezero_crater.npy").exists())
             finally:
                 os.chdir(original_cwd)
@@ -441,6 +549,8 @@ class TestPipelineDataModes(unittest.TestCase):
         try:
             try:
                 os.chdir(temp_dir.name)
+                Path("data").mkdir()
+                Path("data/earth_iceland_askja_srtm.tif").touch()
                 signature = {
                     "slope_mean": 1.0,
                     "slope_std": 0.5,
@@ -461,7 +571,7 @@ class TestPipelineDataModes(unittest.TestCase):
                     "sub_scores": {},
                 }]
 
-                with patch("main.extract_terrain_signature", return_value=extracted), patch(
+                with patch("main.extract_terrain_signature", return_value=extracted) as extract, patch(
                     "main.rank_candidates", return_value=ranking
                 ):
                     main.run_pipeline(visualize=False)
@@ -475,7 +585,16 @@ class TestPipelineDataModes(unittest.TestCase):
                     "earth_haughton_crater.npy",
                     "earth_hawaii_mauna_kea.npy",
                 }
-                self.assertEqual(set(os.listdir("data")), expected_files)
+                self.assertTrue(expected_files.issubset(set(os.listdir("data"))))
+                earth_inputs = [
+                    os.path.basename(call.args[0])
+                    for call in extract.call_args_list
+                    if os.path.basename(call.args[0]).startswith("earth_")
+                ]
+                self.assertEqual(len(earth_inputs), 5)
+                self.assertEqual(len(set(earth_inputs)), 5)
+                self.assertEqual(earth_inputs.count("earth_iceland_askja.npy"), 1)
+                self.assertNotIn("earth_iceland_askja_srtm.tif", earth_inputs)
             finally:
                 os.chdir(original_cwd)
         finally:
@@ -695,9 +814,10 @@ class TestRealDataPreparation(unittest.TestCase):
     def test_existing_data_sidecar_resolution_is_passed_to_terrain_loader(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             data_dir = Path(temp_dir) / "data_real"
-            dataset_paths, _ = generate_all_datasets(data_dir=str(data_dir), generate=False)
-            target_path = Path(dataset_paths[0])
-            earth_paths = [Path(path) for path in dataset_paths if Path(path).name.startswith("earth_")]
+            data_dir.mkdir()
+            sites, _ = main.load_earth_site_catalog()
+            target_path = data_dir / "target_moon_artemis_south_pole.npy"
+            earth_paths = [data_dir / f"earth_{site['site_id']}.npy" for site in sites]
             for path in [target_path] + earth_paths:
                 path.touch()
 
@@ -790,6 +910,99 @@ class TestWindowSensitivityTable(unittest.TestCase):
         self.assertEqual(rows_by_candidate["Askja"]["target_mean_slope_10km"], 13.5)
         self.assertEqual(rows_by_candidate["Askja"]["iceland_output_m_per_pixel_10km"], 33.3)
         self.assertIn("moon_output_m_per_pixel_10km", columns)
+
+class TestSubmissionCleanup(unittest.TestCase):
+    project_root = Path(__file__).resolve().parents[1]
+
+    def test_synthetic_demo_commands_use_isolated_outputs(self):
+        for filename in ("README.md", "run_demo.sh"):
+            text = (self.project_root / filename).read_text(encoding="utf-8")
+            commands = re.findall(r"^python3?\s+main\.py\b.*$", text, re.MULTILINE)
+            synthetic_commands = [command for command in commands if "--use-existing-data" not in command]
+            self.assertTrue(synthetic_commands, filename)
+            for command in synthetic_commands:
+                with self.subTest(filename=filename, command=command):
+                    arguments = shlex.split(command)
+                    self.assertIn("--json-out", arguments)
+                    output_path = arguments[arguments.index("--json-out") + 1]
+                    self.assertTrue(output_path.startswith("results_synthetic_demo/"))
+                    self.assertNotIn(output_path, ("dashboard/results_moon.json", "dashboard/results_mars.json"))
+                    self.assertEqual(arguments[arguments.index("--data-dir") + 1], "data_synthetic_demo")
+                    self.assertTrue(arguments[arguments.index("--output") + 1].startswith("results_synthetic_demo/"))
+                for filename in ("dashboard/index.html", "docs/VIDEO_SCRIPT.md"):
+                    text = (self.project_root / filename).read_text(encoding="utf-8")
+                    self.assertNotIn("main.py --target moon --json-out", text)
+                    self.assertNotIn("main.py --target mars --json-out", text)
+
+    def test_missing_provenance_is_unknown_not_synthetic(self):
+        html = (self.project_root / "dashboard/index.html").read_text(encoding="utf-8")
+        self.assertIn("provenance: { kind: 'unknown', label: 'Unknown'", html)
+        self.assertIn("isSynthetic ? 'Synthetic demo' : 'Unknown'", html)
+        self.assertIn("const syntheticCount = analogSites.filter(site => site.provenance.kind === 'synthetic').length;", html)
+        self.assertNotIn("const syntheticCount = analogSites.length - realCount;", html)
+
+    @unittest.expectedFailure
+    def test_historical_staged_inputs_satisfy_current_catalog(self):
+        """Known unresolved mismatch: five staged Earth DEMs versus 20 catalog requirements."""
+        historical_source = (self.project_root / "scripts/window_sensitivity.py").read_text(encoding="utf-8")
+        pipeline_source = (self.project_root / "main.py").read_text(encoding="utf-8")
+        self.assertIn("for filename in SYNTHETIC_EARTH_FILES:", historical_source)
+        self.assertIn("use_existing_data=True", historical_source)
+        self.assertIn("existing_candidate_files = [f\"earth_{site['site_id']}.npy\" for site in site_records]", pipeline_source)
+        catalog = json.loads((self.project_root / "data/sites.json").read_text(encoding="utf-8"))
+        required_files = {f"earth_{site['site_id']}.npy" for site in catalog["sites"]}
+        staged_files = set(SYNTHETIC_EARTH_FILES) | {"earth_iceland_askja.npy"}
+        self.assertTrue(required_files.issubset(staged_files), f"Historical runner stages {len(staged_files)} Earth files; pipeline requires {len(required_files)}.")
+
+    def test_protected_ranking_sha256_unchanged(self):
+        expected_hashes = {
+            "results_moon.json": "2D4E902F070B6A2AEEA23062A51FDD284FD3106FEB82F3ECB9AB853D8950845E",
+            "results_mars.json": "F3E06E6777476359FC80A43024A0309A76C01E15E3DDA70FF5B48FF9223124BC",
+        }
+        for filename, expected_hash in expected_hashes.items():
+            with self.subTest(filename=filename):
+                actual_hash = hashlib.sha256((self.project_root / "dashboard" / filename).read_bytes()).hexdigest().upper()
+                self.assertEqual(actual_hash, expected_hash)
+
+    def test_subtitle_line_counts_and_timestamps_unchanged(self):
+        baselines = {
+            "PTAE_240s_Video.srt": (314, 77, "27136dbf56f1d7d56c9fae4498ee976316247a0f3aad4792609d3860fb062961"),
+            "PTAE_Bonus_30s.srt": (47, 12, "41f233da131e75e5b17e0eed1fcec026b874b14ac2684b57a4304b59e5962d88"),
+        }
+        for filename, (line_count, cue_count, timestamp_hash) in baselines.items():
+            with self.subTest(filename=filename):
+                lines = (self.project_root / "docs/video" / filename).read_text(encoding="utf-8").splitlines()
+                timestamps = [line for line in lines if re.match(r"^\d{2}:\d{2}:\d{2},\d{3} -->", line)]
+                self.assertEqual(len(lines), line_count)
+                self.assertEqual(len(timestamps), cue_count)
+                self.assertEqual(hashlib.sha256("\n".join(timestamps).encode("utf-8")).hexdigest(), timestamp_hash)
+
+    def test_shared_resolution_and_scope_caveats_match(self):
+        filenames = ("README.md", "docs/SCIENTIFIC_METHODOLOGY.md", "NASA_SPACE_APPS_SUBMISSION.md", "docs/PITCH_DECK_GUIDE.md")
+        texts = [(self.project_root / filename).read_text(encoding="utf-8") for filename in filenames]
+        caveats = [next(line.removeprefix("- ") for line in text.splitlines() if "AWS DEMs were upsampled" in line) for text in texts[:3]]
+        self.assertEqual(len(set(caveats)), 1)
+        self.assertIn("~55.5-76.2 m/pixel", caveats[0])
+        self.assertIn("Svalbard was downsampled from 15.65 to 33.34", caveats[0])
+        self.assertIn("~100 km per side, versus ~10 km", caveats[0])
+        scope = "The new sensitivity analysis covers only center crops of the existing window (no larger windows); mappings for added sites are provisional; the default synthetic demo and legacy `results.json` cover only the original five sites."
+        for filename, text in zip(filenames, texts):
+            with self.subTest(filename=filename):
+                self.assertIn(scope, text)
+
+    def test_video_copy_separates_current_real_data_from_synthetic_demo(self):
+        filenames = ("docs/VIDEO_SCRIPT.md", "docs/video/PTAE_240s_Video.srt", "docs/video/PTAE_Bonus_30s.srt")
+        for filename in filenames:
+            with self.subTest(filename=filename):
+                text = " ".join((self.project_root / filename).read_text(encoding="utf-8").split())
+                self.assertIn("20 real Earth DEMs", text)
+                self.assertIn("AWS", text)
+                self.assertIn("LOLA", text)
+                self.assertIn("MOLA", text)
+                self.assertIn("five-site illustration", text)
+                self.assertNotIn("published morphometrics", text)
+                self.assertNotIn("still future work", text)
+
 
 if __name__ == "__main__":
     unittest.main()

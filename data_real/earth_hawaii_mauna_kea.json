@@ -1,0 +1,34 @@
+{
+  "source_file": "aws_terrain_tiles_mosaic.tif",
+  "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+  "original_ground_resolution_m_per_pixel": 71.723115,
+  "output_ground_resolution_m_per_pixel": 33.470787,
+  "original_ground_resolution_axes_m_per_pixel": {
+    "x": 71.936627,
+    "y": 71.510237
+  },
+  "output_ground_resolution_axes_m_per_pixel": {
+    "x": 33.570426,
+    "y": 33.371444
+  },
+  "center_lat": 19.82,
+  "center_lon": -155.47,
+  "bounds": {
+    "left": -17312222.53630957,
+    "bottom": 2246407.8242730447,
+    "right": -17301521.352349646,
+    "top": 2257109.0082329693,
+    "crs": "EPSG:3857"
+  },
+  "output_size": [
+    300,
+    300
+  ],
+  "resampling": "bilinear",
+  "site_id": "hawaii_mauna_kea",
+  "source_tile_zoom": 10,
+  "source_tile_urls": [
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/69/454.tif"
+  ],
+  "coordinate_verification_required": true
+}

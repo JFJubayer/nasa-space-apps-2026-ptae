@@ -1,0 +1,35 @@
+{
+  "source_file": "aws_terrain_tiles_mosaic.tif",
+  "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+  "original_ground_resolution_m_per_pixel": 66.734262,
+  "output_ground_resolution_m_per_pixel": 33.47817,
+  "original_ground_resolution_axes_m_per_pixel": {
+    "x": 66.905967,
+    "y": 66.562997
+  },
+  "output_ground_resolution_axes_m_per_pixel": {
+    "x": 33.452984,
+    "y": 33.503375
+  },
+  "center_lat": 29.0,
+  "center_lon": -13.75,
+  "bounds": {
+    "left": -1536384.2685320424,
+    "bottom": 3369879.2660085643,
+    "right": -1524918.714289266,
+    "top": 3381421.257279626,
+    "crs": "EPSG:3857"
+  },
+  "output_size": [
+    300,
+    300
+  ],
+  "resampling": "bilinear",
+  "site_id": "lanzarote_timanfaya",
+  "source_tile_zoom": 10,
+  "source_tile_urls": [
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/472/425.tif",
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/473/425.tif"
+  ],
+  "coordinate_verification_required": true
+}

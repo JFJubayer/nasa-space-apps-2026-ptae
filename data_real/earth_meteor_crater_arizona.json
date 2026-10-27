@@ -1,0 +1,34 @@
+{
+  "source_file": "aws_terrain_tiles_mosaic.tif",
+  "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+  "original_ground_resolution_m_per_pixel": 62.518521,
+  "output_ground_resolution_m_per_pixel": 33.447246,
+  "original_ground_resolution_axes_m_per_pixel": {
+    "x": 62.659513,
+    "y": 62.377845
+  },
+  "output_ground_resolution_axes_m_per_pixel": {
+    "x": 33.418407,
+    "y": 33.47611
+  },
+  "center_lat": 35.03,
+  "center_lon": -111.02,
+  "bounds": {
+    "left": -12364835.880551536,
+    "bottom": 4161843.316071278,
+    "right": -12352605.956025908,
+    "top": 4174149.677625191,
+    "crs": "EPSG:3857"
+  },
+  "output_size": [
+    300,
+    300
+  ],
+  "resampling": "bilinear",
+  "site_id": "meteor_crater_arizona",
+  "source_tile_zoom": 10,
+  "source_tile_urls": [
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/196/405.tif"
+  ],
+  "coordinate_verification_required": true
+}

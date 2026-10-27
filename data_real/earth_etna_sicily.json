@@ -1,0 +1,35 @@
+{
+  "source_file": "aws_terrain_tiles_mosaic.tif",
+  "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+  "original_ground_resolution_m_per_pixel": 60.386881,
+  "output_ground_resolution_m_per_pixel": 33.414074,
+  "original_ground_resolution_axes_m_per_pixel": {
+    "x": 60.513857,
+    "y": 60.260172
+  },
+  "output_ground_resolution_axes_m_per_pixel": {
+    "x": 33.484334,
+    "y": 33.343962
+  },
+  "center_lat": 37.75,
+  "center_lon": 14.99,
+  "bounds": {
+    "left": 1662276.054117728,
+    "bottom": 4537837.05820606,
+    "right": 1674964.600813067,
+    "top": 4550525.604901398,
+    "crs": "EPSG:3857"
+  },
+  "output_size": [
+    300,
+    300
+  ],
+  "resampling": "bilinear",
+  "site_id": "etna_sicily",
+  "source_tile_zoom": 10,
+  "source_tile_urls": [
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/554/395.tif",
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/554/396.tif"
+  ],
+  "coordinate_verification_required": true
+}

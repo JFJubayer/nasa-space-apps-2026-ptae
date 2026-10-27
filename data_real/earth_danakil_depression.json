@@ -1,0 +1,35 @@
+{
+  "source_file": "aws_terrain_tiles_mosaic.tif",
+  "source_dataset": "AWS Terrain Tiles GeoTIFF (zoom 10)",
+  "original_ground_resolution_m_per_pixel": 73.869847,
+  "output_ground_resolution_m_per_pixel": 33.36432,
+  "original_ground_resolution_axes_m_per_pixel": {
+    "x": 74.103285,
+    "y": 73.637145
+  },
+  "output_ground_resolution_axes_m_per_pixel": {
+    "x": 33.346478,
+    "y": 33.382172
+  },
+  "center_lat": 14.24,
+  "center_lon": 40.3,
+  "bounds": {
+    "left": 4480967.909161887,
+    "bottom": 1596616.6468207613,
+    "right": 4491286.907980386,
+    "top": 1607012.0826675452,
+    "crs": "EPSG:3857"
+  },
+  "output_size": [
+    300,
+    300
+  ],
+  "resampling": "bilinear",
+  "site_id": "danakil_depression",
+  "source_tile_zoom": 10,
+  "source_tile_urls": [
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/626/470.tif",
+    "https://s3.amazonaws.com/elevation-tiles-prod/geotiff/10/626/471.tif"
+  ],
+  "coordinate_verification_required": true
+}
