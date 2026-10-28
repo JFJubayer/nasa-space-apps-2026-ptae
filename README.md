@@ -187,6 +187,8 @@ Features:
 - The map and leaderboard use scores loaded from `dashboard/results_moon.json` and `dashboard/results_mars.json`; the Weight Calculator is a separate "what-if" explorer. Keep `dashboard/sites.json` synchronized with `data/sites.json`, and refresh `dashboard/site_provenance.json` from the `data_real/` sidecars whenever Earth DEMs are fetched so the dashboard can read provenance when served from its own directory.
 
 ### Moon and Mars target-site catalogue
+The Moon view lists 7 reference regions (4 with qualitative Earth mappings, 3 reference-only). Selecting a region changes the displayed reference, not the scored DEM; ACI scores use the single Artemis south-pole DEM.
+
 `dashboard/target_sites.json` is the shared source for the dashboard's approximate Moon and Mars target regions and qualitative Earth-analog matches. Each target record includes its body, approximate latitude/longitude, short description, key features, mission relevance, and source note; each match lists shared features and its body-specific display order. The match order is qualitative demo data, not an ACI score or a change to the scoring model.
 
 Every target record sets `coords_approximate` to `true`. Verify its coordinates and regional context against NASA/USGS mission cartography before scientific or mission use. Ranked exports also include that body's target-site records and qualitative mappings; this metadata does not change terrain metrics or ACI scoring. Use the explicit real-data reproduction commands above when intentionally refreshing the dashboard results.

@@ -120,7 +120,8 @@
       "mission_relevance": "Lunar south-pole illumination and volatile exploration context.",
       "images": [
         {"src": "assets/targets/moon-south-polar-cabeus-context.webp", "alt": "LRO oblique view of Cabeus Crater near the lunar south pole; regional context, not a Shackleton image", "caption": "Nearby south-polar Cabeus Crater context; not a Shackleton image", "credit": "NASA/Goddard/Arizona State University", "source_url": "https://images.nasa.gov/details/GSFC_20171208_Archive_e002006"},
-        {"src": "assets/targets/moon-south-polar-gravity-context.webp", "alt": "NASA gravity and topography visualization covering lunar southern latitudes from the south pole to 50 degrees south; regional context, not site-specific", "caption": "Lunar south-polar gravity and terrain context; not a Shackleton image", "credit": "NASA Scientific Visualization Studio", "source_url": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001048"}
+        {"src": "assets/targets/moon-south-polar-gravity-context.webp", "alt": "NASA gravity and topography visualization covering lunar southern latitudes from the south pole to 50 degrees south; regional context, not site-specific", "caption": "Lunar south-polar gravity and terrain context; not a Shackleton image", "credit": "NASA Scientific Visualization Studio", "source_url": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001048"},
+        {"src": "assets/targets/moon-shackleton-crater-rim-oblique.webp", "alt": "Oblique LROC view of the rim of Shackleton Crater and shadows near the lunar south pole", "caption": "Shackleton crater rim, LROC oblique view (18 May 2022)", "credit": "NASA/GSFC/Arizona State University", "source_url": "https://lroc.im-ldi.com/images/1276"}
       ],
       "source_note": "Approximate coordinates; longitude rounded from the existing dashboard marker. Verify against NASA/USGS lunar mapping before use."
     },
@@ -136,7 +137,8 @@
       "mission_relevance": "Candidate south-polar exploration region.",
       "images": [
         {"src": "assets/targets/moon-south-polar-cabeus-context.webp", "alt": "LRO oblique view of Cabeus Crater near the lunar south pole; regional context, not a Malapert image", "caption": "Nearby south-polar Cabeus Crater context; not a Malapert image", "credit": "NASA/Goddard/Arizona State University", "source_url": "https://images.nasa.gov/details/GSFC_20171208_Archive_e002006"},
-        {"src": "assets/targets/moon-south-polar-gravity-context.webp", "alt": "NASA gravity and topography visualization covering lunar southern latitudes from the south pole to 50 degrees south; regional context, not site-specific", "caption": "Lunar south-polar gravity and terrain context; not a Malapert image", "credit": "NASA Scientific Visualization Studio", "source_url": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001048"}
+        {"src": "assets/targets/moon-south-polar-gravity-context.webp", "alt": "NASA gravity and topography visualization covering lunar southern latitudes from the south pole to 50 degrees south; regional context, not site-specific", "caption": "Lunar south-polar gravity and terrain context; not a Malapert image", "credit": "NASA Scientific Visualization Studio", "source_url": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001048"},
+        {"src": "assets/targets/moon-malapert-massif-oblique.webp", "alt": "Oblique LROC view of Malapert Massif with sunlit slopes and deep shadows", "caption": "Malapert Massif, LROC oblique view (3 March 2023)", "credit": "NASA/GSFC/Arizona State University", "source_url": "https://lroc.im-ldi.com/images/1294"}
       ],
       "source_note": "Approximate coordinates; verify against NASA/USGS lunar mapping before use."
     },
@@ -151,7 +153,8 @@
       "key_features": ["basaltic", "lava tubes", "mare plains"],
       "mission_relevance": "Lunar volcanism and subsurface-access exploration context.",
       "images": [
-        {"src": "assets/targets/moon-marius-hills-pit.webp", "alt": "Lunar Reconnaissance Orbiter image of a possible lava-tube skylight in the Marius Hills", "caption": "Marius Hills pit, a possible lava-tube skylight", "credit": "NASA/GSFC/Arizona State University", "source_url": "https://science.nasa.gov/photojournal/marius-hills-pit-lava-tube-skylight"}
+        {"src": "assets/targets/moon-marius-hills-pit.webp", "alt": "Lunar Reconnaissance Orbiter image of a possible lava-tube skylight in the Marius Hills", "caption": "Marius Hills pit, a possible lava-tube skylight", "credit": "NASA/GSFC/Arizona State University", "source_url": "https://science.nasa.gov/photojournal/marius-hills-pit-lava-tube-skylight"},
+        {"src": "assets/targets/moon-marius-hills-rille.webp", "alt": "Rocky rim and slumped terrain in a sinuous rille on the western edge of the Marius Hills", "caption": "Marius Hills: rim of a sinuous rille (LROC NAC)", "credit": "NASA/GSFC/Arizona State University", "source_url": "https://science.nasa.gov/photojournal/marius-hills-constellation-region-of-interest/"}
       ],
       "source_note": "Approximate coordinates; verify against NASA/USGS lunar mapping before use."
     },
@@ -170,6 +173,53 @@
         {"src": "assets/targets/moon-apollo-11-site-map.webp", "alt": "NASA reference illustration locating Apollo 11 landing Site 2 in Mare Tranquillitatis over an Apollo 10 lunar photograph", "caption": "Apollo 11 Site 2 location reference for Mare Tranquillitatis", "credit": "NASA/JSC", "source_url": "https://images.nasa.gov/details/S69-38667"}
       ],
       "source_note": "Approximate coordinates; verify against NASA/USGS lunar mapping before use."
+    },
+    {
+      "id": "aristarchus-plateau",
+      "name": "Aristarchus Plateau",
+      "body": "Moon",
+      "lat": 23.7,
+      "lon": 312.6,
+      "coords_approximate": true,
+      "short_description": "Volcanic plateau with pyroclastic deposits and sinuous rilles.",
+      "key_features": ["volcanic", "pyroclastic deposits", "sinuous rille"],
+      "mission_relevance": "Lunar volcanism and rille exploration context.",
+      "images": [
+        {"src": "assets/targets/moon-aristarchus-plateau-pyroclastic-deposit.webp", "alt": "Small impact craters in dark pyroclastic terrain on Aristarchus Plateau", "caption": "Pyroclastic deposit on Aristarchus Plateau (LROC NAC)", "credit": "NASA/GSFC/Arizona State University", "source_url": "https://science.nasa.gov/photojournal/aristarchus-plateau-2-pyroclastic-deposit/"},
+        {"src": "assets/targets/moon-aristarchus-plateau-cobra-head.webp", "alt": "Boulder-rich slopes at the Cobra Head of Vallis Schröteri on Aristarchus Plateau", "caption": "Cobra Head slopes, Aristarchus Plateau (LROC NAC)", "credit": "NASA/GSFC/Arizona State University", "source_url": "https://science.nasa.gov/photojournal/aristarchus-plateau-1-amazing-geologic-diversity/"}
+      ],
+      "source_note": "Approximate coordinates; verify against USGS Gazetteer of Planetary Nomenclature / NASA LROC before use."
+    },
+    {
+      "id": "cabeus-crater",
+      "name": "Cabeus Crater",
+      "body": "Moon",
+      "lat": -84.9,
+      "lon": 324.5,
+      "coords_approximate": true,
+      "short_description": "South-polar impact crater containing permanently shadowed terrain.",
+      "key_features": ["polar/cold", "impact crater", "permanently shadowed regions"],
+      "mission_relevance": "Lunar polar volatile-detection and shadowed-crater exploration context.",
+      "images": [
+        {"src": "assets/targets/moon-south-polar-cabeus-context.webp", "alt": "LRO oblique view of Cabeus Crater near the lunar south pole; regional context, not a Shackleton image", "caption": "Nearby south-polar Cabeus Crater context; not a Shackleton image", "credit": "NASA/Goddard/Arizona State University", "source_url": "https://images.nasa.gov/details/GSFC_20171208_Archive_e002006"}
+      ],
+      "source_note": "Approximate coordinates; verify against USGS Gazetteer of Planetary Nomenclature / NASA LROC before use."
+    },
+    {
+      "id": "schrodinger-basin",
+      "name": "Schrödinger Basin",
+      "body": "Moon",
+      "lat": -75.0,
+      "lon": 132.4,
+      "coords_approximate": true,
+      "short_description": "Large impact basin in the lunar south-polar region.",
+      "key_features": ["impact basin", "south-polar region"],
+      "mission_relevance": "Impact-basin geology and south-polar-region exploration context.",
+      "images": [
+        {"src": "assets/targets/moon-schrodinger-basin-peak-ring-boulders.webp", "alt": "Boulders and trails at the base of a mountain in the Schrödinger basin central peak ring", "caption": "Boulders near the Schrödinger central peak ring (LROC NAC)", "credit": "NASA/GSFC/Arizona State University", "source_url": "https://lroc.im-ldi.com/images/524"},
+        {"src": "assets/targets/moon-schrodinger-basin-scarp.webp", "alt": "Lobate scarp cutting the wall material of Schrödinger basin", "caption": "Lobate scarp in the Schrödinger basin wall (LROC NAC)", "credit": "NASA/GSFC/Arizona State University", "source_url": "https://lroc.im-ldi.com/images/391"}
+      ],
+      "source_note": "Approximate coordinates; verify against USGS Gazetteer of Planetary Nomenclature / NASA LROC before use."
     }
   ],
   "analog_matches": {

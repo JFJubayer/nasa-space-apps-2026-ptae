@@ -94,6 +94,8 @@ The separate [weight-sensitivity analysis](../dashboard/weight_sensitivity.json)
 
 ### 5. Current Data and Interpretation Limits
 
+The Moon view lists 7 reference regions (4 with qualitative Earth mappings, 3 reference-only). Selecting a region changes the displayed reference, not the scored DEM; ACI scores use the single Artemis south-pole DEM.
+
 The current checked-in results use a 300×300 LRO LOLA lunar target (20 m source resampled to 33.399998 m/pixel), a 300×300 MOLA Jezero target (333.686104 m/pixel), and 20 real AWS Terrain Tiles Earth windows. Each Earth window is 10 km per side, resampled to 300×300 at approximately 33.3–33.5 m/pixel, as recorded in `data_real/*.json`.
 
 The Mars target is about ten times coarser than the Earth candidate grids. Slope, TRI, and other DEM-derived metrics depend on spatial resolution and window scale; the Mars ranking is therefore indicative and not directly comparable to the Earth candidates as a scale-controlled result. The dashboard's ranking values describe terrain-statistics similarity, not mission safety, operational readiness, or site suitability.

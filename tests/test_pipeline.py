@@ -53,7 +53,7 @@ class TestPlanetaryAnalogEngine(unittest.TestCase):
         earth_sites, _ = main.load_earth_site_catalog()
         added_site_ids = {site["site_id"] for site in earth_sites[5:]}
 
-        self.assertEqual(len(sites_by_id), 10)
+        self.assertEqual(len(sites_by_id), 13)
         self.assertTrue(all(site["coords_approximate"] is True for site in sites_by_id.values()))
         for body, matches in catalog["analog_matches"].items():
             self.assertEqual(len(matches), 20 if body == "mars" else 15)

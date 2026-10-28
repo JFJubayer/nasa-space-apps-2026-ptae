@@ -6,6 +6,10 @@
     <title>PTAE | Planetary Terrestrial Analog Engine</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cesium.com" crossorigin>
+    <link rel="preconnect" href="https://trek.nasa.gov" crossorigin>
+    <link rel="preconnect" href="https://gibs.earthdata.nasa.gov" crossorigin>
+    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="https://cesium.com/downloads/cesiumjs/releases/1.146/Build/Cesium/Widgets/widgets.css">
@@ -288,6 +292,11 @@
         }
 
         .map-frame { position: relative; }
+        .map-loading-overlay { position: absolute; z-index: 630; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 8px; width: max-content; max-width: min(280px, calc(100% - 24px)); padding: 9px 11px; border: 1px solid var(--border-glow); border-radius: 4px; background: var(--bg-card); color: var(--text-main); font-size: 0.72rem; line-height: 1.4; overflow-wrap: anywhere; pointer-events: none; }
+        .map-loading-overlay[hidden], .map-loading-spinner[hidden] { display: none; }
+        .map-loading-spinner { flex: 0 0 16px; width: 16px; height: 16px; border: 2px solid var(--border-glow); border-top-color: var(--accent-cyan); border-radius: 50%; animation: map-loading-spin 0.8s linear infinite; }
+        @keyframes map-loading-spin { to { transform: rotate(360deg); } }
+        @media (prefers-reduced-motion: reduce) { .map-loading-spinner { animation: none; } }
 
         .map-notice, .inline-notice {
             padding: 10px 12px;
@@ -2348,6 +2357,7 @@
                     <div class="card">
                         <div class="map-frame">
                             <div id="map" role="application" tabindex="0" aria-keyshortcuts="ArrowLeft ArrowRight" aria-label="Interactive map of terrestrial analog candidate sites"></div>
+                            <div class="map-loading-overlay" id="map-loading-overlay" role="status" aria-live="polite" hidden><span class="map-loading-spinner" id="map-loading-spinner" aria-hidden="true"></span><span id="map-loading-text"></span></div>
                             <div class="map-heading-overlay"><span>Earth analog network</span><h2>Candidate field sites</h2><span id="target-badge">Target · Lunar south pole</span></div>
                             <button type="button" class="map-expand-toggle" id="map-expand-toggle" aria-label="Expand map" aria-pressed="false">Expand</button>
                             <div class="globe-controls" id="globe-controls" aria-label="Earth globe zoom controls" hidden>
@@ -3916,6 +3926,64 @@
                 : scoreResultsLoadError ? 'Load target result JSON' : 'ACI from JSON';
         }
 
+        const MAP_LOADING_DELAY_MS = 400;
+        const MAP_LOADING_WARNING_MS = 15000;
+        const MAP_LOADING_DISMISS_MS = 30000;
+        const MAP_LOADING_MESSAGES = {
+            earth: 'Loading Earth map…',
+            moon: 'Loading Moon map…',
+            mars: 'Loading Mars map…'
+        };
+        let mapLoadingState = null;
+
+        function finishMapLoading(state = mapLoadingState) {
+            if (!state || state !== mapLoadingState) return;
+            state.timers.forEach(clearTimeout);
+            state.removals.forEach(remove => remove());
+            document.getElementById('map-loading-overlay').hidden = true;
+            mapLoadingState = null;
+        }
+
+        function beginMapLoading(body) {
+            finishMapLoading();
+            const state = { body, timers: [], removals: [] };
+            mapLoadingState = state;
+            const overlay = document.getElementById('map-loading-overlay');
+            const text = document.getElementById('map-loading-text');
+            const spinner = document.getElementById('map-loading-spinner');
+            overlay.hidden = true;
+            spinner.hidden = false;
+            text.textContent = MAP_LOADING_MESSAGES[body] || MAP_LOADING_MESSAGES.earth;
+            state.timers.push(setTimeout(() => {
+                if (mapLoadingState === state) overlay.hidden = false;
+            }, MAP_LOADING_DELAY_MS));
+            state.timers.push(setTimeout(() => {
+                if (mapLoadingState !== state) return;
+                spinner.hidden = true;
+                text.textContent = 'Map is taking longer than expected. Check your connection.';
+                overlay.hidden = false;
+            }, MAP_LOADING_WARNING_MS));
+            state.timers.push(setTimeout(() => finishMapLoading(state), MAP_LOADING_DISMISS_MS));
+            return state;
+        }
+
+        function watchCesiumMapLoading(viewer, state) {
+            if (state !== mapLoadingState || viewer.isDestroyed()) return;
+            const globe = viewer.scene.globe;
+            let tilesReady = false;
+            if (globe.tileLoadProgressEvent?.addEventListener) {
+                state.removals.push(globe.tileLoadProgressEvent.addEventListener(pendingTiles => {
+                    tilesReady = pendingTiles === 0;
+                    if (tilesReady) viewer.scene.requestRender();
+                }));
+                state.removals.push(viewer.scene.postRender.addEventListener(() => {
+                    if (tilesReady) finishMapLoading(state);
+                }));
+            } else {
+                state.removals.push(viewer.scene.postRender.addEventListener(() => finishMapLoading(state)));
+            }
+        }
+
         function setMapNotice(message, isError = false) {
             const notice = document.getElementById('map-notice');
             if (!notice) return;
@@ -4011,6 +4079,7 @@
         async function applyMarsFallbackImagery(viewer, switchSequence, imageryError) {
             if (switchSequence !== cesiumBodySwitchSequence || cesiumActiveBody !== 'mars' || cesiumMarsFallbackActive) return;
             cesiumMarsFallbackActive = true;
+            const loadingState = beginMapLoading('mars');
             console.warn('NASA Trek Mars Viking imagery failed; switching to the local Mars texture.', imageryError);
             if (cesiumActivePlanetLayer) viewer.imageryLayers.remove(cesiumActivePlanetLayer, true);
             cesiumActivePlanetLayer = null;
@@ -4024,11 +4093,14 @@
                 });
                 if (switchSequence !== cesiumBodySwitchSequence || cesiumActiveBody !== 'mars') return;
                 cesiumActivePlanetLayer = viewer.imageryLayers.addImageryProvider(provider);
+                watchCesiumMapLoading(viewer, loadingState);
                 provider.errorEvent.addEventListener(error => {
+                    finishMapLoading(loadingState);
                     console.warn('Local Mars texture imagery failed to load.', error);
                 });
                 viewer.scene.requestRender();
             } catch (error) {
+                finishMapLoading(loadingState);
                 console.warn('Could not load the local Mars texture fallback.', error);
             }
         }
@@ -4161,6 +4233,7 @@
             clearCesiumSiteEntities();
             clearCesiumLandmarks();
             cesiumActiveBody = body;
+            watchCesiumMapLoading(cesiumViewer, beginMapLoading(body));
 
             if (body === 'earth') {
                 if (!applyEarthDefaultLayers(cesiumViewer, switchSequence)) return;
@@ -4251,6 +4324,7 @@
         }
 
         function disposeEarthGlobe() {
+            finishMapLoading();
             if (earthRenderFrame) cancelAnimationFrame(earthRenderFrame);
             if (earthFocusFrame) cancelAnimationFrame(earthFocusFrame);
             cesiumBodySwitchSequence++;
@@ -4327,6 +4401,7 @@
         }
 
         function initEarthGlobe() {
+            beginMapLoading(currentView);
             const mapState = document.getElementById('map-state');
             if (mapState) {
                 mapState.textContent = `Loading ${PLANETARY_SURFACES[currentView]?.name || 'Earth'} surface imagery…`;
@@ -5132,17 +5207,20 @@
         }
 
         function initLeafletMap(fallbackMessage = '') {
+            const loadingState = beginMapLoading('earth');
             const mapState = document.getElementById('map-state');
             document.getElementById('globe-controls').hidden = true;
             document.getElementById('globe-caption').hidden = true;
             document.querySelector('.map-frame')?.classList.add('globe-fallback');
             if (map) {
+                finishMapLoading(loadingState);
                 renderMapMarkers();
                 updateDetailedMapControls();
                 return;
             }
             mapReady = false;
             if (!window.L) {
+                finishMapLoading(loadingState);
                 if (mapState) {
                     mapState.textContent = 'Map library unavailable. Check your connection and reload; candidate details remain available below.';
                     mapState.hidden = false;
@@ -5159,11 +5237,13 @@
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
                 });
                 tileLayer.on('load', () => {
+                    finishMapLoading(loadingState);
                     mapReady = true;
                     updateMapState();
                     setMapNotice(fallbackMessage);
                 });
                 tileLayer.on('tileerror', () => {
+                    finishMapLoading(loadingState);
                     mapReady = true;
                     updateMapState();
                     setMapNotice('Some map tiles could not be loaded. Candidate markers and rankings remain available.', true);
@@ -5171,6 +5251,7 @@
                 tileLayer.addTo(map);
                 map.on('moveend', () => updateDetailedCoordinateReadout());
             } catch (error) {
+                finishMapLoading(loadingState);
                 if (mapState) {
                     mapState.textContent = 'The map could not be initialized. Candidate details remain available below.';
                     mapState.hidden = false;
@@ -5911,6 +5992,7 @@
             if (cesiumViewer && cesiumActiveBody !== target) {
                 switchCesiumBody(target, true).catch(error => {
                     if (cesiumActiveBody !== target) return;
+                    finishMapLoading();
                     console.error(`${PLANETARY_SURFACES[target]?.name || 'Earth'} surface switch failed:`, error);
                     if (target === 'earth') {
                         setMapNotice('Earth imagery initialization failed. The Earth ellipsoid remains available; try switching to Blue Marble + OSM.', true);
