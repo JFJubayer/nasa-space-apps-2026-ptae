@@ -27,7 +27,7 @@
 
 **6. Honesty slide.** The Moon result is weaker because steep mountains match lunar polar slopes; MOLA limits Mars to kilometre-scale terrain; NASA POWER is coarse; geology tags are curated. Earth cannot reproduce gravity, vacuum or radiation (show the dashboard table).
 
-**7. Live demo (60 seconds).** Open the Global Search tab. Pick Jezero Crater, click Qaidam Basin, show the yellow best-window box, the slope chart and the "where it breaks down" panel. Switch to the Rover preset and watch the ranking change. Switch to Shackleton and point out the weaker Moon separation.
+**7. Live demo (60 seconds).** Open the app. Pick Jezero Crater, click Qaidam Basin, show the amber best-window box, the slope chart and the "where it breaks down" panel. Switch to the Rover traverse preset and watch the ranking change. Switch to Shackleton and point out the weaker Moon separation.
 
 **8. Vision.** HiRISE/CTX DEMs for rover-scale roughness, Diviner temperatures and illumination for lunar targets, mineral maps for geology, and a true global grid scan.
 

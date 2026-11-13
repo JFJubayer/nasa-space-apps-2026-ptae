@@ -213,7 +213,7 @@
     "fluvial_paleo": 0.5
    },
    "heritage": "Mars-like soils with extremely low organic content and a dry limit of microbial life (Navarro-Gonzalez et al., 2003, Science).",
-   "limits": "Air pressure ~90 kPa vs ~0.6 kPa on Mars; Earth gravity; intense coastal fog and rare rain events have no Mars equivalent.",
+   "limits": "Air pressure ~90 kPa, versus ~0.6 kPa on Mars and none on the Moon; Earth gravity; intense coastal fog and rare rain events have no Mars equivalent.",
    "climate": {
     "t_mean_c": 17.07,
     "t_daily_range_c": 14.74,
@@ -389,7 +389,7 @@
     "tephra_cones": 0.5
    },
    "heritage": "Named in the challenge brief; alluvial fans, playa evaporites and dunes are widely compared with Martian fans and basin deposits.",
-   "limits": "Extreme heat (not cold); atmosphere ~100 kPa; flash-flood fluvial erosion at rates far above Mars today.",
+   "limits": "Extreme heat (not cold); atmosphere ~100 kPa; flash-flood fluvial erosion at rates far above anything on the Moon or present-day Mars.",
    "climate": {
     "t_mean_c": 19.1,
     "t_daily_range_c": 14.65,
@@ -1191,9 +1191,9 @@
       "surface_pressure_kpa": 24.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 19.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 91.7 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 19.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 91.7 vs the Earth-achievable target 33.0.",
       "Precipitation (mm/yr) is 124.2 vs the Earth-achievable target 0.0."
      ],
      "robust": {
@@ -1254,9 +1254,9 @@
       "surface_pressure_kpa": 37.8
      },
      "gaps": [
-      "Mean daily temperature range (c) is 6.1 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 6.1 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 67.5 vs the Earth-achievable target 5.0.",
-      "Surface pressure (kpa) is 81.8 vs the Earth-achievable target 33.0.",
+      "Surface pressure (kPa) is 81.8 vs the Earth-achievable target 33.0.",
       "Median slope over 960 m is 6.07 deg vs 10.90 deg on the target (0.6x)."
      ],
      "robust": {
@@ -1317,9 +1317,9 @@
       "surface_pressure_kpa": 30.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.3 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.3 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 86.8 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 20.3 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.3 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 86.8 vs the Earth-achievable target 33.0.",
       "Median slope over 960 m is 7.13 deg vs 10.90 deg on the target (0.7x)."
      ],
      "robust": {
@@ -1380,9 +1380,9 @@
       "surface_pressure_kpa": 30.3
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.1 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.1 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 21.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.1 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.1 vs the Earth-achievable target 33.0.",
       "Median slope over 960 m is 6.12 deg vs 10.90 deg on the target (0.6x)."
      ],
      "robust": {
@@ -1443,8 +1443,8 @@
       "surface_pressure_kpa": 74.2
      },
      "gaps": [
-      "Mean annual air temperature (c) is 2.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 2.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.0 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 241.1 vs the Earth-achievable target 0.0.",
       "Relative humidity (%) is 31.8 vs the Earth-achievable target 5.0."
      ],
@@ -1507,9 +1507,9 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1380.6 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 8.2 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 8.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 83.1 vs the Earth-achievable target 5.0.",
-      "Mean annual air temperature (c) is 2.0 vs the Earth-achievable target -50.0."
+      "Mean annual air temperature (C) is 2.0 vs the Earth-achievable target -50.0."
      ],
      "robust": {
       "rank_p10": 3,
@@ -1571,8 +1571,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 1895.6 vs the Earth-achievable target 0.0.",
       "Relative humidity (%) is 93.2 vs the Earth-achievable target 5.0.",
-      "Mean daily temperature range (c) is 6.9 vs the Earth-achievable target 35.0.",
-      "Mean annual air temperature (c) is -5.5 vs the Earth-achievable target -50.0."
+      "Mean daily temperature range (C) is 6.9 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is -5.5 vs the Earth-achievable target -50.0."
      ],
      "robust": {
       "rank_p10": 2,
@@ -1632,9 +1632,9 @@
       "surface_pressure_kpa": 27.4
      },
      "gaps": [
-      "Mean annual air temperature (c) is 18.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 16.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 89.3 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 18.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 16.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 89.3 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 41.8 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -1695,9 +1695,9 @@
       "surface_pressure_kpa": 39.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 5.7 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 5.7 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 416.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 12.3 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 12.3 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 59.8 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -1758,9 +1758,9 @@
       "surface_pressure_kpa": 29.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 17.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.5 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 17.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.5 vs the Earth-achievable target 33.0.",
       "Median slope over 960 m is 4.95 deg vs 10.90 deg on the target (0.5x)."
      ],
      "robust": {
@@ -1822,8 +1822,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1084.8 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 15.0 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 9.5 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 15.0 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 9.5 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 62.4 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -1884,10 +1884,10 @@
       "surface_pressure_kpa": 15.8
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 2.2 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 2.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 77.2 vs the Earth-achievable target 5.0.",
-      "Surface pressure (kpa) is 100.3 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 100.3 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 5,
@@ -1948,8 +1948,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1610.8 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 20.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 5.2 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 5.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 82.0 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -2010,8 +2010,8 @@
       "surface_pressure_kpa": 35.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 11.8 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.6 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 11.8 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.6 vs the Earth-achievable target 35.0.",
       "Median slope over 960 m is 3.39 deg vs 10.90 deg on the target (0.3x).",
       "Precipitation (mm/yr) is 241.1 vs the Earth-achievable target 0.0."
      ],
@@ -2073,7 +2073,7 @@
       "surface_pressure_kpa": 16.8
      },
      "gaps": [
-      "Mean daily temperature range (c) is 4.6 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 4.6 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 94.4 vs the Earth-achievable target 5.0.",
       "Median slope over 960 m is 2.93 deg vs 10.90 deg on the target (0.3x).",
       "Precipitation (mm/yr) is 310.5 vs the Earth-achievable target 0.0."
@@ -2136,10 +2136,10 @@
       "surface_pressure_kpa": 18.8
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.0 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 21.0 vs the Earth-achievable target -50.0.",
       "Median slope over 960 m is 3.40 deg vs 10.90 deg on the target (0.3x).",
-      "Mean daily temperature range (c) is 14.5 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 97.0 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 14.5 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 97.0 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 12,
@@ -2199,10 +2199,10 @@
       "surface_pressure_kpa": 20.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.4 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 21.4 vs the Earth-achievable target -50.0.",
       "Median slope over 960 m is 2.79 deg vs 10.90 deg on the target (0.3x).",
-      "Mean daily temperature range (c) is 15.0 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 95.3 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 15.0 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 95.3 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 10,
@@ -2263,9 +2263,9 @@
      },
      "gaps": [
       "Median slope over 960 m is 2.20 deg vs 10.90 deg on the target (0.2x).",
-      "Mean annual air temperature (c) is 4.5 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 71.9 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 4.5 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 71.9 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 8,
@@ -2326,9 +2326,9 @@
      },
      "gaps": [
       "Median slope over 960 m is 1.25 deg vs 10.90 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 20.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 91.5 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 20.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 91.5 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 11,
@@ -2389,9 +2389,9 @@
      },
      "gaps": [
       "Median slope over 960 m is 1.24 deg vs 10.90 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 22.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.8 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.0 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 22.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.8 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.0 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 12,
@@ -2451,8 +2451,8 @@
       "surface_pressure_kpa": 14.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 2.4 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 2.4 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 78.1 vs the Earth-achievable target 5.0.",
       "Median slope over 960 m is 2.86 deg vs 10.90 deg on the target (0.3x)."
      ],
@@ -2515,9 +2515,9 @@
      },
      "gaps": [
       "Median slope over 960 m is 0.13 deg vs 10.90 deg on the target (0.0x).",
-      "Mean annual air temperature (c) is 13.4 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.4 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 92.3 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 13.4 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.4 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 92.3 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 14,
@@ -2578,9 +2578,9 @@
      },
      "gaps": [
       "Median slope over 960 m is 1.09 deg vs 10.90 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 22.5 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 99.0 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 22.5 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 99.0 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 19,
@@ -2641,9 +2641,9 @@
      },
      "gaps": [
       "Median slope over 960 m is 1.22 deg vs 10.90 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 11.4 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 11.4 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 416.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 14.5 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 14.5 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 17,
@@ -2704,8 +2704,8 @@
      },
      "gaps": [
       "Median slope over 960 m is 1.42 deg vs 10.90 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 8.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 8.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.0 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 60.7 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -2766,9 +2766,9 @@
       "surface_pressure_kpa": 16.2
      },
      "gaps": [
-      "Mean annual air temperature (c) is 33.6 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 33.6 vs the Earth-achievable target -50.0.",
       "Median slope over 960 m is 1.27 deg vs 10.90 deg on the target (0.1x).",
-      "Mean daily temperature range (c) is 12.6 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 12.6 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 295.9 vs the Earth-achievable target 0.0."
      ],
      "robust": {
@@ -2830,9 +2830,9 @@
      },
      "gaps": [
       "Median slope over 960 m is 0.11 deg vs 10.90 deg on the target (0.0x).",
-      "Mean annual air temperature (c) is 7.5 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 7.5 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 332.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 16.6 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 16.6 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 23,
@@ -2894,7 +2894,7 @@
      "gaps": [
       "Precipitation (mm/yr) is 862.0 vs the Earth-achievable target 0.0.",
       "Median slope over 960 m is 1.81 deg vs 10.90 deg on the target (0.2x).",
-      "Mean daily temperature range (c) is 4.1 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 4.1 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 94.1 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -2957,8 +2957,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 748.8 vs the Earth-achievable target 0.0.",
       "Median slope over 960 m is 1.94 deg vs 10.90 deg on the target (0.2x).",
-      "Mean annual air temperature (c) is 8.7 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 9.0 vs the Earth-achievable target 35.0."
+      "Mean annual air temperature (C) is 8.7 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 9.0 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 22,
@@ -3018,10 +3018,10 @@
       "surface_pressure_kpa": 34.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 13.8 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 13.8 vs the Earth-achievable target -50.0.",
       "Median slope over 960 m is 2.77 deg vs 10.90 deg on the target (0.3x).",
       "Precipitation (mm/yr) is 339.7 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 15.4 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 15.4 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 20,
@@ -3083,8 +3083,8 @@
      "gaps": [
       "Median slope over 960 m is 0.17 deg vs 10.90 deg on the target (0.0x).",
       "Precipitation (mm/yr) is 953.3 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 26.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.4 vs the Earth-achievable target 35.0."
+      "Mean annual air temperature (C) is 26.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.4 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 31,
@@ -3146,8 +3146,8 @@
      "gaps": [
       "Median slope over 960 m is 0.54 deg vs 10.90 deg on the target (0.0x).",
       "Precipitation (mm/yr) is 719.5 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 13.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.8 vs the Earth-achievable target 35.0."
+      "Mean annual air temperature (C) is 13.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.8 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 32,
@@ -3208,9 +3208,9 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1957.7 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 27.1 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 27.1 vs the Earth-achievable target -50.0.",
       "Median slope over 960 m is 1.55 deg vs 10.90 deg on the target (0.1x).",
-      "Mean daily temperature range (c) is 5.0 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 5.0 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 29,
@@ -3319,9 +3319,9 @@
       "surface_pressure_kpa": 24.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 19.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 91.7 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 19.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 91.7 vs the Earth-achievable target 33.0.",
       "Median slope over 960 m is 8.94 deg vs 14.70 deg on the target (0.6x)."
      ],
      "robust": {
@@ -3383,8 +3383,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1084.8 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 15.0 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 9.5 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 15.0 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 9.5 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 62.4 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -3445,10 +3445,10 @@
       "surface_pressure_kpa": 37.8
      },
      "gaps": [
-      "Mean daily temperature range (c) is 6.1 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 6.1 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 67.5 vs the Earth-achievable target 5.0.",
       "Median slope over 960 m is 6.07 deg vs 14.70 deg on the target (0.4x).",
-      "Surface pressure (kpa) is 81.8 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 81.8 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 1,
@@ -3509,9 +3509,9 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1380.6 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 8.2 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 8.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 83.1 vs the Earth-achievable target 5.0.",
-      "Mean annual air temperature (c) is 2.0 vs the Earth-achievable target -50.0."
+      "Mean annual air temperature (C) is 2.0 vs the Earth-achievable target -50.0."
      ],
      "robust": {
       "rank_p10": 1,
@@ -3571,10 +3571,10 @@
       "surface_pressure_kpa": 30.3
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.1 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 21.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.1 vs the Earth-achievable target 35.0.",
       "Median slope over 960 m is 5.81 deg vs 14.70 deg on the target (0.4x).",
-      "Surface pressure (kpa) is 87.1 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 87.1 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 2,
@@ -3634,10 +3634,10 @@
       "surface_pressure_kpa": 15.8
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 2.2 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 2.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 77.2 vs the Earth-achievable target 5.0.",
-      "Surface pressure (kpa) is 100.3 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 100.3 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 3,
@@ -3697,9 +3697,9 @@
       "surface_pressure_kpa": 39.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 5.7 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 5.7 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 416.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 12.3 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 12.3 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 59.8 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -3760,8 +3760,8 @@
       "surface_pressure_kpa": 74.2
      },
      "gaps": [
-      "Mean annual air temperature (c) is 2.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 2.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.0 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 241.1 vs the Earth-achievable target 0.0.",
       "Median slope over 960 m is 7.27 deg vs 14.70 deg on the target (0.5x)."
      ],
@@ -3823,9 +3823,9 @@
       "surface_pressure_kpa": 30.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.3 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.3 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 86.8 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 20.3 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.3 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 86.8 vs the Earth-achievable target 33.0.",
       "Median slope over 960 m is 7.13 deg vs 14.70 deg on the target (0.5x)."
      ],
      "robust": {
@@ -3888,8 +3888,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 1895.6 vs the Earth-achievable target 0.0.",
       "Relative humidity (%) is 93.2 vs the Earth-achievable target 5.0.",
-      "Mean daily temperature range (c) is 6.9 vs the Earth-achievable target 35.0.",
-      "Mean annual air temperature (c) is -5.5 vs the Earth-achievable target -50.0."
+      "Mean daily temperature range (C) is 6.9 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is -5.5 vs the Earth-achievable target -50.0."
      ],
      "robust": {
       "rank_p10": 9,
@@ -3950,8 +3950,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1610.8 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 20.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 5.2 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 5.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 82.0 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -4012,10 +4012,10 @@
       "surface_pressure_kpa": 29.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 17.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.7 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 17.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.7 vs the Earth-achievable target 35.0.",
       "Median slope over 960 m is 4.95 deg vs 14.70 deg on the target (0.3x).",
-      "Surface pressure (kpa) is 87.5 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 87.5 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 5,
@@ -4075,10 +4075,10 @@
       "surface_pressure_kpa": 27.4
      },
      "gaps": [
-      "Mean annual air temperature (c) is 18.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 16.2 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 18.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 16.2 vs the Earth-achievable target 35.0.",
       "Median slope over 960 m is 5.61 deg vs 14.70 deg on the target (0.4x).",
-      "Surface pressure (kpa) is 89.3 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 89.3 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 6,
@@ -4139,9 +4139,9 @@
      },
      "gaps": [
       "Median slope over 960 m is 2.14 deg vs 14.70 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 4.5 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 71.9 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 4.5 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 71.9 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 5,
@@ -4202,9 +4202,9 @@
      },
      "gaps": [
       "Median slope over 960 m is 1.25 deg vs 14.70 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 20.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 91.5 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 20.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 91.5 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 8,
@@ -4265,9 +4265,9 @@
      },
      "gaps": [
       "Median slope over 960 m is 1.24 deg vs 14.70 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 22.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.8 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.0 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 22.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.8 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.0 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 9,
@@ -4328,9 +4328,9 @@
      },
      "gaps": [
       "Median slope over 960 m is 0.13 deg vs 14.70 deg on the target (0.0x).",
-      "Mean annual air temperature (c) is 13.4 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.4 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 92.3 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 13.4 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.4 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 92.3 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 11,
@@ -4390,7 +4390,7 @@
       "surface_pressure_kpa": 16.8
      },
      "gaps": [
-      "Mean daily temperature range (c) is 4.6 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 4.6 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 94.4 vs the Earth-achievable target 5.0.",
       "Median slope over 960 m is 2.93 deg vs 14.70 deg on the target (0.2x).",
       "Precipitation (mm/yr) is 310.5 vs the Earth-achievable target 0.0."
@@ -4453,10 +4453,10 @@
       "surface_pressure_kpa": 20.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.4 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 21.4 vs the Earth-achievable target -50.0.",
       "Median slope over 960 m is 2.71 deg vs 14.70 deg on the target (0.2x).",
-      "Mean daily temperature range (c) is 15.0 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 95.3 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 15.0 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 95.3 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 13,
@@ -4516,10 +4516,10 @@
       "surface_pressure_kpa": 18.8
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.0 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 21.0 vs the Earth-achievable target -50.0.",
       "Median slope over 960 m is 3.51 deg vs 14.70 deg on the target (0.2x).",
-      "Mean daily temperature range (c) is 14.5 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 97.0 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 14.5 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 97.0 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 12,
@@ -4580,9 +4580,9 @@
      },
      "gaps": [
       "Median slope over 960 m is 1.09 deg vs 14.70 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 22.5 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 99.0 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 22.5 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 99.0 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 17,
@@ -4643,9 +4643,9 @@
      },
      "gaps": [
       "Median slope over 960 m is 1.22 deg vs 14.70 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 11.4 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 11.4 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 416.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 14.5 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 14.5 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 14,
@@ -4706,8 +4706,8 @@
      },
      "gaps": [
       "Median slope over 960 m is 1.26 deg vs 14.70 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 8.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 8.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.0 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 60.7 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -4769,8 +4769,8 @@
      },
      "gaps": [
       "Median slope over 960 m is 1.27 deg vs 14.70 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 33.6 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.6 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 33.6 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.6 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 295.9 vs the Earth-achievable target 0.0."
      ],
      "robust": {
@@ -4832,9 +4832,9 @@
      },
      "gaps": [
       "Median slope over 960 m is 0.11 deg vs 14.70 deg on the target (0.0x).",
-      "Mean annual air temperature (c) is 7.5 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 7.5 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 332.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 16.6 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 16.6 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 20,
@@ -4894,9 +4894,9 @@
       "surface_pressure_kpa": 35.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 11.8 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 11.8 vs the Earth-achievable target -50.0.",
       "Median slope over 960 m is 3.04 deg vs 14.70 deg on the target (0.2x).",
-      "Mean daily temperature range (c) is 13.6 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 13.6 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 241.1 vs the Earth-achievable target 0.0."
      ],
      "robust": {
@@ -4957,8 +4957,8 @@
       "surface_pressure_kpa": 14.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 2.4 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 2.4 vs the Earth-achievable target 35.0.",
       "Median slope over 960 m is 2.65 deg vs 14.70 deg on the target (0.2x).",
       "Relative humidity (%) is 78.1 vs the Earth-achievable target 5.0."
      ],
@@ -5022,8 +5022,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 748.8 vs the Earth-achievable target 0.0.",
       "Median slope over 960 m is 1.94 deg vs 14.70 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 8.7 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 9.0 vs the Earth-achievable target 35.0."
+      "Mean annual air temperature (C) is 8.7 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 9.0 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 21,
@@ -5085,7 +5085,7 @@
      "gaps": [
       "Precipitation (mm/yr) is 862.0 vs the Earth-achievable target 0.0.",
       "Median slope over 960 m is 1.61 deg vs 14.70 deg on the target (0.1x).",
-      "Mean daily temperature range (c) is 4.1 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 4.1 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 94.1 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -5146,10 +5146,10 @@
       "surface_pressure_kpa": 34.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 13.8 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 13.8 vs the Earth-achievable target -50.0.",
       "Median slope over 960 m is 2.77 deg vs 14.70 deg on the target (0.2x).",
       "Precipitation (mm/yr) is 339.7 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 15.4 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 15.4 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 21,
@@ -5211,8 +5211,8 @@
      "gaps": [
       "Median slope over 960 m is 0.17 deg vs 14.70 deg on the target (0.0x).",
       "Precipitation (mm/yr) is 953.3 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 26.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.4 vs the Earth-achievable target 35.0."
+      "Mean annual air temperature (C) is 26.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.4 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 31,
@@ -5274,8 +5274,8 @@
      "gaps": [
       "Median slope over 960 m is 0.54 deg vs 14.70 deg on the target (0.0x).",
       "Precipitation (mm/yr) is 719.5 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 13.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.8 vs the Earth-achievable target 35.0."
+      "Mean annual air temperature (C) is 13.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.8 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 32,
@@ -5337,8 +5337,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 1957.7 vs the Earth-achievable target 0.0.",
       "Median slope over 960 m is 1.55 deg vs 14.70 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 27.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 5.0 vs the Earth-achievable target 35.0."
+      "Mean annual air temperature (C) is 27.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 5.0 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 30,
@@ -5448,9 +5448,9 @@
       "surface_pressure_kpa": 24.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 19.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 91.7 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 19.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 91.7 vs the Earth-achievable target 33.0.",
       "Precipitation (mm/yr) is 124.2 vs the Earth-achievable target 0.0."
      ],
      "robust": {
@@ -5511,9 +5511,9 @@
       "surface_pressure_kpa": 20.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.4 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.0 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 95.3 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 21.4 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.0 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 95.3 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 30.7 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -5574,9 +5574,9 @@
       "surface_pressure_kpa": 29.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 17.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.5 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 17.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.5 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 44.1 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -5637,9 +5637,9 @@
       "surface_pressure_kpa": 24.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 91.5 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 20.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 91.5 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 30.4 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -5700,9 +5700,9 @@
       "surface_pressure_kpa": 16.9
      },
      "gaps": [
-      "Mean annual air temperature (c) is 22.5 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 99.0 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 22.5 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 99.0 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 40.8 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -5763,9 +5763,9 @@
       "surface_pressure_kpa": 30.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.3 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.3 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 86.8 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 20.3 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.3 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 86.8 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 6,
@@ -5825,9 +5825,9 @@
       "surface_pressure_kpa": 54.0
      },
      "gaps": [
-      "Mean annual air temperature (c) is 4.5 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 71.9 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 4.5 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 71.9 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 30.4 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -5888,10 +5888,10 @@
       "surface_pressure_kpa": 16.2
      },
      "gaps": [
-      "Mean annual air temperature (c) is 33.6 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.6 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 33.6 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.6 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 295.9 vs the Earth-achievable target 0.0.",
-      "Surface pressure (kpa) is 99.7 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 99.7 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 5,
@@ -5951,10 +5951,10 @@
       "surface_pressure_kpa": 28.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 8.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 8.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.0 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 60.7 vs the Earth-achievable target 5.0.",
-      "Surface pressure (kpa) is 88.7 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 88.7 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 4,
@@ -6014,9 +6014,9 @@
       "surface_pressure_kpa": 30.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 22.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.8 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.0 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 22.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.8 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.0 vs the Earth-achievable target 33.0.",
       "Median slope over 1920 m is 0.66 deg vs 1.14 deg on the target (0.6x)."
      ],
      "robust": {
@@ -6077,9 +6077,9 @@
       "surface_pressure_kpa": 27.4
      },
      "gaps": [
-      "Mean annual air temperature (c) is 18.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 16.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 89.3 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 18.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 16.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 89.3 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 41.8 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -6140,10 +6140,10 @@
       "surface_pressure_kpa": 35.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 11.8 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.6 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 11.8 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.6 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 241.1 vs the Earth-achievable target 0.0.",
-      "Surface pressure (kpa) is 83.4 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 83.4 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 11,
@@ -6203,9 +6203,9 @@
       "surface_pressure_kpa": 18.8
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.0 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.5 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 97.0 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 21.0 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.5 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 97.0 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 45.3 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -6266,10 +6266,10 @@
       "surface_pressure_kpa": 34.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 13.8 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 13.8 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 339.7 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 15.4 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 84.1 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 15.4 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 84.1 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 9,
@@ -6329,9 +6329,9 @@
       "surface_pressure_kpa": 39.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 5.7 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 5.7 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 416.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 12.3 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 12.3 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 59.8 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -6392,9 +6392,9 @@
       "surface_pressure_kpa": 39.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 11.4 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 11.4 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 416.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 14.5 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 14.5 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 47.7 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -6455,10 +6455,10 @@
       "surface_pressure_kpa": 16.8
      },
      "gaps": [
-      "Mean daily temperature range (c) is 4.6 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 4.6 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 94.4 vs the Earth-achievable target 5.0.",
       "Precipitation (mm/yr) is 310.5 vs the Earth-achievable target 0.0.",
-      "Surface pressure (kpa) is 99.1 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 99.1 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 13,
@@ -6519,9 +6519,9 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 862.0 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 4.1 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 4.1 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 94.1 vs the Earth-achievable target 5.0.",
-      "Mean annual air temperature (c) is -2.8 vs the Earth-achievable target -50.0."
+      "Mean annual air temperature (C) is -2.8 vs the Earth-achievable target -50.0."
      ],
      "robust": {
       "rank_p10": 7,
@@ -6581,9 +6581,9 @@
       "surface_pressure_kpa": 30.3
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.1 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.1 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 21.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.1 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.1 vs the Earth-achievable target 33.0.",
       "Median slope over 1920 m is 1.87 deg vs 1.14 deg on the target (1.6x)."
      ],
      "robust": {
@@ -6646,8 +6646,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 1895.6 vs the Earth-achievable target 0.0.",
       "Relative humidity (%) is 93.2 vs the Earth-achievable target 5.0.",
-      "Mean daily temperature range (c) is 6.9 vs the Earth-achievable target 35.0.",
-      "Mean annual air temperature (c) is -5.5 vs the Earth-achievable target -50.0."
+      "Mean daily temperature range (C) is 6.9 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is -5.5 vs the Earth-achievable target -50.0."
      ],
      "robust": {
       "rank_p10": 5,
@@ -6707,10 +6707,10 @@
       "surface_pressure_kpa": 14.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 2.4 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 2.4 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 78.1 vs the Earth-achievable target 5.0.",
-      "Surface pressure (kpa) is 101.5 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 101.5 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 19,
@@ -6771,8 +6771,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 748.8 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 8.7 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 9.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 8.7 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 9.0 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 81.3 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -6833,10 +6833,10 @@
       "surface_pressure_kpa": 37.8
      },
      "gaps": [
-      "Mean daily temperature range (c) is 6.1 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 6.1 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 67.5 vs the Earth-achievable target 5.0.",
       "Median slope over 1920 m is 3.23 deg vs 1.14 deg on the target (2.8x).",
-      "Surface pressure (kpa) is 81.8 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 81.8 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 12,
@@ -6896,8 +6896,8 @@
       "surface_pressure_kpa": 74.2
      },
      "gaps": [
-      "Mean annual air temperature (c) is 2.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 2.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.0 vs the Earth-achievable target 35.0.",
       "Median slope over 1920 m is 3.36 deg vs 1.14 deg on the target (2.9x).",
       "Precipitation (mm/yr) is 241.1 vs the Earth-achievable target 0.0."
      ],
@@ -6960,9 +6960,9 @@
      },
      "gaps": [
       "Median slope over 1920 m is 0.08 deg vs 1.14 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 13.4 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.4 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 92.3 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 13.4 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.4 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 92.3 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 22,
@@ -7023,8 +7023,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1610.8 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 20.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 5.2 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 5.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 82.0 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -7086,9 +7086,9 @@
      },
      "gaps": [
       "Median slope over 1920 m is 0.06 deg vs 1.14 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 7.5 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 7.5 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 332.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 16.6 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 16.6 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 24,
@@ -7149,8 +7149,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1957.7 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 27.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 5.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 27.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 5.0 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 83.5 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -7211,9 +7211,9 @@
       "surface_pressure_kpa": 15.8
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.2 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 20.2 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 7.42 deg vs 1.14 deg on the target (6.5x).",
-      "Mean daily temperature range (c) is 2.2 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 2.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 77.2 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -7275,8 +7275,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 719.5 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 13.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.8 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 13.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.8 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 64.0 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -7339,8 +7339,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 1084.8 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 9.56 deg vs 1.14 deg on the target (8.4x).",
-      "Mean annual air temperature (c) is 15.0 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 9.5 vs the Earth-achievable target 35.0."
+      "Mean annual air temperature (C) is 15.0 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 9.5 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 29,
@@ -7402,8 +7402,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 953.3 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 0.10 deg vs 1.14 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 26.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.4 vs the Earth-achievable target 35.0."
+      "Mean annual air temperature (C) is 26.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.4 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 30,
@@ -7465,7 +7465,7 @@
      "gaps": [
       "Precipitation (mm/yr) is 1380.6 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 10.18 deg vs 1.14 deg on the target (8.9x).",
-      "Mean daily temperature range (c) is 8.2 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 8.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 83.1 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -7575,9 +7575,9 @@
       "surface_pressure_kpa": 24.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 19.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 91.7 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 19.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 91.7 vs the Earth-achievable target 33.0.",
       "Precipitation (mm/yr) is 124.2 vs the Earth-achievable target 0.0."
      ],
      "robust": {
@@ -7638,10 +7638,10 @@
       "surface_pressure_kpa": 37.8
      },
      "gaps": [
-      "Mean daily temperature range (c) is 6.1 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 6.1 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 67.5 vs the Earth-achievable target 5.0.",
-      "Surface pressure (kpa) is 81.8 vs the Earth-achievable target 33.0.",
-      "Mean annual air temperature (c) is -29.9 vs the Earth-achievable target -50.0."
+      "Surface pressure (kPa) is 81.8 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is -29.9 vs the Earth-achievable target -50.0."
      ],
      "robust": {
       "rank_p10": 2,
@@ -7701,8 +7701,8 @@
       "surface_pressure_kpa": 74.2
      },
      "gaps": [
-      "Mean annual air temperature (c) is 2.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 2.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.0 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 241.1 vs the Earth-achievable target 0.0.",
       "Relative humidity (%) is 31.8 vs the Earth-achievable target 5.0."
      ],
@@ -7764,9 +7764,9 @@
       "surface_pressure_kpa": 30.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.3 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.3 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 86.8 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 20.3 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.3 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 86.8 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 3,
@@ -7826,9 +7826,9 @@
       "surface_pressure_kpa": 30.3
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.1 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.1 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 21.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.1 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.1 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 3,
@@ -7888,9 +7888,9 @@
       "surface_pressure_kpa": 29.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 17.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.5 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 17.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.5 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 44.1 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -7951,9 +7951,9 @@
       "surface_pressure_kpa": 27.4
      },
      "gaps": [
-      "Mean annual air temperature (c) is 18.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 16.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 89.3 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 18.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 16.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 89.3 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 41.8 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -8014,9 +8014,9 @@
       "surface_pressure_kpa": 20.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.4 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.0 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 95.3 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 21.4 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.0 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 95.3 vs the Earth-achievable target 33.0.",
       "Median slope over 1920 m is 2.75 deg vs 5.59 deg on the target (0.5x)."
      ],
      "robust": {
@@ -8078,8 +8078,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1610.8 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 20.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 5.2 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 5.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 82.0 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -8140,10 +8140,10 @@
       "surface_pressure_kpa": 35.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 11.8 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.6 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 11.8 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.6 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 241.1 vs the Earth-achievable target 0.0.",
-      "Surface pressure (kpa) is 83.4 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 83.4 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 9,
@@ -8203,9 +8203,9 @@
       "surface_pressure_kpa": 39.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 5.7 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 5.7 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 416.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 12.3 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 12.3 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 59.8 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -8266,10 +8266,10 @@
       "surface_pressure_kpa": 54.0
      },
      "gaps": [
-      "Mean annual air temperature (c) is 4.5 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.2 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 4.5 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.2 vs the Earth-achievable target 35.0.",
       "Median slope over 1920 m is 1.91 deg vs 5.59 deg on the target (0.3x).",
-      "Surface pressure (kpa) is 71.9 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 71.9 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 7,
@@ -8329,10 +8329,10 @@
       "surface_pressure_kpa": 15.8
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 2.2 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 2.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 77.2 vs the Earth-achievable target 5.0.",
-      "Surface pressure (kpa) is 100.3 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 100.3 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 11,
@@ -8392,10 +8392,10 @@
       "surface_pressure_kpa": 14.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 2.4 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 2.4 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 78.1 vs the Earth-achievable target 5.0.",
-      "Surface pressure (kpa) is 101.5 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 101.5 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 12,
@@ -8455,10 +8455,10 @@
       "surface_pressure_kpa": 16.8
      },
      "gaps": [
-      "Mean daily temperature range (c) is 4.6 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 4.6 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 94.4 vs the Earth-achievable target 5.0.",
       "Precipitation (mm/yr) is 310.5 vs the Earth-achievable target 0.0.",
-      "Surface pressure (kpa) is 99.1 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 99.1 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 12,
@@ -8518,10 +8518,10 @@
       "surface_pressure_kpa": 18.8
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.0 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.5 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 21.0 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.5 vs the Earth-achievable target 35.0.",
       "Median slope over 1920 m is 1.83 deg vs 5.59 deg on the target (0.3x).",
-      "Surface pressure (kpa) is 97.0 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 97.0 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 10,
@@ -8581,9 +8581,9 @@
       "surface_pressure_kpa": 34.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 13.8 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 13.8 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 339.7 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 15.4 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 15.4 vs the Earth-achievable target 35.0.",
       "Median slope over 1920 m is 2.46 deg vs 5.59 deg on the target (0.4x)."
      ],
      "robust": {
@@ -8646,8 +8646,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 1895.6 vs the Earth-achievable target 0.0.",
       "Relative humidity (%) is 93.2 vs the Earth-achievable target 5.0.",
-      "Mean daily temperature range (c) is 6.9 vs the Earth-achievable target 35.0.",
-      "Mean annual air temperature (c) is -5.5 vs the Earth-achievable target -50.0."
+      "Mean daily temperature range (C) is 6.9 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is -5.5 vs the Earth-achievable target -50.0."
      ],
      "robust": {
       "rank_p10": 9,
@@ -8708,9 +8708,9 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1380.6 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 8.2 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 8.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 83.1 vs the Earth-achievable target 5.0.",
-      "Mean annual air temperature (c) is 2.0 vs the Earth-achievable target -50.0."
+      "Mean annual air temperature (C) is 2.0 vs the Earth-achievable target -50.0."
      ],
      "robust": {
       "rank_p10": 14,
@@ -8771,8 +8771,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1084.8 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 15.0 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 9.5 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 15.0 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 9.5 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 62.4 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -8834,9 +8834,9 @@
      },
      "gaps": [
       "Median slope over 1920 m is 0.08 deg vs 5.59 deg on the target (0.0x).",
-      "Mean annual air temperature (c) is 13.4 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.4 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 92.3 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 13.4 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.4 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 92.3 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 12,
@@ -8896,10 +8896,10 @@
       "surface_pressure_kpa": 24.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.2 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 20.2 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 1.08 deg vs 5.59 deg on the target (0.2x).",
-      "Mean daily temperature range (c) is 15.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 91.5 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 15.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 91.5 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 12,
@@ -8959,9 +8959,9 @@
       "surface_pressure_kpa": 16.2
      },
      "gaps": [
-      "Mean annual air temperature (c) is 33.6 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 33.6 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 1.25 deg vs 5.59 deg on the target (0.2x).",
-      "Mean daily temperature range (c) is 12.6 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 12.6 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 295.9 vs the Earth-achievable target 0.0."
      ],
      "robust": {
@@ -9023,9 +9023,9 @@
      },
      "gaps": [
       "Median slope over 1920 m is 0.06 deg vs 5.59 deg on the target (0.0x).",
-      "Mean annual air temperature (c) is 7.5 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 7.5 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 332.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 16.6 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 16.6 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 16,
@@ -9085,10 +9085,10 @@
       "surface_pressure_kpa": 30.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 22.9 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 22.9 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 1.14 deg vs 5.59 deg on the target (0.2x).",
-      "Mean daily temperature range (c) is 15.8 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.0 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 15.8 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.0 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 13,
@@ -9148,10 +9148,10 @@
       "surface_pressure_kpa": 16.9
      },
      "gaps": [
-      "Mean annual air temperature (c) is 22.5 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 22.5 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 0.94 deg vs 5.59 deg on the target (0.2x).",
-      "Mean daily temperature range (c) is 14.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 99.0 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 14.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 99.0 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 17,
@@ -9212,9 +9212,9 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 862.0 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 4.1 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 4.1 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 94.1 vs the Earth-achievable target 5.0.",
-      "Mean annual air temperature (c) is -2.8 vs the Earth-achievable target -50.0."
+      "Mean annual air temperature (C) is -2.8 vs the Earth-achievable target -50.0."
      ],
      "robust": {
       "rank_p10": 22,
@@ -9275,9 +9275,9 @@
      },
      "gaps": [
       "Median slope over 1920 m is 1.02 deg vs 5.59 deg on the target (0.2x).",
-      "Mean annual air temperature (c) is 11.4 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 11.4 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 416.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 14.5 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 14.5 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 20,
@@ -9337,9 +9337,9 @@
       "surface_pressure_kpa": 28.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 8.1 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 8.1 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 1.19 deg vs 5.59 deg on the target (0.2x).",
-      "Mean daily temperature range (c) is 13.0 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 13.0 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 60.7 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -9401,8 +9401,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 748.8 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 8.7 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 9.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 8.7 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 9.0 vs the Earth-achievable target 35.0.",
       "Median slope over 1920 m is 1.37 deg vs 5.59 deg on the target (0.2x)."
      ],
      "robust": {
@@ -9465,8 +9465,8 @@
      "gaps": [
       "Median slope over 1920 m is 0.10 deg vs 5.59 deg on the target (0.0x).",
       "Precipitation (mm/yr) is 953.3 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 26.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.4 vs the Earth-achievable target 35.0."
+      "Mean annual air temperature (C) is 26.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.4 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 31,
@@ -9528,8 +9528,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 719.5 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 0.42 deg vs 5.59 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 13.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.8 vs the Earth-achievable target 35.0."
+      "Mean annual air temperature (C) is 13.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.8 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 31,
@@ -9590,9 +9590,9 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1957.7 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 27.1 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 27.1 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 0.90 deg vs 5.59 deg on the target (0.2x).",
-      "Mean daily temperature range (c) is 5.0 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 5.0 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 29,
@@ -9700,9 +9700,9 @@
       "surface_pressure_kpa": 24.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 91.5 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 20.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 91.5 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 30.4 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -9763,9 +9763,9 @@
       "surface_pressure_kpa": 16.9
      },
      "gaps": [
-      "Mean annual air temperature (c) is 22.5 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 99.0 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 22.5 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 99.0 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 40.8 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -9826,9 +9826,9 @@
       "surface_pressure_kpa": 23.8
      },
      "gaps": [
-      "Mean annual air temperature (c) is 13.4 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.4 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 92.3 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 13.4 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.4 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 92.3 vs the Earth-achievable target 33.0.",
       "Median slope over 1920 m is 0.08 deg vs 0.20 deg on the target (0.4x)."
      ],
      "robust": {
@@ -9889,10 +9889,10 @@
       "surface_pressure_kpa": 54.0
      },
      "gaps": [
-      "Mean annual air temperature (c) is 4.5 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.2 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 4.5 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.2 vs the Earth-achievable target 35.0.",
       "Median slope over 1920 m is 0.57 deg vs 0.20 deg on the target (2.9x).",
-      "Surface pressure (kpa) is 71.9 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 71.9 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 4,
@@ -9952,10 +9952,10 @@
       "surface_pressure_kpa": 30.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 22.9 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 22.9 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 0.64 deg vs 0.20 deg on the target (3.2x).",
-      "Mean daily temperature range (c) is 15.8 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.0 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 15.8 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.0 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 4,
@@ -10015,9 +10015,9 @@
       "surface_pressure_kpa": 39.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 11.4 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 11.4 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 416.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 14.5 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 14.5 vs the Earth-achievable target 35.0.",
       "Median slope over 1920 m is 0.49 deg vs 0.20 deg on the target (2.5x)."
      ],
      "robust": {
@@ -10079,8 +10079,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 719.5 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 13.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.8 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 13.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.8 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 64.0 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -10141,10 +10141,10 @@
       "surface_pressure_kpa": 30.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.3 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 20.3 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 0.63 deg vs 0.20 deg on the target (3.2x).",
-      "Mean daily temperature range (c) is 14.3 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 86.8 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 14.3 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 86.8 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 6,
@@ -10204,8 +10204,8 @@
       "surface_pressure_kpa": 16.2
      },
      "gaps": [
-      "Mean annual air temperature (c) is 33.6 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.6 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 33.6 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.6 vs the Earth-achievable target 35.0.",
       "Median slope over 1920 m is 0.58 deg vs 0.20 deg on the target (3.0x).",
       "Precipitation (mm/yr) is 295.9 vs the Earth-achievable target 0.0."
      ],
@@ -10267,8 +10267,8 @@
       "surface_pressure_kpa": 28.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 8.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 8.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.0 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 60.7 vs the Earth-achievable target 5.0.",
       "Median slope over 1920 m is 0.52 deg vs 0.20 deg on the target (2.6x)."
      ],
@@ -10330,9 +10330,9 @@
       "surface_pressure_kpa": 39.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 5.7 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 5.7 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 416.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 12.3 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 12.3 vs the Earth-achievable target 35.0.",
       "Median slope over 1920 m is 0.54 deg vs 0.20 deg on the target (2.8x)."
      ],
      "robust": {
@@ -10393,10 +10393,10 @@
       "surface_pressure_kpa": 65.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 7.5 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 7.5 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 332.4 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 0.06 deg vs 0.20 deg on the target (0.3x).",
-      "Mean daily temperature range (c) is 16.6 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 16.6 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 10,
@@ -10457,8 +10457,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1957.7 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 27.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 5.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 27.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 5.0 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 83.5 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -10520,9 +10520,9 @@
      },
      "gaps": [
       "Median slope over 1920 m is 1.87 deg vs 0.20 deg on the target (9.5x).",
-      "Mean annual air temperature (c) is 21.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.1 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.1 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 21.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.1 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.1 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 3,
@@ -10583,9 +10583,9 @@
      },
      "gaps": [
       "Median slope over 1920 m is 1.76 deg vs 0.20 deg on the target (8.9x).",
-      "Mean annual air temperature (c) is 19.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 91.7 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 19.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 91.7 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 5,
@@ -10646,9 +10646,9 @@
      },
      "gaps": [
       "Median slope over 1920 m is 3.23 deg vs 0.20 deg on the target (16.5x).",
-      "Mean daily temperature range (c) is 6.1 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 6.1 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 67.5 vs the Earth-achievable target 5.0.",
-      "Surface pressure (kpa) is 81.8 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 81.8 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 6,
@@ -10709,9 +10709,9 @@
      },
      "gaps": [
       "Median slope over 1920 m is 1.86 deg vs 0.20 deg on the target (9.5x).",
-      "Mean annual air temperature (c) is 18.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 16.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 89.3 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 18.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 16.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 89.3 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 9,
@@ -10771,10 +10771,10 @@
       "surface_pressure_kpa": 20.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.4 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 21.4 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 1.03 deg vs 0.20 deg on the target (5.3x).",
-      "Mean daily temperature range (c) is 15.0 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 95.3 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 15.0 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 95.3 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 8,
@@ -10835,9 +10835,9 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 953.3 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 26.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.4 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 99.9 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 26.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.4 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 99.9 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 14,
@@ -10897,10 +10897,10 @@
       "surface_pressure_kpa": 18.8
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.0 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 21.0 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 0.95 deg vs 0.20 deg on the target (4.8x).",
-      "Mean daily temperature range (c) is 14.5 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 97.0 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 14.5 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 97.0 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 12,
@@ -10960,10 +10960,10 @@
       "surface_pressure_kpa": 29.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 17.1 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 17.1 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 1.17 deg vs 0.20 deg on the target (6.0x).",
-      "Mean daily temperature range (c) is 14.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.5 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 14.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.5 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 13,
@@ -11024,8 +11024,8 @@
      },
      "gaps": [
       "Median slope over 1920 m is 3.36 deg vs 0.20 deg on the target (17.1x).",
-      "Mean annual air temperature (c) is 2.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 2.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.0 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 241.1 vs the Earth-achievable target 0.0."
      ],
      "robust": {
@@ -11087,8 +11087,8 @@
      },
      "gaps": [
       "Median slope over 1920 m is 1.78 deg vs 0.20 deg on the target (9.1x).",
-      "Mean annual air temperature (c) is 20.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 2.4 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 2.4 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 78.1 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -11149,10 +11149,10 @@
       "surface_pressure_kpa": 34.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 13.8 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 13.8 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 1.01 deg vs 0.20 deg on the target (5.1x).",
       "Precipitation (mm/yr) is 339.7 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 15.4 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 15.4 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 15,
@@ -11213,8 +11213,8 @@
      },
      "gaps": [
       "Median slope over 1920 m is 1.28 deg vs 0.20 deg on the target (6.5x).",
-      "Mean annual air temperature (c) is 11.8 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.6 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 11.8 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.6 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 241.1 vs the Earth-achievable target 0.0."
      ],
      "robust": {
@@ -11276,8 +11276,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 748.8 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 8.7 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 9.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 8.7 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 9.0 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 81.3 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -11339,7 +11339,7 @@
      },
      "gaps": [
       "Median slope over 1920 m is 1.21 deg vs 0.20 deg on the target (6.1x).",
-      "Mean daily temperature range (c) is 4.6 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 4.6 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 94.4 vs the Earth-achievable target 5.0.",
       "Precipitation (mm/yr) is 310.5 vs the Earth-achievable target 0.0."
      ],
@@ -11402,8 +11402,8 @@
      },
      "gaps": [
       "Median slope over 1920 m is 7.42 deg vs 0.20 deg on the target (37.8x).",
-      "Mean annual air temperature (c) is 20.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 2.2 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 2.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 77.2 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -11466,8 +11466,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 1610.8 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 3.40 deg vs 0.20 deg on the target (17.3x).",
-      "Mean annual air temperature (c) is 20.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 5.2 vs the Earth-achievable target 35.0."
+      "Mean annual air temperature (C) is 20.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 5.2 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 26,
@@ -11530,7 +11530,7 @@
       "Precipitation (mm/yr) is 1895.6 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 1.08 deg vs 0.20 deg on the target (5.5x).",
       "Relative humidity (%) is 93.2 vs the Earth-achievable target 5.0.",
-      "Mean daily temperature range (c) is 6.9 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 6.9 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 23,
@@ -11592,7 +11592,7 @@
      "gaps": [
       "Precipitation (mm/yr) is 862.0 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 1.12 deg vs 0.20 deg on the target (5.7x).",
-      "Mean daily temperature range (c) is 4.1 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 4.1 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 94.1 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -11655,8 +11655,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 1084.8 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 9.56 deg vs 0.20 deg on the target (48.7x).",
-      "Mean annual air temperature (c) is 15.0 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 9.5 vs the Earth-achievable target 35.0."
+      "Mean annual air temperature (C) is 15.0 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 9.5 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 31,
@@ -11718,7 +11718,7 @@
      "gaps": [
       "Precipitation (mm/yr) is 1380.6 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 10.18 deg vs 0.20 deg on the target (51.9x).",
-      "Mean daily temperature range (c) is 8.2 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 8.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 83.1 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -11827,9 +11827,9 @@
       "surface_pressure_kpa": 24.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 91.5 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 20.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 91.5 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 30.4 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -11890,9 +11890,9 @@
       "surface_pressure_kpa": 16.9
      },
      "gaps": [
-      "Mean annual air temperature (c) is 22.5 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 99.0 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 22.5 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 99.0 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 40.8 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -11953,10 +11953,10 @@
       "surface_pressure_kpa": 54.0
      },
      "gaps": [
-      "Mean annual air temperature (c) is 4.5 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.2 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 4.5 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.2 vs the Earth-achievable target 35.0.",
       "Median slope over 1920 m is 0.57 deg vs 0.31 deg on the target (1.9x).",
-      "Surface pressure (kpa) is 71.9 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 71.9 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 1,
@@ -12016,9 +12016,9 @@
       "surface_pressure_kpa": 30.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.3 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.3 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 86.8 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 20.3 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.3 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 86.8 vs the Earth-achievable target 33.0.",
       "Median slope over 1920 m is 0.63 deg vs 0.31 deg on the target (2.1x)."
      ],
      "robust": {
@@ -12079,9 +12079,9 @@
       "surface_pressure_kpa": 30.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 22.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.8 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.0 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 22.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.8 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.0 vs the Earth-achievable target 33.0.",
       "Median slope over 1920 m is 0.64 deg vs 0.31 deg on the target (2.1x)."
      ],
      "robust": {
@@ -12142,10 +12142,10 @@
       "surface_pressure_kpa": 16.2
      },
      "gaps": [
-      "Mean annual air temperature (c) is 33.6 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.6 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 33.6 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.6 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 295.9 vs the Earth-achievable target 0.0.",
-      "Surface pressure (kpa) is 99.7 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 99.7 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 4,
@@ -12205,10 +12205,10 @@
       "surface_pressure_kpa": 28.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 8.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 8.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.0 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 60.7 vs the Earth-achievable target 5.0.",
-      "Surface pressure (kpa) is 88.7 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 88.7 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 7,
@@ -12268,9 +12268,9 @@
       "surface_pressure_kpa": 39.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 5.7 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 5.7 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 416.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 12.3 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 12.3 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 59.8 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -12331,9 +12331,9 @@
       "surface_pressure_kpa": 39.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 11.4 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 11.4 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 416.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 14.5 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 14.5 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 47.7 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -12395,8 +12395,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 719.5 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 13.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.8 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 13.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.8 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 64.0 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -12457,10 +12457,10 @@
       "surface_pressure_kpa": 23.8
      },
      "gaps": [
-      "Mean annual air temperature (c) is 13.4 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 13.4 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 0.08 deg vs 0.31 deg on the target (0.3x).",
-      "Mean daily temperature range (c) is 12.4 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 92.3 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 12.4 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 92.3 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 6,
@@ -12520,10 +12520,10 @@
       "surface_pressure_kpa": 20.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.4 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 21.4 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 1.03 deg vs 0.31 deg on the target (3.4x).",
-      "Mean daily temperature range (c) is 15.0 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 95.3 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 15.0 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 95.3 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 10,
@@ -12584,8 +12584,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1957.7 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 27.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 5.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 27.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 5.0 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 83.5 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -12646,10 +12646,10 @@
       "surface_pressure_kpa": 29.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 17.1 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 17.1 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 1.17 deg vs 0.31 deg on the target (3.8x).",
-      "Mean daily temperature range (c) is 14.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.5 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 14.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.5 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 8,
@@ -12709,10 +12709,10 @@
       "surface_pressure_kpa": 18.8
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.0 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 21.0 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 0.95 deg vs 0.31 deg on the target (3.1x).",
-      "Mean daily temperature range (c) is 14.5 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 97.0 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 14.5 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 97.0 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 9,
@@ -12772,10 +12772,10 @@
       "surface_pressure_kpa": 34.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 13.8 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 13.8 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 339.7 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 1.01 deg vs 0.31 deg on the target (3.3x).",
-      "Mean daily temperature range (c) is 15.4 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 15.4 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 14,
@@ -12836,9 +12836,9 @@
      },
      "gaps": [
       "Median slope over 1920 m is 3.23 deg vs 0.31 deg on the target (10.5x).",
-      "Mean daily temperature range (c) is 6.1 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 6.1 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 67.5 vs the Earth-achievable target 5.0.",
-      "Surface pressure (kpa) is 81.8 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 81.8 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 5,
@@ -12898,10 +12898,10 @@
       "surface_pressure_kpa": 24.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 19.1 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 19.1 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 1.76 deg vs 0.31 deg on the target (5.7x).",
-      "Mean daily temperature range (c) is 14.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 91.7 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 14.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 91.7 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 6,
@@ -12961,9 +12961,9 @@
       "surface_pressure_kpa": 35.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 11.8 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 11.8 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 1.28 deg vs 0.31 deg on the target (4.2x).",
-      "Mean daily temperature range (c) is 13.6 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 13.6 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 241.1 vs the Earth-achievable target 0.0."
      ],
      "robust": {
@@ -13024,10 +13024,10 @@
       "surface_pressure_kpa": 30.3
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.9 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 21.9 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 1.87 deg vs 0.31 deg on the target (6.1x).",
-      "Mean daily temperature range (c) is 15.1 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.1 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 15.1 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.1 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 9,
@@ -13088,8 +13088,8 @@
      },
      "gaps": [
       "Median slope over 1920 m is 3.36 deg vs 0.31 deg on the target (10.9x).",
-      "Mean annual air temperature (c) is 2.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 2.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.0 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 241.1 vs the Earth-achievable target 0.0."
      ],
      "robust": {
@@ -13150,10 +13150,10 @@
       "surface_pressure_kpa": 27.4
      },
      "gaps": [
-      "Mean annual air temperature (c) is 18.1 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 18.1 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 1.86 deg vs 0.31 deg on the target (6.1x).",
-      "Mean daily temperature range (c) is 16.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 89.3 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 16.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 89.3 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 14,
@@ -13213,7 +13213,7 @@
       "surface_pressure_kpa": 16.8
      },
      "gaps": [
-      "Mean daily temperature range (c) is 4.6 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 4.6 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 94.4 vs the Earth-achievable target 5.0.",
       "Median slope over 1920 m is 1.21 deg vs 0.31 deg on the target (3.9x).",
       "Precipitation (mm/yr) is 310.5 vs the Earth-achievable target 0.0."
@@ -13277,8 +13277,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 748.8 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 8.7 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 9.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 8.7 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 9.0 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 81.3 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -13340,9 +13340,9 @@
      },
      "gaps": [
       "Median slope over 1920 m is 0.06 deg vs 0.31 deg on the target (0.2x).",
-      "Mean annual air temperature (c) is 7.5 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 7.5 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 332.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 16.6 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 16.6 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 15,
@@ -13403,7 +13403,7 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 862.0 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 4.1 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 4.1 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 94.1 vs the Earth-achievable target 5.0.",
       "Median slope over 1920 m is 1.12 deg vs 0.31 deg on the target (3.7x)."
      ],
@@ -13465,8 +13465,8 @@
       "surface_pressure_kpa": 14.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 2.4 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 2.4 vs the Earth-achievable target 35.0.",
       "Median slope over 1920 m is 1.78 deg vs 0.31 deg on the target (5.8x).",
       "Relative humidity (%) is 78.1 vs the Earth-achievable target 5.0."
      ],
@@ -13530,7 +13530,7 @@
      "gaps": [
       "Precipitation (mm/yr) is 1895.6 vs the Earth-achievable target 0.0.",
       "Relative humidity (%) is 93.2 vs the Earth-achievable target 5.0.",
-      "Mean daily temperature range (c) is 6.9 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 6.9 vs the Earth-achievable target 35.0.",
       "Median slope over 1920 m is 1.08 deg vs 0.31 deg on the target (3.5x)."
      ],
      "robust": {
@@ -13592,8 +13592,8 @@
      },
      "gaps": [
       "Median slope over 1920 m is 7.42 deg vs 0.31 deg on the target (24.2x).",
-      "Mean annual air temperature (c) is 20.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 2.2 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 2.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 77.2 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -13655,8 +13655,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 953.3 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 26.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.4 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 26.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.4 vs the Earth-achievable target 35.0.",
       "Median slope over 1920 m is 0.10 deg vs 0.31 deg on the target (0.3x)."
      ],
      "robust": {
@@ -13719,8 +13719,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 1610.8 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 3.40 deg vs 0.31 deg on the target (11.1x).",
-      "Mean annual air temperature (c) is 20.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 5.2 vs the Earth-achievable target 35.0."
+      "Mean annual air temperature (C) is 20.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 5.2 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 25,
@@ -13782,8 +13782,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 1084.8 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 9.56 deg vs 0.31 deg on the target (31.2x).",
-      "Mean annual air temperature (c) is 15.0 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 9.5 vs the Earth-achievable target 35.0."
+      "Mean annual air temperature (C) is 15.0 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 9.5 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 30,
@@ -13845,7 +13845,7 @@
      "gaps": [
       "Precipitation (mm/yr) is 1380.6 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 10.18 deg vs 0.31 deg on the target (33.2x).",
-      "Mean daily temperature range (c) is 8.2 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 8.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 83.1 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -13954,9 +13954,9 @@
       "surface_pressure_kpa": 54.0
      },
      "gaps": [
-      "Mean annual air temperature (c) is 4.5 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 71.9 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 4.5 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 71.9 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 30.4 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -14017,9 +14017,9 @@
       "surface_pressure_kpa": 24.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 91.5 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 20.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 91.5 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 30.4 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -14080,9 +14080,9 @@
       "surface_pressure_kpa": 30.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.3 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.3 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 86.8 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 20.3 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.3 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 86.8 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 3,
@@ -14142,9 +14142,9 @@
       "surface_pressure_kpa": 30.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 22.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.8 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.0 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 22.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.8 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.0 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 3,
@@ -14204,9 +14204,9 @@
       "surface_pressure_kpa": 16.9
      },
      "gaps": [
-      "Mean annual air temperature (c) is 22.5 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 99.0 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 22.5 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 99.0 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 40.8 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -14267,10 +14267,10 @@
       "surface_pressure_kpa": 16.2
      },
      "gaps": [
-      "Mean annual air temperature (c) is 33.6 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.6 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 33.6 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.6 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 295.9 vs the Earth-achievable target 0.0.",
-      "Surface pressure (kpa) is 99.7 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 99.7 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 3,
@@ -14330,10 +14330,10 @@
       "surface_pressure_kpa": 28.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 8.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 8.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.0 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 60.7 vs the Earth-achievable target 5.0.",
-      "Surface pressure (kpa) is 88.7 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 88.7 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 7,
@@ -14393,9 +14393,9 @@
       "surface_pressure_kpa": 39.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 5.7 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 5.7 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 416.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 12.3 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 12.3 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 59.8 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -14456,9 +14456,9 @@
       "surface_pressure_kpa": 39.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 11.4 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 11.4 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 416.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 14.5 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 14.5 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 47.7 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -14519,10 +14519,10 @@
       "surface_pressure_kpa": 29.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 17.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.7 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 17.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.7 vs the Earth-achievable target 35.0.",
       "Median slope over 1920 m is 1.17 deg vs 0.48 deg on the target (2.4x).",
-      "Surface pressure (kpa) is 87.5 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 87.5 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 6,
@@ -14582,9 +14582,9 @@
       "surface_pressure_kpa": 20.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.4 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.0 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 95.3 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 21.4 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.0 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 95.3 vs the Earth-achievable target 33.0.",
       "Median slope over 1920 m is 1.03 deg vs 0.48 deg on the target (2.1x)."
      ],
      "robust": {
@@ -14645,9 +14645,9 @@
       "surface_pressure_kpa": 18.8
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.0 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.5 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 97.0 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 21.0 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.5 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 97.0 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 45.3 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -14708,10 +14708,10 @@
       "surface_pressure_kpa": 34.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 13.8 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 13.8 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 339.7 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 15.4 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 84.1 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 15.4 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 84.1 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 13,
@@ -14771,8 +14771,8 @@
       "surface_pressure_kpa": 35.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 11.8 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.6 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 11.8 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.6 vs the Earth-achievable target 35.0.",
       "Median slope over 1920 m is 1.28 deg vs 0.48 deg on the target (2.6x).",
       "Precipitation (mm/yr) is 241.1 vs the Earth-achievable target 0.0."
      ],
@@ -14834,10 +14834,10 @@
       "surface_pressure_kpa": 16.8
      },
      "gaps": [
-      "Mean daily temperature range (c) is 4.6 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 4.6 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 94.4 vs the Earth-achievable target 5.0.",
       "Precipitation (mm/yr) is 310.5 vs the Earth-achievable target 0.0.",
-      "Surface pressure (kpa) is 99.1 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 99.1 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 15,
@@ -14898,9 +14898,9 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 862.0 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 4.1 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 4.1 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 94.1 vs the Earth-achievable target 5.0.",
-      "Mean annual air temperature (c) is -2.8 vs the Earth-achievable target -50.0."
+      "Mean annual air temperature (C) is -2.8 vs the Earth-achievable target -50.0."
      ],
      "robust": {
       "rank_p10": 17,
@@ -14961,8 +14961,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 719.5 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 13.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.8 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 13.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.8 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 64.0 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -15024,8 +15024,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1957.7 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 27.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 5.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 27.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 5.0 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 83.5 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -15087,8 +15087,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 748.8 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 8.7 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 9.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 8.7 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 9.0 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 81.3 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -15151,8 +15151,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 1895.6 vs the Earth-achievable target 0.0.",
       "Relative humidity (%) is 93.2 vs the Earth-achievable target 5.0.",
-      "Mean daily temperature range (c) is 6.9 vs the Earth-achievable target 35.0.",
-      "Mean annual air temperature (c) is -5.5 vs the Earth-achievable target -50.0."
+      "Mean daily temperature range (C) is 6.9 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is -5.5 vs the Earth-achievable target -50.0."
      ],
      "robust": {
       "rank_p10": 20,
@@ -15212,10 +15212,10 @@
       "surface_pressure_kpa": 27.4
      },
      "gaps": [
-      "Mean annual air temperature (c) is 18.1 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 18.1 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 1.86 deg vs 0.48 deg on the target (3.8x).",
-      "Mean daily temperature range (c) is 16.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 89.3 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 16.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 89.3 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 11,
@@ -15275,10 +15275,10 @@
       "surface_pressure_kpa": 30.3
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.9 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 21.9 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 1.87 deg vs 0.48 deg on the target (3.9x).",
-      "Mean daily temperature range (c) is 15.1 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.1 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 15.1 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.1 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 11,
@@ -15338,8 +15338,8 @@
       "surface_pressure_kpa": 14.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 2.4 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 2.4 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 78.1 vs the Earth-achievable target 5.0.",
       "Median slope over 1920 m is 1.78 deg vs 0.48 deg on the target (3.7x)."
      ],
@@ -15401,10 +15401,10 @@
       "surface_pressure_kpa": 24.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 19.1 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 19.1 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 1.76 deg vs 0.48 deg on the target (3.6x).",
-      "Mean daily temperature range (c) is 14.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 91.7 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 14.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 91.7 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 9,
@@ -15465,9 +15465,9 @@
      },
      "gaps": [
       "Median slope over 1920 m is 3.23 deg vs 0.48 deg on the target (6.7x).",
-      "Mean daily temperature range (c) is 6.1 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 6.1 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 67.5 vs the Earth-achievable target 5.0.",
-      "Surface pressure (kpa) is 81.8 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 81.8 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 12,
@@ -15528,9 +15528,9 @@
      },
      "gaps": [
       "Median slope over 1920 m is 0.08 deg vs 0.48 deg on the target (0.2x).",
-      "Mean annual air temperature (c) is 13.4 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.4 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 92.3 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 13.4 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.4 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 92.3 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 14,
@@ -15591,8 +15591,8 @@
      },
      "gaps": [
       "Median slope over 1920 m is 3.36 deg vs 0.48 deg on the target (6.9x).",
-      "Mean annual air temperature (c) is 2.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 2.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.0 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 241.1 vs the Earth-achievable target 0.0."
      ],
      "robust": {
@@ -15654,9 +15654,9 @@
      },
      "gaps": [
       "Median slope over 1920 m is 0.06 deg vs 0.48 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 7.5 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 7.5 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 332.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 16.6 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 16.6 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 19,
@@ -15717,8 +15717,8 @@
      },
      "gaps": [
       "Median slope over 1920 m is 7.42 deg vs 0.48 deg on the target (15.3x).",
-      "Mean annual air temperature (c) is 20.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 2.2 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 2.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 77.2 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -15780,9 +15780,9 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1610.8 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 20.9 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 20.9 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 3.40 deg vs 0.48 deg on the target (7.0x).",
-      "Mean daily temperature range (c) is 5.2 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 5.2 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 24,
@@ -15844,8 +15844,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 1084.8 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 9.56 deg vs 0.48 deg on the target (19.7x).",
-      "Mean annual air temperature (c) is 15.0 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 9.5 vs the Earth-achievable target 35.0."
+      "Mean annual air temperature (C) is 15.0 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 9.5 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 31,
@@ -15906,9 +15906,9 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 953.3 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 26.1 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 26.1 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 0.10 deg vs 0.48 deg on the target (0.2x).",
-      "Mean daily temperature range (c) is 12.4 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 12.4 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 29,
@@ -15970,7 +15970,7 @@
      "gaps": [
       "Precipitation (mm/yr) is 1380.6 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 10.18 deg vs 0.48 deg on the target (21.0x).",
-      "Mean daily temperature range (c) is 8.2 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 8.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 83.1 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -16079,9 +16079,9 @@
       "surface_pressure_kpa": 30.3
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.1 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.1 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 21.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.1 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.1 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 1,
@@ -16141,9 +16141,9 @@
       "surface_pressure_kpa": 54.0
      },
      "gaps": [
-      "Mean annual air temperature (c) is 4.5 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 71.9 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 4.5 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 71.9 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 30.4 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -16204,9 +16204,9 @@
       "surface_pressure_kpa": 30.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.3 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.3 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 86.8 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 20.3 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.3 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 86.8 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 3,
@@ -16266,9 +16266,9 @@
       "surface_pressure_kpa": 29.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 17.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.5 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 17.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.5 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 44.1 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -16329,9 +16329,9 @@
       "surface_pressure_kpa": 20.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.4 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.0 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 95.3 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 21.4 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.0 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 95.3 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 30.7 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -16392,9 +16392,9 @@
       "surface_pressure_kpa": 24.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 91.5 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 20.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 91.5 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 30.4 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -16455,9 +16455,9 @@
       "surface_pressure_kpa": 27.4
      },
      "gaps": [
-      "Mean annual air temperature (c) is 18.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 16.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 89.3 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 18.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 16.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 89.3 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 41.8 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -16518,9 +16518,9 @@
       "surface_pressure_kpa": 18.8
      },
      "gaps": [
-      "Mean annual air temperature (c) is 21.0 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.5 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 97.0 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 21.0 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.5 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 97.0 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 45.3 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -16581,10 +16581,10 @@
       "surface_pressure_kpa": 16.8
      },
      "gaps": [
-      "Mean daily temperature range (c) is 4.6 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 4.6 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 94.4 vs the Earth-achievable target 5.0.",
       "Precipitation (mm/yr) is 310.5 vs the Earth-achievable target 0.0.",
-      "Surface pressure (kpa) is 99.1 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 99.1 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 3,
@@ -16644,9 +16644,9 @@
       "surface_pressure_kpa": 37.8
      },
      "gaps": [
-      "Mean daily temperature range (c) is 6.1 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 6.1 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 67.5 vs the Earth-achievable target 5.0.",
-      "Surface pressure (kpa) is 81.8 vs the Earth-achievable target 33.0.",
+      "Surface pressure (kPa) is 81.8 vs the Earth-achievable target 33.0.",
       "Median slope over 1920 m is 3.23 deg vs 1.57 deg on the target (2.1x)."
      ],
      "robust": {
@@ -16707,9 +16707,9 @@
       "surface_pressure_kpa": 30.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 22.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.8 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 87.0 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 22.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.8 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 87.0 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 7,
@@ -16769,10 +16769,10 @@
       "surface_pressure_kpa": 35.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 11.8 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.6 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 11.8 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.6 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 241.1 vs the Earth-achievable target 0.0.",
-      "Surface pressure (kpa) is 83.4 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 83.4 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 6,
@@ -16832,9 +16832,9 @@
       "surface_pressure_kpa": 16.9
      },
      "gaps": [
-      "Mean annual air temperature (c) is 22.5 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.2 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 99.0 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 22.5 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.2 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 99.0 vs the Earth-achievable target 33.0.",
       "Relative humidity (%) is 40.8 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -16895,10 +16895,10 @@
       "surface_pressure_kpa": 28.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 8.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 13.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 8.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 13.0 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 60.7 vs the Earth-achievable target 5.0.",
-      "Surface pressure (kpa) is 88.7 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 88.7 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 9,
@@ -16958,10 +16958,10 @@
       "surface_pressure_kpa": 16.2
      },
      "gaps": [
-      "Mean annual air temperature (c) is 33.6 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.6 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 33.6 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.6 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 295.9 vs the Earth-achievable target 0.0.",
-      "Surface pressure (kpa) is 99.7 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 99.7 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 7,
@@ -17021,9 +17021,9 @@
       "surface_pressure_kpa": 24.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 19.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 14.7 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 91.7 vs the Earth-achievable target 33.0.",
+      "Mean annual air temperature (C) is 19.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 14.7 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 91.7 vs the Earth-achievable target 33.0.",
       "Precipitation (mm/yr) is 124.2 vs the Earth-achievable target 0.0."
      ],
      "robust": {
@@ -17084,10 +17084,10 @@
       "surface_pressure_kpa": 14.7
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 2.4 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 2.4 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 78.1 vs the Earth-achievable target 5.0.",
-      "Surface pressure (kpa) is 101.5 vs the Earth-achievable target 33.0."
+      "Surface pressure (kPa) is 101.5 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 11,
@@ -17147,9 +17147,9 @@
       "surface_pressure_kpa": 39.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 11.4 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 11.4 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 416.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 14.5 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 14.5 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 47.7 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -17210,10 +17210,10 @@
       "surface_pressure_kpa": 34.5
      },
      "gaps": [
-      "Mean annual air temperature (c) is 13.8 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 13.8 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 339.7 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 15.4 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 84.1 vs the Earth-achievable target 33.0."
+      "Mean daily temperature range (C) is 15.4 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 84.1 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 9,
@@ -17273,8 +17273,8 @@
       "surface_pressure_kpa": 74.2
      },
      "gaps": [
-      "Mean annual air temperature (c) is 2.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 15.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 2.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 15.0 vs the Earth-achievable target 35.0.",
       "Precipitation (mm/yr) is 241.1 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 3.36 deg vs 1.57 deg on the target (2.1x)."
      ],
@@ -17337,9 +17337,9 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 862.0 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 4.1 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 4.1 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 94.1 vs the Earth-achievable target 5.0.",
-      "Mean annual air temperature (c) is -2.8 vs the Earth-achievable target -50.0."
+      "Mean annual air temperature (C) is -2.8 vs the Earth-achievable target -50.0."
      ],
      "robust": {
       "rank_p10": 12,
@@ -17401,8 +17401,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 1895.6 vs the Earth-achievable target 0.0.",
       "Relative humidity (%) is 93.2 vs the Earth-achievable target 5.0.",
-      "Mean daily temperature range (c) is 6.9 vs the Earth-achievable target 35.0.",
-      "Mean annual air temperature (c) is -5.5 vs the Earth-achievable target -50.0."
+      "Mean daily temperature range (C) is 6.9 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is -5.5 vs the Earth-achievable target -50.0."
      ],
      "robust": {
       "rank_p10": 15,
@@ -17462,9 +17462,9 @@
       "surface_pressure_kpa": 39.1
      },
      "gaps": [
-      "Mean annual air temperature (c) is 5.7 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 5.7 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 416.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 12.3 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 12.3 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 59.8 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -17526,8 +17526,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 748.8 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 8.7 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 9.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 8.7 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 9.0 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 81.3 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -17589,8 +17589,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1610.8 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 20.9 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 5.2 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.9 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 5.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 82.0 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -17652,9 +17652,9 @@
      },
      "gaps": [
       "Median slope over 1920 m is 0.08 deg vs 1.57 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 13.4 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.4 vs the Earth-achievable target 35.0.",
-      "Surface pressure (kpa) is 92.3 vs the Earth-achievable target 33.0."
+      "Mean annual air temperature (C) is 13.4 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.4 vs the Earth-achievable target 35.0.",
+      "Surface pressure (kPa) is 92.3 vs the Earth-achievable target 33.0."
      ],
      "robust": {
       "rank_p10": 22,
@@ -17715,8 +17715,8 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 1957.7 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 27.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 5.0 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 27.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 5.0 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 83.5 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -17778,9 +17778,9 @@
      },
      "gaps": [
       "Median slope over 1920 m is 0.06 deg vs 1.57 deg on the target (0.0x).",
-      "Mean annual air temperature (c) is 7.5 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 7.5 vs the Earth-achievable target -50.0.",
       "Precipitation (mm/yr) is 332.4 vs the Earth-achievable target 0.0.",
-      "Mean daily temperature range (c) is 16.6 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 16.6 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 26,
@@ -17842,8 +17842,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 1084.8 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 9.56 deg vs 1.57 deg on the target (6.1x).",
-      "Mean annual air temperature (c) is 15.0 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 9.5 vs the Earth-achievable target 35.0."
+      "Mean annual air temperature (C) is 15.0 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 9.5 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 27,
@@ -17905,7 +17905,7 @@
      "gaps": [
       "Precipitation (mm/yr) is 1380.6 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 10.18 deg vs 1.57 deg on the target (6.5x).",
-      "Mean daily temperature range (c) is 8.2 vs the Earth-achievable target 35.0.",
+      "Mean daily temperature range (C) is 8.2 vs the Earth-achievable target 35.0.",
       "Relative humidity (%) is 83.1 vs the Earth-achievable target 5.0."
      ],
      "robust": {
@@ -17966,8 +17966,8 @@
       "surface_pressure_kpa": 15.8
      },
      "gaps": [
-      "Mean annual air temperature (c) is 20.2 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 2.2 vs the Earth-achievable target 35.0.",
+      "Mean annual air temperature (C) is 20.2 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 2.2 vs the Earth-achievable target 35.0.",
       "Median slope over 1920 m is 7.42 deg vs 1.57 deg on the target (4.7x).",
       "Relative humidity (%) is 77.2 vs the Earth-achievable target 5.0."
      ],
@@ -18030,9 +18030,9 @@
      },
      "gaps": [
       "Precipitation (mm/yr) is 719.5 vs the Earth-achievable target 0.0.",
-      "Mean annual air temperature (c) is 13.2 vs the Earth-achievable target -50.0.",
+      "Mean annual air temperature (C) is 13.2 vs the Earth-achievable target -50.0.",
       "Median slope over 1920 m is 0.42 deg vs 1.57 deg on the target (0.3x).",
-      "Mean daily temperature range (c) is 12.8 vs the Earth-achievable target 35.0."
+      "Mean daily temperature range (C) is 12.8 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 28,
@@ -18094,8 +18094,8 @@
      "gaps": [
       "Precipitation (mm/yr) is 953.3 vs the Earth-achievable target 0.0.",
       "Median slope over 1920 m is 0.10 deg vs 1.57 deg on the target (0.1x).",
-      "Mean annual air temperature (c) is 26.1 vs the Earth-achievable target -50.0.",
-      "Mean daily temperature range (c) is 12.4 vs the Earth-achievable target 35.0."
+      "Mean annual air temperature (C) is 26.1 vs the Earth-achievable target -50.0.",
+      "Mean daily temperature range (C) is 12.4 vs the Earth-achievable target 35.0."
      ],
      "robust": {
       "rank_p10": 31,

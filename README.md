@@ -62,7 +62,7 @@ pip install -r requirements.txt
 python -m src.global_search                         # downloads real data (cached in cache/), writes dashboard/global_results.json
 python -m http.server --directory dashboard 8000    # open http://localhost:8000/
 ```
-Open the **Global Search** tab, choose a Moon or Mars target, change the mission-priority sliders, and click any region.
+Open the app, choose Mars or the Moon and a target, change the mission-priority presets, and click any region. The **Method and evidence** page lists validation, limits and references. The original synthetic demo is at `legacy.html`.
 
 Tests (offline): `python -m unittest discover -s tests -v`. Browser tests also need `pip install -r requirements-dev.txt && python -m playwright install chromium`.
 
@@ -73,14 +73,14 @@ src/geodata.py           Fetch LOLA, MOLA, terrain tiles, NASA POWER
 src/multiscale.py        Baseline slope signatures, sliding windows, water masking
 src/analog_score.py      Terrain/environment/geology similarity, aggregation, robustness, AUC
 src/global_search.py     End-to-end pipeline and CLI
-dashboard/               Static web app (Global Search tab plus the original v1 demo tabs)
+dashboard/               Static web app: index.html + app.css + app.js (main), legacy.html (v1 synthetic demo)
 tests/                   Unit tests for v2 and for the v1 pipeline
 main.py, src/terrain_metrics.py, similarity_matcher.py, synthetic_generator.py
                          v1 synthetic-terrain demo, kept for the original tabs and tests
 ```
 
 ## v1 synthetic demo (legacy)
-`python main.py --target moon --json-out` and `--target mars` still regenerate the calibrated synthetic-terrain demo used by the dashboard's "Explore Sites" and "Compare" tabs. Those scores are **not** measurements; use Global Search for real-data results.
+`python main.py --target moon --json-out` and `--target mars` still regenerate the calibrated synthetic-terrain demo used by `dashboard/legacy.html`. Those scores are **not** measurements; use the main app for real-data results.
 
 ## Open data and references
 LRO LOLA (NASA PGDA), MGS MOLA (USGS Astrogeology), AWS Terrain Tiles (SRTM, NASADEM, ArcticDEM and others), NASA POWER. References are listed in the dashboard and in [docs/SCIENTIFIC_METHODOLOGY.md](docs/SCIENTIFIC_METHODOLOGY.md).

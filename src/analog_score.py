@@ -109,7 +109,7 @@ def describe_gaps(target_sig, candidate_sig, site_climate, env_target, valid_bas
         diff = value - env_target[name]
         gaps.append((
             abs(diff) / env_sigma[name],
-            f"{FEATURE_LABELS[name].capitalize()} is {value:.1f} vs the Earth-achievable target {env_target[name]:.1f}.",
+            f"{FEATURE_LABELS[name][0].upper() + FEATURE_LABELS[name][1:]} is {value:.1f} vs the Earth-achievable target {env_target[name]:.1f}.",
         ))
     gaps.sort(key=lambda item: item[0], reverse=True)
     return [text for score, text in gaps[:limit] if score > 0.75]
