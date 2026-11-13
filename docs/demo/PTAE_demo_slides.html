@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PTAE demo slides (7)</title>
+<style>
+@page { size: 1280px 720px; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #0f1113; }
+body { font: 22px/1.45 ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif; color: #e9e6df; }
+.slide { width: 1280px; height: 720px; padding: 52px 64px; page-break-after: always; break-after: page; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+.slide:last-child { page-break-after: auto; break-after: auto; }
+.kicker { font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: #e3a84a; margin-bottom: 14px; }
+h1 { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-weight: 600; font-size: 54px; line-height: 1.1; }
+h2 { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-weight: 600; font-size: 40px; line-height: 1.15; margin-bottom: 22px; }
+p, li { color: #b9bcc0; }
+strong { color: #e9e6df; }
+ul { padding-left: 26px; display: grid; gap: 12px; align-content: start; }
+.foot { position: absolute; left: 64px; right: 64px; bottom: 26px; display: flex; justify-content: space-between; font-size: 14px; color: #737a82; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; flex: 1; min-height: 0; }
+.card { border: 1px solid #2a2f35; border-radius: 6px; padding: 18px 22px; background: #15181b; }
+.card h3 { font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: #a0a5ab; font-weight: 600; margin-bottom: 8px; }
+.flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 8px; }
+.flow .card { font-size: 18px; }
+.flow .card b { display: block; color: #e3a84a; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+.shot { border: 1px solid #2a2f35; border-radius: 6px; width: 100%; display: block; }
+.big { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 40px; color: #e3a84a; }
+.members { font-size: 18px; color: #a0a5ab; margin-top: 28px; line-height: 1.7; }
+table { border-collapse: collapse; width: 100%; font-size: 20px; }
+td, th { text-align: left; padding: 8px 10px; border-bottom: 1px solid #2a2f35; color: #b9bcc0; }
+th { color: #737a82; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+td.n { color: #e9e6df; font-family: ui-monospace, Menlo, Consolas, monospace; }
+a { color: #e3a84a; }
+</style>
+</head>
+<body>
+
+<section class="slide" style="justify-content:center">
+  <div class="kicker">NASA Space Apps Challenge 2026 &middot; Local event: Mymensingh</div>
+  <h1>PTAE: Planetary Terrestrial<br>Analog Engine</h1>
+  <p style="margin-top:20px;font-size:26px;max-width:900px">Which places on Earth can rehearse the Moon and Mars, and where does each analogy fail?</p>
+  <p style="margin-top:26px"><strong>Team ASL ASTRONEX</strong> &middot; Challenge: <strong>Identify Earth Locations that Analog the Permanent Moon Base Locations and Mars</strong></p>
+  <div class="members">Md. Jubaer Hossain Fahad (leader) &middot; A. K. M. Sifatullah Hil Sadik &middot; Md. Hamidul Haque Hridoy<br>Mim Akter &middot; Md. Digonto &middot; Shahriar Khan Antu</div>
+  <div class="foot"><span>Slide 1 of 7</span><span>jfjubayer.github.io/nasa-space-apps-2026-ptae</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">The problem</div>
+  <h2>Analog sites are chosen by tradition, and Earth is never a perfect stand-in</h2>
+  <div class="cols">
+    <div>
+      <ul>
+        <li>Mission teams reuse a short list: Atacama, Haughton, Antarctica, Iceland, Hawaii.</li>
+        <li>The challenge asks for <strong>new</strong>, well-characterized analogs, not just rediscovered ones.</li>
+        <li>It also asks us to explain <strong>what matches, how well, and where the analogy breaks down</strong>.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Our answer</h3>
+      <ul>
+        <li>Scan <strong>33 Earth regions</strong>: 14 benchmarks, 14 less-studied, 5 negative controls.</li>
+        <li>Compare with <strong>8 Moon and Mars targets</strong> on real data.</li>
+        <li>Show the best 40 km window, the evidence, and the limits for every match.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>Slide 2 of 7</span><span>PTAE</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">NASA data make it possible</div>
+  <h2>Real elevation and climate, compared at matched ground scales</h2>
+  <div class="flow">
+    <div class="card"><b>1. Data</b>LRO <strong>LOLA</strong> (Moon), MGS <strong>MOLA</strong> (Mars), SRTM-based Earth elevation, <strong>NASA POWER</strong> climate.</div>
+    <div class="card"><b>2. Terrain</b>Slope over identical ground baselines (240 m to 3.84 km), so 20 m, 30 m and 463 m data compare fairly.</div>
+    <div class="card"><b>3. Three dimensions</b>Terrain and climate are measured. Geology is curated and labelled as such.</div>
+    <div class="card"><b>4. Score</b>Geometric mean: a site must pass every dimension. Sliding windows find the best sub-region.</div>
+  </div>
+  <p style="margin-top:34px;max-width:1000px">Environmental targets are clipped to what Earth can actually reach, so a high score means <strong>&ldquo;as close as Earth gets&rdquo;</strong>, never equal.</p>
+  <div class="foot"><span>Slide 3 of 7</span><span>Open data only</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">The tool</div>
+  <h2 style="margin-bottom:14px">Pick a target, rank the Earth, see where to go</h2>
+  <img class="shot" src="app_ranking.png" alt="PTAE dashboard: world map and ranking for Jezero Crater" style="max-height:470px;object-fit:contain;object-position:left top">
+  <p style="margin-top:12px;font-size:18px">Map shows the best 40 km window (yellow box). Ranking updates instantly when mission priorities change.</p>
+  <div class="foot"><span>Slide 4 of 7</span><span>Live demo link on slide 7</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">The evidence</div>
+  <h2 style="margin-bottom:14px">Every match says where it holds and where it breaks down</h2>
+  <img class="shot" src="app_evidence.png" alt="PTAE evidence panel for a selected region" style="max-height:410px;object-fit:contain;object-position:left top">
+  <p style="margin-top:12px;font-size:18px">Includes slope-versus-scale chart, rank stability over 1000 random weightings, and what no Earth site can reproduce (gravity, pressure, radiation).</p>
+  <div class="foot"><span>Slide 5 of 7</span><span>PTAE</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Findings and validity</div>
+  <h2>Mars favours little-studied deserts; Moon results are weaker</h2>
+  <div class="cols">
+    <div>
+      <table>
+        <tr><th>Mars (mean of 6 targets)</th><th>ACI</th></tr>
+        <tr><td>Gilf Kebir, Egypt</td><td class="n">51</td></tr>
+        <tr><td>Dasht-e Lut, Iran</td><td class="n">50</td></tr>
+        <tr><td>Qaidam Basin, China</td><td class="n">48</td></tr>
+        <tr><td>Pinacate, Mexico</td><td class="n">45</td></tr>
+        <tr><td>Atacama (Yungay), Chile</td><td class="n">38</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>Does it work?</h3>
+      <p>5 deliberate <strong>negative controls</strong> (rainforest, plains, glaciated and monsoon mountains) rank below real candidates:</p>
+      <p style="margin-top:10px"><span class="big">0.84</span> Mars &nbsp; <span class="big" style="color:#d9785f">0.66</span> Moon <span style="font-size:16px">(AUC; 0.5 = chance)</span></p>
+      <p style="margin-top:12px;font-size:19px">Lunar polar terrain is rugged, so steep mountains also match it. We report this and treat Moon rankings as hypotheses.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Slide 6 of 7</span><span>Default weights; moon: Death Valley 44, McMurdo 42, Tibesti 37</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Impact, limits, next steps</div>
+  <h2>A screening tool that says where to look next</h2>
+  <div class="cols">
+    <ul>
+      <li><strong>Impact:</strong> shortlists under-used analog regions and shows what each can and cannot test.</li>
+      <li><strong>Limits:</strong> gridded MOLA is coarse; NASA POWER is a 0.5&deg; reanalysis; geology tags are judgement.</li>
+      <li><strong>Next:</strong> HiRISE/CTX for rover-scale roughness, Diviner temperature and illumination for the Moon, mineral maps.</li>
+    </ul>
+    <div class="card">
+      <h3>Links and AI disclosure</h3>
+      <p>Demo: <a href="https://jfjubayer.github.io/nasa-space-apps-2026-ptae/">jfjubayer.github.io/nasa-space-apps-2026-ptae</a></p>
+      <p style="margin-top:6px">Code: <a href="https://github.com/JFJubayer/nasa-space-apps-2026-ptae">github.com/JFJubayer/nasa-space-apps-2026-ptae</a></p>
+      <p style="margin-top:14px;font-size:18px"><strong>SI use:</strong> an AI assistant drafted the first prototype; GitHub Copilot helped build the real-data pipeline, dashboard, tests and docs. The team chose the data and validity checks.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Slide 7 of 7</span><span>Independent participant project; not endorsed by NASA</span></div>
+</section>
+
+</body>
+</html>

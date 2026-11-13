@@ -197,6 +197,7 @@
         }).addTo(state.map);
         state.markerLayer = L.layerGroup().addTo(state.map);
         state.windowLayer = L.layerGroup().addTo(state.map);
+        new ResizeObserver(() => state.map.invalidateSize()).observe($('gs-map'));
     }
 
     function renderMap() {
