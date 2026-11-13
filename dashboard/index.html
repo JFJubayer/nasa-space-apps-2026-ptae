@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="https://cesium.com/downloads/cesiumjs/releases/1.146/Build/Cesium/Widgets/widgets.css">
+    <link rel="stylesheet" href="global-search.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
@@ -2203,13 +2204,14 @@
         <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle" aria-controls="workspace-nav" aria-expanded="false" onclick="toggleMobileSidebar()"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span>Menu</span></button>
         <nav class="nav-tabs" id="workspace-nav" role="tablist" aria-label="PTAE workspace">
             <a href="#home-section" class="tab-btn active" id="tab-home" data-section="home-section" data-pane="map-tab" role="tab" aria-selected="true" aria-controls="home-section" onclick="navigateToDashboardSection('home-section','map-tab','tab-home'); return false;" title="Home"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1V10Z"/></svg><span>Home</span></a>
+            <a href="#global-section" class="tab-btn" id="tab-global" data-section="global-section" data-pane="global-tab" role="tab" aria-selected="false" aria-controls="global-section" onclick="navigateToDashboardSection('global-section','global-tab','tab-global'); return false;" title="Global analog search on real data"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span>Global Search</span></a>
             <a href="#explore-section" class="tab-btn" id="tab-map" data-section="explore-section" data-pane="map-tab" role="tab" aria-selected="false" aria-controls="explore-section" onclick="navigateToDashboardSection('explore-section','map-tab','tab-map'); return false;" title="Explore candidate sites"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Explore Sites</span></a>
             <a href="#compare-section" class="tab-btn" id="tab-terrain3d" data-section="compare-section" data-pane="terrain3d-tab" role="tab" aria-selected="false" aria-controls="compare-section" onclick="navigateToDashboardSection('compare-section','terrain3d-tab','tab-terrain3d'); return false;" title="Compare locations"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 19 6-10 4 6 3-4 5 8H3Z"/><path d="m8 11 1 2 2-1"/></svg><span>Compare</span></a>
             <a href="#science-section" class="tab-btn" id="tab-data" data-section="science-section" data-pane="data-tab" role="tab" aria-selected="false" aria-controls="science-section" onclick="navigateToDashboardSection('science-section','data-tab','tab-data'); return false;" title="Science and data"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5c0-1.1 3.6-2 8-2s8 .9 8 2-3.6 2-8 2-8-.9-8-2Z"/><path d="M4 5v7c0 1.1 3.6 2 8 2s8-.9 8-2V5M4 12v7c0 1.1 3.6 2 8 2s8-.9 8-2v-7"/></svg><span>Science &amp; Data</span></a>
             <a href="#about-section" class="tab-btn" id="tab-about" data-section="about-section" data-pane="about-tab" role="tab" aria-selected="false" aria-controls="about-section" onclick="navigateToDashboardSection('about-section','about-tab','tab-about'); return false;" title="About PTAE"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span>About PTAE</span></a>
         </nav>
         <blockquote class="sidebar-quote">“From Earth Data to Mission Readiness.”<cite>PTAE project tagline</cite></blockquote>
-        <div class="sidebar-status" role="status"><strong>Demo data</strong><span>Python demo rankings<br>Real-data validation available</span></div>
+        <div class="sidebar-status" role="status"><strong>Real open data</strong><span>LOLA, MOLA, SRTM-based DEMs<br>NASA POWER climate</span></div>
     </aside>
 
     <div class="dashboard-main">
@@ -2259,47 +2261,144 @@
     <!-- MAIN APP CONTENT -->
     <main>
         
+        <!-- GLOBAL SEARCH (real data) -->
+        <div class="tab-pane" id="global-tab" role="tabpanel" aria-labelledby="tab-global">
+            <section class="content-section" id="global-section" aria-labelledby="global-heading">
+                <div class="section-heading">
+                    <div><span class="eyebrow">Real open data, 33 Earth regions, 8 Moon and Mars targets</span><h2 id="global-heading">Global Analog Search</h2></div>
+                    <p>Scans 40 km windows across each region and scores them on terrain, climate and geology. Includes less-studied regions and negative controls.</p>
+                </div>
+                <p class="results-load-error" id="gs-status" role="alert" hidden></p>
+                <div class="gs-stat-grid" id="gs-stat-grid" aria-label="Headline findings"></div>
+
+                <div class="card">
+                    <div class="gs-controls">
+                        <div class="gs-field">
+                            <label for="gs-target">Moon or Mars target</label>
+                            <select id="gs-target"></select>
+                            <label for="gs-category" style="margin-top:8px">Show</label>
+                            <select id="gs-category">
+                                <option value="all">All regions</option>
+                                <option value="emerging">Less-studied (emerging) only</option>
+                                <option value="benchmark">Established benchmarks only</option>
+                                <option value="control">Negative controls only</option>
+                            </select>
+                            <label for="gs-aggregation" style="margin-top:8px">Combine dimensions</label>
+                            <select id="gs-aggregation">
+                                <option value="geometric">Geometric (must pass every dimension)</option>
+                                <option value="additive">Additive (strength can offset weakness)</option>
+                            </select>
+                        </div>
+                        <div class="gs-field">
+                            <span class="gs-label">Mission priority (dimension weights)</span>
+                            <div class="gs-preset-row" id="gs-presets"></div>
+                            <div class="gs-sliders">
+                                <label class="gs-slider" for="gs-w-terrain">Terrain <output id="gs-w-terrain-out">50</output><input type="range" id="gs-w-terrain" min="0" max="100" step="5" value="50"></label>
+                                <label class="gs-slider" for="gs-w-environment">Environment <output id="gs-w-environment-out">25</output><input type="range" id="gs-w-environment" min="0" max="100" step="5" value="25"></label>
+                                <label class="gs-slider" for="gs-w-geology">Geology <output id="gs-w-geology-out">25</output><input type="range" id="gs-w-geology" min="0" max="100" step="5" value="25"></label>
+                            </div>
+                            <p class="gs-note">Terrain and environment are measured from NASA data; geology is a curated prior. Rankings update instantly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gs-main">
+                    <div class="card">
+                        <div class="card-header"><div><span class="eyebrow">Where on Earth</span><h2>World map</h2></div><button type="button" class="gs-btn" id="gs-reset-view">Reset view</button></div>
+                        <div id="gs-map" class="gs-map" role="application" aria-label="Map of candidate Earth regions"></div>
+                        <div class="gs-legend"><span><i class="gs-dot" style="background:#ffd783"></i>High ACI</span><span><i class="gs-dot" style="background:#3a8fc0"></i>Low ACI</span><span><i class="gs-dot" style="background:#8493a3"></i>Negative control</span><span>Yellow box: best 40 km window in the selected region</span></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><div><span class="eyebrow">Ranking</span><h2>Analog Compatibility Index</h2></div></div>
+                        <div class="gs-table-wrap">
+                            <table class="gs-table">
+                                <thead><tr><th>#</th><th>Region</th><th>ACI</th><th></th><th title="Terrain similarity">T</th><th title="Environment similarity">E</th><th title="Geology similarity">G</th></tr></thead>
+                                <tbody id="gs-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" id="gs-detail" hidden>
+                    <div class="card-header"><div><span class="eyebrow">Evidence for the selected region</span><h2 id="gs-detail-title"></h2><p class="gs-note" id="gs-detail-sub"></p></div></div>
+                    <div class="gs-detail">
+                        <div>
+                            <h3>Similarity by dimension</h3>
+                            <div id="gs-dims"></div>
+                            <h3 style="margin-top:12px">Environment, by feature</h3>
+                            <div id="gs-features"></div>
+                            <p class="gs-note" id="gs-climate"></p>
+                            <p class="gs-note" id="gs-robust" style="margin-top:6px"></p>
+                            <p class="gs-note" id="gs-window" style="margin-top:6px"></p>
+                        </div>
+                        <div>
+                            <h3>Slope versus baseline length (log scale)</h3>
+                            <div class="gs-chart-box"><canvas id="gs-slope-chart" aria-label="Median and 90th percentile slope against baseline length for the site and target" role="img"></canvas></div>
+                        </div>
+                        <div class="gs-holds" id="gs-holds"></div>
+                        <div class="gs-breaks" id="gs-breaks"></div>
+                    </div>
+                </div>
+
+                <div class="gs-two">
+                    <div class="card">
+                        <div class="card-header"><div><span class="eyebrow">Earth's limits</span><h2>What no Earth site can reproduce</h2></div></div>
+                        <div class="table-scroll"><table class="data-table"><thead><tr><th>Condition</th><th>Earth</th><th>Moon</th><th>Mars</th></tr></thead><tbody id="gs-gap-body"></tbody></table></div>
+                        <p class="gs-note" id="gs-gap-note" style="margin-top:8px"></p>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><div><span class="eyebrow">Validation and caveats</span><h2>How far to trust this</h2></div></div>
+                        <ul class="gs-validation-list" id="gs-validation-list"></ul>
+                    </div>
+                </div>
+                <div class="gs-two">
+                    <div class="card"><div class="card-header"><div><span class="eyebrow">Open data used</span><h2>Data sources</h2></div></div><ul class="gs-validation-list" id="gs-method-data"></ul></div>
+                    <div class="card"><div class="card-header"><div><span class="eyebrow">Literature</span><h2>References</h2></div></div><ul class="gs-validation-list" id="gs-refs"></ul></div>
+                </div>
+            </section>
+        </div>
+
         <!-- TAB 1: GLOBAL MAP & LEADERBOARD -->
         <div class="tab-pane active" id="map-tab" role="tabpanel" aria-labelledby="tab-map">
             <section class="content-section home-section" id="home-section" aria-labelledby="home-heading">
                 <div class="section-heading">
                     <div><span class="eyebrow">Mission overview</span><h2 id="home-heading">Home</h2></div>
-                    <p>Explore demo rankings and real-data window sensitivity for planetary analogs.</p>
+                <p>Explore real-data analog rankings, then inspect the original synthetic-terrain demo.</p>
                 </div>
-                <p class="start-here-hint" id="start-here-hint" role="status">Start here: choose Earth, Moon, or Mars, then select a site to inspect its JSON-backed ACI.</p>
+                <p class="start-here-hint" id="start-here-hint" role="status">Start here: open Global Search, choose a Moon or Mars target, and click any Earth region to see where the analogy holds and where it breaks down.</p>
                 <div class="key-takeaways-grid" aria-label="Key takeaways from loaded result data">
                     <article class="key-takeaway-card">
-                        <div class="takeaway-card-heading"><h3>Moon demo leader</h3><span class="evidence-badge synthetic">Calibrated synthetic</span></div>
+                        <div class="takeaway-card-heading"><h3>Best Moon analog</h3><span class="evidence-badge real-data">Real open data</span></div>
                         <strong class="takeaway-site json-loading-skeleton" id="takeaway-moon-site">Loading result JSON…</strong>
                         <span class="takeaway-score" id="takeaway-moon-score">—</span>
                         <span class="takeaway-breakdown" id="takeaway-moon-breakdown"></span>
                     </article>
                     <article class="key-takeaway-card">
-                        <div class="takeaway-card-heading"><h3>Mars demo leader</h3><span class="evidence-badge synthetic">Calibrated synthetic</span></div>
+                        <div class="takeaway-card-heading"><h3>Best Mars analog</h3><span class="evidence-badge real-data">Real open data</span></div>
                         <strong class="takeaway-site json-loading-skeleton" id="takeaway-mars-site">Loading result JSON…</strong>
                         <span class="takeaway-score" id="takeaway-mars-score">—</span>
                         <span class="takeaway-breakdown" id="takeaway-mars-breakdown"></span>
                     </article>
                     <article class="key-takeaway-card">
-                        <div class="takeaway-card-heading"><h3>Real-data check</h3><span class="evidence-badge real-data">Window validation</span></div>
-                        <p class="takeaway-verdict json-loading-skeleton" id="takeaway-validation">Loading window sensitivity results…</p>
+                        <div class="takeaway-card-heading"><h3>Negative-control check</h3><span class="evidence-badge real-data">Validation</span></div>
+                        <p class="takeaway-verdict json-loading-skeleton" id="takeaway-validation">Loading global search results…</p>
                     </article>
                 </div>
                 <div class="how-it-works" aria-labelledby="workflow-heading">
                     <div class="section-heading compact"><div><span class="eyebrow">Method at a glance</span><h2 id="workflow-heading">How PTAE Works</h2></div></div>
                     <ol class="workflow-strip">
-                        <li><span class="workflow-step">01</span><strong>Target terrain (DEM)</strong><small>Load the planetary target elevation model.</small></li>
-                        <li><span class="workflow-step">02</span><strong>Terrain signature</strong><small>Measure slope, roughness / TRI, and relief.</small></li>
-                        <li><span class="workflow-step">03</span><strong>Similarity + bonus</strong><small>Compare five metrics and environmental flags.</small></li>
-                        <li><span class="workflow-step">04</span><strong>Ranked analogs</strong><small>Sort Earth candidates by final ACI.</small></li>
+                        <li><span class="workflow-step">01</span><strong>Real elevation data</strong><small>LOLA and MOLA targets; SRTM-based Earth DEMs at one 120 m grid.</small></li>
+                        <li><span class="workflow-step">02</span><strong>Multi-scale signature</strong><small>Slope over matched ground baselines, so scale and resolution cancel.</small></li>
+                        <li><span class="workflow-step">03</span><strong>Three dimensions</strong><small>Terrain, NASA POWER climate and curated geology, combined non-compensatorily.</small></li>
+                        <li><span class="workflow-step">04</span><strong>Honest ranking</strong><small>Uncertainty, negative controls, and where each analogy breaks down.</small></li>
                     </ol>
                 </div>
             </section>
 
             <section class="content-section" id="explore-section" aria-labelledby="explore-heading">
                 <div class="section-heading">
-                    <div><span class="eyebrow">Candidate locations</span><h2 id="explore-heading">Explore Sites</h2></div>
-                    <p>Browse Earth sites, inspect JSON-backed rankings, and review each site's terrain profile.</p>
+                    <div><span class="eyebrow">Synthetic-terrain demo (v1)</span><h2 id="explore-heading">Explore Sites</h2></div>
+                    <p>Original five-site demo on calibrated synthetic terrain. See Global Search for the real-data ranking.</p>
                 </div>
             <div class="layout-grid">
                 <!-- Map and Details -->
@@ -2873,7 +2972,7 @@
                     { src: 'assets/sites/hawaii-mauna-kea/2.webp', alt: 'Mauna Kea cinder cones on the Big Island of Hawaii', caption: 'Mauna Kea Cinder Cones, Hawaii', credit: 'Robert Linsdell', license: 'CC BY 2.0' },
                     { src: 'assets/sites/hawaii-mauna-kea/3.webp', alt: 'Puʻu ka Pele cinder cone on the southeast flank of Mauna Kea', caption: 'Puʻu ka Pele cinder cone', credit: 'J.P. Lockwood, USGS employee', license: 'Public domain (USGS)' }
                 ],
-                desc: 'A basaltic volcanic tephra candidate described in project notes in connection with lunar regolith simulant work. This dashboard does not provide compositional measurements or independently verify that context.'
+                desc: 'A basaltic tephra candidate. Palagonitic Mauna Kea tephra is the source of the JSC Mars-1 regolith simulant. This dashboard does not provide compositional measurements.'
             }
         ];
 
@@ -3281,6 +3380,7 @@
         function observeDashboardSections() {
             const sectionLinks = new Map([
                 ['home-section', 'tab-home'],
+                ['global-section', 'tab-global'],
                 ['explore-section', 'tab-map'],
                 ['validation-section', 'tab-map'],
                 ['compare-section', 'tab-terrain3d'],
@@ -3366,6 +3466,7 @@
         }
 
         function updateKeyTakeaways() {
+            if (window.__ptaeGlobal) return;
             for (const target of ['moon', 'mars']) {
                 const result = scoreResults[target]?.rankings?.find(candidate => candidate.rank === 1);
                 const site = document.getElementById(`takeaway-${target}-site`);
@@ -5963,5 +6064,6 @@
             loadWindowSensitivity();
         });
     </script>
+    <script src="global-search.js"></script>
 </body>
 </html>

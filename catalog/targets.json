@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "note": "Moon and Mars target regions compared against Earth candidates. Coordinates are approximate region centres (east longitude, -180..180 or 0..360 accepted). Tags use the same vocabulary as earth_sites.json and describe what mission planners want an Earth analog to offer for this target (curated, not derived from data).",
+  "targets": [
+    {"id": "shackleton-crater", "name": "Shackleton Crater rim, Lunar south pole", "body": "moon", "lat": -89.90, "lon": 132.3,
+     "dem": "LRO LOLA 20 m south-polar DEM (LDEM_80S_20MPP_ADJ)",
+     "tags": {"impact": 1, "polar_cold": 1, "ground_ice": 1, "hyper_arid": 1, "aeolian": 0},
+     "why": "Permanently shadowed crater floor holds volatile ices; rim has near-continuous sunlight. Artemis-region focus."},
+    {"id": "malapert-massif", "name": "Malapert Massif, Lunar south pole region", "body": "moon", "lat": -86.00, "lon": 0.0,
+     "dem": "LRO LOLA 20 m south-polar DEM (LDEM_80S_20MPP_ADJ)",
+     "tags": {"impact": 1, "polar_cold": 1, "hyper_arid": 1, "ground_ice": 0.5},
+     "why": "Rugged highland massif with Earth line-of-sight and long solar illumination; candidate Artemis and CLPS site."},
+    {"id": "jezero-crater", "name": "Jezero Crater, Mars", "body": "mars", "lat": 18.4, "lon": 77.6,
+     "dem": "MGS MOLA 463 m global DEM mosaic (USGS)",
+     "tags": {"impact": 1, "fluvial_paleo": 1, "alteration": 1, "basaltic": 1, "aeolian": 0.5, "hyper_arid": 1, "evaporites": 0.5},
+     "why": "Ancient delta and carbonate-bearing basaltic crater floor; Perseverance landing site."},
+    {"id": "gale-crater", "name": "Gale Crater, Mars", "body": "mars", "lat": -5.4, "lon": 137.8,
+     "dem": "MGS MOLA 463 m global DEM mosaic (USGS)",
+     "tags": {"impact": 1, "alteration": 1, "evaporites": 1, "aeolian": 1, "fluvial_paleo": 0.5, "hyper_arid": 1},
+     "why": "Layered clay and sulfate mound inside an impact crater with active dunes; Curiosity landing site."},
+    {"id": "gusev-crater", "name": "Gusev Crater, Mars", "body": "mars", "lat": -14.5, "lon": 175.5,
+     "dem": "MGS MOLA 463 m global DEM mosaic (USGS)",
+     "tags": {"impact": 1, "basaltic": 1, "fluvial_paleo": 0.5, "aeolian": 1, "hyper_arid": 1},
+     "why": "Basaltic plains in a crater breached by Ma'adim Vallis; Spirit landing site."},
+    {"id": "meridiani-planum", "name": "Meridiani Planum, Mars", "body": "mars", "lat": -2.0, "lon": -5.5,
+     "dem": "MGS MOLA 463 m global DEM mosaic (USGS)",
+     "tags": {"evaporites": 1, "aeolian": 1, "basaltic": 0.5, "hyper_arid": 1, "alteration": 0.5},
+     "why": "Hematite-bearing sulfate plains with basaltic sand ripples; Opportunity landing site."},
+    {"id": "oxia-planum", "name": "Oxia Planum, Mars", "body": "mars", "lat": 18.2, "lon": -24.6,
+     "dem": "MGS MOLA 463 m global DEM mosaic (USGS)",
+     "tags": {"alteration": 1, "fluvial_paleo": 1, "hyper_arid": 1, "basaltic": 0.5, "aeolian": 0.5},
+     "why": "Widespread Fe/Mg clay-bearing plains with paleo-channels; ExoMars rover landing region."},
+    {"id": "hellas-planitia", "name": "Hellas Planitia, Mars", "body": "mars", "lat": -42.0, "lon": 70.0,
+     "dem": "MGS MOLA 463 m global DEM mosaic (USGS)",
+     "tags": {"impact": 1, "aeolian": 1, "ground_ice": 1, "hyper_arid": 1, "polar_cold": 0.5},
+     "why": "Deepest, highest-pressure basin on Mars with glacier-like forms and dune fields; candidate for human exploration zones."}
+  ],
+  "earth_floor": {
+    "note": "No Earth site reaches lunar or Martian conditions, so environmental targets are clipped to the most extreme values reachable on Earth's land surface. Environmental similarity therefore means 'as close as Earth gets', never 'equal'.",
+    "t_mean_c": -50.0,
+    "t_daily_range_c": 35.0,
+    "precip_mm_yr": 0.0,
+    "rel_humidity_pct": 5.0,
+    "surface_pressure_kpa": 33.0
+  },
+  "environment_sigma": {
+    "t_mean_c": 20.0,
+    "t_daily_range_c": 10.0,
+    "precip_mm_yr": 150.0,
+    "rel_humidity_pct": 30.0,
+    "surface_pressure_kpa": 35.0
+  },
+  "irreducible_gaps": {
+    "note": "Conditions Earth cannot reproduce at any location, so field campaigns must use simulation, chambers or parabolic flight for these.",
+    "earth": {"gravity_ms2": 9.81, "surface_pressure_kpa": 101.3, "surface_radiation_msv_per_day": 0.007},
+    "moon": {"gravity_ms2": 1.62, "surface_pressure_kpa": 0.0, "surface_radiation_msv_per_day": 1.37,
+             "other": "Near-vacuum, permanently shadowed regions below ~40 K, no magnetic field, abrasive electrostatically charged dust.",
+             "sources": "Chang'E-4 LND (Zhang et al., 2020, Science Advances); Diviner cold traps (Paige et al., 2010, Science)"},
+    "mars": {"gravity_ms2": 3.71, "surface_pressure_kpa": 0.61, "surface_radiation_msv_per_day": 0.64,
+             "other": "CO2 atmosphere, perchlorate-bearing regolith, global dust storms, mean temperature near -60 C.",
+             "sources": "MSL RAD (Hassler et al., 2014, Science)"}
+  }
+}

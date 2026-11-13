@@ -49,7 +49,22 @@ Where $\bar{z}_{R}$ is the average elevation of the surrounding cells.
 
 ---
 
-### 3. Analog Compatibility Index (ACI)
+### 2.4 v2 update: multi-baseline slope (used by the Global Search)
+Sections 2.1 to 2.3 describe the v1 pixel-scale metrics, which are not comparable across DEMs of different resolution. The v2 engine instead uses the differential slope over a fixed ground baseline $L$:
+
+$$s_L = \arctan\left(\frac{\sqrt{(z(x+L,y)-z(x,y))^2 + (z(x,y+L)-z(x,y))^2}}{L}\right)$$
+
+for $L \in \{240, 480, 960, 1920, 3840\}$ m, summarised by the median and 90th percentile, plus the Hurst exponent $H$ from $\tilde{s}_L \propto L^{H-1}$ (Kreslavsky and Head, 2000; Rosenburg et al., 2011; Shepard et al., 2001). All DEMs are first resampled to a 120 m grid. Mars targets use only $L \ge 960$ m because gridded MOLA does not resolve finer terrain.
+
+Terrain similarity is $\exp\left[-\tfrac12\left((d_{med}/0.55)^2 + (d_{het}/0.45)^2\right)\right]$, where $d_{med}$ is the RMS difference of $\ln \tilde{s}_L$ and $d_{het}$ the RMS difference of $\ln(p_{90}/\tilde{s}_L)$ over shared baselines. The two tolerances (a factor of about 1.7 and 1.6) were fixed a priori; the dashboard and `robust_rank_statistics` vary them by 0.5x and 2x.
+
+Environment similarity averages Gaussian similarities of NASA POWER annual mean temperature, daily range, precipitation, humidity and surface pressure against a target clipped to the most extreme values reachable on Earth (`catalog/targets.json`). Geology similarity is the weighted recall of curated tags (`catalog/`). The three similarities are combined by a weighted geometric mean (floor 0.02), so a high terrain match cannot compensate for a wet, vegetated climate.
+
+Validation uses negative-control regions that should score poorly, summarised as the AUC of candidates versus controls, plus rank distributions under random dimension weights. Known weaknesses are listed in the README.
+
+---
+
+### 3. Analog Compatibility Index (ACI), v1 formulation
 
 The Analog Compatibility Index is a normalized similarity score $[0, 100\%]$ evaluating candidate site suitability against a target planetary site.
 

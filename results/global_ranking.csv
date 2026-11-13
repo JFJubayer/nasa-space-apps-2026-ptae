@@ -1,0 +1,265 @@
+target,rank,site,category,aci,terrain,environment,geology,best_window_lat,best_window_lon,prob_top3
+shackleton-crater,1,"Death Valley, California",benchmark,49.67,82.2,36.1,25.0,36.2198,-117.0734,0.84
+shackleton-crater,2,McMurdo Dry Valleys (Wright Valley),benchmark,49.55,45.5,38.8,75.0,-77.4293,161.0835,0.601
+shackleton-crater,3,"Dasht-e Lut (Kaluts), Iran",emerging,44.88,63.7,40.0,25.0,30.2198,57.5914,0.37
+shackleton-crater,4,"Tibesti / Emi Koussi, Chad",emerging,43.59,45.8,45.8,37.5,19.9802,18.4535,0.443
+shackleton-crater,5,Puna de Atacama (Lascar-Salar),benchmark,36.77,62.7,37.1,12.5,-23.6989,-67.7012,0.051
+shackleton-crater,6,Bernese Alps,control,35.72,82.3,9.6,25.0,46.7302,7.8371,0.265
+shackleton-crater,7,"Tolbachik lava plateau, Kamchatka",emerging,35.38,89.6,7.8,25.0,55.9802,160.5582,0.357
+shackleton-crater,8,"Wadi Rum, Jordan",emerging,34.23,38.2,37.7,25.0,29.5115,35.2129,0.0
+shackleton-crater,9,"Craters of the Moon, Idaho",benchmark,32.14,55.3,14.0,25.0,43.6302,-113.799,0.0
+shackleton-crater,10,Atacama Desert (Yungay),benchmark,30.39,30.3,37.1,25.0,-24.2802,-70.1477,0.0
+shackleton-crater,11,Nepal Himalaya,control,28.53,47.2,11.9,25.0,27.8198,85.2038,0.0
+shackleton-crater,12,"Teide / Las Canadas, Tenerife",benchmark,27.82,71.1,9.5,12.5,28.4502,-16.435,0.0
+shackleton-crater,13,"Mauna Kea summit region, Hawaii",benchmark,24.67,53.0,5.3,25.0,19.9107,-155.4711,0.0
+shackleton-crater,14,"Mars Desert Research Station area, Utah",benchmark,11.12,7.2,23.7,12.5,38.2298,-111.0194,0.0
+shackleton-crater,15,"Haughton Crater, Devon Island",benchmark,10.12,3.2,10.3,100.0,75.4707,-88.9516,0.064
+shackleton-crater,16,Namib Sand Sea (Sossusvlei),emerging,9.9,3.4,33.1,25.0,-24.6593,15.4959,0.0
+shackleton-crater,17,Amboy Crater / Mojave lava fields,emerging,9.25,2.9,35.2,25.0,34.7302,-115.6723,0.0
+shackleton-crater,18,"Qaidam Basin (Dalangtan), China",emerging,9.12,1.5,46.2,37.5,38.1302,91.4709,0.009
+shackleton-crater,19,"Gilf Kebir plateau, Egypt",emerging,8.91,0.0,42.1,37.5,23.5802,25.8034,0.0
+shackleton-crater,20,"Harrat Khaybar, Saudi Arabia",emerging,8.17,0.0,44.6,25.0,25.4802,39.998,0.0
+shackleton-crater,21,"Lanzarote (Timanfaya), Canary Islands",benchmark,7.97,4.1,19.4,12.5,29.1802,-13.5461,0.0
+shackleton-crater,22,"Lop Nur and Lop Desert yardangs, China",emerging,7.95,0.0,39.9,25.0,40.6802,90.2986,0.0
+shackleton-crater,23,"Pinacate Volcanic Field, Mexico",emerging,7.31,0.0,28.6,25.0,31.7811,-113.5013,0.0
+shackleton-crater,24,"Meteor (Barringer) Crater, Arizona",benchmark,7.22,0.0,18.1,37.5,34.8498,-111.2396,0.0
+shackleton-crater,25,"Meseta de Somuncura, Patagonia",emerging,6.64,0.1,19.4,25.0,-41.6885,-67.0815,0.0
+shackleton-crater,26,Danakil Depression / Erta Ale,emerging,6.58,0.1,18.7,25.0,13.6011,40.6689,0.0
+shackleton-crater,27,"Salar de Uyuni, Bolivia",emerging,6.1,0.0,27.8,12.5,-20.3802,-67.6967,0.0
+shackleton-crater,28,"Askja and Holuhraun, Iceland",benchmark,5.09,0.3,6.7,25.0,64.8498,-16.331,0.0
+shackleton-crater,29,"Ries Crater, Germany",benchmark,4.88,0.4,5.7,25.0,48.8811,10.8441,0.0
+shackleton-crater,30,Sunset Crater / San Francisco Volcanic Field,benchmark,4.44,3.0,20.9,0.0,35.3711,-111.6112,0.0
+shackleton-crater,31,Ganges Plain,control,2.98,0.0,9.9,0.0,26.1802,83.5986,0.0
+shackleton-crater,32,Kansas High Plains,control,2.91,0.0,8.9,0.0,38.6802,-98.5866,0.0
+shackleton-crater,33,Central Amazon lowland,control,2.38,0.0,4.0,0.0,-2.9198,-60.0011,0.0
+malapert-massif,1,"Death Valley, California",benchmark,38.56,46.3,36.1,28.6,36.2198,-117.0734,0.558
+malapert-massif,2,Nepal Himalaya,control,35.93,80.8,11.9,21.4,27.9115,85.2039,0.556
+malapert-massif,3,McMurdo Dry Valleys (Wright Valley),benchmark,35.26,23.6,38.8,71.4,-77.4293,161.0835,0.549
+malapert-massif,4,Bernese Alps,control,34.54,83.1,9.6,21.4,46.7302,8.0984,0.481
+malapert-massif,5,"Tibesti / Emi Koussi, Chad",emerging,30.36,20.8,45.8,42.9,19.8907,18.5489,0.435
+malapert-massif,6,"Teide / Las Canadas, Tenerife",benchmark,30.07,77.7,9.5,14.3,28.4502,-16.5394,0.343
+malapert-massif,7,"Craters of the Moon, Idaho",benchmark,28.18,45.9,14.0,21.4,43.6302,-113.799,0.0
+malapert-massif,8,Puna de Atacama (Lascar-Salar),benchmark,25.24,27.7,37.1,14.3,-23.8781,-67.6032,0.003
+malapert-massif,9,"Dasht-e Lut (Kaluts), Iran",emerging,21.82,14.1,40.0,28.6,30.2198,57.5914,0.004
+malapert-massif,10,"Tolbachik lava plateau, Kamchatka",emerging,21.17,34.6,7.8,21.4,55.9802,160.5582,0.0
+malapert-massif,11,"Mauna Kea summit region, Hawaii",benchmark,18.8,33.2,5.3,21.4,20.0002,-155.3758,0.0
+malapert-massif,12,Atacama Desert (Yungay),benchmark,17.73,9.7,37.1,28.6,-24.2802,-70.1477,0.0
+malapert-massif,13,"Wadi Rum, Jordan",emerging,16.78,8.6,37.7,28.6,29.5115,35.2129,0.0
+malapert-massif,14,"Qaidam Basin (Dalangtan), China",emerging,9.43,0.2,46.2,42.9,37.9511,91.4714,0.037
+malapert-massif,15,"Gilf Kebir plateau, Egypt",emerging,9.21,0.0,42.1,42.9,23.5802,25.8034,0.0
+malapert-massif,16,"Harrat Khaybar, Saudi Arabia",emerging,8.45,0.0,44.6,28.6,25.4802,39.998,0.0
+malapert-massif,17,"Lop Nur and Lop Desert yardangs, China",emerging,8.22,0.0,39.9,28.6,40.6802,90.4167,0.0
+malapert-massif,18,"Haughton Crater, Devon Island",benchmark,8.0,0.2,10.3,100.0,75.4707,-88.9516,0.034
+malapert-massif,19,Amboy Crater / Mojave lava fields,emerging,7.96,0.1,35.2,28.6,34.7302,-115.7813,0.0
+malapert-massif,20,Namib Sand Sea (Sossusvlei),emerging,7.84,0.6,33.1,28.6,-24.6593,15.3974,0.0
+malapert-massif,21,"Pinacate Volcanic Field, Mexico",emerging,7.56,0.0,28.6,28.6,31.7811,-113.5013,0.0
+malapert-massif,22,"Meteor (Barringer) Crater, Arizona",benchmark,7.47,0.0,18.1,42.9,34.8498,-111.2396,0.0
+malapert-massif,23,"Meseta de Somuncura, Patagonia",emerging,6.87,0.0,19.4,28.6,-41.4198,-66.9597,0.0
+malapert-massif,24,Danakil Depression / Erta Ale,emerging,6.8,0.0,18.7,28.6,13.6011,40.6689,0.0
+malapert-massif,25,"Salar de Uyuni, Bolivia",emerging,6.31,0.0,27.8,14.3,-20.3802,-67.6967,0.0
+malapert-massif,26,"Mars Desert Research Station area, Utah",benchmark,6.07,0.7,23.7,14.3,38.5902,-110.906,0.0
+malapert-massif,27,"Lanzarote (Timanfaya), Canary Islands",benchmark,5.77,0.3,19.4,14.3,29.0907,-13.8537,0.0
+malapert-massif,28,"Ries Crater, Germany",benchmark,5.05,0.0,5.7,28.6,48.8811,10.8441,0.0
+malapert-massif,29,"Askja and Holuhraun, Iceland",benchmark,4.89,0.0,6.7,21.4,64.8498,-17.1741,0.0
+malapert-massif,30,Sunset Crater / San Francisco Volcanic Field,benchmark,3.6,0.1,20.9,0.0,35.3711,-111.6112,0.0
+malapert-massif,31,Ganges Plain,control,2.98,0.0,9.9,0.0,26.1802,83.5986,0.0
+malapert-massif,32,Kansas High Plains,control,2.91,0.0,8.9,0.0,38.6802,-98.5866,0.0
+malapert-massif,33,Central Amazon lowland,control,2.38,0.0,4.0,0.0,-2.9198,-60.0011,0.0
+jezero-crater,1,"Death Valley, California",benchmark,59.28,71.7,36.1,66.7,36.5802,-116.6256,0.607
+jezero-crater,2,Amboy Crater / Mojave lava fields,emerging,58.25,93.4,35.2,37.5,34.4615,-115.564,0.656
+jezero-crater,3,Atacama Desert (Yungay),benchmark,57.74,80.8,37.1,45.8,-24.2802,-69.8529,0.782
+jezero-crater,4,"Gilf Kebir plateau, Egypt",emerging,54.31,70.5,42.1,41.7,23.2198,25.9014,0.174
+jezero-crater,5,"Pinacate Volcanic Field, Mexico",emerging,53.8,83.9,28.6,41.7,31.6915,-113.5013,0.275
+jezero-crater,6,"Dasht-e Lut (Kaluts), Iran",emerging,49.94,64.4,40.0,37.5,30.4011,57.7987,0.0
+jezero-crater,7,"Qaidam Basin (Dalangtan), China",emerging,49.07,50.1,46.2,50.0,38.1302,91.8125,0.266
+jezero-crater,8,Danakil Depression / Erta Ale,emerging,47.92,69.5,18.7,58.3,13.6011,40.4846,0.067
+jezero-crater,9,"Meseta de Somuncura, Patagonia",emerging,45.68,87.6,19.4,29.2,-41.7781,-67.2014,0.092
+jezero-crater,10,"Harrat Khaybar, Saudi Arabia",emerging,45.58,50.8,44.6,37.5,25.1198,39.701,0.018
+jezero-crater,11,"Wadi Rum, Jordan",emerging,44.59,50.2,37.7,41.7,29.7802,35.6276,0.0
+jezero-crater,12,"Mars Desert Research Station area, Utah",benchmark,42.58,64.5,23.7,33.3,38.2319,-110.7914,0.0
+jezero-crater,13,Namib Sand Sea (Sossusvlei),emerging,40.69,47.0,33.1,37.5,-24.8385,15.4962,0.0
+jezero-crater,14,Sunset Crater / San Francisco Volcanic Field,benchmark,39.69,75.5,20.9,20.8,35.1919,-111.5013,0.0
+jezero-crater,15,"Craters of the Moon, Idaho",benchmark,37.47,75.2,14.0,25.0,43.3615,-113.7979,0.0
+jezero-crater,16,"Meteor (Barringer) Crater, Arizona",benchmark,36.22,61.6,18.1,25.0,34.9415,-111.2399,0.0
+jezero-crater,17,"Haughton Crater, Devon Island",benchmark,35.92,59.5,10.3,45.8,75.2915,-89.3215,0.0
+jezero-crater,18,"Askja and Holuhraun, Iceland",benchmark,33.57,87.1,6.7,25.0,65.2102,-16.9662,0.0
+jezero-crater,19,"Tibesti / Emi Koussi, Chad",emerging,33.15,25.1,45.8,41.7,19.6198,18.7413,0.007
+jezero-crater,20,"Tolbachik lava plateau, Kamchatka",emerging,32.93,95.0,7.8,16.7,55.6219,160.0808,0.056
+jezero-crater,21,"Lanzarote (Timanfaya), Canary Islands",benchmark,26.17,28.8,19.4,29.2,28.8219,-13.9557,0.0
+jezero-crater,22,"Ries Crater, Germany",benchmark,19.23,38.0,5.7,16.7,48.6998,10.7041,0.0
+jezero-crater,23,McMurdo Dry Valleys (Wright Valley),benchmark,19.03,8.2,38.8,50.0,-77.7002,160.654,0.0
+jezero-crater,24,Puna de Atacama (Lascar-Salar),benchmark,18.07,7.9,37.1,45.8,-23.5198,-67.5034,0.0
+jezero-crater,25,"Lop Nur and Lop Desert yardangs, China",emerging,9.03,0.0,39.9,41.7,40.6802,90.1805,0.0
+jezero-crater,26,"Mauna Kea summit region, Hawaii",benchmark,9.0,5.5,5.3,41.7,19.8211,-155.6616,0.0
+jezero-crater,27,"Salar de Uyuni, Bolivia",emerging,8.03,0.0,27.8,37.5,-20.3802,-67.6967,0.0
+jezero-crater,28,Central Amazon lowland,control,5.68,11.4,4.0,0.0,-3.0989,-60.0011,0.0
+jezero-crater,29,"Teide / Las Canadas, Tenerife",benchmark,5.55,0.0,9.5,25.0,28.0898,-16.5397,0.0
+jezero-crater,30,Kansas High Plains,control,3.62,3.1,8.9,0.0,38.6802,-98.5866,0.0
+jezero-crater,31,Nepal Himalaya,control,3.12,0.0,11.9,0.0,27.9115,84.7961,0.0
+jezero-crater,32,Ganges Plain,control,2.98,0.0,9.9,0.0,26.1802,83.5986,0.0
+jezero-crater,33,Bernese Alps,control,2.96,0.0,9.6,0.0,46.7302,7.8371,0.0
+gale-crater,1,"Death Valley, California",benchmark,70.09,95.9,36.1,72.7,36.4011,-116.9626,0.959
+gale-crater,2,McMurdo Dry Valleys (Wright Valley),benchmark,66.32,91.8,38.8,59.1,-77.6085,161.0776,0.849
+gale-crater,3,Puna de Atacama (Lascar-Salar),benchmark,65.36,94.9,37.1,54.5,-23.5198,-67.7989,0.73
+gale-crater,4,"Dasht-e Lut (Kaluts), Iran",emerging,64.43,92.8,40.0,50.0,30.2219,57.5914,0.27
+gale-crater,5,"Tibesti / Emi Koussi, Chad",emerging,59.98,78.8,45.8,45.5,19.8907,18.6441,0.111
+gale-crater,6,Atacama Desert (Yungay),benchmark,57.7,71.1,37.1,59.1,-24.2802,-70.1477,0.048
+gale-crater,7,"Wadi Rum, Jordan",emerging,57.47,79.8,37.7,45.5,29.5115,35.2129,0.0
+gale-crater,8,Amboy Crater / Mojave lava fields,emerging,34.83,39.2,35.2,27.3,34.7302,-115.6723,0.0
+gale-crater,9,"Mauna Kea summit region, Hawaii",benchmark,34.01,96.4,5.3,27.3,19.9107,-155.5664,0.0
+gale-crater,10,"Mars Desert Research Station area, Utah",benchmark,31.16,31.2,23.7,40.9,38.2298,-111.0194,0.0
+gale-crater,11,"Craters of the Moon, Idaho",benchmark,30.27,81.3,14.0,9.1,43.5407,-113.6751,0.0
+gale-crater,12,"Qaidam Basin (Dalangtan), China",emerging,27.55,13.5,46.2,68.2,38.1302,91.4709,0.033
+gale-crater,13,"Teide / Las Canadas, Tenerife",benchmark,27.18,56.3,9.5,18.2,28.0898,-16.5397,0.0
+gale-crater,14,"Lanzarote (Timanfaya), Canary Islands",benchmark,26.68,37.9,19.4,18.2,29.1802,-13.5461,0.0
+gale-crater,15,"Haughton Crater, Devon Island",benchmark,23.56,23.5,10.3,54.5,75.4707,-88.9516,0.0
+gale-crater,16,Namib Sand Sea (Sossusvlei),emerging,20.4,10.2,33.1,50.0,-24.6593,15.4983,0.0
+gale-crater,17,Sunset Crater / San Francisco Volcanic Field,benchmark,19.69,28.1,20.9,9.1,35.3711,-111.6112,0.0
+gale-crater,18,"Tolbachik lava plateau, Kamchatka",emerging,19.64,97.6,7.8,0.0,55.8011,160.3981,0.0
+gale-crater,19,Bernese Alps,control,15.21,52.8,9.6,0.0,46.7302,7.8371,0.0
+gale-crater,20,Nepal Himalaya,control,13.31,36.3,11.9,0.0,27.9115,84.7961,0.0
+gale-crater,21,"Lop Nur and Lop Desert yardangs, China",emerging,9.85,0.0,39.9,59.1,40.6802,90.5376,0.0
+gale-crater,22,"Gilf Kebir plateau, Egypt",emerging,9.58,0.7,42.1,50.0,23.5802,25.8034,0.0
+gale-crater,23,Danakil Depression / Erta Ale,emerging,8.93,2.5,18.7,54.5,13.6011,40.6689,0.0
+gale-crater,24,"Salar de Uyuni, Bolivia",emerging,8.63,0.0,27.8,50.0,-20.3802,-67.6967,0.0
+gale-crater,25,"Harrat Khaybar, Saudi Arabia",emerging,8.35,1.3,44.6,27.3,25.4802,39.998,0.0
+gale-crater,26,"Pinacate Volcanic Field, Mexico",emerging,8.03,0.4,28.6,36.4,31.7811,-113.5013,0.0
+gale-crater,27,"Askja and Holuhraun, Iceland",benchmark,7.22,6.7,6.7,9.1,64.8498,-16.5418,0.0
+gale-crater,28,"Meteor (Barringer) Crater, Arizona",benchmark,6.67,0.9,18.1,27.3,34.8498,-111.2396,0.0
+gale-crater,29,"Meseta de Somuncura, Patagonia",emerging,6.13,1.9,19.4,18.2,-41.7802,-67.0813,0.0
+gale-crater,30,"Ries Crater, Germany",benchmark,5.36,2.8,5.7,18.2,48.8811,10.8441,0.0
+gale-crater,31,Ganges Plain,control,2.98,0.0,9.9,0.0,26.1802,83.5986,0.0
+gale-crater,32,Kansas High Plains,control,2.91,0.0,8.9,0.0,38.6802,-98.5866,0.0
+gale-crater,33,Central Amazon lowland,control,2.38,0.2,4.0,0.0,-2.9198,-60.0011,0.0
+gusev-crater,1,"Gilf Kebir plateau, Egypt",emerging,63.3,79.0,42.1,61.1,23.4907,25.9988,1.0
+gusev-crater,2,"Pinacate Volcanic Field, Mexico",emerging,48.22,53.3,28.6,66.7,31.5998,-113.7116,0.913
+gusev-crater,3,"Lop Nur and Lop Desert yardangs, China",emerging,30.56,20.9,39.9,50.0,40.6802,90.5376,0.47
+gusev-crater,4,"Qaidam Basin (Dalangtan), China",emerging,25.22,13.2,46.2,50.0,38.1302,91.9291,0.083
+gusev-crater,5,"Harrat Khaybar, Saudi Arabia",emerging,20.63,8.6,44.6,55.6,25.1219,39.7999,0.043
+gusev-crater,6,"Meteor (Barringer) Crater, Arizona",benchmark,20.08,16.4,18.1,33.3,35.2102,-110.7994,0.0
+gusev-crater,7,Kansas High Plains,control,19.99,94.6,8.9,0.0,38.4115,-98.8157,0.337
+gusev-crater,8,"Dasht-e Lut (Kaluts), Iran",emerging,19.17,8.2,40.0,50.0,30.4011,57.9026,0.0
+gusev-crater,9,Danakil Depression / Erta Ale,emerging,19.11,12.7,18.7,44.4,13.4198,40.5768,0.0
+gusev-crater,10,"Meseta de Somuncura, Patagonia",emerging,17.46,10.4,19.4,44.4,-41.4198,-67.4403,0.0
+gusev-crater,11,"Craters of the Moon, Idaho",benchmark,16.21,12.2,14.0,33.3,43.4511,-113.3017,0.0
+gusev-crater,12,"Salar de Uyuni, Bolivia",emerging,14.98,8.1,27.8,27.8,-20.3802,-67.6967,0.0
+gusev-crater,13,Central Amazon lowland,control,14.07,69.8,4.0,0.0,-3.1885,-59.8195,0.045
+gusev-crater,14,"Tibesti / Emi Koussi, Chad",emerging,10.51,0.0,45.8,66.7,19.6198,18.7413,0.109
+gusev-crater,15,"Death Valley, California",benchmark,9.9,0.0,36.1,66.7,36.5802,-116.6256,0.0
+gusev-crater,16,McMurdo Dry Valleys (Wright Valley),benchmark,9.87,0.0,38.8,61.1,-77.7002,160.654,0.0
+gusev-crater,17,"Wadi Rum, Jordan",emerging,9.56,0.0,37.7,55.6,29.7802,35.6276,0.0
+gusev-crater,18,Amboy Crater / Mojave lava fields,emerging,9.4,0.9,35.2,55.6,34.4615,-115.5614,0.0
+gusev-crater,19,Ganges Plain,control,9.27,19.4,9.9,0.0,26.1802,83.5986,0.0
+gusev-crater,20,Namib Sand Sea (Sossusvlei),emerging,9.02,0.4,33.1,50.0,-24.9302,15.4987,0.0
+gusev-crater,21,Atacama Desert (Yungay),benchmark,8.72,0.4,37.1,38.9,-24.2781,-69.8529,0.0
+gusev-crater,22,Puna de Atacama (Lascar-Salar),benchmark,8.39,0.0,37.1,33.3,-23.5198,-67.5034,0.0
+gusev-crater,23,"Lanzarote (Timanfaya), Canary Islands",benchmark,7.67,0.0,19.4,44.4,28.8219,-13.9557,0.0
+gusev-crater,24,Sunset Crater / San Francisco Volcanic Field,benchmark,7.27,0.9,20.9,33.3,35.1898,-111.2795,0.0
+gusev-crater,25,"Mars Desert Research Station area, Utah",benchmark,7.17,0.3,23.7,27.8,38.5902,-110.5594,0.0
+gusev-crater,26,"Ries Crater, Germany",benchmark,7.04,4.4,5.7,22.2,48.6998,10.7041,0.0
+gusev-crater,27,"Haughton Crater, Devon Island",benchmark,6.54,0.3,10.3,44.4,75.1998,-89.3236,0.0
+gusev-crater,28,"Teide / Las Canadas, Tenerife",benchmark,5.39,0.0,9.5,22.2,28.0898,-16.5397,0.0
+gusev-crater,29,"Mauna Kea summit region, Hawaii",benchmark,5.15,0.0,5.3,33.3,19.8211,-155.6616,0.0
+gusev-crater,30,"Tolbachik lava plateau, Kamchatka",emerging,5.13,0.6,7.8,22.2,55.6198,160.0808,0.0
+gusev-crater,31,"Askja and Holuhraun, Iceland",benchmark,4.94,0.6,6.7,22.2,65.2102,-16.9662,0.0
+gusev-crater,32,Nepal Himalaya,control,3.12,0.0,11.9,0.0,27.9115,84.7961,0.0
+gusev-crater,33,Bernese Alps,control,2.96,0.0,9.6,0.0,46.7302,7.8371,0.0
+meridiani-planum,1,"Gilf Kebir plateau, Egypt",emerging,64.16,89.8,42.1,50.0,23.4907,26.1965,0.95
+meridiani-planum,2,"Pinacate Volcanic Field, Mexico",emerging,60.31,86.1,28.6,62.5,31.5998,-113.7116,0.884
+meridiani-planum,3,"Qaidam Basin (Dalangtan), China",emerging,51.8,43.8,46.2,81.2,38.1302,91.9291,0.798
+meridiani-planum,4,"Dasht-e Lut (Kaluts), Iran",emerging,43.14,37.2,40.0,62.5,30.4011,57.9026,0.091
+meridiani-planum,5,"Harrat Khaybar, Saudi Arabia",emerging,39.66,33.3,44.6,50.0,25.1219,39.7999,0.038
+meridiani-planum,6,Danakil Depression / Erta Ale,emerging,38.55,39.7,18.7,75.0,13.4198,40.5768,0.023
+meridiani-planum,7,"Meseta de Somuncura, Patagonia",emerging,33.75,42.2,19.4,37.5,-41.4198,-67.4403,0.0
+meridiani-planum,8,"Craters of the Moon, Idaho",benchmark,30.18,48.7,14.0,25.0,43.4511,-113.3017,0.0
+meridiani-planum,9,"Meteor (Barringer) Crater, Arizona",benchmark,29.47,57.7,18.1,12.5,35.2102,-110.7994,0.0
+meridiani-planum,10,Kansas High Plains,control,19.32,88.4,8.9,0.0,38.5907,-98.4694,0.202
+meridiani-planum,11,"Lop Nur and Lop Desert yardangs, China",emerging,16.22,4.8,39.9,75.0,40.6802,90.5376,0.009
+meridiani-planum,12,Amboy Crater / Mojave lava fields,emerging,16.07,6.2,35.2,50.0,34.4615,-115.5614,0.0
+meridiani-planum,13,Central Amazon lowland,control,15.71,87.0,4.0,0.0,-3.1885,-59.9114,0.0
+meridiani-planum,14,Atacama Desert (Yungay),benchmark,14.5,4.2,37.1,68.8,-24.2781,-69.8529,0.0
+meridiani-planum,15,Namib Sand Sea (Sossusvlei),emerging,14.31,4.5,33.1,62.5,-24.9302,15.4987,0.0
+meridiani-planum,16,Sunset Crater / San Francisco Volcanic Field,benchmark,13.76,8.3,20.9,25.0,35.5502,-111.2785,0.0
+meridiani-planum,17,McMurdo Dry Valleys (Wright Valley),benchmark,10.6,0.0,38.8,81.2,-77.7002,160.654,0.002
+meridiani-planum,18,"Death Valley, California",benchmark,10.6,0.3,36.1,87.5,36.5802,-116.6256,0.003
+meridiani-planum,19,"Mars Desert Research Station area, Utah",benchmark,10.18,3.2,23.7,43.8,38.5902,-110.5594,0.0
+meridiani-planum,20,"Tibesti / Emi Koussi, Chad",emerging,10.08,0.3,45.8,56.2,19.6198,18.7413,0.0
+meridiani-planum,21,Puna de Atacama (Lascar-Salar),benchmark,10.05,0.0,37.1,68.8,-23.5198,-67.5034,0.0
+meridiani-planum,22,"Wadi Rum, Jordan",emerging,9.32,0.3,37.7,50.0,29.7802,35.6276,0.0
+meridiani-planum,23,"Haughton Crater, Devon Island",benchmark,9.13,3.9,10.3,43.8,75.1998,-89.3236,0.0
+meridiani-planum,24,"Ries Crater, Germany",benchmark,9.02,24.2,5.7,0.0,48.6998,10.7041,0.0
+meridiani-planum,25,"Salar de Uyuni, Bolivia",emerging,8.89,0.9,27.8,56.2,-20.3802,-67.6967,0.0
+meridiani-planum,26,"Askja and Holuhraun, Iceland",benchmark,7.48,5.0,6.7,18.8,65.2102,-16.9662,0.0
+meridiani-planum,27,"Lanzarote (Timanfaya), Canary Islands",benchmark,7.35,0.6,19.4,37.5,28.8219,-13.9557,0.0
+meridiani-planum,28,"Tolbachik lava plateau, Kamchatka",emerging,6.69,4.5,7.8,12.5,55.6198,160.0808,0.0
+meridiani-planum,29,"Teide / Las Canadas, Tenerife",benchmark,5.55,0.0,9.5,25.0,28.0898,-16.5397,0.0
+meridiani-planum,30,Ganges Plain,control,5.51,6.8,9.9,0.0,26.1802,83.5986,0.0
+meridiani-planum,31,"Mauna Kea summit region, Hawaii",benchmark,5.3,0.0,5.3,37.5,19.8211,-155.6616,0.0
+meridiani-planum,32,Nepal Himalaya,control,3.12,0.0,11.9,0.0,27.9115,84.7961,0.0
+meridiani-planum,33,Bernese Alps,control,2.96,0.0,9.6,0.0,46.7302,7.8371,0.0
+oxia-planum,1,"Qaidam Basin (Dalangtan), China",emerging,66.98,83.5,46.2,62.5,38.1302,91.9291,1.0
+oxia-planum,2,"Gilf Kebir plateau, Egypt",emerging,60.79,80.6,42.1,50.0,23.4011,26.1964,0.936
+oxia-planum,3,"Dasht-e Lut (Kaluts), Iran",emerging,59.4,78.8,40.0,50.0,30.5802,57.7987,0.57
+oxia-planum,4,"Harrat Khaybar, Saudi Arabia",emerging,57.9,75.9,44.6,43.8,25.1219,39.7999,0.181
+oxia-planum,5,"Pinacate Volcanic Field, Mexico",emerging,54.26,77.9,28.6,50.0,31.8707,-113.7122,0.0
+oxia-planum,6,Danakil Depression / Erta Ale,emerging,52.08,79.3,18.7,62.5,13.4198,40.4847,0.123
+oxia-planum,7,"Meseta de Somuncura, Patagonia",emerging,44.31,79.7,19.4,31.2,-41.6885,-67.4413,0.0
+oxia-planum,8,"Craters of the Moon, Idaho",benchmark,41.24,91.0,14.0,25.0,43.4511,-113.3047,0.102
+oxia-planum,9,"Meteor (Barringer) Crater, Arizona",benchmark,37.16,91.7,18.1,12.5,35.2102,-110.7994,0.066
+oxia-planum,10,Atacama Desert (Yungay),benchmark,31.71,22.0,37.1,56.2,-24.2781,-69.8529,0.0
+oxia-planum,11,Amboy Crater / Mojave lava fields,emerging,31.35,25.0,35.2,43.8,34.4615,-115.5614,0.0
+oxia-planum,12,Namib Sand Sea (Sossusvlei),emerging,30.84,23.4,33.1,50.0,-24.9281,15.4987,0.0
+oxia-planum,13,Sunset Crater / San Francisco Volcanic Field,benchmark,27.38,37.8,20.9,18.8,35.5502,-111.2785,0.0
+oxia-planum,14,"Mars Desert Research Station area, Utah",benchmark,25.56,20.3,23.7,43.8,38.5902,-110.5594,0.0
+oxia-planum,15,"Haughton Crater, Devon Island",benchmark,20.76,22.0,10.3,37.5,75.1998,-89.3236,0.0
+oxia-planum,16,"Askja and Holuhraun, Iceland",benchmark,17.42,23.4,6.7,25.0,65.2102,-16.9662,0.0
+oxia-planum,17,Kansas High Plains,control,17.13,69.5,8.9,0.0,38.6802,-98.5866,0.0
+oxia-planum,18,Central Amazon lowland,control,15.92,89.4,4.0,0.0,-3.1885,-60.0908,0.0
+oxia-planum,19,"Ries Crater, Germany",benchmark,15.24,68.9,5.7,0.0,48.6998,10.7041,0.0
+oxia-planum,20,"Tolbachik lava plateau, Kamchatka",emerging,14.36,20.8,7.8,12.5,55.6198,160.0808,0.0
+oxia-planum,21,"Wadi Rum, Jordan",emerging,13.27,3.6,37.7,62.5,29.7802,35.6276,0.0
+oxia-planum,22,"Tibesti / Emi Koussi, Chad",emerging,12.61,3.5,45.8,43.8,19.6198,18.7413,0.0
+oxia-planum,23,"Lanzarote (Timanfaya), Canary Islands",benchmark,12.43,6.3,19.4,31.2,28.8219,-13.9557,0.0
+oxia-planum,24,"Death Valley, California",benchmark,12.3,2.8,36.1,81.2,36.5802,-116.6256,0.022
+oxia-planum,25,McMurdo Dry Valleys (Wright Valley),benchmark,9.67,0.2,38.8,56.2,-77.7002,160.654,0.0
+oxia-planum,26,"Lop Nur and Lop Desert yardangs, China",emerging,9.45,0.5,39.9,50.0,40.6802,90.5376,0.0
+oxia-planum,27,Puna de Atacama (Lascar-Salar),benchmark,9.28,0.2,37.1,50.0,-23.5198,-67.5034,0.0
+oxia-planum,28,"Salar de Uyuni, Bolivia",emerging,8.35,0.1,27.8,43.8,-20.3802,-67.6967,0.0
+oxia-planum,29,"Teide / Las Canadas, Tenerife",benchmark,5.87,0.0,9.5,31.2,28.0898,-16.5397,0.0
+oxia-planum,30,"Mauna Kea summit region, Hawaii",benchmark,5.7,0.1,5.3,50.0,19.8211,-155.6616,0.0
+oxia-planum,31,Nepal Himalaya,control,3.12,0.0,11.9,0.0,27.9115,84.7961,0.0
+oxia-planum,32,Ganges Plain,control,2.98,1.0,9.9,0.0,26.1802,83.5986,0.0
+oxia-planum,33,Bernese Alps,control,2.96,0.0,9.6,0.0,46.7302,7.8371,0.0
+hellas-planitia,1,"Tibesti / Emi Koussi, Chad",emerging,66.66,88.1,45.8,55.6,19.6198,18.7413,0.873
+hellas-planitia,2,"Qaidam Basin (Dalangtan), China",emerging,66.05,90.8,46.2,50.0,38.1302,91.6986,0.947
+hellas-planitia,3,"Dasht-e Lut (Kaluts), Iran",emerging,61.5,89.7,40.0,44.4,30.3115,57.7987,0.344
+hellas-planitia,4,Atacama Desert (Yungay),benchmark,58.44,97.1,37.1,33.3,-23.9198,-69.8532,0.325
+hellas-planitia,5,Amboy Crater / Mojave lava fields,emerging,56.9,94.5,35.2,33.3,34.5511,-115.7813,0.127
+hellas-planitia,6,"Gilf Kebir plateau, Egypt",emerging,55.17,63.0,42.1,55.6,23.5802,25.8034,0.063
+hellas-planitia,7,"Wadi Rum, Jordan",emerging,53.68,70.4,37.7,44.4,29.7802,35.522,0.0
+hellas-planitia,8,Namib Sand Sea (Sossusvlei),emerging,53.64,75.0,33.1,44.4,-24.7489,15.4985,0.0
+hellas-planitia,9,"Haughton Crater, Devon Island",benchmark,49.01,85.0,10.3,77.8,75.2915,-88.9687,0.11
+hellas-planitia,10,McMurdo Dry Valleys (Wright Valley),benchmark,48.72,43.2,38.8,77.8,-77.7002,160.654,0.209
+hellas-planitia,11,"Harrat Khaybar, Saudi Arabia",emerging,48.45,60.9,44.6,33.3,25.4802,39.8988,0.002
+hellas-planitia,12,"Mars Desert Research Station area, Utah",benchmark,45.92,91.8,23.7,22.2,38.5902,-110.6768,0.0
+hellas-planitia,13,"Pinacate Volcanic Field, Mexico",emerging,45.77,58.8,28.6,44.4,31.7811,-113.5013,0.0
+hellas-planitia,14,"Meseta de Somuncura, Patagonia",emerging,44.94,86.9,19.4,27.8,-41.7802,-67.0813,0.0
+hellas-planitia,15,Danakil Depression / Erta Ale,emerging,43.07,91.0,18.7,22.2,13.6011,40.6689,0.0
+hellas-planitia,16,"Death Valley, California",benchmark,42.37,44.9,36.1,44.4,36.5802,-116.6283,0.0
+hellas-planitia,17,"Lanzarote (Timanfaya), Canary Islands",benchmark,42.35,86.3,19.4,22.2,28.8219,-13.9557,0.0
+hellas-planitia,18,"Meteor (Barringer) Crater, Arizona",benchmark,42.28,72.7,18.1,33.3,34.8498,-111.2396,0.0
+hellas-planitia,19,Sunset Crater / San Francisco Volcanic Field,benchmark,37.31,91.3,20.9,11.1,35.2815,-111.3916,0.0
+hellas-planitia,20,Puna de Atacama (Lascar-Salar),benchmark,33.21,38.4,37.1,22.2,-23.5198,-67.5034,0.0
+hellas-planitia,21,"Askja and Holuhraun, Iceland",benchmark,31.44,93.6,6.7,16.7,64.8498,-16.9633,0.0
+hellas-planitia,22,"Tolbachik lava plateau, Kamchatka",emerging,30.93,83.8,7.8,16.7,55.6198,160.2395,0.0
+hellas-planitia,23,"Craters of the Moon, Idaho",benchmark,30.3,52.1,14.0,22.2,43.5407,-113.5515,0.0
+hellas-planitia,24,"Ries Crater, Germany",benchmark,28.89,74.3,5.7,22.2,48.7915,10.2964,0.0
+hellas-planitia,25,"Mauna Kea summit region, Hawaii",benchmark,19.61,35.5,5.3,22.2,19.8211,-155.6616,0.0
+hellas-planitia,26,"Lop Nur and Lop Desert yardangs, China",emerging,9.18,0.0,39.9,44.4,40.6802,90.5376,0.0
+hellas-planitia,27,Central Amazon lowland,control,8.3,24.3,4.0,0.0,-2.9198,-60.1805,0.0
+hellas-planitia,28,"Salar de Uyuni, Bolivia",emerging,7.05,0.0,27.8,22.2,-20.3802,-67.6967,0.0
+hellas-planitia,29,Nepal Himalaya,control,5.31,0.3,11.9,16.7,27.9115,84.7961,0.0
+hellas-planitia,30,Bernese Alps,control,5.03,0.3,9.6,16.7,46.7302,7.8371,0.0
+hellas-planitia,31,"Teide / Las Canadas, Tenerife",benchmark,4.53,0.9,9.5,11.1,28.0898,-16.5397,0.0
+hellas-planitia,32,Kansas High Plains,control,3.91,3.6,8.9,0.0,38.6802,-98.5866,0.0
+hellas-planitia,33,Ganges Plain,control,2.98,0.0,9.9,0.0,26.1802,83.5986,0.0

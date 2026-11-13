@@ -46,3 +46,6 @@ data/*.dem
 results/*.png
 results/*.json
 output/
+
+# PTAE global-search download cache
+cache/

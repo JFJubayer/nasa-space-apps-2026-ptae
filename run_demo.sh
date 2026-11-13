@@ -21,18 +21,19 @@ source venv/bin/activate
 echo "📥 Checking dependencies..."
 pip install -q -r requirements.txt || true
 
-# 3. Run Pipeline for Moon Target
+# 3. Real-data global analog search (downloads open data on first run)
 echo ""
-echo "🌕 [Phase 1] Evaluating Earth Analogs for Artemis III Lunar South Pole..."
-python3 main.py --target moon
+echo "🌍 [Phase 1] Global analog search on real LOLA / MOLA / SRTM / NASA POWER data..."
+python3 -m src.global_search
 
-# 4. Run Pipeline for Mars Target
+# 4. Legacy synthetic-terrain demo
 echo ""
-echo "🔴 [Phase 2] Evaluating Earth Analogs for Mars Jezero Crater..."
+echo "🌕 [Phase 2] Legacy synthetic demo: Moon, then Mars..."
+python3 main.py --target moon
 python3 main.py --target mars --no-vis
 
 echo ""
 echo "======================================================================"
-echo "🎉 Analysis complete! All plots saved in 'results/'"
-echo "🌐 Open 'dashboard/index.html' in your browser to inspect the interactive map!"
+echo "🎉 Analysis complete! Results in 'dashboard/global_results.json' and 'results/'"
+echo "🌐 Run: python3 -m http.server --directory dashboard 8000  and open http://localhost:8000/"
 echo "======================================================================"

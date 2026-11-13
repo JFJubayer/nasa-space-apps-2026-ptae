@@ -177,11 +177,11 @@
         "lat": 19.82,
         "lon": -155.47,
         "type": "Basaltic Tephra & Pyroclastic Cones",
-        "primary_analog_for": "Moon (Lunar Regolith Simulant)",
+        "primary_analog_for": "Mars (Regolith Simulant) and Moon (Field Tests)",
         "is_basaltic": true,
         "has_lava_tubes": true,
         "is_hyper_arid": false,
-        "description": "Sub-alpine basaltic volcanic tephra cones used historically as the reference source for JSC-1A lunar regolith simulant and rover mobility tests."
+        "description": "Sub-alpine basaltic tephra cones; palagonitic Mauna Kea tephra (Pu'u Nene) is the source of the JSC Mars-1 regolith simulant, and Hawaiian basaltic terrain has hosted rover and ISRU field tests."
       }
     }
   ]

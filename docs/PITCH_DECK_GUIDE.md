@@ -1,63 +1,38 @@
 # NASA Space Apps 2026: Pitch Deck & Presentation Guide
-## Project: PTAE (Planetary Terrestrial Analog Engine)
+## Project: PTAE (Planetary Terrestrial Analog Engine), v2 on real data
 
-This guide provides a slide-by-slide structure, talking points, and a 30-second elevator pitch for presenting your project to the NASA Space Apps Challenge judges.
+> The recorded video in `docs/video/` and `docs/VIDEO_SCRIPT.md` still describe the v1 synthetic-terrain demo. Use this guide for live presentations.
 
----
+### 30-second pitch
+> "Before astronauts reach the lunar south pole or Mars, hardware and procedures are tested on Earth, but analog sites are mostly chosen by tradition. PTAE scans 33 Earth regions, including 14 little-studied ones, against 8 Moon and Mars targets using real LOLA, MOLA and SRTM elevation plus NASA climate data. For every match it shows where the analogy holds and where it breaks down. For Mars, four of our top five regions are deserts that rarely appear on analog lists, and the classic Atacama still shows up, which tells us the method works."
 
-### ⏱️ The 30-Second Elevator Pitch
-> *"Before astronauts travel to the lunar south pole region or touch down on Mars, every habitat, rover, and spacesuit must be rigorously stress-tested on Earth. But today, analog sites are chosen mostly by guesswork and qualitative impressions. We built **PTAE**, a demo that scores calibrated synthetic terrain matched to published morphometrics to discover and rank planetary analogs. The pipeline is designed to accept real LOLA, MOLA, and SRTM DEMs. Using our Analog Compatibility Index, we can identify promising locations on Earth—from Icelandic lava tubes to Antarctic dry valleys—that can help prepare crews for other worlds."*
+### Slide structure
 
----
+**1. Title and hook.** *Finding, ranking and critiquing Earth analogs for the Moon and Mars.* Question to open: "Where on Earth is a good stand-in, and for what?"
 
-### 📊 7-Slide Pitch Deck Structure
+**2. The challenge.** Quote the brief: do not just rediscover famous sites; explain what is similar and what is not. Analog sites are poorly characterized and picked qualitatively.
 
-#### Slide 1: Title & Hook
-- **Visual:** High-contrast split image showing the Lunar South Pole (Shackleton crater) next to an Icelandic volcanic caldera.
-- **Header:** PTAE: Planetary Terrestrial Analog Engine
-- **Subtitle:** *Finding Humanity's Training Grounds for the Moon and Mars*
-- **Speaker Script:** "Good day judges. When NASA prepares to establish a permanent base camp on the Moon, where do we test our tech first? Earth. But where on Earth actually matches the Moon?"
+**3. Our approach (one diagram).** Real data (LOLA, MOLA, SRTM-based tiles, NASA POWER) -> multi-baseline terrain signature -> three dimensions (terrain, climate, geology) -> ranking with uncertainty and "where it breaks down".
 
-#### Slide 2: The Challenge
-- **Visual:** Map showing traditional analog sites (Atacama, Death Valley) with a question mark over their true suitability.
-- **Key Points:**
-  - Terrestrial analogs are poorly characterized.
-  - Qualitative selection leads to unexpected equipment failures in space.
-  - We need quantitative, multi-parameter physical alignment.
-- **Speaker Script:** "Until now, picking analog sites has been largely qualitative—'it's a desert, so it's like Mars.' But the Moon's South Pole has steep 20° crater rims, sharp basaltic glass, and extreme thermal gradients. Testing in the wrong terrain puts multi-billion dollar missions at risk."
+**4. Why the method is sound.**
+- Slope is measured over identical ground baselines (240 m to 3.84 km), so a 20 m lunar DEM and a 463 m Mars DEM are comparable.
+- Sliding 40 km windows find the best sub-region inside a large area and show it on the map.
+- Environment targets are clipped to what Earth can actually reach, so "similar" never means "equal".
+- Scores are combined multiplicatively: a site must pass every dimension.
 
-#### Slide 3: Our Solution
-- **Visual:** Diagram of the PTAE pipeline (NASA Open Data $\rightarrow$ Topographical Engine $\rightarrow$ Similarity Matcher $\rightarrow$ Interactive Dashboard).
-- **Key Points:**
-  - Automated quantitative matching engine.
-  - Combines Surface Slope, Riley's Terrain Ruggedness (TRI), and Relief Variance.
-  - Introduces the **Analog Compatibility Index (ACI)**.
-- **Speaker Script:** "We developed PTAE. Our demo uses calibrated synthetic terrain matched to published morphometrics to calculate slope, roughness, and relief variance, then scores Earth candidates; the pipeline is designed to accept real LOLA, MOLA, and SRTM DEMs."
+**5. Findings (reproducible with `python -m src.global_search`).**
+- Mars: Gilf Kebir (Egypt), Dasht-e Lut (Iran), Qaidam Basin (China), Pinacate (Mexico), then Atacama Yungay.
+- Moon: Death Valley, McMurdo Dry Valleys, Tibesti (Chad).
+- Negative controls (rainforest, plains, glaciated and monsoon mountains) are separated from candidates with AUC 0.84 for Mars and 0.66 for the Moon.
 
-#### Slide 4: Scientific Methodology
-- **Visual:** Side-by-side heatmaps of Elevation, Slope, and TRI; formula for ACI.
-- **Key Points:**
-  - **Slope ($^\circ$):** Critical for rover mobility, landing stability, and traverse routing.
-  - **TRI (Terrain Ruggedness Index):** Quantifies micro-scale roughness and wheel-trap hazards.
-  - **Environmental Modifiers:** Basaltic composition, hyper-aridity, and presence of lava tubes.
-- **Speaker Script:** "Rather than just looking at pictures, we calculate the Riley Terrain Ruggedness Index and slope vectors across hundreds of square kilometers. We then score candidates against mission safety profiles."
+**6. Honesty slide.** The Moon result is weaker because steep mountains match lunar polar slopes; MOLA limits Mars to kilometre-scale terrain; NASA POWER is coarse; geology tags are curated. Earth cannot reproduce gravity, vacuum or radiation (show the dashboard table).
 
-#### Slide 5: The Top Discoveries
-- **Visual:** Leaderboard ranking + radar chart screenshot from our dashboard.
-- **Key Discoveries:**
-  - **#1 Moon Demo Analog (calibrated synthetic terrain):** *McMurdo Dry Valleys, Antarctica (82.52% ACI)* — katabatic-carved slopes and fine-scale ruggedness matching lunar highland micro-roughness; Iceland's Askja Caldera is #2 (74.05%) for its lava-tube shielding.
-  - **#1 Mars Demo Analog (calibrated synthetic terrain):** *Mauna Kea Cinder Cones, Hawaii (96.98% ACI; top-ranked analog)* — basaltic cinder-cone slopes mirroring Jezero Crater's rim and delta relief.
-- **Speaker Script:** "Live, right now, our calibrated-synthetic-terrain demo ranks McMurdo Dry Valleys as an 82.52% topographic match for the lunar south pole region, with Askja at 74.05% — and Mauna Kea's cinder cones as the top Mars match at 96.98%, a top-ranked analog. Every number on this leaderboard is reproducible in under ten seconds by running `python main.py`. A real-data validation using a 20 m LRO LOLA Moon target and real Askja terrain showed scale sensitivity: the top candidate changes with window size, McMurdo ranks last in all windows, and Mauna Kea and Atacama stay in the top three."
+**7. Live demo (60 seconds).** Open the Global Search tab. Pick Jezero Crater, click Qaidam Basin, show the yellow best-window box, the slope chart and the "where it breaks down" panel. Switch to the Rover preset and watch the ranking change. Switch to Shackleton and point out the weaker Moon separation.
 
-#### Slide 6: Interactive Demo (Live Walkthrough)
-- **Visual:** Screenshot of `dashboard/index.html` with active markers, Leaflet map, and radar charts.
-- **Key Action:** Switch between Moon and Mars target in the live UI.
-- **Speaker Script:** "We built an intuitive, responsive dashboard. In one click, mission teams can switch between Artemis Lunar South Pole and Mars Jezero Crater, viewing global candidates with instant quantitative breakdowns."
+**8. Vision.** HiRISE/CTX DEMs for rover-scale roughness, Diviner temperatures and illumination for lunar targets, mineral maps for geology, and a true global grid scan.
 
-#### Slide 7: Vision & Future Impact
-- **Visual:** Astronaut on lunar surface pointing to future roadmap.
-- **Key Points:**
-  - Google Earth Engine global continuous scanning.
-  - Integration with mineralogical spectrometer data (CRISM / ASTER).
-  - Open-source tool for NASA Artemis and international space agencies.
-- **Speaker Script:** "By pairing calibrated terrain signatures with automated spatial analytics, PTAE helps identify the best ground on Earth for testing crews and rovers before they travel to other worlds. Thank you!"
+### Likely judge questions
+- *Is this validated?* Negative-control AUC and rank-stability under random weights; no ground-truth analog database exists, so we say so.
+- *Why trust geology tags?* They are labelled as curated priors and carry 25% default weight, adjustable by the user.
+- *Why not machine learning?* There are too few labelled analog sites; the scoring is transparent and its inputs can be inspected per region.
+- *Was AI used?* Yes; see the SI disclosure in the README and the submission.

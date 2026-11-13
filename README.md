@@ -1,208 +1,92 @@
-# 🚀 PTAE: Planetary Terrestrial Analog Engine
-### *Quantitative Identification and Characterization of Earth Analogs for Moon and Mars Base Locations*
-**NASA International Space Apps Challenge 2026**
+# PTAE: Planetary Terrestrial Analog Engine
+### Finding, ranking and critiquing Earth analogs for Moon and Mars exploration sites
+**NASA International Space Apps Challenge 2026** - *Identify Earth Locations that Analog the Permanent Moon Base Locations and Mars*
 
-[![Event](https://img.shields.io/badge/NASA%20Space%20Apps-2026-blue.svg)](https://www.spaceappschallenge.org/)
+[![Event](https://img.shields.io/badge/NASA%20Space%20Apps-2026-blue.svg)](https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
-[![Dashboard](https://img.shields.io/badge/Interactive-Dashboard-orange.svg)](dashboard/index.html)
 
----
+PTAE scans 33 Earth regions, including 14 less-studied ones and 5 deliberate negative controls, against 8 Moon and Mars targets using **real NASA data**. For every pairing it shows *where the analogy holds and where it breaks down*. It runs on open data from one command.
 
-## 📌 Project Overview
-Selecting future landing sites and permanent base camps on the **Moon (Artemis III Lunar South Pole)** and **Mars** requires testing rovers, habitats, spacesuits, and In-Situ Resource Utilization (ISRU) systems in real-world extreme environments on Earth. 
+## What is new in v2
 
-While terrestrial analogs like the Atacama Desert or Haughton Crater are well known, they have historically been selected using qualitative assumptions. **PTAE (Planetary Terrestrial Analog Engine)** provides an automated, data-driven framework, modeled on open elevation data from NASA (**LOLA**, **MOLA**, **SRTM**) and ESA, to mathematically identify, evaluate, and characterize new terrestrial analogs.
+| Weakness of v1 | Fix in v2 |
+| :--- | :--- |
+| Procedural (synthetic) terrain | Real elevation: LRO LOLA (Moon), MGS MOLA (Mars), SRTM/NASADEM-based AWS Terrain Tiles (Earth) |
+| Five famous sites only | 33 regions: 14 benchmarks, 14 less-studied candidates, 5 negative controls |
+| Terrain only, plus a boolean bonus | Three dimensions: terrain, NASA POWER climate, curated geology |
+| Pixel-scale slope compared across 20 m, 30 m and 463 m DEMs | Slope over identical ground baselines (240 m to 3.84 km), so resolution cancels |
+| One window per site | Sliding 40 km windows find the best sub-region; the map shows exactly where |
+| Gaussian on means, single score | Rank uncertainty from 1000 random weightings, plus negative-control AUC |
+| Earth treated as a perfect analog | Explicit "where it breaks down" panel and the conditions no Earth site can reproduce |
 
-> **Data note:** The default `python main.py` run uses calibrated **procedural DEMs** (`src/synthetic_generator.py`) based on published morphometric parameters for the modeled sites, so the pipeline runs without downloads. The downloader provides sample planetary and Earth GeoTIFFs; see [Limitations & Future Work](#limitations--future-work) for the current constraints on running real DEMs through the pipeline.
+## Results
 
----
+Mean ACI across targets (0 to 100, a relative index; Earth never reaches 100):
 
-## 🏗️ Architecture & Workflow
+| Body | Top 5 |
+| :--- | :--- |
+| **Mars** (Jezero, Gale, Gusev, Meridiani, Oxia, Hellas) | Gilf Kebir, Egypt (51); Dasht-e Lut, Iran (50); Qaidam Basin, China (48); Pinacate, Mexico (45); Atacama Yungay, Chile (38) |
+| **Moon** (Shackleton, Malapert) | Death Valley, USA (44); McMurdo Dry Valleys, Antarctica (42); Tibesti, Chad (37); Bernese Alps (control, 35); Dasht-e Lut, Iran (33) |
 
-```mermaid
-flowchart TD
-    subgraph Data_Sources ["🛰️ NASA & Open Planetary Data"]
-        LOLA["Moon: LRO LOLA DEMs"]
-        MOLA["Mars: MGS MOLA DEMs"]
-        SRTM["Earth: SRTM 30m Global DEMs"]
-        ASTER["Earth: ASTER Multispectral & Thermal"]
-    end
+Takeaways:
+- For Mars, four of the five best regions are **less-studied deserts**, and the benchmark Atacama still ranks in the top five, which is the expected sanity check.
+- Negative controls (rainforest, plains, glaciated and monsoon mountains) are separated from candidates with AUC 0.84 on Mars targets.
+- **The Moon result is weaker (AUC 0.66).** Lunar polar terrain is rugged, so steep mountain controls match its slope statistics; only climate and geology reject them. Treat Moon rankings as hypotheses.
+- Terrain alone separates controls from candidates with AUC 0.64, climate 0.86 and geology 0.95. The dimensions are complementary, so scores are combined multiplicatively (a site must be adequate on every dimension).
 
-    subgraph Processing_Engine ["🧠 Spatial Analytics Engine"]
-        TM["Terrain Metrics Extractor\n(Slope, Aspect, TRI, TPI)"]
-        SM["Similarity Matching Algorithm\n(Analog Compatibility Index - ACI)"]
-    end
+Full per-target tables: [results/global_ranking.csv](results/global_ranking.csv) and the dashboard.
 
-    subgraph Deliverables ["🎯 Outputs & Insights"]
-        CLI["CLI Tool & Terminal Leaderboard"]
-        PLOTS["High-Resolution Comparison Plots (PNG)"]
-        DASH["Interactive Web Map Dashboard (HTML/JS)"]
-    end
+## Method in brief
+1. **Data.** Earth: AWS Terrain Tiles (zoom 11). Moon: LOLA 20 m south-polar DEM. Mars: MOLA 463 m. All resampled to a common 120 m grid and 40 km windows.
+2. **Terrain signature.** Median and 90th-percentile slope over baselines of 240, 480, 960, 1920 and 3840 m, plus Hurst exponent and relief (differential-slope method; Kreslavsky and Head 2000; Rosenburg et al. 2011). Mars uses only baselines of 960 m and longer because gridded MOLA does not resolve finer terrain.
+3. **Environment.** NASA POWER climatology (mean temperature, daily range, rain, humidity, pressure) compared with a target clipped to the most extreme values reachable on Earth.
+4. **Geology.** Curated tags (impact, basaltic, lava tubes, ground ice, evaporites, and so on) in [catalog/](catalog/). These are expert priors, not measurements, and are labelled as such.
+5. **Score.** Weighted geometric mean of the three similarities (default 0.5 / 0.25 / 0.25). The additive mean is available in the dashboard.
+6. **Uncertainty and validation.** 1000 random weightings per target; negative-control AUC; best-window coverage.
 
-    LOLA --> TM
-    MOLA --> TM
-    SRTM --> TM
-    ASTER --> SM
-    TM --> SM
-    SM --> CLI
-    SM --> PLOTS
-    SM --> DASH
-```
+### Limitations
+- The aggregation was changed from additive to geometric after we saw that the additive form let a wet alpine valley rank first for the Moon. Both are reported; the geometric form does not remove the Moon weakness.
+- NASA POWER is a 0.5 degree reanalysis and is coarse for single sites (it over-estimates rain in Iceland, for example).
+- Gridded MOLA limits Mars comparisons to kilometre-scale terrain; rover-scale roughness needs HiRISE or CTX DEMs.
+- Geology tags and the "emerging" label are judgement, not data. Rankings guide where to look next; they do not confirm analogs.
+- Earth cannot reproduce gravity, vacuum or Mars pressure, or the radiation environment (see the dashboard table).
 
----
-
-## 🏆 Demo Rankings (Synthetic Terrain)
-*(reproduced by `python main.py --target moon --json-out` / `python main.py --target mars --json-out`, ranked out of 5 candidate sites)*
-
-| Extraterrestrial Target | Top Earth Analog Found | ACI Score | Key Matching Factors |
-| :--- | :--- | :--- | :--- |
-| **Moon (Artemis South Pole)** | **McMurdo Dry Valleys, Antarctica** | **82.52%** | Top-ranked of 5 candidates; Askja & Holuhraun Caldera, Iceland is #2 at **74.05%**. |
-| **Mars (Jezero Crater)** | **Mauna Kea Cinder Cones, Hawaii** | **96.98%** | Top-ranked of 5 candidates; Puna de Atacama, Chile is #2 at **84.98%**. |
-
-The Moon target is the lunar south pole region, not a specific Artemis III landing site.
-
-## Real-Data Validation
-The demo rankings above come from calibrated synthetic terrain. As a validation, we ran the same pipeline with real data: the Moon target from an LRO LOLA 20 m south-polar DEM, centered on the pole in 5, 10, and 15 km windows, and Askja from AWS Terrain Tiles (composite, approximately 30 m); the other four Earth candidates remain synthetic.
-
-| Candidate | 5 km Rank | 5 km Final ACI | 10 km Rank | 10 km Final ACI | 15 km Rank | 15 km Final ACI |
-| :--- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Askja & Holuhraun Caldera, Iceland | 1 | 70.24% | 4 | 63.60% | 4 | 57.06% |
-| Mauna Kea Cinder Cones | 2 | 52.80% | 1 | 87.48% | 2 | 84.98% |
-| Puna de Atacama | 3 | 51.86% | 2 | 84.46% | 1 | 89.22% |
-| Haughton Impact Crater, Devon Island | 4 | 47.81% | 3 | 65.94% | 3 | 81.86% |
-| McMurdo Dry Valleys | 5 | 36.77% | 5 | 36.25% | 5 | 46.36% |
-
-The top candidate changes with window size: Askja at 5 km, Mauna Kea at 10 km, and Atacama at 15 km. McMurdo ranks last in all three windows, while Mauna Kea and Atacama remain in the top three throughout. The ACI is scale-sensitive in this comparison.
-
-Only the Moon target and Askja change with window size; the other four candidates are fixed synthetic DEMs. Some of the observed sensitivity therefore comes from resolution and scale mismatch, not only from terrain.
-
-Next, use real DEMs for every candidate at one common ground resolution and window size. Mars requires HiRISE or CTX data because MOLA at 463 m/pixel is too coarse for a like-for-like comparison with 30 m Earth data; our test at approximately 334 m/pixel produced near-zero slope congruence.
-
-## Scoring Method
-The base ACI is a weighted average of Gaussian similarity scores for five terrain metrics, scaled to 0-100. An additive environmental bonus of up to 5 points is applied for three boolean flags: hyper-arid, basaltic, and lava-tube geology. Each matching flag contributes one third of the maximum bonus (about 1.67 points). Scores are capped below 100 unless the weighted terrain metrics are an exact match.
-
-Use `--json-out` to export ranked scores and terrain details to `dashboard/results_<target>.json`; for example, the Moon and Mars commands below write `results_moon.json` and `results_mars.json` in `dashboard/`.
-
-## Limitations & Future Work
-The default run uses calibrated synthetic DEMs, not measurements from LOLA, MOLA, or SRTM. The reported rankings are therefore results for those generated terrain inputs and the current scoring model, not validation of real-world mission-site suitability.
-
-To prepare a real-data run, download and preprocess LOLA data for the Moon target, MOLA data for the Mars target, and SRTM data for the Earth candidates. Clip and align each DEM, handle its no-data values, and convert it to a NumPy array using the expected names in `data/`: `target_moon_artemis_south_pole.npy`, `target_mars_jezero_crater.npy`, and `earth_iceland_askja.npy`, `earth_atacama_puna.npy`, `earth_mcmurdo_dry_valleys.npy`, `earth_haughton_crater.npy`, and `earth_hawaii_mauna_kea.npy`. The current CLI regenerates these procedural arrays on every run, so replacing the files alone will not use real data. Future work is to add a real-input path that skips generation and validates these prepared DEMs before running the existing metrics and scoring pipeline.
-
----
-
-## ⚡ Quickstart Guide
-
-### 1. Clone & Set Up Python Environment
+## Quickstart
 ```bash
-git clone https://github.com/your-team/nasa-space-apps-2026.git
-cd "nasa-space-apps-2026"
-
-# Create and activate virtual environment
-python3 -m venv venv
-source venv/bin/activate
-
-# Install requirements
+git clone https://github.com/JFJubayer/nasa-space-apps-2026-ptae.git
+cd nasa-space-apps-2026-ptae
+python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
+
+python -m src.global_search                         # downloads real data (cached in cache/), writes dashboard/global_results.json
+python -m http.server --directory dashboard 8000    # open http://localhost:8000/
 ```
+Open the **Global Search** tab, choose a Moon or Mars target, change the mission-priority sliders, and click any region.
 
-### 2. Run the Analog Matching Pipeline
-Run the full analysis for the Moon:
-```bash
-python main.py --target moon --json-out
-```
-Or evaluate Mars Jezero Crater:
-```bash
-python main.py --target mars --json-out
-```
+Tests (offline): `python -m unittest discover -s tests -v`. Browser tests also need `pip install -r requirements-dev.txt && python -m playwright install chromium`.
 
-This will automatically:
-1. Generate / load high-resolution planetary and candidate DEMs in `data/`.
-2. Compute **Slope**, **Aspect**, and **Terrain Ruggedness Index (TRI)**.
-3. Compute the **Analog Compatibility Index (ACI)** across all candidate sites.
-4. Output high-resolution figures into `results/`:
-   - `target_terrain_suite.png`
-   - `top_analog_terrain_suite.png`
-   - `analog_compatibility_leaderboard.png`
-   - `analog_radar_comparison.png`
-
-### 3. Run Regression Tests
-```bash
-python -m pip install -r requirements-dev.txt
-python -m playwright install chromium
-python -m unittest discover -s tests -v
-```
-
-The browser tests serve the dashboard locally and block external requests. To use an installed Chrome instead of downloading Chromium, set `PTAE_TEST_BROWSER=/usr/bin/google-chrome` when running the tests. Without Playwright, the Python suite still runs and marks browser tests as skipped.
-
-Prepared DEM sidecars preserve separate X/Y ground resolution. Terrain calculations use that spacing for rectangular pixels; scalar-resolution inputs remain supported. CRS parsing uses `pyproj`, including with older supported `rasterio` releases.
-
----
-
-## 🌐 Interactive Web Dashboard
-You can explore the global candidate analog sites on an interactive Leaflet map!
-
-From the repository root, generate both target result files and start the local server:
-```bash
-python main.py --target moon --json-out
-python main.py --target mars --json-out
-python -m http.server
-```
-Then open http://localhost:8000/dashboard/.
-
-Features:
-- Switch between **Moon (Artemis III Pole)** and **Mars (Jezero Crater)**.
-- Click candidate pins (Iceland, Atacama, Antarctica, Devon Island, Hawaii) for real-time quantitative breakdowns.
-- Interactive multi-parameter radar chart powered by Chart.js.
-- 3D terrain viewer, mission weight "what-if" calculator, and a NASA data/mission science reference tab.
-- The map and leaderboard use the scores loaded from `dashboard/results_moon.json` and `dashboard/results_mars.json`; the Weight Calculator tab is a separate "what-if" explorer that re-weights the same underlying signatures.
-
-### Moon and Mars target-site catalogue
-`dashboard/target_sites.json` is the shared source for the dashboard's approximate Moon and Mars target regions and qualitative Earth-analog matches. Each target record includes its body, approximate latitude/longitude, short description, key features, mission relevance, and source note; each match lists shared features and its body-specific display order. The match order is qualitative demo data, not an ACI score or a change to the scoring model.
-
-Every target record sets `coords_approximate` to `true`. Verify its coordinates and regional context against NASA/USGS mission cartography before scientific or mission use. When `main.py --target moon --json-out` or `main.py --target mars --json-out` writes a result file, it also includes that body's target-site records and qualitative mappings; the existing terrain metrics and ACI scores are unchanged.
-
-### Deploying it as a public site
-The dashboard is a static, zero-build app (dependencies load from CDN), so the full `dashboard/` directory can be hosted anywhere that serves static files. Keep `target_sites.json`, `results_moon.json`, `results_mars.json`, imagery assets, and `index.html` together; the page fetches these local files at runtime.
-- **GitHub Pages:** enable Pages on this repo pointing at the `dashboard/` folder. Keep the JSON result files, target-site catalogue, and referenced assets alongside `index.html`.
-- **Netlify / Vercel / Cloudflare Pages:** drag-and-drop the `dashboard/` folder, or set the publish directory to `dashboard`.
-- **Any static host / S3 / nginx:** just copy `dashboard/index.html` — there's nothing else to build or configure.
-
-It's responsive down to mobile widths and degrades gracefully (with an on-screen notice) if a browser doesn't support WebGL for the 3D tab.
-
----
-
-## 📂 Project Structure
+## Repository layout
 ```text
-.
-├── dashboard/
-│   └── index.html               # Zero-dependency interactive web map & radar explorer
-├── data/                        # Planetary and terrestrial DEM datasets (.npy or .tif)
-├── docs/
-│   ├── PITCH_DECK_GUIDE.md      # 7-slide presentation script & 30-second pitch
-│   └── SCIENTIFIC_METHODOLOGY.md# In-depth geological & topographic justification
-├── results/                     # Generated PNG heatmaps, radar plots, and summary.json
-├── src/
-│   ├── __init__.py
-│   ├── terrain_metrics.py       # Slope, TRI, TPI, and elevation variance algorithms
-│   ├── similarity_matcher.py    # Analog Compatibility Index (ACI) scoring logic
-│   ├── synthetic_generator.py   # Procedural simulator for planetary and terrestrial DEMs
-│   └── visualizer.py            # Matplotlib plotting routines and JSON exporter
-├── main.py                      # Unified CLI entrypoint
-├── NASA_SPACE_APPS_SUBMISSION.md# Official Space Apps project submission document
-├── requirements.txt             # Project dependencies
-├── LICENSE                      # MIT Open Source License
-└── README.md                    # Project landing page
+catalog/                 Earth sites and Moon/Mars targets (curated tags, heritage, limits)
+src/geodata.py           Fetch LOLA, MOLA, terrain tiles, NASA POWER
+src/multiscale.py        Baseline slope signatures, sliding windows, water masking
+src/analog_score.py      Terrain/environment/geology similarity, aggregation, robustness, AUC
+src/global_search.py     End-to-end pipeline and CLI
+dashboard/               Static web app (Global Search tab plus the original v1 demo tabs)
+tests/                   Unit tests for v2 and for the v1 pipeline
+main.py, src/terrain_metrics.py, similarity_matcher.py, synthetic_generator.py
+                         v1 synthetic-terrain demo, kept for the original tabs and tests
 ```
 
----
+## v1 synthetic demo (legacy)
+`python main.py --target moon --json-out` and `--target mars` still regenerate the calibrated synthetic-terrain demo used by the dashboard's "Explore Sites" and "Compare" tabs. Those scores are **not** measurements; use Global Search for real-data results.
 
-## 🛰️ Open Data Sources
-- **NASA PDS Geosciences:** Lunar Orbiter Laser Altimeter (LOLA) & Mars Orbiter Laser Altimeter (MOLA)
-- **NASA Earthdata Search:** Shuttle Radar Topography Mission (SRTM) & ASTER GDEM
-- **USGS Astrogeology:** Planetary GIS and QuickMap LROC datasets
+## Open data and references
+LRO LOLA (NASA PGDA), MGS MOLA (USGS Astrogeology), AWS Terrain Tiles (SRTM, NASADEM, ArcticDEM and others), NASA POWER. References are listed in the dashboard and in [docs/SCIENTIFIC_METHODOLOGY.md](docs/SCIENTIFIC_METHODOLOGY.md).
 
----
+## Use of Super Intelligence (SI) tools
+Per the Space Apps rules: the v1 prototype was drafted with an AI assistant, and the v2 redesign (data pipeline, scoring, dashboard tab, tests, documentation) was developed with GitHub Copilot. Design decisions, data choices and validity checks remain the team's responsibility.
 
-## 📜 License
-Distributed under the **MIT License**. See `LICENSE` for details.
+## License
+MIT. See [LICENSE](LICENSE).

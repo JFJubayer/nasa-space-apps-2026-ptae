@@ -1,0 +1,67 @@
+/* PTAE global analog search tab. Scoped under #global-tab; reuses the dashboard colour tokens. */
+#global-tab .gs-stat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+#global-tab .gs-stat { display: grid; gap: 5px; align-content: start; padding: 13px; border: 1px solid rgba(61, 143, 194, 0.4); border-radius: 14px; background: linear-gradient(145deg, rgba(10, 34, 59, 0.88), rgba(4, 16, 33, 0.9)); min-width: 0; }
+#global-tab .gs-stat h3 { font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); }
+#global-tab .gs-stat strong { font-size: 1.02rem; color: #e5f4ff; line-height: 1.25; overflow-wrap: anywhere; }
+#global-tab .gs-stat span { font-size: 0.68rem; color: var(--text-dim); line-height: 1.4; }
+
+#global-tab .gs-controls { display: grid; grid-template-columns: minmax(220px, 1fr) minmax(0, 2fr); gap: 14px; align-items: start; }
+#global-tab .gs-field { display: grid; gap: 5px; min-width: 0; }
+#global-tab .gs-field > label, #global-tab .gs-field > .gs-label { font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); }
+#global-tab select { width: 100%; padding: 8px 10px; background: #09233b; color: #dff3ff; border: 1px solid #1d5b88; border-radius: 6px; }
+#global-tab .gs-sliders { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+#global-tab .gs-slider { display: grid; gap: 3px; font-size: 0.72rem; color: var(--text-dim); }
+#global-tab .gs-slider output { color: #bceafa; font-weight: 600; }
+#global-tab input[type="range"] { width: 100%; accent-color: #68d7ee; }
+#global-tab .gs-preset-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+#global-tab .gs-btn { padding: 6px 10px; font-size: 0.68rem; color: #bceafa; background: #09233b; border: 1px solid #1d5b88; border-radius: 6px; cursor: pointer; }
+#global-tab .gs-btn:hover, #global-tab .gs-btn[aria-pressed="true"] { border-color: #51c8e9; background: #103653; color: #fff; }
+
+#global-tab .gs-main { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+#global-tab .gs-map { height: 420px; border-radius: 8px; border: 1px solid #1d4a6e; background: #07121f; z-index: 0; }
+#global-tab .gs-legend { display: flex; flex-wrap: wrap; gap: 10px; font-size: 0.64rem; color: var(--text-dim); margin-top: 8px; }
+#global-tab .gs-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: -1px; border: 1px solid rgba(255, 255, 255, 0.5); }
+#global-tab .gs-table-wrap { max-height: 456px; overflow: auto; border: 1px solid #1d3852; border-radius: 8px; }
+#global-tab .gs-table { width: 100%; border-collapse: collapse; font-size: 0.7rem; }
+#global-tab .gs-table th { position: sticky; top: 0; background: #0b1b2e; color: #9fc7de; text-align: left; padding: 7px 8px; font-weight: 600; z-index: 1; }
+#global-tab .gs-table td { padding: 6px 8px; border-top: 1px solid #14293f; color: #d6e8f5; vertical-align: middle; }
+#global-tab .gs-table tr[data-site] { cursor: pointer; }
+#global-tab .gs-table tr[data-site]:hover td, #global-tab .gs-table tr.is-selected td { background: rgba(60, 150, 200, 0.16); }
+#global-tab .gs-table tr.is-control td:nth-child(2) { color: #94a6b8; }
+#global-tab .gs-table button.gs-row-btn { all: unset; cursor: pointer; color: inherit; }
+#global-tab .gs-table button.gs-row-btn:focus-visible { outline: 2px solid var(--focus-ring); }
+#global-tab .gs-bar { position: relative; height: 7px; border-radius: 4px; background: #14293f; min-width: 54px; }
+#global-tab .gs-bar i { position: absolute; inset: 0 auto 0 0; border-radius: 4px; background: linear-gradient(90deg, #3a8fc0, #ffd783); }
+#global-tab .gs-num { font-variant-numeric: tabular-nums; }
+#global-tab .gs-pill { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: 0.58rem; border: 1px solid; white-space: nowrap; }
+#global-tab .gs-pill.benchmark { color: #a8e8f3; border-color: rgba(74, 173, 204, 0.5); }
+#global-tab .gs-pill.emerging { color: #ffd783; border-color: rgba(255, 215, 131, 0.55); background: rgba(255, 215, 131, 0.08); }
+#global-tab .gs-pill.control { color: #94a6b8; border-color: rgba(148, 166, 184, 0.45); }
+
+#global-tab .gs-detail { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+#global-tab .gs-detail h3 { font-size: 0.8rem; color: #d3ecfa; margin: 0 0 6px; }
+#global-tab .gs-detail p, #global-tab .gs-detail li { font-size: 0.72rem; color: var(--text-dim); line-height: 1.5; }
+#global-tab .gs-detail ul { margin: 0; padding-left: 16px; display: grid; gap: 4px; }
+#global-tab .gs-dim { display: grid; grid-template-columns: 86px minmax(0, 1fr) 42px; gap: 8px; align-items: center; font-size: 0.7rem; color: var(--text-dim); margin-bottom: 6px; }
+#global-tab .gs-chart-box { position: relative; height: 230px; }
+#global-tab .gs-holds { border-left: 3px solid #5fc8a0; padding-left: 10px; }
+#global-tab .gs-breaks { border-left: 3px solid #e08a6d; padding-left: 10px; }
+#global-tab .gs-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+#global-tab .gs-tag { font-size: 0.6rem; padding: 2px 7px; border-radius: 4px; background: rgba(95, 200, 160, 0.14); color: #bcebd4; border: 1px solid rgba(95, 200, 160, 0.4); }
+#global-tab .gs-note { font-size: 0.68rem; color: var(--text-faint); line-height: 1.5; }
+#global-tab a.gs-link { color: #7fd3ee; }
+#global-tab .gs-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+#global-tab .gs-validation-list { display: grid; gap: 6px; margin: 8px 0 0; padding-left: 16px; font-size: 0.72rem; color: var(--text-dim); line-height: 1.5; }
+
+@media (max-width: 1100px) {
+    #global-tab .gs-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #global-tab .gs-main, #global-tab .gs-detail, #global-tab .gs-controls, #global-tab .gs-two { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+    #global-tab .gs-sliders { grid-template-columns: minmax(0, 1fr); }
+    #global-tab .gs-stat-grid { grid-template-columns: minmax(0, 1fr); }
+    #global-tab .gs-map { height: 320px; }
+}
+
+#global-tab .section-heading p { padding: 6px 10px; border-radius: 8px; background: rgba(5, 13, 24, 0.78); }
+#global-tab .gs-stat { background: linear-gradient(145deg, rgba(10, 34, 59, 0.97), rgba(4, 16, 33, 0.97)); }

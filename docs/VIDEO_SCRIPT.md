@@ -1,6 +1,7 @@
 # 🎬 PTAE — "240 Seconds of Glory" Video Script
 **Challenge:** Identify Earth Locations that Analog the Permanent Moon Base Locations and Mars — NASA Space Apps Challenge 2026
 **Project:** PTAE (Planetary Terrestrial Analog Engine)
+> **Outdated:** this script and the rendered videos describe the v1 synthetic-terrain demo. The v2 real-data findings are in `docs/PITCH_DECK_GUIDE.md`; re-record before submitting a video.
 **Total runtime:** 4:00 (240s) local-judging cut, + 0:30 global-nominee cut at the end
 
 > Fill in `[Team Name]` / `[Speaker]` placeholders before recording. Everything else — commands, numbers, filenames — is verified against the actual repo, so what you show on screen is exactly what the judges can reproduce themselves.

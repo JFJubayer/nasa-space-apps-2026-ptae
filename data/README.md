@@ -10,7 +10,7 @@ When you run `python main.py`, realistic procedural simulations are generated he
 - `earth_mcmurdo_dry_valleys.npy`: Hyper-arid polar desert and frozen polygon ground.
 - `earth_atacama_puna.npy`: High-altitude plateau with extreme UV flux.
 - `earth_haughton_crater.npy`: Devon Island Arctic impact crater with breccia sheets.
-- `earth_hawaii_mauna_kea.npy`: Basaltic tephra cinder cones and regolith simulant.
+- `earth_hawaii_mauna_kea.npy`: Basaltic tephra cinder cones (source region of the JSC Mars-1 simulant).
 
 ## Adding Real NASA / ESA GeoTIFFs
 To test real mission datasets, simply download GeoTIFFs and place them in this folder:

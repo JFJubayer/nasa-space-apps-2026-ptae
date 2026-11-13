@@ -1,72 +1,53 @@
 # NASA International Space Apps Challenge 2026
-## Official Project Submission Document
+## Project Submission Document
 
-### 📌 Project Title
-**PTAE: Planetary Terrestrial Analog Engine**  
-*Quantitative Topographical & Environmental Characterization of Earth Analogs for Artemis III and Mars Base Locations*
+### Project title
+**PTAE: Planetary Terrestrial Analog Engine**
+*A global, multi-dimensional search for Earth analogs of Moon and Mars exploration sites, with explicit limits of each analogy*
 
----
+### Challenge
+Identify Earth Locations that Analog the Permanent Moon Base Locations and Mars.
 
-### 🚀 High-Level Project Summary
-The **Planetary Terrestrial Analog Engine (PTAE)** is an automated geospatial demo that quantitatively scores and ranks terrestrial analogs for future permanent base sites. The current demo uses calibrated synthetic terrain matched to published morphometrics; the pipeline is designed to accept real LOLA, MOLA, and SRTM DEMs.
+### High-level summary
+PTAE compares 33 Earth regions with 8 Moon and Mars targets using real LOLA, MOLA and SRTM-based elevation data and NASA POWER climate. Terrain is compared with slope statistics over identical ground baselines, so 20 m, 30 m and 463 m data are comparable. Each pairing is scored on terrain, climate and geology, combined so that a site must be adequate on every dimension. The dashboard shows, per region, where the analogy holds, where it breaks down, the best 40 km window, and how stable the ranking is.
 
----
+### Why this answers the brief
+| The brief asks | PTAE |
+| :--- | :--- |
+| Use open Earth, Moon and Mars data from NASA and others | LRO LOLA 20 m, MGS MOLA 463 m, AWS Terrain Tiles (SRTM/NASADEM/ArcticDEM), NASA POWER |
+| Do not only rediscover famous analogs | 14 less-studied regions (e.g. Gilf Kebir, Dasht-e Lut, Qaidam Basin, Harrat Khaybar, Tibesti) are scored beside 14 benchmarks |
+| Think beyond visual similarity; several dimensions | Terrain (measured), climate (measured), geology and subsurface tags (curated) |
+| Explain what is similar, how similar, and what is different | Per-region "holds / breaks down" panel with measured gaps and site-specific limits |
+| Consider scale; a small area may beat a whole region | Sliding 40 km windows; the best window is mapped and coverage is reported |
+| Remember Earth's limits | Table of gravity, pressure and radiation that no Earth site can reproduce; environmental targets are clipped to Earth-achievable values |
+| Show it as a map, visualization or tool | Interactive map, ranking, slope charts, mission-priority sliders |
 
-### 📖 Detailed Project Description
-Before astronauts and rovers operate in the lunar south pole region or on the Martian surface, their equipment, habitats, life-support systems, and In-Situ Resource Utilization (ISRU) techniques must be tested in real-world extreme environments on Earth.
+### Key findings (default weights; reproduce with `python -m src.global_search`)
+- **Mars (mean over Jezero, Gale, Gusev, Meridiani, Oxia, Hellas):** Gilf Kebir, Egypt (51); Dasht-e Lut, Iran (50); Qaidam Basin, China (48); Pinacate, Mexico (45); Atacama Yungay, Chile (38). Four of the top five are less-studied deserts; a well-known benchmark still appears, as expected.
+- **Moon (mean over Shackleton and Malapert):** Death Valley (44); McMurdo Dry Valleys (42); Tibesti, Chad (37); Bernese Alps (35, a negative control); Dasht-e Lut (33).
+- **Validation:** negative controls (rainforest, plains, glaciated and monsoon mountains) are separated from candidates with AUC 0.84 for Mars targets and 0.66 for Moon targets. The Moon result is weaker because lunar polar terrain is rugged and steep mountains match its slope statistics. We report this rather than hide it, and treat Moon rankings as hypotheses.
+- **Dimensions are complementary:** AUC against controls is 0.64 for terrain alone, 0.86 for climate alone and 0.95 for geology alone.
 
-Historically, researchers have relied on qualitative analogies (e.g., "this desert looks dry like Mars" or "this volcanic rock looks like the Moon"). However, as missions grow more complex, mission planners need **quantitative, multi-parameter physical alignment**. 
+### Limitations
+Gridded MOLA limits Mars to kilometre-scale terrain; NASA POWER is a 0.5 degree reanalysis; geology tags and the "emerging" label are expert judgement; the aggregation was changed from additive to geometric after observing that the additive form favoured a wet alpine control (both are reported). Rankings guide where to look next and do not confirm analogs.
 
-**PTAE bridges this critical gap by:**
-1. **Extracting Topographical Signatures:** Using Digital Elevation Models (DEMs) to compute continuous mathematical metrics including Surface Slope, Aspect, Riley's Terrain Ruggedness Index (TRI), and Topographic Position Index (TPI).
-2. **Multi-Criteria Similarity Matching:** Normalizing topographic and environmental variance (desiccation, UV exposure, basaltic mineralogy, presence of volcanic lava tubes) into a unified **Analog Compatibility Index (ACI: 0–100%)**.
-3. **Interactive Explorer:** Providing an interactive 2D/3D web dashboard and geospatial CLI to allow engineers and planetary geologists to rapidly evaluate test sites across the globe.
+### Data sources
+| Body | Source | Use |
+| :--- | :--- | :--- |
+| Moon | LRO LOLA 20 m south-polar DEM (NASA PGDA) | Terrain of Shackleton and Malapert regions |
+| Mars | MGS MOLA 463 m global DEM (USGS Astrogeology) | Terrain of six landing and exploration regions |
+| Earth | AWS Terrain Tiles (SRTM, NASADEM, ArcticDEM and others) | Terrain of 33 regions, 80 km areas scanned with 40 km windows |
+| Earth | NASA POWER climatology (2001-2025) | Temperature, daily range, precipitation, humidity, pressure |
+| Moon, Mars | Published values (Chang'E-4 LND, MSL RAD, LRO Diviner) | Gravity, pressure and radiation gap table |
 
----
+### Technology
+Python (NumPy, SciPy, rasterio, pyproj, Pillow), static web dashboard (Leaflet, Chart.js, vanilla JavaScript), unit tests. Everything is reproducible from open data with one command.
 
-### 🛰️ Space Agency Data Sources
+### Use of Super Intelligence (SI) tools
+The challenge rules require a description of SI use. The v1 prototype (synthetic terrain, five-site demo, video and presentation assets) was drafted with an AI assistant. The v2 redesign (real-data pipeline, multi-baseline terrain method, three-dimension scoring, robustness and negative-control validation, the Global Search dashboard tab, tests and documentation) was developed with GitHub Copilot under the team's direction. The team chose the data sources and the validity checks and is responsible for the content.
 
-| Planetary Body | Mission / Source | Instrument / Dataset | Purpose |
-| :--- | :--- | :--- | :--- |
-| **The Moon** | **Lunar Reconnaissance Orbiter (LRO)** | **LOLA (Lunar Orbiter Laser Altimeter)** | 5m–30m South Polar Stereographic DEMs for slope, roughness, and crater wall metrics. |
-| **The Moon** | **LRO** | **Diviner Lunar Radiometer Experiment** | Surface and subsurface thermal environment data for cryogenic cold traps. |
-| **Mars** | **Mars Global Surveyor (MGS)** | **MOLA (Mars Orbiter Laser Altimeter)** | Megameter-scale topography and roughness profiles for Jezero and Gale craters. |
-| **Mars** | **Mars Reconnaissance Orbiter (MRO)** | **HiRISE & CRISM** | High-resolution morphology and hyperspectral mineralogical evidence (sulfates, phyllosilicates). |
-| **Earth** | **Space Shuttle Radar Topography Mission (SRTM)** | **SRTM 1 Arc-Second Global (30m)** | Global terrestrial digital elevation benchmark for slope and ruggedness calculations. |
-| **Earth** | **Terra Satellite** | **ASTER GDEM & Thermal Infrared** | High-resolution elevation and multispectral mineralogy / surface temperature. |
-| **Earth** | **Landsat 8/9 & MODIS** | **NDVI & Surface Reflectance** | Vegetation filtration to isolate truly barren, space-like planetary analog zones. |
-
-These are intended sources for real-data ingestion. The current demo rankings use calibrated synthetic terrain rather than measurements from these datasets.
-
----
-
-### 🎯 Key Findings & Characterized Analogs
-*Scores below are reproduced live by running `python main.py --target moon` / `--target mars` against the five candidate sites currently modeled.*
-
-1. **Top Lunar South Pole Demo Analog on Calibrated Synthetic Terrain — McMurdo Dry Valleys, Antarctica (ACI: 82.52%)**
-   - *Topographical Congruence:* Katabatic-wind-carved valley walls and frozen polygon ground produce the steep slope and fine-scale ruggedness (TRI) profile closest to lunar highland terrain around Shackleton/Faustini.
-   - *Runner-up:* Askja & Holuhraun Caldera, Iceland (ACI: 74.05%) — collapse calderas and basaltic lava tubes remain the best analog for subsurface radiation/thermal shielding, even though its topographic ACI trails McMurdo.
-
-2. **Top Mars Demo Analog on Calibrated Synthetic Terrain — Mauna Kea Cinder Cones, Hawaii (ACI: 96.98%; top-ranked analog)**
-   - *Topographical Congruence:* Pyroclastic cinder-cone slopes and basaltic tephra ruggedness closely match the crater-rim and delta-fan relief profile computed for Jezero.
-   - *Runner-up:* Puna de Atacama, Chile (ACI: 84.98%) — high-altitude (>4,000m), hyper-arid, perchlorate-rich terrain remains the strongest environmental/chemical analog for Martian desiccation and UV exposure.
-
-> These rankings come from the **topographic + environmental-boost ACI** (slope, TRI, relief variance, plus aridity/basalt/lava-tube priors) computed on calibrated synthetic DEMs matched to published morphometrics. The pipeline is designed to accept real LOLA, MOLA, and SRTM DEMs; real-data ingestion remains future work.
-
-A real-data validation using a 20 m LRO LOLA Moon target and real Askja terrain showed scale sensitivity: the top candidate changes with window size, McMurdo ranks last in all windows, and Mauna Kea and Atacama stay in the top three.
-
----
-
-### 💻 Technologies & Software Stack
-- **Language:** Python 3.10+
-- **Spatial Analytics:** NumPy, SciPy (multidimensional filters, gradient operators), Rasterio / GDAL
-- **Geographic Information Systems:** QGIS, Leaflet.js, OpenStreetMap / Carto Dark Basemaps
-- **Visualization:** Matplotlib, Chart.js, HTML5/CSS3
-- **Data Standards:** GeoTIFF, Cloud-Optimized GeoTIFF (COG), NumPy N-D Arrays, JSON
-
----
-
-### 🔮 Future Expansion & Impact
-- **Automated Earth Engine Ingestion:** Integrating Google Earth Engine API to automatically scan all continental landmasses with satellite masks.
-- **ISRU Simulant Matching:** Pairing geological database APIs (USGS Mineral Resources) to rank sites by chemical yield for oxygen/water extraction.
-- **Support for Artemis Base Camp:** Supplying the Artemis mission planning team with verified operational testing grounds for autonomous uncrewed rovers and lunar mobility suits.
+### Future work
+- Replace gridded MOLA with HiRISE/CTX DEMs and LOLA-derived rock-abundance products for rover-scale comparison.
+- Add Diviner temperature statistics and illumination (Sun and Earth visibility) for lunar targets, and thermal inertia or NDVI masks for Earth.
+- Move from a curated long-list to a true global grid scan, with machine-learned similarity once more labelled analog sites exist.
+- Replace curated geology tags with mineral maps (e.g. ASTER, CRISM-matched indices).
